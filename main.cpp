@@ -9,14 +9,17 @@
 
 using namespace std;
 
+//максимальное колличество документов в выводе
 const int MAX_RESULT_DOCUMENT_COUNT = 5;
 
+//считывает ввод и возвращает строку
 string ReadLine() {
     string s;
     getline(cin, s);
     return s;
 }
 
+//считывает число и возвращает целое число
 int ReadLineWithNumber() {
     int result;
     cin >> result;
@@ -24,6 +27,7 @@ int ReadLineWithNumber() {
     return result;
 }
 
+//вычленяет отдельные слова строки и возвращает вектор слов
 vector<string> SplitIntoWords(const string& text) {
     vector<string> words;
     string word;
@@ -39,13 +43,15 @@ vector<string> SplitIntoWords(const string& text) {
     
     return words;
 }
-    
+
+//
 struct Document {
     int id;
     double relevance;
     int rating;
 };
 
+//
 enum class DocumentStatus {
     ACTUAL,
     IRRELEVANT,
@@ -53,14 +59,18 @@ enum class DocumentStatus {
     REMOVED,
 };
 
+//
 class SearchServer {
 public:
+
+    //принимет стоку и формирует имножество "стоп-слов" (ака. слова не учитывающиеся при формировании топа документов)
     void SetStopWords(const string& text) {
         for (const string& word : SplitIntoWords(text)) {
             stop_words_.insert(word);
         }
     }    
     
+    //
     void AddDocument(int document_id, const string& document, DocumentStatus status, const vector<int>& ratings) {
         const vector<string> words = SplitIntoWordsNoStop(document);
         const double inv_word_count = 1.0 / words.size();
@@ -74,11 +84,12 @@ public:
             });
     }
 
-
+    //выдача топа по строке запроса (только актуальный статус документов)
     vector<Document> FindTopDocuments(const string& raw_query) const {
         return FindTopDocuments(raw_query, DocumentStatus::ACTUAL);
     }
 
+    //выдача топа по строке запроса и требуемому статусу
     vector<Document> FindTopDocuments(const string& raw_query, DocumentStatus status) const {
         return FindTopDocuments(raw_query, [status](int document_id, DocumentStatus st, int rating) { return st == static_cast<DocumentStatus>(status); });
     }
