@@ -216,7 +216,7 @@ private:
         return log(GetDocumentCount() * 1.0 / word_to_document_freqs_.at(word).size());
     }
 
-    vector<Document> FindAllDocuments(const Query& query /*, DocumentStatus status*/) const {
+    vector<Document> FindAllDocuments(const Query& query) const {
         map<int, double> document_to_relevance;
         for (const string& word : query.plus_words) {
             if (word_to_document_freqs_.count(word) == 0) {
@@ -224,9 +224,6 @@ private:
             }
             const double inverse_document_freq = ComputeWordInverseDocumentFreq(word);
             for (const auto [document_id, term_freq] : word_to_document_freqs_.at(word)) {
-                /*if (documents_.at(document_id).status == status) {
-                    document_to_relevance[document_id] += term_freq * inverse_document_freq;
-                }*/
                 document_to_relevance[document_id] += term_freq * inverse_document_freq;
             }
         }
