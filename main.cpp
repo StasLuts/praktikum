@@ -94,6 +94,7 @@ public:
         return FindTopDocuments(raw_query, [status](int document_id, DocumentStatus st, int rating) { return st == static_cast<DocumentStatus>(status); });
     }
 
+    //основная функция выдачи топа, тип key_mapper содержит информацию о документе (id, статус и рейтинг)
     template<typename KeyMapper>
     vector<Document> FindTopDocuments(const string& raw_query, KeyMapper key_mapper) const {            
         const Query query = ParseQuery(raw_query);
@@ -123,10 +124,12 @@ public:
         return matched_documents;
     }
 
+    //геттер колличества документов
     int GetDocumentCount() const {
         return documents_.size();
     }
     
+
     tuple<vector<string>, DocumentStatus> MatchDocument(const string& raw_query, int document_id) const {
         const Query query = ParseQuery(raw_query);
         vector<string> matched_words;
@@ -160,10 +163,12 @@ private:
     map<string, map<int, double>> word_to_document_freqs_;
     map<int, DocumentData> documents_;
     
+    //предикат наличия стоп-слов
     bool IsStopWord(const string& word) const {
         return stop_words_.count(word) > 0;
     }
     
+    //принимает строку, вычленяет отдельные слова, фильтрует от стоп-слов, возвращает вектор слов
     vector<string> SplitIntoWordsNoStop(const string& text) const {
         vector<string> words;
         for (const string& word : SplitIntoWords(text)) {
@@ -174,6 +179,7 @@ private:
         return words;
     }
     
+    //среднее арифметическое рейтинга
     static int ComputeAverageRating(const vector<int>& ratings) {
         int rating_sum = 0;
         for (const int rating : ratings) {
@@ -188,6 +194,7 @@ private:
         bool is_stop;
     };
     
+    //заполнение минус и плюс слов (документ содержащий минус-слово исключается из выдачи)
     QueryWord ParseQueryWord(string text) const {
         bool is_minus = false;
         // Word shouldn't be empty
@@ -227,6 +234,7 @@ private:
         return log(GetDocumentCount() * 1.0 / word_to_document_freqs_.at(word).size());
     }
 
+    //на основании запроса высчитывает TF-IDF документов
     vector<Document> FindAllDocuments(const Query& query) const {
         map<int, double> document_to_relevance;
         for (const string& word : query.plus_words) {
