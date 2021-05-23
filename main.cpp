@@ -64,8 +64,10 @@ public:
     
     void AddDocument(int document_id, const string& document, DocumentStatus status, const vector<int>& ratings) {
         const vector<string> words = SplitIntoWordsNoStop(document);
-        
-        const double inv_word_count = (words.size()==0) ? 1.0 : 1.0 / words.size();
+
+        if(words.size() == 0) return;
+
+        const double inv_word_count = 1.0 / words.size();
 
         for (const string& word : words) {
             word_to_document_freqs_[word][document_id] += inv_word_count;
