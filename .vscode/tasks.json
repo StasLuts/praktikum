@@ -7,6 +7,9 @@
             "args": [
                 "-g",
                 "${file}",
+                "-Wall",
+                "-Werror",
+                "-std=c++17",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
@@ -26,6 +29,9 @@
             "args": [
                 "-g",
                 "${file}",
+                "-Wall",
+                "-Werror",
+                "-std=c++17",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],

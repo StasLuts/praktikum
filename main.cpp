@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <iostream>
+#include <iomanip>
 #include <utility>
 #include <string>
 #include <vector>
@@ -300,6 +301,16 @@ void RunTestImpl(const T& t) {
 
 #define RUN_TEST(func) RunTestImpl((func));
 
+void TestAddDocument() {
+
+    SearchServer server;
+    server.AddDocument(0, "белый кот и модный ошейник"s, DocumentStatus::ACTUAL, {8, -3});
+    const auto found_docs = server.FindTopDocuments("модный"s);
+    ASSERT(found_docs.size() == 1);
+    const Document& doc0 = found_docs[0];
+    ASSERT_EQUAL(doc0.id, 0);
+}
+
 void TestExcludeStopWordsFromAddedDocumentContent() {
     const int doc_id = 42;
     const string content = "cat in the city"s;
@@ -332,8 +343,30 @@ void TestMinusWords() {
     ASSERT(server.FindTopDocuments("in -cat"s).empty());
 }
 
-void TestFindToRating() {
+void TestFindToRelevance() {
 
+    SearchServer server;
+    server.SetStopWords("и в на"s);
+
+    server.AddDocument(0, "белый кот и модный ошейник"s,        DocumentStatus::ACTUAL, {8, -3});
+    server.AddDocument(1, "пушистый пушистый хвост"s,       DocumentStatus::ACTUAL, {7, 2, 7});
+    server.AddDocument(2, "ухоженный пёс выразительные глаза"s, DocumentStatus::ACTUAL, {5, -12, 2, 1});
+    server.AddDocument(3, "ухоженный скворец евгений"s,         DocumentStatus::BANNED, {9});
+
+    const auto found_docs = server.FindTopDocuments("пушистый ухоженный кот"s);
+    ASSERT(found_docs[0].relevance > found_docs[1].relevance && found_docs[1].relevance > found_docs[2].relevance);
+}
+
+void TestDocumentRating() {
+
+    SearchServer server;
+    server.AddDocument(0, "ухоженный пёс выразительные глаза"s, DocumentStatus::ACTUAL, {5, -12, 2, 1});
+    const auto found_docs = server.FindTopDocuments("глаза"s);
+    const Document& doc0 = found_docs[0];
+    ASSERT_EQUAL(doc0.rating, -1);
+}
+
+void TestCustomLambdaSorting() {
     SearchServer server;
     server.SetStopWords("и в на"s);
 
@@ -342,17 +375,49 @@ void TestFindToRating() {
     server.AddDocument(2, "ухоженный пёс выразительные глаза"s, DocumentStatus::ACTUAL, {5, -12, 2, 1});
     server.AddDocument(3, "ухоженный скворец евгений"s,         DocumentStatus::BANNED, {9});
 
+    const auto lambda = [](int document_id, DocumentStatus status, int rating) { return document_id % 2 == 0; };
+    const auto found_docs = server.FindTopDocuments("пушистый ухоженный кот"s, lambda);
+
+    ASSERT_EQUAL(found_docs[0].id, 0);
+    ASSERT_EQUAL(found_docs[1].id, 2);
+}
+
+void TestFindToStatus() {
+    SearchServer server;
+    server.SetStopWords("и в на"s);
+
+    server.AddDocument(0, "белый кот и модный ошейник"s,        DocumentStatus::ACTUAL, {8, -3});
+    server.AddDocument(1, "пушистый кот пушистый хвост"s,       DocumentStatus::ACTUAL, {7, 2, 7});
+    server.AddDocument(2, "ухоженный пёс выразительные глаза"s, DocumentStatus::ACTUAL, {5, -12, 2, 1});
+    server.AddDocument(3, "ухоженный скворец евгений"s,         DocumentStatus::BANNED, {9});
+
+    const auto found_docs = server.FindTopDocuments("пушистый ухоженный кот"s, DocumentStatus::BANNED);
+    ASSERT_EQUAL(found_docs[0].id, 3);
+}
+
+void TestRelevanceCount() {
+    SearchServer server;
+    server.SetStopWords("и в на"s);
+
+    server.AddDocument(0, "белый кот и модный ошейник"s,        DocumentStatus::ACTUAL, {8, -3});
+    server.AddDocument(1, "пушистый пушистый хвост"s,       DocumentStatus::ACTUAL, {7, 2, 7});
+    server.AddDocument(2, "ухоженный пёс выразительные глаза"s, DocumentStatus::ACTUAL, {5, -12, 2, 1});
+    server.AddDocument(3, "ухоженный скворец евгений"s,         DocumentStatus::BANNED, {9});
+
     const auto found_docs = server.FindTopDocuments("пушистый ухоженный кот"s);
-    ASSERT(found_docs[0].rating == 5);
-    ASSERT(found_docs[1].rating == 2);
-    ASSERT(found_docs[2].rating == -1);
+    ASSERT_EQUAL(found_docs[0].relevance, 0.92419624074659368);
 }
 
 void TestSearchServer() {
 
+    RUN_TEST(TestAddDocument);
     RUN_TEST(TestExcludeStopWordsFromAddedDocumentContent);
     RUN_TEST(TestMinusWords);
-    RUN_TEST(TestFindToRating);
+    RUN_TEST(TestFindToRelevance);
+    RUN_TEST(TestDocumentRating);
+    RUN_TEST(TestCustomLambdaSorting);
+    RUN_TEST(TestFindToStatus);
+    RUN_TEST(TestRelevanceCount);
 }
 
 int main() {
