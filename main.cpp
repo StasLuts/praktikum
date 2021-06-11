@@ -97,29 +97,26 @@ public:
 
     template <typename StringContainer>
     explicit SearchServer(const StringContainer& stop_words)
-    :stop_words_(MakeUniqueNonEmptyStrings(stop_words))
     {
         for(const string& word : stop_words)
         {
             if(!IsValidWord(word))
             {
-                throw invalid_argument("invalid_argument"s);
+                throw invalid_argument("the string contains special characters!"s);
             }
         }
+        stop_words_ = MakeUniqueNonEmptyStrings(stop_words);
     }
 
     explicit SearchServer(const string& stop_words_text)
     :SearchServer(SplitIntoWords(stop_words_text))
     {
-        if(!IsValidWord(stop_words_text))
-        {
-            throw invalid_argument("invalid_argument"s);
-        }
+        
     }
 
     void AddDocument(int document_id, const string& document, DocumentStatus status, const vector<int>& ratings)
     {
-        if ((document_id < 0) || (documents_.count(document_id) > 0))
+        if ((document_id < 0) || (documents_.count(document_id) > 0) || !IsValidWord(document))
         {
             throw invalid_argument("invalid_argument"s);
         }
@@ -136,6 +133,10 @@ public:
     template <typename DocumentPredicate>
     vector<Document> FindTopDocuments(const string& raw_query, DocumentPredicate document_predicate) const
     {
+        if(!CorrectUseDashes(raw_query) || !IsValidWord(raw_query))
+        {
+            throw invalid_argument("invalid_argument"s);
+        }
         const Query query = ParseQuery(raw_query);
         auto matched_documents = FindAllDocuments(query, document_predicate);
         sort(matched_documents.begin(), matched_documents.end(), [](const Document& lhs, const Document& rhs)
@@ -178,13 +179,17 @@ public:
     {
         if (index >= 0 && index < GetDocumentCount())
         {
-            return document_ids_[index];
+            return document_ids_.at(index);
         }
         throw out_of_range("out_of_range"s);
     }
 
     tuple<vector<string>, DocumentStatus> MatchDocument(const string& raw_query, int document_id) const
     {
+        if(!CorrectUseDashes(raw_query) || !IsValidWord(raw_query))
+        {
+            throw invalid_argument("invalid_argument"s);
+        }
         const Query query = ParseQuery(raw_query);
         vector<string> matched_words;
         for (const string& word : query.plus_words) {
@@ -228,10 +233,23 @@ private:
         set<string> minus_words;
     };
 
-    const set<string> stop_words_;
+    set<string> stop_words_;
     map<string, map<int, double>> word_to_document_freqs_;
     map<int, DocumentData> documents_;
     vector<int> document_ids_;
+
+    bool CorrectUseDashes(const string& query) const
+    {
+        bool correct = true;
+        for(int i = 0; static_cast<size_t>(i) < query.length(); i++)
+        {
+            if(query[i] == '-' && (query[i + 1] == ' ' || query[i + 1] == '-' || static_cast<size_t>(i+1) == query.length()))
+            {
+                return false;
+            }
+        }
+        return correct;
+    }
 
     template<typename Container, typename Unit>
     bool CountIt(const Container& container, const Unit& unit) const
@@ -255,11 +273,8 @@ private:
     vector<string> SplitIntoWordsNoStop(const string& text) const
     {
         vector<string> words;
-        for (const string& word : SplitIntoWords(text)) {
-            if (!IsValidWord(word))
-            {
-                throw invalid_argument("invalid_argument"s);
-            }
+        for (const string& word : SplitIntoWords(text))
+        {
             if (!IsStopWord(word))
             {
                 words.push_back(word);
@@ -282,26 +297,15 @@ private:
         return rating_sum / static_cast<int>(ratings.size());
     }
 
-    [[nodiscard]] bool ParseQueryWord(string text, QueryWord& result) const
+    QueryWord ParseQueryWord(string text) const
     {
-        result = {};
-        if (text.empty())
-        {
-            return false;
-        }
         bool is_minus = false;
         if (text[0] == '-')
         {
             is_minus = true;
             text = text.substr(1);
         }
-        if (text.empty() || text[0] == '-' || !IsValidWord(text))
-        {
-            return false;
-        }
-
-        result = QueryWord{text, is_minus, IsStopWord(text)};
-        return true;
+        return {text, is_minus, IsStopWord(text)};
     }
 
     Query ParseQuery(const string& text) const
@@ -309,11 +313,7 @@ private:
         Query query;
         for (const string& word : SplitIntoWords(text))
         {
-            QueryWord query_word;
-            if (!ParseQueryWord(word, query_word))
-            {
-                throw invalid_argument("invalid_argument"s);
-            }
+            const QueryWord query_word = ParseQueryWord(word);
             if (!query_word.is_stop)
             {
                 if (query_word.is_minus)
@@ -528,7 +528,6 @@ int main()
     try
     {
         SearchServer search_server = GetSearchServer();
-
         cout << "ACTUAL by default:"s << endl;
         for (const Document& document : search_server.FindTopDocuments("пушистый ухоженный кот"s))
         {
@@ -548,9 +547,13 @@ int main()
             PrintDocument(document);
         }
     }
-    catch(const std::exception& e)
+    catch(const invalid_argument& e)
     {
-        std::cerr << e.what() << '\n';
+        cerr << e.what() << '\n';
+    }
+    catch(const out_of_range& e)
+    {
+        cerr << e.what() << '\n';
     }
 
     return 0;
