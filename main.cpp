@@ -237,13 +237,28 @@ private:
     bool CorrectUseDashes(const string& query) const
     {
         bool correct = true;
-        for(int i = 0; static_cast<size_t>(i) < query.length(); i++)
+        if(query.length() > 1)
         {
-            if(query[i] == '-' && (query[i + 1] == ' ' || query[i + 1] == '-' || query[i]==query.back()))
+            for(int i = 1; static_cast<size_t>(i) < query.length(); i++)
+            {
+                if(query[i - 1] == '-' && (query[i] == ' ' || query[i] == '-'))
+                {
+                    return false;
+                }
+                else if(query[i] == '-' && query[i]==query.back())
+                {
+                    return false;
+                }
+            }
+        }
+        else
+        {
+            if(query == "-")
             {
                 return false;
             }
         }
+        
         return correct;
     }
 
