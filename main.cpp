@@ -177,11 +177,7 @@ public:
 
     int GetDocumentId(int index) const
     {
-        if (index >= 0 && index < GetDocumentCount())
-        {
-            return document_ids_.at(index);
-        }
-        throw out_of_range("out_of_range"s);
+        return document_ids_.at(index);
     }
 
     tuple<vector<string>, DocumentStatus> MatchDocument(const string& raw_query, int document_id) const
@@ -243,7 +239,7 @@ private:
         bool correct = true;
         for(int i = 0; static_cast<size_t>(i) < query.length(); i++)
         {
-            if(query[i] == '-' && (query[i + 1] == ' ' || query[i + 1] == '-' || static_cast<size_t>(i+1) == query.length()))
+            if(query[i] == '-' && (query[i + 1] == ' ' || query[i + 1] == '-' || query[i]==query.back()))
             {
                 return false;
             }
