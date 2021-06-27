@@ -2,12 +2,6 @@
 
 using namespace std;
 
-SearchServer::SearchServer(const string& stop_words_text)
-:SearchServer(SplitIntoWords(stop_words_text))
-{
-        
-}
-
 void SearchServer::AddDocument(int document_id, const string& document, DocumentStatus status, const vector<int>& ratings)
 {
     if ((document_id < 0) || (documents_.count(document_id) > 0) || !IsValidWord(document))
@@ -35,16 +29,6 @@ vector<Document> SearchServer::FindTopDocuments(const string& raw_query, Documen
 vector<Document> SearchServer::FindTopDocuments(const string& raw_query) const
 {
     return FindTopDocuments(raw_query, DocumentStatus::ACTUAL);
-}
-
-int SearchServer::GetDocumentCount() const
-{
-    return documents_.size();
-}
-
-int SearchServer::GetDocumentId(int index) const
-{
-    return document_ids_.at(index);
 }
 
 tuple<vector<string>, DocumentStatus> SearchServer::MatchDocument(const string& raw_query, int document_id) const
@@ -107,11 +91,6 @@ bool SearchServer::CorrectUseDashes(const string& query) const
     }
         
     return correct;
-}
-
-bool SearchServer::IsStopWord(const string& word) const
-{
-    return stop_words_.count(word) > 0;
 }
 
 bool SearchServer::IsValidWord(const string& word)
