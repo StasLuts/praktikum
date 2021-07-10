@@ -141,7 +141,7 @@ std::vector<Document> SearchServer::FindTopDocuments(const std::string& raw_quer
 }
 
 template<typename Container, typename Unit>
-bool CountIt(const Container& container, const Unit& unit)
+inline bool SearchServer::CountIt(const Container& container, const Unit& unit) const
 {
     return (container.count(unit));
 }
