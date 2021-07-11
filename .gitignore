@@ -2,6 +2,7 @@
 *.d
 /.vscode
 
+
 # Compiled Object files
 *.slo
 *.lo
@@ -31,3 +32,12 @@
 *.exe
 *.out
 *.app
+
+#VS
+*.sln
+/.vs
+/*/.vs
+/*/Debug
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user

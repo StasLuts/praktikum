@@ -19,7 +19,8 @@ struct Document
 
 std::ostream& operator<<(std::ostream& out, const Document& document);
 
-enum class DocumentStatus {
+enum class DocumentStatus
+{
     ACTUAL,
     IRRELEVANT,
     BANNED,

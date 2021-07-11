@@ -7,16 +7,18 @@ using namespace std;
 
 void AddDocument(SearchServer& search_server, int document_id, const string& document, DocumentStatus status, const vector<int>& ratings)
 {
-    try {
+    try
+    {
         search_server.AddDocument(document_id, document, status, ratings);
-    } catch (const invalid_argument& e) {
+    }
+    catch (const invalid_argument& e)
+    {
         cout << "Ошибка добавления документа "s << document_id << ": "s << e.what() << endl;
     }
 }
 
 int main()
 {
-
     SearchServer search_server("and with"s);
 
     AddDocument(search_server, 1, "funny pet and nasty rat"s,               DocumentStatus::ACTUAL, { 7, 2, 7 });

@@ -10,7 +10,7 @@ class IteratorRange
 {
 public:
 
-    IteratorRange(Iterator begin, Iterator end)
+    IteratorRange(Iterator& begin, Iterator& end)
         : first_(begin), last_(end), size_(distance(first_, last_))
     {
     }
@@ -50,7 +50,7 @@ class Paginator
 {
 public:
 
-    Paginator(Iterator begin, Iterator end, int page_size)
+    Paginator(Iterator& begin, Iterator& end, int page_size)
     {
         for (int left = distance(begin, end); left > 0;)
         {

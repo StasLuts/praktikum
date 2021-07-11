@@ -8,20 +8,24 @@
 #define UNIQUE_VAR_NAME_PROFILE PROFILE_CONCAT(profileGuard, __LINE__)
 #define LOG_DURATION_STREAM(x, y) LogDuration UNIQUE_VAR_NAME_PROFILE(x)
 
-class LogDuration {
+class LogDuration
+{
 public:
 
     using Clock = std::chrono::steady_clock;
 
     LogDuration(const std::string& id)
-        : id_(id) {
+        : id_(id)
+    {
     }
 
     LogDuration(const std::string& id, std::ostream& os)
-        : id_(id), os_(os) {
+        : id_(id), os_(os)
+    {
     }
 
-    ~LogDuration() {
+    ~LogDuration()
+    {
         using namespace std::chrono;
         using namespace std::literals;
 
