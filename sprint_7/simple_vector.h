@@ -7,8 +7,8 @@
 
 struct ReserveProxyObj
 {
-    explicit ReserveProxyObj(std::size_t size) : capacity(size){}
-    std::size_t capacity;
+    explicit ReserveProxyObj(size_t size) : capacity(size){}
+    size_t capacity;
 };
 
 ReserveProxyObj Reserve(size_t capacity_to_reserve)
