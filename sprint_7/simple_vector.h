@@ -2,6 +2,7 @@
 
 #include <iterator>
 #include <stdexcept>
+#include <cassert>
 #include <algorithm>
 #include <initializer_list>
 
@@ -43,23 +44,13 @@ public:
     SimpleVector(std::initializer_list<Type> init)
         :items_(new Type[init.size()]{}), capacity_(init.size()), size_(init.size())
     {
-        int i = 0;
-        for (auto it = init.begin(); it != init.end(); ++it)
-        {
-            items_[i] = std::move(*it);
-            ++i;
-        }
+        std::move(std::make_move_iterator(init.begin()), std::make_move_iterator(init.end()), begin());
     }
 
     SimpleVector(const SimpleVector& other)
         :items_(new Type[other.size_]{}), capacity_(other.size_), size_(other.size_)
     {
-        int i = 0;
-        for (auto it = other.begin(); it != other.end(); ++it)
-        {
-            items_[i] = *it;
-            ++i;
-        }
+        std::move(other.begin(), other.end(), begin());
     }
 
     SimpleVector(SimpleVector&& other)
@@ -229,6 +220,7 @@ public:
 
     Iterator Inserter(ConstIterator pos, Type&& value)
     {
+        assert(begin() <= pos && pos <= end());
         int dist = pos - begin();
         if (size_ == capacity_)
         {
@@ -259,6 +251,7 @@ public:
 
     Iterator Erase(ConstIterator pos)
     {
+        assert(begin() <= pos && pos <= end());
         int dist = pos - begin();
         std::move(begin() + dist + 1, end(), begin() + dist);
         --size_;
