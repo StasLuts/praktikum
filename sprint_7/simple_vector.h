@@ -251,7 +251,7 @@ public:
 
     Iterator Erase(ConstIterator pos)
     {
-        assert(begin() <= pos && pos <= end());
+        assert(begin() <= pos && pos < end());
         int dist = pos - begin();
         std::move(begin() + dist + 1, end(), begin() + dist);
         --size_;
