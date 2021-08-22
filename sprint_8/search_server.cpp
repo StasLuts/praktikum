@@ -21,7 +21,23 @@ void SearchServer::AddDocument(int document_id, string_view document, DocumentSt
 
 vector<Document> SearchServer::FindTopDocuments(string_view raw_query, DocumentStatus status) const
 {
-    return FindTopDocuments(raw_query, [status](int document_id, DocumentStatus document_status, int rating)
+    return FindTopDocuments(execution::seq, raw_query, [status](int document_id, DocumentStatus document_status, int rating)
+        {
+            return document_status == status;
+        });
+}
+
+vector<Document> SearchServer::FindTopDocuments(execution::sequenced_policy, string_view raw_query, DocumentStatus status) const
+{
+    return FindTopDocuments(execution::seq, raw_query, [status](int document_id, DocumentStatus document_status, int rating)
+        {
+            return document_status == status;
+        });
+}
+
+vector<Document> SearchServer::FindTopDocuments(execution::parallel_policy, string_view raw_query, DocumentStatus status) const
+{
+    return FindTopDocuments(execution::par, raw_query, [status](int document_id, DocumentStatus document_status, int rating)
         {
             return document_status == status;
         });
@@ -29,9 +45,18 @@ vector<Document> SearchServer::FindTopDocuments(string_view raw_query, DocumentS
 
 vector<Document> SearchServer::FindTopDocuments(string_view raw_query) const
 {
-    return FindTopDocuments(raw_query, DocumentStatus::ACTUAL);
+    return FindTopDocuments(execution::seq, raw_query, DocumentStatus::ACTUAL);
 }
 
+vector<Document> SearchServer::FindTopDocuments(execution::sequenced_policy, string_view raw_query) const
+{
+    return FindTopDocuments(execution::seq, raw_query, DocumentStatus::ACTUAL);
+}
+
+vector<Document> SearchServer::FindTopDocuments(execution::parallel_policy, string_view raw_query) const
+{
+    return FindTopDocuments(execution::par, raw_query, DocumentStatus::ACTUAL);
+}
 
 const map<string_view, double>& SearchServer::GetWordFrequencies(int document_id) const
 {
