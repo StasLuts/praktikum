@@ -3,54 +3,55 @@
 #include <iostream>
 #include <utility>
 
-using namespace std;
-
-string ReadLine() {
-    string s;
-    getline(cin, s);
+std::string transport_catalogue::input::ReadLine()
+{
+    std::string s;
+    std::getline(std::cin, s);
     return s;
 }
 
-int ReadLineWithNumber() {
+int transport_catalogue::input::ReadLineWithNumber()
+{
     int result;
-    cin >> result;
+    std::cin >> result;
     ReadLine();
     return result;
 }
 
-tuple<string_view, double, double> SplitForStop(string_view text) {
+std::tuple<std::string_view, double, double> transport_catalogue::input::SplitForStop(std::string_view text)
+{
     int64_t sp1 = text.find(' ', 0);
     int64_t dobdot = text.find(':', sp1 + 1);
     int64_t fcom = text.find(',', dobdot + 2);
-    string_view name = text.substr(sp1 + 1, dobdot - sp1 - 1);
-    double lat = stod(string(text.substr(dobdot + 2, fcom - dobdot - 2)));
-    double lng = stod(string(text.substr(fcom + 2)));
+    std::string_view name = text.substr(sp1 + 1, dobdot - sp1 - 1);
+    double lat = std::stod(std::string(text.substr(dobdot + 2, fcom - dobdot - 2)));
+    double lng = std::stod(std::string(text.substr(fcom + 2)));
     return { name, lat, lng };
 }
 
-vector<tuple<string_view, string_view, int>> SplitForDistance(string_view text)
+std::vector<std::tuple<std::string_view, std::string_view, int>> transport_catalogue::input::SplitForDistance(std::string_view text)
 {
-    vector<tuple<string_view, string_view, int>> result;
+    std::vector<std::tuple<std::string_view, std::string_view, int>> result;
     int64_t sp1 = text.find(' ', 0);
     int64_t dobdot = text.find(':', sp1 + 1);
     int64_t fcom = text.find(',', dobdot + 2);
-    string_view name1 = text.substr(sp1 + 1, dobdot - sp1 - 1);
+    std::string_view name1 = text.substr(sp1 + 1, dobdot - sp1 - 1);
     int64_t space = text.find(',', fcom + 1);
     if (space == text.npos)
     {
         return result;
     }
-    string_view data = text.substr(space + 2, text.length());
+    std::string_view data = text.substr(space + 2, text.length());
     while (true)
     {
         int64_t sp = data.find('m', 0);
-        int distance = abs(stoi(string(data.substr(0, sp))));
+        int distance = abs(std::stoi(std::string(data.substr(0, sp))));
         sp = data.find(' ');
         data = (data.substr(sp + 1, data.length()));
         sp = data.find(' ');
         data = (data.substr(sp + 1, data.length()));
         sp = data.find(',');
-        string_view name2 = data.substr(0, sp);
+        std::string_view name2 = data.substr(0, sp);
         result.emplace_back(make_tuple( name1, name2, distance ));
         if (sp == data.npos)
         {
@@ -61,12 +62,12 @@ vector<tuple<string_view, string_view, int>> SplitForDistance(string_view text)
     return result;
 }
 
-tuple<string_view, bool, vector<string_view>> SplitForBus(string_view text)
+std::tuple<std::string_view, bool, std::vector<std::string_view>> transport_catalogue::input::SplitForBus(std::string_view text)
 {
     int64_t sp1 = text.find(' ', 0);
     int64_t dobdot = text.find(':', sp1 + 1);
-    string_view name = text.substr(sp1 + 1, dobdot - sp1 - 1);
-    string delim = " - ";
+    std::string_view name = text.substr(sp1 + 1, dobdot - sp1 - 1);
+    std::string delim = " - ";
     bool cicle = false;
     int64_t fdel = text.find(delim, dobdot + 2);
     if (fdel == text.npos) {
@@ -74,7 +75,7 @@ tuple<string_view, bool, vector<string_view>> SplitForBus(string_view text)
         delim = " > ";
     }
     fdel = text.find(delim, dobdot + 2);
-    vector<string_view> stops;
+    std::vector<std::string_view> stops;
     stops.push_back(text.substr(dobdot + 2, fdel - dobdot - 2));
     int64_t sdel = text.find(delim, fdel + 3);
     while (sdel != text.npos) {
@@ -86,11 +87,11 @@ tuple<string_view, bool, vector<string_view>> SplitForBus(string_view text)
     return { name,cicle,stops };
 }
 
-void FillData(TransportCatalogue& catalog) {
+void transport_catalogue::input::FillData(TransportCatalogue& catalog) {
     int n = ReadLineWithNumber();
-    vector<string> distance_data;
-    vector<string> bus_data;
-    string text;
+    std::vector<std::string> distance_data;
+    std::vector<std::string> bus_data;
+    std::string text;
     distance_data.reserve(n);
     bus_data.reserve(n);
     for (int i = 0; i < n; i++) {
