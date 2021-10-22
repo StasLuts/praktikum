@@ -129,7 +129,7 @@ namespace json_reader
 
 	json::Dict GetBusInfo(transport_catalogue::TransportCatalogue, const json::Dict&)
 	{
-		///////--------------[
+		///////
 	}
 
 } // json_reader
