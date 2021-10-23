@@ -12,21 +12,21 @@ namespace json_reader
 
 	//------------------input-------------------------
 
-	void MakeBase(transport_catalogue::TransportCatalogue, const json::Array&);
+	void MakeBase(transport_catalogue::TransportCatalogue&, const json::Array&);
 
-	void ReadStopData(transport_catalogue::TransportCatalogue, const json::Dict&);
+	void ReadStopData(transport_catalogue::TransportCatalogue&, const json::Dict&);
 
-	void ReadStopDistance(transport_catalogue::TransportCatalogue, const json::Dict&);
+	void ReadStopDistance(transport_catalogue::TransportCatalogue&, const json::Dict&);
 
-	void ReadBusData(transport_catalogue::TransportCatalogue, const json::Dict&);
+	void ReadBusData(transport_catalogue::TransportCatalogue&, const json::Dict&);
 
 	//------------------outnput-------------------------
 
-	void MakeResponse(transport_catalogue::TransportCatalogue, const json::Array&);
+	void MakeResponse(transport_catalogue::TransportCatalogue&, const json::Array&);
 
-	json::Dict GetStopInfo(transport_catalogue::TransportCatalogue, const json::Dict&);
+	const json::Dict GetStopInfo(const transport_catalogue::TransportCatalogue&, const json::Dict&);
 
-	json::Dict GetBusInfo(transport_catalogue::TransportCatalogue, const json::Dict&);
+	const json::Dict GetBusInfo(transport_catalogue::TransportCatalogue&, const json::Dict&);
 } // json_reader 
 
 

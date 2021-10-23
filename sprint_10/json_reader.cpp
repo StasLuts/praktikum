@@ -25,7 +25,7 @@ namespace json_reader
 
 	//------------------input-------------------------
 
-	void MakeBase(transport_catalogue::TransportCatalogue trans_cat, const json::Array& arr)
+	void MakeBase(transport_catalogue::TransportCatalogue& trans_cat, const json::Array& arr)
 	{
 		for (const auto& recuest : arr)
 		{
@@ -64,7 +64,7 @@ namespace json_reader
 		}
 	}
 
-	void ReadStopData(transport_catalogue::TransportCatalogue trans_cat, const json::Dict& dict)
+	void ReadStopData(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
 	{
 		const auto name = dict.at("name").AsString();
 		const auto latitude = dict.at("latitude").AsDouble();
@@ -72,7 +72,7 @@ namespace json_reader
 		trans_cat.AddingStopDatabase(name, latitude, longitude);
 	}
 
-	void ReadStopDistance(transport_catalogue::TransportCatalogue trans_cat, const json::Dict& dict)
+	void ReadStopDistance(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
 	{
 		const auto from_stop_name = dict.at("name").AsString();
 		const auto stops = dict.at("road_distances").AsMap();
@@ -82,7 +82,7 @@ namespace json_reader
 		}
 	}
 
-	void ReadBusData(transport_catalogue::TransportCatalogue trans_cat, const json::Dict& dict)
+	void ReadBusData(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
 	{
 		const auto bus_name = dict.at("name").AsString();
 		std::vector<std::string_view> stops;
@@ -97,7 +97,7 @@ namespace json_reader
 
 	//------------------outnput-------------------------
 
-	void MakeResponse(transport_catalogue::TransportCatalogue trans_cat, const json::Array& arr)
+	void MakeResponse(transport_catalogue::TransportCatalogue& trans_cat, const json::Array& arr)
 	{
 		json::Array response;
 		for (const auto& recuest : arr)
@@ -118,18 +118,40 @@ namespace json_reader
 		json::Print(json::Document(response), std::cout);
 	}
 
-	json::Dict GetStopInfo(transport_catalogue::TransportCatalogue trans_cat, const json::Dict& dict)
+	const json::Dict GetStopInfo(const transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
 	{
 		const auto stop_name = dict.at("name").AsString();
 		const auto stop_datd = trans_cat.GetStopInfo(stop_name);
 		json::Dict stop_info;
-		stop_info.emplace("buses", stop_datd->buses_);
-		stop_info.emplace("request_id", dict.at("id").IsInt());
+		if(stop_datd == nullptr)
+		{
+			stop_info.emplace("request_id", dict.at("id").AsInt());
+			stop_info.emplace("error_message", "not found");
+		}
+		else
+		{
+			json::Array buses;
+			for (const auto& bus : stop_datd->buses_)
+			{
+				buses.push_back(static_cast<std::string>(bus));
+			}
+			stop_info.emplace("buses", buses);
+			stop_info.emplace("request_id", dict.at("id").AsInt());
+		}
+		return stop_info;
 	}
 
-	json::Dict GetBusInfo(transport_catalogue::TransportCatalogue, const json::Dict&)
+	const json::Dict GetBusInfo(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
 	{
-		///////
+		const auto bus_name = dict.at("name").AsString();
+		const auto bus_data = trans_cat.GetRoute(bus_name);
+		json::Dict bus_info;
+		bus_info.emplace("curvature", bus_data->curvature_);
+		bus_info.emplace("request_id", dict.at("id").AsInt());
+		bus_info.emplace("route_length", static_cast<int>(bus_data->route_length_));
+		bus_info.emplace("stop_count", bus_data->stops_on_route_);
+		bus_info.emplace("unique_stop_count", bus_data->unique_stops_);
+		return bus_info;
 	}
 
 } // json_reader

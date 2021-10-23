@@ -27,7 +27,7 @@ namespace transport_catalogue
 		stop_to_stop_distance_[std::make_pair(lhs, rhs)] = distance;
 	}
 
-	int TransportCatalogue::GetDistanceBetweenStops(const Stop* lhs, const Stop* rhs)
+	const int TransportCatalogue::GetDistanceBetweenStops(const Stop* lhs, const Stop* rhs)
 	{
 		return (stop_to_stop_distance_.find(std::make_pair(lhs, rhs)) == stop_to_stop_distance_.end()) ?
 			stop_to_stop_distance_.at(std::make_pair(rhs, lhs)) :
@@ -64,7 +64,7 @@ namespace transport_catalogue
 		return (stops_map_.find(stop_name) == stops_map_.end()) ? nullptr : stops_map_.at(stop_name);
 	}
 
-	TransportCatalogue::PrintStopData* TransportCatalogue::GetStopInfo(std::string_view stop_name)
+	const TransportCatalogue::PrintStopData* TransportCatalogue::GetStopInfo(std::string_view stop_name) const
 	{
 		auto stop = FindStop(stop_name);
 		if (stop == nullptr)
@@ -82,7 +82,7 @@ namespace transport_catalogue
 		return new PrintStopData(stop->stop_name_, buses);
 	}
 
-	TransportCatalogue::PrintData* TransportCatalogue::GetRoute(std::string_view bus_num)
+	const TransportCatalogue::PrintData* TransportCatalogue::GetRoute(std::string_view bus_num)
 	{
 		auto bus = FindBus(bus_num);
 		if (bus == nullptr)
