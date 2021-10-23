@@ -124,7 +124,7 @@ namespace json_reader
 		const auto stop_datd = trans_cat.GetStopInfo(stop_name);
 		json::Dict stop_info;
 		stop_info.emplace("buses", stop_datd->buses_);
-		stop_info.emplace("request_id", stop_name);
+		stop_info.emplace("request_id", dict.at("id").IsInt());
 	}
 
 	json::Dict GetBusInfo(transport_catalogue::TransportCatalogue, const json::Dict&)
