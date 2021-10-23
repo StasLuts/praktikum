@@ -1,0 +1,683 @@
+﻿  domain.cpp
+  geo.cpp
+  json.cpp
+  The contents of <variant> are available only with C++17 or later.
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(23,34): error C2039: "variant": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(23,41): error C2504: variant: не определен базовый класс
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(23,41): error C2143: синтаксическая ошибка: отсутствие "," перед "<"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(27,9): error C2653: variant: не является именем класса или пространства имен
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(27,3): error C2873: variant: использование символа в "using"-объявлении не допускается
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(28,17): error C2061: синтаксическая ошибка: идентификатор "variant"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(95,14): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(95,14): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(96,3): error C2334: непредвиденные лексемы перед "{"; пропуск вероятного тела функции
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(32,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(32,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(32,34): error C2062: тип "int" не требуется
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(36,71): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(36,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<int,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(36,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(41,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(41,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(41,34): error C2062: тип "double" не требуется
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(46,90): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(46,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<double,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(46,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(51,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(51,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(51,34): error C2062: тип "bool" не требуется
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(55,69): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(55,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<bool,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(55,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(60,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(60,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(60,34): error C2275: std::nullptr_t: недопустимое использование этого типа в качестве выражения
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\predefined C++ types (compiler internal)(346): message : см. объявление "std::nullptr_t"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(65,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(65,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(65,34): error C2275: json::Array: недопустимое использование этого типа в качестве выражения
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(13): message : см. объявление "json::Array"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(69,71): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(69,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<json::Array,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(69,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(74,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(74,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(74,39): error C2275: std::string: недопустимое использование этого типа в качестве выражения
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(74): message : см. объявление "std::string"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(78,73): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(78,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<std::string,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(78,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(83,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(83,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(83,34): error C2275: json::Dict: недопустимое использование этого типа в качестве выражения
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(12): message : см. объявление "json::Dict"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(87,68): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(87,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<json::Dict,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(87,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(92,11): error C3861: GetValue: идентификатор не найден
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(92,29): error C2039: "GetValue": не является членом "json::Node".
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(23): message : см. объявление "json::Node"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(42,33): error C2440: <function-style-cast>: невозможно преобразовать "std::vector<json::Node,std::allocator<json::Node>>" в "json::Node"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(42,33): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(76,31): error C2440: <function-style-cast>: невозможно преобразовать "std::map<std::string,json::Node,std::less<std::string>,std::allocator<std::pair<const std::string,json::Node>>>" в "json::Node"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(76,31): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(134,28): error C2440: <function-style-cast>: невозможно преобразовать "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" в "json::Node"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(134,28): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(140,21): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(144,27): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(156,41): error C2429: для функция языка "Инструкции INIT в if/switch" нужен флаг компилятора "/std:c++17"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(156,62): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(158,26): error C2440: <function-style-cast>: невозможно преобразовать "initializer list" в "json::Node"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(158,16): message : Недопустимая агрегатная инициализация
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(212,29): error C2429: для функция языка "Инструкции INIT в if/switch" нужен флаг компилятора "/std:c++17"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(215,26): error C2429: для функция языка "Инструкции INIT в if/switch" нужен флаг компилятора "/std:c++17"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(227,35): error C2440: return: невозможно преобразовать "int" в "json::Node"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(227,35): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(234,33): error C2440: return: невозможно преобразовать "double" в "json::Node"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(234,33): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(258,7): warning C5051: для атрибута "fallthrough" требуется по меньшей мере "/std:c++17"; игнорируется
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(307,20): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(310,20): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(313,8): warning C5051: для атрибута "fallthrough" требуется по меньшей мере "/std:c++17"; игнорируется
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(316,8): warning C5051: для атрибута "fallthrough" требуется по меньшей мере "/std:c++17"; игнорируется
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(334,1): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(340,1): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(347,1): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(358,1): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(372,1): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(375,22): error C2429: для функция языка "структурированные привязки" нужен флаг компилятора "/std:c++17"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(383,1): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(387,1): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(397,9): error C2039: "visit": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(400,12): error C2039: "GetValue": не является членом "json::Node".
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(23): message : см. объявление "json::Node"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.cpp(397,14): error C3861: visit: идентификатор не найден
+  json_reader.cpp
+  The contents of <variant> are available only with C++17 or later.
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(23,34): error C2039: "variant": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(23,41): error C2504: variant: не определен базовый класс
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(23,41): error C2143: синтаксическая ошибка: отсутствие "," перед "<"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(27,9): error C2653: variant: не является именем класса или пространства имен
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(27,3): error C2873: variant: использование символа в "using"-объявлении не допускается
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(28,17): error C2061: синтаксическая ошибка: идентификатор "variant"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(95,14): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(95,14): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(96,3): error C2334: непредвиденные лексемы перед "{"; пропуск вероятного тела функции
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(32,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(32,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(32,34): error C2062: тип "int" не требуется
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(36,71): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(36,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<int,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(36,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(41,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(41,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(41,34): error C2062: тип "double" не требуется
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(46,90): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(46,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<double,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(46,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(51,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(51,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(51,34): error C2062: тип "bool" не требуется
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(55,69): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(55,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<bool,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(55,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(60,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(60,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(60,34): error C2275: std::nullptr_t: недопустимое использование этого типа в качестве выражения
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\predefined C++ types (compiler internal)(346): message : см. объявление "std::nullptr_t"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(65,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(65,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(65,34): error C2275: json::Array: недопустимое использование этого типа в качестве выражения
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(13): message : см. объявление "json::Array"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(69,71): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(69,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<json::Array,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(69,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(74,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(74,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(74,39): error C2275: std::string: недопустимое использование этого типа в качестве выражения
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(74): message : см. объявление "std::string"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(78,73): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(78,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<std::string,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(78,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(83,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(83,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(83,34): error C2275: json::Dict: недопустимое использование этого типа в качестве выражения
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(12): message : см. объявление "json::Dict"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(87,68): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(87,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<json::Dict,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(87,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(92,11): error C3861: GetValue: идентификатор не найден
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(92,29): error C2039: "GetValue": не является членом "json::Node".
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(23): message : см. объявление "json::Node"
+  The contents of <string_view> are available only with C++17 or later.
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(21,23): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(21,17): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(23,18): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(23,29): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(23,9): error C2923: std::set: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(23): message : см. объявление "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(23,9): error C2976: std::set: слишком мало аргументов шаблон
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\set(54): message : см. объявление "std::set"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(28,19): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(28,13): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(38,14): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(38,8): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(45,13): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(45,7): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(66,27): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(66,38): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(66,8): error C2923: std::unordered_map: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(66): message : см. объявление "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(66,8): error C2976: std::unordered_map: слишком мало аргументов шаблон
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\unordered_map(69): message : см. объявление "std::unordered_map"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(67,27): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(67,38): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(67,8): error C2923: std::unordered_map: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(67): message : см. объявление "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(67,8): error C2976: std::unordered_map: слишком мало аргументов шаблон
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\unordered_map(69): message : см. объявление "std::unordered_map"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(72,37): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(72,49): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(76,31): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(76,43): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(78,32): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(78,44): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(80,27): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(80,39): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(82,29): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(82,41): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(84,41): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(84,53): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(86,34): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(86,46): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(72,57): error C2660: transport_catalogue::TransportCatalogue::AddingStopDatabase: функция не принимает 3 аргументов
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(78,8): message : см. объявление "transport_catalogue::TransportCatalogue::AddingStopDatabase"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(79,21): error C2429: для функция языка "структурированные привязки" нужен флаг компилятора "/std:c++17"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(81,84): error C2660: transport_catalogue::TransportCatalogue::SetDistanceBetweenStops: функция не принимает 2 аргументов
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(72,8): message : см. объявление "transport_catalogue::TransportCatalogue::SetDistanceBetweenStops"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(88,20): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(88,31): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(88,8): error C2923: std::vector: "string_view" не является допустимым аргументом типа шаблон для параметра "_Ty"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(88): message : см. объявление "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(88,8): error C2976: std::vector: слишком мало аргументов шаблон
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(443): message : см. объявление "std::vector"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(88,38): error C2133: stops: неизвестный размер
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(88,33): error C2512: std::vector: нет подходящего конструктора по умолчанию
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(443,14): message : см. объявление "std::vector"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(91,38): error C2662: decltype(auto) std::vector<_Ty,_Alloc>::emplace_back<const std::string&>(const std::string &): невозможно преобразовать указатель "this" из "std::vector" в "std::vector<_Ty,_Alloc> &"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(91,38): message : Причина: невозможно преобразовать "std::vector" в "std::vector<_Ty,_Alloc>"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(91,4): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(739,43): message : см. объявление "std::vector<_Ty,_Alloc>::emplace_back"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(95,58): error C2660: transport_catalogue::TransportCatalogue::AddingBusDatabase: функция не принимает 3 аргументов
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(76,8): message : см. объявление "transport_catalogue::TransportCatalogue::AddingBusDatabase"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(118,38): error C2440: <function-style-cast>: невозможно преобразовать "json::Array" в "json::Document"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(118,38): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(124,57): error C2660: transport_catalogue::TransportCatalogue::GetStopInfo: функция не принимает 1 аргументов
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(84,24): message : см. объявление "transport_catalogue::TransportCatalogue::GetStopInfo"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(124,14): error C2737: "<Нет данных>: необходимо инициализировать объект <Нет данных>
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(126,5): error C3536: stop_datd: не может использоваться до инициализации
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(126,26): error C2446: ==: нет преобразования "nullptr" в "int"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(126,19): message : Машинный "nullptr" может быть преобразован только в логический тип, либо, при указании reinterpret_cast, в интегральный тип
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(134,4): error C2530: bus: ссылки должны быть инициализированы
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(134,4): error C3531: bus: символ, тип которого содержит спецификатор 'auto' должен иметь инициализатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json_reader.cpp(134,4): fatal error C1003: число ошибок превышает 100; остановка компиляции
+  main.cpp
+  The contents of <variant> are available only with C++17 or later.
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(23,34): error C2039: "variant": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(23,41): error C2504: variant: не определен базовый класс
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(23,41): error C2143: синтаксическая ошибка: отсутствие "," перед "<"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(27,9): error C2653: variant: не является именем класса или пространства имен
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(27,3): error C2873: variant: использование символа в "using"-объявлении не допускается
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(28,17): error C2061: синтаксическая ошибка: идентификатор "variant"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(95,14): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(95,14): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(96,3): error C2334: непредвиденные лексемы перед "{"; пропуск вероятного тела функции
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(32,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(32,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(32,34): error C2062: тип "int" не требуется
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(36,71): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(36,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<int,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(36,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(41,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(41,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(41,34): error C2062: тип "double" не требуется
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(46,90): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(46,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<double,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(46,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(51,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(51,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(51,34): error C2062: тип "bool" не требуется
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(55,69): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(55,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<bool,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(55,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(60,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(60,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(60,34): error C2275: std::nullptr_t: недопустимое использование этого типа в качестве выражения
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\predefined C++ types (compiler internal)(346): message : см. объявление "std::nullptr_t"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(65,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(65,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(65,34): error C2275: json::Array: недопустимое использование этого типа в качестве выражения
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(13): message : см. объявление "json::Array"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(69,71): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(69,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<json::Array,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(69,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(74,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(74,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(74,39): error C2275: std::string: недопустимое использование этого типа в качестве выражения
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(74): message : см. объявление "std::string"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(78,73): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(78,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<std::string,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(78,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(83,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(83,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(83,34): error C2275: json::Dict: недопустимое использование этого типа в качестве выражения
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(12): message : см. объявление "json::Dict"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(87,68): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(87,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<json::Dict,_Ty2> &" из "const json::Node"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(547): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(87,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\utility(540): message : см. объявление "std::get"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(92,11): error C3861: GetValue: идентификатор не найден
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(92,29): error C2039: "GetValue": не является членом "json::Node".
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\json.h(23): message : см. объявление "json::Node"
+  The contents of <string_view> are available only with C++17 or later.
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(21,23): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(21,17): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(23,18): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(23,29): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(23,9): error C2923: std::set: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(23): message : см. объявление "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(23,9): error C2976: std::set: слишком мало аргументов шаблон
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\set(54): message : см. объявление "std::set"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(28,19): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(28,13): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(38,14): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(38,8): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(45,13): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(45,7): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(66,27): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(66,38): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(66,8): error C2923: std::unordered_map: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(66): message : см. объявление "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(66,8): error C2976: std::unordered_map: слишком мало аргументов шаблон
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\unordered_map(69): message : см. объявление "std::unordered_map"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(67,27): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(67,38): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(67,8): error C2923: std::unordered_map: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(67): message : см. объявление "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(67,8): error C2976: std::unordered_map: слишком мало аргументов шаблон
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\unordered_map(69): message : см. объявление "std::unordered_map"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(72,37): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(72,49): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(76,31): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(76,43): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(78,32): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(78,44): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(80,27): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(80,39): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(82,29): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(82,41): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(84,41): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(84,53): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(86,34): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(86,46): error C2061: синтаксическая ошибка: идентификатор "string_view"
+  map_renderer.cpp
+  request_handler.cpp
+  svg.cpp
+  The contents of <optional> are available only with C++17 or later.
+  The contents of <variant> are available only with C++17 or later.
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(44,24): error C2039: "variant": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\deque(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(44,31): error C2061: синтаксическая ошибка: идентификатор "variant"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(44,37): error C2039: "monostate": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\deque(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(44,70): error C2059: синтаксическая ошибка: >
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(46,30): error C7525: Встроенные (inline) переменные требуют как минимум "/std:c++17".
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(50,30): error C2039: "monostate": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\deque(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(50,39): error C2061: синтаксическая ошибка: идентификатор "monostate"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(90,29): error C2061: синтаксическая ошибка: идентификатор "Color"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(169): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "svg::PathProps<Owner>"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(95,31): error C2061: синтаксическая ошибка: идентификатор "Color"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(157,22): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(157,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(157,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(158,22): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(158,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(158,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(159,22): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(159,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(159,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(160,22): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(160,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(160,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(161,22): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(161,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(161,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(157,14): error C2039: "optional": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\deque(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(158,14): error C2039: "optional": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\deque(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(159,14): error C2039: "optional": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\deque(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(160,14): error C2039: "optional": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\deque(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(161,14): error C2039: "optional": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\deque(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(309,14): error C2039: "optional": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\deque(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(309,22): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(309,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(309,48): error C2238: непредвиденные лексемы перед ";"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(310,14): error C2039: "optional": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\deque(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(310,22): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(310,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.h(310,48): error C2238: непредвиденные лексемы перед ";"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(9,40): error C2039: "monostate": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\deque(24): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(9,49): error C2065: monostate: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(9,49): error C2761: "()": повторное объявление члена запрещено.
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(9,51): error C2143: синтаксическая ошибка: отсутствие ";" перед "const"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(10,5): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(10,5): error C2059: синтаксическая ошибка: {
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(10,5): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(10,5): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(22,13): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(23,13): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(24,13): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(24,51): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(30,13): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(31,13): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(32,13): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(33,37): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(43,27): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(46,28): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(49,29): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(62,27): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(65,28): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(68,28): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(71,33): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(74,28): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(109,34): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(109,63): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(109,86): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(110,25): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(110,46): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(112,22): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(126,39): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(128,35): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(130,29): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(133,22): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(135,22): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(147,65): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(148,80): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(152,26): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(177,9): error C2065: font_family_: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(183,9): error C2065: font_weight_: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(196,25): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(197,26): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(198,28): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(199,13): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(199,26): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(200,29): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(201,13): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(201,33): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(201,51): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(202,13): error C2065: font_family_: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(203,40): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(203,44): error C2065: font_family_: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(203,66): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(205,13): error C2065: font_weight_: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(206,40): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(206,44): error C2065: font_weight_: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(206,66): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(208,21): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(210,27): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(252,34): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(257,34): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(262,32): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(267,32): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\svg.cpp(272,33): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+  transport_catalogue.cpp
+  The contents of <string_view> are available only with C++17 or later.
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(21,23): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(21,17): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(23,18): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(23,29): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(23,9): error C2923: std::set: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(23): message : см. объявление "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(23,9): error C2976: std::set: слишком мало аргументов шаблон
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\set(54): message : см. объявление "std::set"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(28,19): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(28,13): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(38,14): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(38,8): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(45,13): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(45,7): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(66,27): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(66,38): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(66,8): error C2923: std::unordered_map: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(66): message : см. объявление "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(66,8): error C2976: std::unordered_map: слишком мало аргументов шаблон
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\unordered_map(69): message : см. объявление "std::unordered_map"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(67,27): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(67,38): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(67,8): error C2923: std::unordered_map: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(67): message : см. объявление "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(67,8): error C2976: std::unordered_map: слишком мало аргументов шаблон
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\unordered_map(69): message : см. объявление "std::unordered_map"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(72,37): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(72,49): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(76,31): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(76,43): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(78,32): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(78,44): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(80,27): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(80,39): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(82,29): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(82,41): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(84,41): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(84,53): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(86,34): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\functional(31): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.h(86,46): error C2061: синтаксическая ошибка: идентификатор "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(7,56): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\algorithm(40): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(7,68): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(7,68): error C2146: синтаксическая ошибка: отсутствие ")" перед идентификатором "stop_name"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(7,99): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\algorithm(40): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(7,110): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(7,90): error C2923: std::set: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(7): message : см. объявление "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(7,90): error C2976: std::set: слишком мало аргументов шаблон
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\set(54): message : см. объявление "std::set"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(8,16): error C2065: stop_name: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(8,25): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(8,35): error C2065: buses: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(8,40): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(8,42): error C2059: синтаксическая ошибка: {
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(8,42): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(8,42): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(10,48): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\algorithm(40): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(10,60): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(10,60): error C2146: синтаксическая ошибка: отсутствие ")" перед идентификатором "bus_num"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(11,14): error C2065: bus_num: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(11,21): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(11,40): error C2065: stops_on_route: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(11,54): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(11,71): error C2065: unique_stops: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(11,83): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(11,100): error C2065: route_length: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(11,112): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(11,126): error C2065: curvature: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(11,135): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(11,137): error C2059: синтаксическая ошибка: {
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(11,137): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(11,137): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(13,38): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\algorithm(40): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(13,50): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(13,50): error C2146: синтаксическая ошибка: отсутствие ")" перед идентификатором "stop_name"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(14,16): error C2065: stop_name: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(14,25): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(14,5): error C2374: transport_catalogue::stop_name_: переопределение; множественная инициализация
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(8): message : см. объявление "transport_catalogue::stop_name_"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(15,2): error C2059: синтаксическая ошибка: {
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(15,2): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(15,2): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(20,36): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\algorithm(40): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(20,48): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(20,48): error C2146: синтаксическая ошибка: отсутствие ")" перед идентификатором "bus_num"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(21,14): error C2065: bus_num: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(21,21): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(21,5): error C2374: transport_catalogue::bus_num_: переопределение; множественная инициализация
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(11): message : см. объявление "transport_catalogue::bus_num_"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(21,31): error C2065: stops: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(21,36): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(21,53): error C2065: unicue_stops: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(21,65): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(21,80): error C2065: cicle_type: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(21,90): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(21,92): error C2059: синтаксическая ошибка: {
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(21,92): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(21,92): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(23,56): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\algorithm(40): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(23,68): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(23,68): error C2146: синтаксическая ошибка: отсутствие ")" перед идентификатором "from_stop"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(23,84): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\algorithm(40): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(24,2): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(24,2): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(37,50): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\algorithm(40): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(37,62): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(37,62): error C2146: синтаксическая ошибка: отсутствие ")" перед идентификатором "bus_num"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(37,88): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\algorithm(40): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(37,99): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(37,76): error C2923: std::vector: "string_view" не является допустимым аргументом типа шаблон для параметра "_Ty"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(37): message : см. объявление "string_view"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(37,76): error C2976: std::vector: слишком мало аргументов шаблон
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\vector(443): message : см. объявление "std::vector"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(38,2): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(38,2): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(51,51): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\algorithm(40): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(51,63): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(51,63): error C2146: синтаксическая ошибка: отсутствие ")" перед идентификатором "stop_name"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(52,2): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(52,2): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(57,66): error C2039: "string_view": не является членом "std".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\algorithm(40): message : см. объявление "std"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(57,78): error C2065: string_view: необъявленный идентификатор
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(57,78): error C2146: синтаксическая ошибка: отсутствие ")" перед идентификатором "bus_num"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(58,2): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(58,2): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_10\transport_catalogue.cpp(58,2): fatal error C1003: число ошибок превышает 100; остановка компиляции
+  Создание кода...
