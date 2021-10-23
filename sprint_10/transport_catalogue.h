@@ -71,7 +71,7 @@ namespace transport_catalogue
 
 		void SetDistanceBetweenStops(std::string_view from_stop, std::string_view to_stop, int distance);
 
-		const int GetDistanceBetweenStops(const Stop* lhs, const Stop* rhs);
+		int GetDistanceBetweenStops(const Stop* lhs, const Stop* rhs);
 
 		void AddingBusDatabase(std::string_view bus_num, std::vector<std::string_view>& stops, bool cicle_type);
 

@@ -27,7 +27,7 @@ namespace transport_catalogue
 		stop_to_stop_distance_[std::make_pair(lhs, rhs)] = distance;
 	}
 
-	const int TransportCatalogue::GetDistanceBetweenStops(const Stop* lhs, const Stop* rhs)
+	int TransportCatalogue::GetDistanceBetweenStops(const Stop* lhs, const Stop* rhs)
 	{
 		return (stop_to_stop_distance_.find(std::make_pair(lhs, rhs)) == stop_to_stop_distance_.end()) ?
 			stop_to_stop_distance_.at(std::make_pair(rhs, lhs)) :
