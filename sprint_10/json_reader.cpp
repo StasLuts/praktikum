@@ -146,12 +146,19 @@ namespace json_reader
 		const auto bus_name = dict.at("name").AsString();
 		const auto bus_data = trans_cat.GetRoute(bus_name);
 		json::Dict bus_info;
-		bus_info.emplace("curvature", bus_data->curvature_);
-		bus_info.emplace("request_id", dict.at("id").AsInt());
-		bus_info.emplace("route_length", static_cast<int>(bus_data->route_length_));
-		bus_info.emplace("stop_count", bus_data->stops_on_route_);
-		bus_info.emplace("unique_stop_count", bus_data->unique_stops_);
+		if (bus_data == nullptr)
+		{
+			bus_info.emplace("request_id", dict.at("id").AsInt());
+			bus_info.emplace("error_message", "not found");
+		}
+		else
+		{
+			bus_info.emplace("curvature", bus_data->curvature_);
+			bus_info.emplace("request_id", dict.at("id").AsInt());
+			bus_info.emplace("route_length", static_cast<int>(bus_data->route_length_));
+			bus_info.emplace("stop_count", bus_data->stops_on_route_);
+			bus_info.emplace("unique_stop_count", bus_data->unique_stops_);
+		}
 		return bus_info;
 	}
-
 } // json_reader
