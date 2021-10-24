@@ -16,6 +16,11 @@ namespace json_reader
 		{
 			MakeBase(trans_cat, base_requests->second.AsArray());
 		}
+		const auto render_settings = dict.find("render_settings");
+		if (render_settings != dict.end())
+		{
+			MakeRender(trans_cat, render_settings->second.AsMap());
+		}
 		const auto stat_requests = dict.find("stat_requests");
 		if (stat_requests != dict.end())
 		{
@@ -95,6 +100,24 @@ namespace json_reader
 		trans_cat.AddingBusDatabase(bus_name, stops, cicle_type);
 	}
 
+	//------------------render-------------------------
+
+	void MakeRender(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
+	{
+		const auto width = dict.at("width").AsDouble();
+		const auto height = dict.at("height").AsDouble();
+		const auto padding = dict.at("padding").AsDouble();
+		const auto line_width = dict.at("line_width").AsDouble();
+		const auto stop_radius = dict.at("stop_radius").AsDouble();
+		const auto bus_label_font_size = dict.at("bus_label_font_size").AsInt();
+		const auto bus_label_offset = dict.at("bus_label_offset").AsArray();//массив из двух double
+		const auto stop_label_font_size = dict.at("stop_label_font_size").AsInt();
+		const auto stop_label_offset = dict.at("stop_label_offset").AsArray();//массив из двух double
+		const auto underlayer_color = dict.at("underlayer_color").GetValue();//цвет
+		const auto underlayer_width = dict.at("underlayer_width").AsDouble();
+		const auto color_palette = dict.at("color_palette").AsArray();
+	}
+
 	//------------------outnput-------------------------
 
 	void MakeResponse(transport_catalogue::TransportCatalogue& trans_cat, const json::Array& arr)
@@ -112,6 +135,10 @@ namespace json_reader
 				else if (rec_type->second.AsString() == "Bus")
 				{
 					response.emplace_back(GetBusInfo(trans_cat, recuest.AsMap()));
+				}
+				else if (rec_type->second.AsString() == "Map")
+				{
+					response.emplace_back(GetMapRender(trans_cat, recuest.AsMap()));
 				}
 			}
 		}
@@ -160,5 +187,10 @@ namespace json_reader
 			bus_info.emplace("unique_stop_count", bus_data->unique_stops_);
 		}
 		return bus_info;
+	}
+
+	const json::Dict GetMapRender(const transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
+	{
+
 	}
 } // json_reader

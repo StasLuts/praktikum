@@ -1,5 +1,6 @@
 #pragma once
 #include "json.h"
+#include "map_renderer.h"
 #include "transport_catalogue.h"
 /*
  * Здесь можно разместить код наполнения транспортного справочника данными из JSON,
@@ -20,6 +21,10 @@ namespace json_reader
 
 	void ReadBusData(transport_catalogue::TransportCatalogue&, const json::Dict&);
 
+	//------------------render-------------------------
+
+	void MakeRender(transport_catalogue::TransportCatalogue&, const json::Dict&);
+
 	//------------------outnput-------------------------
 
 	void MakeResponse(transport_catalogue::TransportCatalogue&, const json::Array&);
@@ -27,6 +32,8 @@ namespace json_reader
 	const json::Dict GetStopInfo(const transport_catalogue::TransportCatalogue&, const json::Dict&);
 
 	const json::Dict GetBusInfo(transport_catalogue::TransportCatalogue&, const json::Dict&);
+
+	const json::Dict GetMapRender(const transport_catalogue::TransportCatalogue&, const json::Dict&);
 } // json_reader 
 
 
