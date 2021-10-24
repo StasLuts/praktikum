@@ -23,6 +23,8 @@ namespace json_reader
 
 	//------------------render-------------------------
 
+	const svg::Color GetColor(const json::Node&);
+
 	void MakeRender(transport_catalogue::TransportCatalogue&, const json::Dict&);
 
 	//------------------outnput-------------------------

@@ -1,12 +1,31 @@
 #pragma once
 #include "svg.h"
 #include "geo.h"
+#include <vector>
 
 namespace map_renderer
 {
     inline const double EPSILON = 1e-6;
 
     bool IsZero(double value);
+
+    struct RenderSettings
+    {
+        double width = 0.0;
+        double height = 0.0;
+        double padding = 0.0;
+        double line_width = 0.0;
+        double stop_radius = 0.0;
+        int bus_label_font_size = 0;
+        svg::Point bus_label_offset {0.0, 0.0};
+        int stop_label_font_size = 0;
+        svg::Point stop_label_offset{ 0.0, 0.0 };
+        svg::Color underlayer_color;
+        double underlayer_width = 0.0;
+        std::vector<svg::Color> color_palette;
+    };
+
+    //----------------SphereProjector----------------------------
 
     class SphereProjector
     {
@@ -76,4 +95,14 @@ namespace map_renderer
             zoom_coeff_ = *height_zoom;
         }
     }
+
+    //------------------MapRenderer--------------------------
+
+    class MapRenderer
+    {
+    public:
+
+    private:
+
+    };
 } // namespace map_renderer

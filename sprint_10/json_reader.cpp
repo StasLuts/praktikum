@@ -102,20 +102,55 @@ namespace json_reader
 
 	//------------------render-------------------------
 
+	const svg::Color GetColor(const json::Node& color)
+	{
+		if (color.IsString())
+		{
+			return svg::Color{ color.AsString() };
+		}
+		else if (color.IsArray())
+		{
+			if (color.AsArray().size() == 3)
+			{
+				return svg::Rgb
+				{
+					static_cast<uint8_t>(color.AsArray()[0].AsInt()),
+					static_cast<uint8_t>(color.AsArray()[1].AsInt()),
+					static_cast<uint8_t>(color.AsArray()[2].AsInt())
+				};
+			}
+			else if (color.AsArray().size() == 4)
+			{
+				return svg::Rgba
+				{
+					static_cast<uint8_t>(color.AsArray()[0].AsInt()),
+					static_cast<uint8_t>(color.AsArray()[1].AsInt()),
+					static_cast<uint8_t>(color.AsArray()[2].AsInt()),
+					color.AsArray()[3].AsDouble()
+				};
+			}
+		}
+		return svg::Color();
+	}
+
 	void MakeRender(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
 	{
-		const auto width = dict.at("width").AsDouble();
-		const auto height = dict.at("height").AsDouble();
-		const auto padding = dict.at("padding").AsDouble();
-		const auto line_width = dict.at("line_width").AsDouble();
-		const auto stop_radius = dict.at("stop_radius").AsDouble();
-		const auto bus_label_font_size = dict.at("bus_label_font_size").AsInt();
-		const auto bus_label_offset = dict.at("bus_label_offset").AsArray();//массив из двух double
-		const auto stop_label_font_size = dict.at("stop_label_font_size").AsInt();
-		const auto stop_label_offset = dict.at("stop_label_offset").AsArray();//массив из двух double
-		const auto underlayer_color = dict.at("underlayer_color").GetValue();//цвет
-		const auto underlayer_width = dict.at("underlayer_width").AsDouble();
-		const auto color_palette = dict.at("color_palette").AsArray();
+		map_renderer::RenderSettings settings;
+		settings.width = dict.at("width").AsDouble();
+		settings.height = dict.at("height").AsDouble();
+		settings.padding = dict.at("padding").AsDouble();
+		settings.line_width = dict.at("line_width").AsDouble();
+		settings.stop_radius = dict.at("stop_radius").AsDouble();
+		settings.bus_label_font_size = dict.at("bus_label_font_size").AsInt();
+		settings.bus_label_offset = { dict.at("bus_label_offset").AsArray()[0].AsDouble(), dict.at("bus_label_offset").AsArray()[1].AsDouble() };//массив из двух double
+		settings.stop_label_font_size = dict.at("stop_label_font_size").AsInt();
+		settings.stop_label_offset = { dict.at("stop_label_offset").AsArray()[0].AsDouble(), dict.at("stop_label_offset").AsArray()[1].AsDouble() };//массив из двух double
+		settings.underlayer_color = GetColor(dict.at("underlayer_color"));
+		settings.underlayer_width = dict.at("underlayer_width").AsDouble();
+		for (const auto& color : dict.at("color_palette").AsArray())
+		{
+			settings.color_palette.emplace_back(GetColor(color));
+		}
 	}
 
 	//------------------outnput-------------------------
