@@ -16,15 +16,16 @@ namespace json_reader
 		{
 			MakeBase(trans_cat, base_requests->second.AsArray());
 		}
-		const auto render_settings = dict.find("render_settings");
+		const auto render_settings = dict.find("render_settings");// если render_settings, передаем каталог и словарь в метод инициализируюший рисовалку
+		map_renderer::MapRenderer map_renderer;
 		if (render_settings != dict.end())
 		{
-			MakeRender(trans_cat, render_settings->second.AsMap());
+			SetMapRenderer(trans_cat, map_renderer, render_settings->second.AsMap());
 		}
 		const auto stat_requests = dict.find("stat_requests");
 		if (stat_requests != dict.end())
 		{
-			MakeResponse(trans_cat, stat_requests->second.AsArray());
+			MakeResponse(trans_cat, map_renderer, stat_requests->second.AsArray());
 		}
 	}
 
@@ -102,7 +103,7 @@ namespace json_reader
 
 	//------------------render-------------------------
 
-	const svg::Color GetColor(const json::Node& color)
+	const svg::Color GetColor(const json::Node& color)//вытаскиваем тип цвета из документа
 	{
 		if (color.IsString())
 		{
@@ -133,7 +134,8 @@ namespace json_reader
 		return svg::Color();
 	}
 
-	void MakeRender(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
+	//читает и наполн€ет настройки визуализации
+	map_renderer::RenderSettings ReadRenderSettings(const json::Dict& dict)//заполн€ем настройки визуализации
 	{
 		map_renderer::RenderSettings settings;
 		settings.width = dict.at("width").AsDouble();
@@ -153,9 +155,15 @@ namespace json_reader
 		}
 	}
 
+	void SetMapRenderer(const transport_catalogue::TransportCatalogue& trans_cat, map_renderer::MapRenderer& map_renderer, const json::Dict& dict)//инициализируем рисовалку
+	{
+		map_renderer.SetRenderSettings(ReadRenderSettings(dict));
+		//сдесь метод заполн€юший на основе каталога инфу по рисованию обьектов
+	}
+
 	//------------------outnput-------------------------
 
-	void MakeResponse(transport_catalogue::TransportCatalogue& trans_cat, const json::Array& arr)
+	void MakeResponse(transport_catalogue::TransportCatalogue& trans_cat, const map_renderer::MapRenderer& map_renderer, const json::Array& arr)
 	{
 		json::Array response;
 		for (const auto& recuest : arr)
@@ -173,7 +181,7 @@ namespace json_reader
 				}
 				else if (rec_type->second.AsString() == "Map")
 				{
-					response.emplace_back(GetMapRender(trans_cat, recuest.AsMap()));
+					//response.emplace_back(map_renderer.Render());
 				}
 			}
 		}
@@ -222,10 +230,5 @@ namespace json_reader
 			bus_info.emplace("unique_stop_count", bus_data->unique_stops_);
 		}
 		return bus_info;
-	}
-
-	const json::Dict GetMapRender(const transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
-	{
-
 	}
 } // json_reader

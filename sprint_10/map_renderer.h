@@ -5,9 +5,7 @@
 
 namespace map_renderer
 {
-    inline const double EPSILON = 1e-6;
-
-    bool IsZero(double value);
+    //----------------RenderSettings----------------------------
 
     struct RenderSettings
     {
@@ -17,7 +15,7 @@ namespace map_renderer
         double line_width = 0.0;
         double stop_radius = 0.0;
         int bus_label_font_size = 0;
-        svg::Point bus_label_offset {0.0, 0.0};
+        svg::Point bus_label_offset{ 0.0, 0.0 };
         int stop_label_font_size = 0;
         svg::Point stop_label_offset{ 0.0, 0.0 };
         svg::Color underlayer_color;
@@ -25,8 +23,13 @@ namespace map_renderer
         std::vector<svg::Color> color_palette;
     };
 
+    inline const double EPSILON = 1e-6;
+
+    bool IsZero(double value);
+
     //----------------SphereProjector----------------------------
 
+    //класс, который проецирует точки на карту
     class SphereProjector
     {
     public:
@@ -98,11 +101,16 @@ namespace map_renderer
 
     //------------------MapRenderer--------------------------
 
+    /*рисовалка, хранит настройки визуализации
+    обрашается к методам классов визуализаторов отдельных частей карты*/
     class MapRenderer
     {
     public:
 
+        void SetRenderSettings(const RenderSettings& render_settings);
+
     private:
 
+        RenderSettings render_settings_;
     };
 } // namespace map_renderer
