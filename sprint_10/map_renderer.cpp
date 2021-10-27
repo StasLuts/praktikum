@@ -25,5 +25,6 @@ namespace map_renderer
 	void MapRenderer::SetRenderSettings(const RenderSettings& render_settings)
 	{
 		render_settings_ = render_settings;
+		/******/
 	}
 } // namespace map_renderer
