@@ -158,7 +158,7 @@ namespace json_reader
 	void SetMapRenderer(const transport_catalogue::TransportCatalogue& trans_cat, map_renderer::MapRenderer& map_renderer, const json::Dict& dict)//инициализируем рисовалку
 	{
 		map_renderer.SetRenderSettings(ReadRenderSettings(dict));
-		//сдесь метод заполн€юший на основе каталога инфу по рисованию обьектов
+		map_renderer.CreateRender(trans_cat);//сдесь метод заполн€юший на основе каталога инфу по рисованию обьектов
 	}
 
 	//------------------outnput-------------------------

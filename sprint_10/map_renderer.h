@@ -1,6 +1,7 @@
 #pragma once
 #include "svg.h"
 #include "geo.h"
+#include "transport_catalogue.h"
 #include <vector>
 
 namespace map_renderer
@@ -99,6 +100,24 @@ namespace map_renderer
         }
     }
 
+    //------------------RouteRenderer--------------------------
+
+    class RouteRenderer : svg::Drawable
+    {
+    public:
+
+        RouteRenderer(const svg::Color& stroke_color_, const double stroke_width_, const std::vector<svg::Point>& stops_points_);
+
+        void Draw(svg::ObjectContainer& container) const override;
+
+    private:
+
+        svg::Color stroke_color_;
+        double stroke_width_;
+        std::vector<svg::Point> stops_points_;
+        --------------
+    };
+
     //------------------MapRenderer--------------------------
 
     /*рисовалка, хранит настройки визуализации
@@ -107,10 +126,19 @@ namespace map_renderer
     {
     public:
 
-        void SetRenderSettings(const RenderSettings& render_settings);
+        void SetRenderSettings(const RenderSettings&);
+
+        void CreateRender(transport_catalogue::TransportCatalogue&);
+
+        void SetRouts(const std::vector<RouteRenderer> routs);
+
+        svg::Document Render(const transport_catalogue::TransportCatalogue&);
 
     private:
 
         RenderSettings render_settings_;
+        std::vector<RouteRenderer> routs_;
+
+        const std::vector<RouteRenderer> RoursLineRender(const transport_catalogue::TransportCatalogue&, const map_renderer::SphereProjector&);
     };
 } // namespace map_renderer

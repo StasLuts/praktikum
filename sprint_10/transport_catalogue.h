@@ -84,6 +84,8 @@ namespace transport_catalogue
 		const PrintStopData* GetStopInfo(std::string_view stop_name) const;
 
 		const PrintData* GetRoute(std::string_view bus_num);
+
+		const std::unordered_set<geo::Coordinates> GetCoordinates() const;
 	};
 } // namespace transport_catalogue
 

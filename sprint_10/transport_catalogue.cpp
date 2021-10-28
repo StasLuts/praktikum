@@ -114,5 +114,18 @@ namespace transport_catalogue
 		return new PrintData(bus->bus_num_, (bus->cicle_type_ == false) ? bus->stops_.size() * 2 - 1 : bus->stops_.size(),
 			bus->unicue_stops_.size(), route_length, C);
 	}
+
+	const std::unordered_set<geo::Coordinates> TransportCatalogue::GetCoordinates() const
+	{
+		std::unordered_set<geo::Coordinates>stops_coordinates;
+		for (const auto& bus : buses_)
+		{
+			for (const auto& stop : bus.stops_)
+			{
+				stops_coordinates.emplace(stop->coodinates_);
+			}
+		}
+		return stops_coordinates;
+	}
 } // namespace transport_catalogue
 
