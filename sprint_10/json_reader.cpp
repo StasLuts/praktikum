@@ -17,7 +17,7 @@ namespace json_reader
 			MakeBase(trans_cat, base_requests->second.AsArray());
 		}
 		const auto render_settings = dict.find("render_settings");// если render_settings, передаем каталог и словарь в метод инициализируюший рисовалку
-		map_renderer::MapRenderer map_renderer;
+		//renderer::MapRenderer map_renderer;
 		if (render_settings != dict.end())
 		{
 			SetMapRenderer(trans_cat, map_renderer, render_settings->second.AsMap());
@@ -135,9 +135,9 @@ namespace json_reader
 	}
 
 	//читает и наполн€ет настройки визуализации
-	map_renderer::RenderSettings ReadRenderSettings(const json::Dict& dict)//заполн€ем настройки визуализации
+	renderer::RenderSettings ReadRenderSettings(const json::Dict& dict)//заполн€ем настройки визуализации
 	{
-		map_renderer::RenderSettings settings;
+		renderer::RenderSettings settings;
 		settings.width = dict.at("width").AsDouble();
 		settings.height = dict.at("height").AsDouble();
 		settings.padding = dict.at("padding").AsDouble();
@@ -155,7 +155,7 @@ namespace json_reader
 		}
 	}
 
-	void SetMapRenderer(const transport_catalogue::TransportCatalogue& trans_cat, map_renderer::MapRenderer& map_renderer, const json::Dict& dict)//инициализируем рисовалку
+	void SetMapRenderer(const transport_catalogue::TransportCatalogue& trans_cat, renderer::MapRenderer& map_renderer, const json::Dict& dict)//инициализируем рисовалку
 	{
 		map_renderer.SetRenderSettings(ReadRenderSettings(dict));
 		map_renderer.CreateRender(trans_cat);//сдесь метод заполн€юший на основе каталога инфу по рисованию обьектов
@@ -163,7 +163,7 @@ namespace json_reader
 
 	//------------------outnput-------------------------
 
-	void MakeResponse(transport_catalogue::TransportCatalogue& trans_cat, const map_renderer::MapRenderer& map_renderer, const json::Array& arr)
+	void MakeResponse(transport_catalogue::TransportCatalogue& trans_cat, const renderer::MapRenderer& map_renderer, const json::Array& arr)
 	{
 		json::Array response;
 		for (const auto& recuest : arr)
@@ -231,4 +231,5 @@ namespace json_reader
 		}
 		return bus_info;
 	}
-} // json_reader
+
+} // namespace json_reader

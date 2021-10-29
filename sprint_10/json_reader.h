@@ -2,10 +2,7 @@
 #include "json.h"
 #include "map_renderer.h"
 #include "transport_catalogue.h"
-/*
- * Здесь можно разместить код наполнения транспортного справочника данными из JSON,
- * а также код обработки запросов к базе и формирование массива ответов в формате JSON
- */
+#include "request_handler.h"
 
 namespace json_reader
 {
@@ -25,59 +22,18 @@ namespace json_reader
 
 	const svg::Color GetColor(const json::Node&);
 
-	map_renderer::RenderSettings ReadRenderSettings(const json::Dict&);
+	renderer::RenderSettings ReadRenderSettings(const json::Dict&);
 
-	void SetMapRenderer(const transport_catalogue::TransportCatalogue&, map_renderer::MapRenderer&, const json::Dict&);
+	void SetMapRenderer(const transport_catalogue::TransportCatalogue&, renderer::MapRenderer&, const json::Dict&);
 
 	//------------------outnput-------------------------
 
-	void MakeResponse(transport_catalogue::TransportCatalogue&, const map_renderer::MapRenderer&, const json::Array&);
+	void MakeResponse(transport_catalogue::TransportCatalogue&, const renderer::MapRenderer&, const json::Array&);
 
 	const json::Dict GetStopInfo(const transport_catalogue::TransportCatalogue&, const json::Dict&);
 
 	const json::Dict GetBusInfo(transport_catalogue::TransportCatalogue&, const json::Dict&);
 
 	//const json::Dict GetMapRender(const transport_catalogue::TransportCatalogue&, map_renderer::MapRenderer&, const json::Dict&);
+
 } // json_reader 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-#pragma once
-
-#include "transport_catalogue.h"
-#include <string>
-#include <vector>
-#include <tuple>
-#include <string_view>
-
-namespace transport_catalogue
-{
-	namespace input
-	{
-		std::string ReadLine();
-
-		int ReadLineWithNumber();
-
-		std::tuple<std::string_view, double, double> SplitForStop(std::string_view text);
-
-		std::tuple<std::string_view, bool, std::vector<std::string_view>> SplitForBus(std::string_view text);
-
-		std::vector<std::tuple<std::string_view, std::string_view, int>> SplitForDistance(std::string_view text);
-
-		void FillData(TransportCatalogue& catalog);
-	}
-}
-*/

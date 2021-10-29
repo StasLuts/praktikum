@@ -1,7 +1,7 @@
 #include "svg.h"
 
-namespace svg {
-
+namespace svg
+{
     using namespace std::literals;
     
     // ---------- OstreamColor ------------------

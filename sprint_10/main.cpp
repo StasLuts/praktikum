@@ -1,5 +1,6 @@
 #include "map_renderer.h"
 #include "json_reader.h"
+#include "request_handler.h"
 
 #include <iostream>
 

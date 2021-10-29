@@ -400,7 +400,7 @@ namespace json
 				},node.GetValue());
 		}
 
-	}
+	} // namespace
 
 	//------------Node---------------
 
@@ -426,4 +426,5 @@ namespace json
 	{
 		PrintNode(doc.GetRoot(), PrintContext{ output });
 	}
-}
+
+} // namespace json
