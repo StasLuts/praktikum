@@ -107,8 +107,13 @@ namespace renderer
     {
     public:
 
+        void SetRenderSettings(const RenderSettings&);
+
+        void CreateRender();///////////////////////////////////////////
+
     private:
 
+        RenderSettings render_settings_;
     };
 
 } // namespace renderer

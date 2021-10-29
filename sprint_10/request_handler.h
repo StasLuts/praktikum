@@ -9,10 +9,12 @@ namespace request_handler
     public:
 
         // MapRenderer понадобится в следующей части итогового проекта
-        RequestHandler(const transport_catalogue::TransportCatalogue& db, const renderer::MapRenderer& renderer);
+        RequestHandler(transport_catalogue::TransportCatalogue& db, const renderer::MapRenderer& renderer);
+
+        const domain::StopStat* GetStopStat(const std::string_view&) const;
 
         // Возвращает информацию о маршруте (запрос Bus)
-        std::optional<domain::BusStat> GetBusStat(const std::string_view& bus_name) const;
+        const domain::BusStat* GetBusStat(const std::string_view& bus_name) const;
 
         // Возвращает маршруты, проходящие через
         const std::unordered_set<domain::BusPtr>* GetBusesByStop(const std::string_view& stop_name) const;
@@ -22,7 +24,7 @@ namespace request_handler
 
     private:
         // RequestHandler использует агрегацию объектов "Транспортный Справочник" и "Визуализатор Карты"
-        const transport_catalogue::TransportCatalogue& db_;
+        transport_catalogue::TransportCatalogue& db_;
         const renderer::MapRenderer& renderer_;
     };
 

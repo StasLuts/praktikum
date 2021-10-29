@@ -22,4 +22,13 @@ namespace renderer
 
 	//---------------MapRenderer-------------------------
 
+	void MapRenderer::SetRenderSettings(const RenderSettings& render_settings)
+	{
+		render_settings_ = std::move(render_settings);
+	}
+
+	void MapRenderer::CreateRender(const transport_catalogue::TransportCatalogue&)
+	{
+	}
+
 } // namespace renderer

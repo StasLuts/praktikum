@@ -28,12 +28,12 @@ namespace json_reader
 
 	//------------------outnput-------------------------
 
-	void MakeResponse(transport_catalogue::TransportCatalogue&, const renderer::MapRenderer&, const json::Array&);
+	void MakeResponse(const request_handler::RequestHandler& request_handler, const json::Array&);
 
-	const json::Dict GetStopInfo(const transport_catalogue::TransportCatalogue&, const json::Dict&);
+	const json::Dict GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict&);
 
 	const json::Dict GetBusInfo(transport_catalogue::TransportCatalogue&, const json::Dict&);
 
-	//const json::Dict GetMapRender(const transport_catalogue::TransportCatalogue&, map_renderer::MapRenderer&, const json::Dict&);
+	const json::Node GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
 } // json_reader 

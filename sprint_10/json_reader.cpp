@@ -1,10 +1,5 @@
 #include "json_reader.h"
 
-/*
- * Здесь можно разместить код наполнения транспортного справочника данными из JSON,
- * а также код обработки запросов к базе и формирование массива ответов в формате JSON
- */
-
 namespace json_reader
 {
 	void JsonRead(std::istream& input)
@@ -17,7 +12,7 @@ namespace json_reader
 			MakeBase(trans_cat, base_requests->second.AsArray());
 		}
 		const auto render_settings = dict.find("render_settings");// если render_settings, передаем каталог и словарь в метод инициализируюший рисовалку
-		//renderer::MapRenderer map_renderer;
+		renderer::MapRenderer map_renderer;
 		if (render_settings != dict.end())
 		{
 			SetMapRenderer(trans_cat, map_renderer, render_settings->second.AsMap());
@@ -25,7 +20,7 @@ namespace json_reader
 		const auto stat_requests = dict.find("stat_requests");
 		if (stat_requests != dict.end())
 		{
-			MakeResponse(trans_cat, map_renderer, stat_requests->second.AsArray());
+			MakeResponse(request_handler::RequestHandler(trans_cat, map_renderer), stat_requests->second.AsArray());
 		}
 	}
 
@@ -163,7 +158,7 @@ namespace json_reader
 
 	//------------------outnput-------------------------
 
-	void MakeResponse(transport_catalogue::TransportCatalogue& trans_cat, const renderer::MapRenderer& map_renderer, const json::Array& arr)
+	void MakeResponse(const request_handler::RequestHandler& request_handler, const json::Array& arr)
 	{
 		json::Array response;
 		for (const auto& recuest : arr)
@@ -173,25 +168,25 @@ namespace json_reader
 			{
 				if (rec_type->second.AsString() == "Stop")
 				{
-					response.emplace_back(GetStopInfo(trans_cat, recuest.AsMap()));
+					response.emplace_back(GetStopInfo(request_handler, recuest.AsMap()));
 				}
 				else if (rec_type->second.AsString() == "Bus")
 				{
-					response.emplace_back(GetBusInfo(trans_cat, recuest.AsMap()));
+					response.emplace_back(GetBusInfo(request_handler, recuest.AsMap()));
 				}
 				else if (rec_type->second.AsString() == "Map")
 				{
-					//response.emplace_back(map_renderer.Render());
+					response.emplace_back(GetMapRender(request_handler, recuest.AsMap()));
 				}
 			}
 		}
 		json::Print(json::Document(response), std::cout);
 	}
 
-	const json::Dict GetStopInfo(const transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
+	const json::Dict GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
 	{
 		const auto stop_name = dict.at("name").AsString();
-		const auto stop_datd = trans_cat.GetStopInfo(stop_name);
+		const auto stop_datd = request_handler.GetStopStat(stop_name);
 		json::Dict stop_info;
 		if(stop_datd == nullptr)
 		{
@@ -201,7 +196,7 @@ namespace json_reader
 		else
 		{
 			json::Array buses;
-			for (const auto& bus : stop_datd->buses_)
+			for (auto& bus : stop_datd->buses_)
 			{
 				buses.push_back(static_cast<std::string>(bus));
 			}
@@ -211,10 +206,10 @@ namespace json_reader
 		return stop_info;
 	}
 
-	const json::Dict GetBusInfo(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
+	const json::Dict GetBusInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
 	{
 		const auto bus_name = dict.at("name").AsString();
-		const auto bus_data = trans_cat.GetRoute(bus_name);
+		const auto bus_data = request_handler.GetBusStat(bus_name);
 		json::Dict bus_info;
 		if (bus_data == nullptr)
 		{
@@ -230,6 +225,11 @@ namespace json_reader
 			bus_info.emplace("unique_stop_count", bus_data->unique_stops_);
 		}
 		return bus_info;
+	}
+
+	const json::Node GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
+	{
+
 	}
 
 } // namespace json_reader
