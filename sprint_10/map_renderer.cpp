@@ -27,6 +27,16 @@ namespace renderer
 
 	void RouteRender::Draw(svg::ObjectContainer& container) const
 	{
+		svg::Polyline render;
+		for (const auto& stop_coordinate : stops_coordinates_)
+		{
+			render.AddPoint(stop_coordinate);
+		}
+		render.SetFillColor(fill_color_);
+		render.SetStrokeColor(stroke_color_);
+		render.SetStrokeWidth(stroke_width_);
+		render.SetStrokeLineCap(stroke_linecap_);
+		render.SetStrokeLineJoin(stroke_linejoin_);
 	}
 
 	//---------------MapRenderer-------------------------
@@ -43,7 +53,12 @@ namespace renderer
 
 	svg::Document MapRenderer::GetRender() const
 	{
-		return svg::Document();
+		svg::Document render;
+		for (const auto& route : routs_renders_)
+		{
+			route.Draw(render);
+		}
+		return render;
 	}
 
 	const std::vector<svg::Color> MapRenderer::GetColorPallete() const

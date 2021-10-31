@@ -66,7 +66,7 @@ namespace transport_catalogue
 		return new domain::StopStat(stop->stop_name_, buses);
 	}
 
-	const domain::BusStat* TransportCatalogue::GetBusStat(const std::string_view bus_name) const
+	const domain::BusStat* TransportCatalogue::GetBusStat(const std::string_view& bus_name) const
 	{
 		auto bus = FindBus(bus_name);
 		if (bus == nullptr)
@@ -111,7 +111,11 @@ namespace transport_catalogue
 
 	const std::deque<domain::BusPtr> TransportCatalogue::GetBuses() const
 	{
-		std::deque<domain::BusPtr> buses(buses_.begin(), buses_.end());
+		std::deque<domain::BusPtr> buses; 
+		for (const auto& bus : buses_)
+		{
+			buses.emplace_back(&bus);
+		}
 		return buses;
 	}
 } // namespace transport_catalogue

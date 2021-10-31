@@ -4,6 +4,7 @@
 #include "domain.h"
 
 #include <vector>
+#include <algorithm>
 
 namespace renderer
 {
