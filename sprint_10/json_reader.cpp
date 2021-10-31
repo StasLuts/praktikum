@@ -153,7 +153,13 @@ namespace json_reader
 	void SetMapRenderer(const transport_catalogue::TransportCatalogue& trans_cat, renderer::MapRenderer& map_renderer, const json::Dict& dict)//инициализируем рисовалку
 	{
 		map_renderer.SetRenderSettings(ReadRenderSettings(dict));
-		map_renderer.CreateRender(trans_cat);//сдесь метод заполн€юший на основе каталога инфу по рисованию обьектов
+		const auto color_pallete = map_renderer.GetColorPallete();
+		size_t color_num = 0;
+		for (auto it = trans_cat.GetBuses().begin(); it != trans_cat.GetBuses().end(); ++it)
+		{
+			map_renderer.AddRoutRender(trans_cat.GetStopsCoordinates(it.operator*()->bus_num_), color_pallete[color_num]);
+			color_num = (color_num == color_pallete.size() - 1) ? 0 : color_num + 1;
+		}
 	}
 
 	//------------------outnput-------------------------
@@ -196,7 +202,7 @@ namespace json_reader
 		else
 		{
 			json::Array buses;
-			for (auto& bus : stop_datd->buses_)
+			for (auto& bus : stop_datd.value()->buses_)
 			{
 				buses.push_back(static_cast<std::string>(bus));
 			}
@@ -211,25 +217,28 @@ namespace json_reader
 		const auto bus_name = dict.at("name").AsString();
 		const auto bus_data = request_handler.GetBusStat(bus_name);
 		json::Dict bus_info;
-		if (bus_data == nul)
+		if (bus_data == nullptr)
 		{
 			bus_info.emplace("request_id", dict.at("id").AsInt());
 			bus_info.emplace("error_message", "not found");
 		}
 		else
 		{
-			bus_info.emplace("curvature", bus_data->curvature_);
+			bus_info.emplace("curvature", bus_data.value()->curvature_);
 			bus_info.emplace("request_id", dict.at("id").AsInt());
-			bus_info.emplace("route_length", static_cast<int>(bus_data->route_length_));
-			bus_info.emplace("stop_count", bus_data->stops_on_route_);
-			bus_info.emplace("unique_stop_count", bus_data->unique_stops_);
+			bus_info.emplace("route_length", static_cast<int>(bus_data.value()->route_length_));
+			bus_info.emplace("stop_count", bus_data.value()->stops_on_route_);
+			bus_info.emplace("unique_stop_count", bus_data.value()->unique_stops_);
 		}
 		return bus_info;
 	}
 
-	const json::Node GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
+	const json::Dict GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
 	{
-
+		json::Dict map_render;
+		map_render.emplace("map", request_handler.RenderMap());
+		map_render.emplace("request_id", dict.at("id").AsInt());
+		return map_render;
 	}
 
 } // namespace json_reader

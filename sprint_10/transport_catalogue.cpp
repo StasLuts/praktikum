@@ -99,17 +99,20 @@ namespace transport_catalogue
 			bus->unicue_stops_.size(), route_length, C);
 	}
 
-	const std::unordered_set<geo::Coordinates> TransportCatalogue::GetCoordinates() const
+	const std::vector<geo::Coordinates> TransportCatalogue::GetStopsCoordinates(const std::string_view bus_name) const
 	{
-		std::unordered_set<geo::Coordinates>stops_coordinates;
-		for (const auto& bus : buses_)
+		std::vector<geo::Coordinates>stops_coordinates;
+		for (const auto& stop : buses_map_.at(bus_name)->stops_)
 		{
-			for (const auto& stop : bus.stops_)
-			{
-				stops_coordinates.emplace(stop->coodinates_);
-			}
+			stops_coordinates.emplace_back(stop->coodinates_);
 		}
 		return stops_coordinates;
+	}
+
+	const std::deque<domain::BusPtr> TransportCatalogue::GetBuses() const
+	{
+		std::deque<domain::BusPtr> buses(buses_.begin(), buses_.end());
+		return buses;
 	}
 } // namespace transport_catalogue
 

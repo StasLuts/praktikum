@@ -34,6 +34,6 @@ namespace json_reader
 
 	const json::Dict GetBusInfo(transport_catalogue::TransportCatalogue&, const json::Dict&);
 
-	const json::Node GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
+	const json::Dict GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
 } // json_reader 

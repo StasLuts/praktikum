@@ -20,6 +20,15 @@ namespace renderer
 		return { (coords.lng - min_lon_) * zoom_coeff_ + padding_, (max_lat_ - coords.lat) * zoom_coeff_ + padding_ };
 	}
 
+	//----------------RouteRender------------------------
+
+	RouteRender::RouteRender(const std::vector<svg::Point>& stops_coordinates, const svg::Color& stroke_color, const double stroke_width)
+		: stops_coordinates_(std::move(stops_coordinates)), stroke_color_(stroke_color), stroke_width_(stroke_width) {}
+
+	void RouteRender::Draw(svg::ObjectContainer& container) const
+	{
+	}
+
 	//---------------MapRenderer-------------------------
 
 	void MapRenderer::SetRenderSettings(const RenderSettings& render_settings)
@@ -27,8 +36,19 @@ namespace renderer
 		render_settings_ = std::move(render_settings);
 	}
 
-	void MapRenderer::CreateRender(const transport_catalogue::TransportCatalogue&)
+	void MapRenderer::AddRoutRender(const std::vector<geo::Coordinates>& stops_coordinates, const svg::Color& stroke_color)
 	{
+		routs_renders_.emplace_back(( stops_coordinates, stroke_color, render_settings_.line_width ));
+	}
+
+	svg::Document MapRenderer::GetRender() const
+	{
+		return svg::Document();
+	}
+
+	const std::vector<svg::Color> MapRenderer::GetColorPallete() const
+	{
+		return render_settings_.color_palette;
 	}
 
 } // namespace renderer

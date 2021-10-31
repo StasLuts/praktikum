@@ -11,7 +11,9 @@ namespace request_handler
         RequestHandler(const transport_catalogue::TransportCatalogue& db, const renderer::MapRenderer& renderer);
 
         // Возвращает информацию о маршруте (запрос Bus)
-        std::optional<domain::BusStat*> GetBusStat(const std::string_view& bus_name) const;
+        std::optional<const domain::BusStat*> GetBusStat(const std::string_view& bus_name) const;
+
+        std::optional<const domain::StopStat*> GetStopStat(const std::string_view& stop_name) const;
 
         // Возвращает маршруты, проходящие через
         const std::unordered_set<domain::BusPtr>* GetBusesByStop(const std::string_view& stop_name) const;
