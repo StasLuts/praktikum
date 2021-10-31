@@ -211,7 +211,7 @@ namespace json_reader
 		const auto bus_name = dict.at("name").AsString();
 		const auto bus_data = request_handler.GetBusStat(bus_name);
 		json::Dict bus_info;
-		if (bus_data == nullptr)
+		if (bus_data == nul)
 		{
 			bus_info.emplace("request_id", dict.at("id").AsInt());
 			bus_info.emplace("error_message", "not found");

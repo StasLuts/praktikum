@@ -27,7 +27,7 @@ namespace transport_catalogue
 
 		void SetDistanceBetweenStops(std::string_view from_stop, std::string_view to_stop, int distance);
 
-		int GetDistanceBetweenStops(const domain::Stop* lhs, const domain::Stop* rhs);
+		int GetDistanceBetweenStops(const domain::Stop* lhs, const domain::Stop* rhs) const;
 
 		void AddingBusDatabase(std::string_view bus_num, std::vector<std::string_view>& stops, bool cicle_type);
 
@@ -37,9 +37,9 @@ namespace transport_catalogue
 
 		const domain::Stop* FindStop(std::string_view stop_name) const;
 
-		const domain::StopStat* GetStopInfo(std::string_view stop_name) const;
+		const domain::StopStat* GetStopStat(std::string_view stop_name) const;
 
-		const domain::BusStat* GetRoute(std::string_view bus_num);
+		const domain::BusStat* GetBusStat(const std::string_view bus_name) const;
 
 		const std::unordered_set<geo::Coordinates> GetCoordinates() const;
 	};

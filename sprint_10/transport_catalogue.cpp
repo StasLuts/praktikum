@@ -11,11 +11,11 @@ namespace transport_catalogue
 		stop_to_stop_distance_[std::make_pair(lhs, rhs)] = distance;
 	}
 
-	int TransportCatalogue::GetDistanceBetweenStops(const domain::Stop* lhs, const domain::Stop* rhs)
+	int TransportCatalogue::GetDistanceBetweenStops(const domain::Stop* lhs, const domain::Stop* rhs) const
 	{
 		return (stop_to_stop_distance_.find(std::make_pair(lhs, rhs)) == stop_to_stop_distance_.end()) ?
 			stop_to_stop_distance_.at(std::make_pair(rhs, lhs)) :
-			stop_to_stop_distance_[std::make_pair(lhs, rhs)];
+			stop_to_stop_distance_.at(std::make_pair(lhs, rhs));//¿œ—Õ€
 	}
 
 	void TransportCatalogue::AddingBusDatabase(std::string_view bus_num, std::vector<std::string_view>& stops, bool cicle_type)
@@ -48,7 +48,7 @@ namespace transport_catalogue
 		return (stops_map_.find(stop_name) == stops_map_.end()) ? nullptr : stops_map_.at(stop_name);
 	}
 
-	const domain::StopStat* TransportCatalogue::GetStopInfo(std::string_view stop_name) const
+	const domain::StopStat* TransportCatalogue::GetStopStat(std::string_view stop_name) const
 	{
 		auto stop = FindStop(stop_name);
 		if (stop == nullptr)
@@ -66,9 +66,9 @@ namespace transport_catalogue
 		return new domain::StopStat(stop->stop_name_, buses);
 	}
 
-	const domain::BusStat* TransportCatalogue::GetRoute(std::string_view bus_num)
+	const domain::BusStat* TransportCatalogue::GetBusStat(const std::string_view bus_name) const
 	{
-		auto bus = FindBus(bus_num);
+		auto bus = FindBus(bus_name);
 		if (bus == nullptr)
 		{
 			return nullptr;
