@@ -41,7 +41,9 @@ namespace transport_catalogue
 
 		const domain::BusStat* GetBusStat(const std::string_view& bus_name) const;
 
-		const std::vector<geo::Coordinates> GetStopsCoordinates(const std::string_view bus_name) const;
+		const std::vector<geo::Coordinates> GetAllStopsCoordinates() const;
+
+		const std::vector<geo::Coordinates> GetStopsCoordinates(const std::string_view) const;
 
 		const std::deque<domain::BusPtr> GetBuses() const;
 	};

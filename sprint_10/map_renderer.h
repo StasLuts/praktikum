@@ -110,7 +110,7 @@ namespace renderer
 
         RouteRender(const std::vector<svg::Point>& stops_coordinates, const svg::Color& stroke_color, const double stroke_width);
 
-        void Draw(svg::ObjectContainer& container) const;
+        void Draw(svg::ObjectContainer& container) const override;
 
     private:
 
@@ -130,7 +130,7 @@ namespace renderer
 
         void SetRenderSettings(const RenderSettings&);
 
-        void AddRoutRender(const std::vector<geo::Coordinates>&, const svg::Color&);
+        void AddRoutRender(const std::vector<svg::Point>&, const svg::Color&);
 
         svg::Document GetRender() const;
 

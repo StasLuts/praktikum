@@ -1,5 +1,7 @@
 #include "json_reader.h"
 
+#include <sstream>
+
 namespace json_reader
 {
 	void JsonRead(std::istream& input)
@@ -129,8 +131,7 @@ namespace json_reader
 		return svg::Color();
 	}
 
-	//читает и наполняет настройки визуализации
-	renderer::RenderSettings ReadRenderSettings(const json::Dict& dict)//заполняем настройки визуализации
+	void SetMapRenderer(const transport_catalogue::TransportCatalogue& trans_cat, renderer::MapRenderer& map_renderer, const json::Dict& dict)//инициализируем рисовалку
 	{
 		renderer::RenderSettings settings;
 		settings.width = dict.at("width").AsDouble();
@@ -148,16 +149,20 @@ namespace json_reader
 		{
 			settings.color_palette.emplace_back(GetColor(color));
 		}
-	}
+		map_renderer.SetRenderSettings(settings);
 
-	void SetMapRenderer(const transport_catalogue::TransportCatalogue& trans_cat, renderer::MapRenderer& map_renderer, const json::Dict& dict)//инициализируем рисовалку
-	{
-		map_renderer.SetRenderSettings(ReadRenderSettings(dict));
+		const auto all_stops_coordinates = trans_cat.GetAllStopsCoordinates();
+		renderer::SphereProjector projector(all_stops_coordinates.begin(), all_stops_coordinates.end(), settings.width, settings.height, settings.padding);
 		const auto color_pallete = map_renderer.GetColorPallete();
 		size_t color_num = 0;
-		for (auto it = trans_cat.GetBuses().begin(); it != trans_cat.GetBuses().end(); ++it)
+		for (const auto& it : trans_cat.GetBuses())
 		{
-			map_renderer.AddRoutRender(trans_cat.GetStopsCoordinates(it.operator*()->bus_num_), color_pallete[color_num]);
+			std::vector<svg::Point> stops_points;
+			for (const auto& coordinate : trans_cat.GetStopsCoordinates(it->bus_num_))
+			{
+				stops_points.emplace_back(projector(coordinate));
+			}
+			map_renderer.AddRoutRender(stops_points, color_pallete[color_num]);
 			color_num = (color_num == color_pallete.size() - 1) ? 0 : color_num + 1;
 		}
 	}
@@ -235,8 +240,11 @@ namespace json_reader
 
 	const json::Dict GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
 	{
+		svg::Document render = request_handler.RenderMap();
+		std::ostringstream strm;
+		render.Render(strm);
 		json::Dict map_render;
-		map_render.emplace("map", request_handler.RenderMap());
+		map_render.emplace("map", strm.str());
 		map_render.emplace("request_id", dict.at("id").AsInt());
 		return map_render;
 	}

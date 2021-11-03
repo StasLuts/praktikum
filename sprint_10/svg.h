@@ -320,16 +320,16 @@ namespace svg
         template<typename T>
         void Add(T obj)
         {
-            objects_.emplace_back(std::make_unique<T>(std::move(obj)));
+            objects_.emplace_back(std::make_shared<T>(std::move(obj)));
         }
 
-        virtual void AddPtr(std::unique_ptr<Object>&& obj) = 0;
+        virtual void AddPtr(std::shared_ptr<Object>&& obj) = 0;
 
     protected:
 
         virtual ~ObjectContainer() = default;
 
-        std::deque<std::unique_ptr<Object>> objects_;
+        std::deque<std::shared_ptr<Object>> objects_;
     };
 
     // ---------- Document ------------------
@@ -338,7 +338,7 @@ namespace svg
     public:
 
         // Добавляет в svg-документ объект-наследник svg::Object
-        void AddPtr(std::unique_ptr<Object>&& obj) override;
+        void AddPtr(std::shared_ptr<Object>&& obj) override;
 
         // Выводит в ostream svg-представление документа
         void Render(std::ostream& out) const;

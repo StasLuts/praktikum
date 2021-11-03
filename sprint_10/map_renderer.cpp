@@ -23,7 +23,7 @@ namespace renderer
 	//----------------RouteRender------------------------
 
 	RouteRender::RouteRender(const std::vector<svg::Point>& stops_coordinates, const svg::Color& stroke_color, const double stroke_width)
-		: stops_coordinates_(std::move(stops_coordinates)), stroke_color_(stroke_color), stroke_width_(stroke_width) {}
+		: stops_coordinates_(stops_coordinates), stroke_color_(stroke_color), stroke_width_(stroke_width) {}
 
 	void RouteRender::Draw(svg::ObjectContainer& container) const
 	{
@@ -37,18 +37,20 @@ namespace renderer
 		render.SetStrokeWidth(stroke_width_);
 		render.SetStrokeLineCap(stroke_linecap_);
 		render.SetStrokeLineJoin(stroke_linejoin_);
+		container.Add(render);
 	}
 
 	//---------------MapRenderer-------------------------
 
 	void MapRenderer::SetRenderSettings(const RenderSettings& render_settings)
 	{
-		render_settings_ = std::move(render_settings);
+		render_settings_ = render_settings;
 	}
 
-	void MapRenderer::AddRoutRender(const std::vector<geo::Coordinates>& stops_coordinates, const svg::Color& stroke_color)
+	void MapRenderer::AddRoutRender(const std::vector<svg::Point>& stops_coordinates, const svg::Color& stroke_color)
 	{
-		routs_renders_.emplace_back(( stops_coordinates, stroke_color, render_settings_.line_width ));
+		
+		routs_renders_.emplace_back(stops_coordinates, stroke_color, render_settings_.width);
 	}
 
 	svg::Document MapRenderer::GetRender() const

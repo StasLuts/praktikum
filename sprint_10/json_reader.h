@@ -22,8 +22,6 @@ namespace json_reader
 
 	const svg::Color GetColor(const json::Node&);
 
-	renderer::RenderSettings ReadRenderSettings(const json::Dict&);
-
 	void SetMapRenderer(const transport_catalogue::TransportCatalogue&, renderer::MapRenderer&, const json::Dict&);
 
 	//------------------outnput-------------------------

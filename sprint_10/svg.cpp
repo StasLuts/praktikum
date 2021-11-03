@@ -137,7 +137,7 @@ namespace svg
 
     // ---------- Document ------------------
 
-    void Document::AddPtr(std::unique_ptr<Object>&& obj)
+    void Document::AddPtr(std::shared_ptr<Object>&& obj)
     {
         objects_.emplace_back(std::move(obj));
     }

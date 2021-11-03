@@ -99,6 +99,19 @@ namespace transport_catalogue
 			bus->unicue_stops_.size(), route_length, C);
 	}
 
+	const std::vector<geo::Coordinates> TransportCatalogue::GetAllStopsCoordinates() const
+	{
+		std::vector<geo::Coordinates>stops_coordinates;
+		for (const auto& bus : buses_)
+		{
+			for (const auto& stop : bus.stops_)
+			{
+				stops_coordinates.emplace_back(stop->coodinates_);
+			}
+		}
+		return stops_coordinates;
+	}
+
 	const std::vector<geo::Coordinates> TransportCatalogue::GetStopsCoordinates(const std::string_view bus_name) const
 	{
 		std::vector<geo::Coordinates>stops_coordinates;
