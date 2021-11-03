@@ -102,6 +102,52 @@ namespace renderer
         }
     }
 
+    //-----------------RouteNamesRender------------------------
+
+    class RouteNamesRender : svg::Drawable
+    {
+    public:
+
+        RouteNamesRender(svg::Point stop_coordinate,
+            svg::Point bus_label_offset,
+            int bus_label_font_size,
+            std::string data,
+            svg::Color fill,
+            svg::Color background,
+            double stroke_width)
+            : 
+            stop_coordinate_(stop_coordinate),
+            bus_label_offset_(bus_label_offset),
+            bus_label_font_size_(bus_label_font_size),
+            data_(data),
+            fill_(fill),
+            background_(background, stroke_width) {}
+
+        void Draw(svg::ObjectContainer& container) const override;
+
+    private:
+
+        struct Background
+        {
+            Background(svg::Color fill_and_stroke, double stroke_width);
+
+            svg::Color fill;
+            svg::Color stroke;
+            double stroke_width;
+            const svg::StrokeLineCap stroke_linecap_ = svg::StrokeLineCap::ROUND;
+            const svg::StrokeLineJoin stroke_linejoin_ = svg::StrokeLineJoin::ROUND;
+        };
+
+        svg::Point stop_coordinate_;
+        svg::Point bus_label_offset_;
+        int bus_label_font_size_;
+        const std::string font_family_ = "Verdana";
+        const std::string font_weight_ = "bold";
+        std::string data_;
+        svg::Color fill_;
+        Background background_;
+    };
+
     //----------------RouteRender------------------------
 
     class RouteRender : svg::Drawable
