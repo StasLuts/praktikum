@@ -108,32 +108,25 @@ namespace renderer
     {
     public:
 
-        RouteNamesRender(svg::Point stop_coordinate,
-            svg::Point bus_label_offset,
-            int bus_label_font_size,
-            std::string data,
-            svg::Color fill,
-            svg::Color background,
-            double stroke_width)
-            : 
-            stop_coordinate_(stop_coordinate),
-            bus_label_offset_(bus_label_offset),
-            bus_label_font_size_(bus_label_font_size),
-            data_(data),
-            fill_(fill),
-            background_(background, stroke_width) {}
+        RouteNamesRender(const svg::Point&,
+            const svg::Point&,
+            const int,
+            const std::string&,
+            const svg::Color&,
+            const svg::Color&,
+            const double);
 
-        void Draw(svg::ObjectContainer& container) const override;
+        void Draw(svg::ObjectContainer&) const override;
 
     private:
 
         struct Background
         {
-            Background(svg::Color fill_and_stroke, double stroke_width);
+            Background(const svg::Color&, const double);
 
-            svg::Color fill;
-            svg::Color stroke;
-            double stroke_width;
+            svg::Color background_fill_;
+            svg::Color stroke_;
+            double stroke_width_;
             const svg::StrokeLineCap stroke_linecap_ = svg::StrokeLineCap::ROUND;
             const svg::StrokeLineJoin stroke_linejoin_ = svg::StrokeLineJoin::ROUND;
         };
@@ -154,9 +147,9 @@ namespace renderer
     {
     public:
 
-        RouteRender(const std::vector<svg::Point>& stops_coordinates, const svg::Color& stroke_color, const double stroke_width);
+        RouteRender(const std::vector<svg::Point>&, const svg::Color&, const double);
 
-        void Draw(svg::ObjectContainer& container) const override;
+        void Draw(svg::ObjectContainer&) const override;
 
     private:
 
