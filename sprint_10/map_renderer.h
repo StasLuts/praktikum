@@ -148,7 +148,7 @@ namespace renderer
 
         void AddRoutRender(const std::vector<svg::Point>&, const svg::Color&);
 
-        void AddRouteNameRender(const svg::Point&, const std::string&,  const svg::Color&);
+        void AddTextRender(const svg::Point&, const std::string&,  const svg::Color&, bool);
         
         svg::Document GetRender() const;
 

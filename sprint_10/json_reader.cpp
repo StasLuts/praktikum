@@ -164,12 +164,12 @@ namespace json_reader
 			}
 			if (it->cicle_type_ == true)
 			{
-				map_renderer.AddRouteNameRender(*stops_points.begin(), it->bus_num_, color_pallete[color_num]);
+				map_renderer.AddTextRender(*stops_points.begin(), it->bus_num_, color_pallete[color_num], false);
 			}
 			else
 			{
-				map_renderer.AddRouteNameRender(*stops_points.begin(), it->bus_num_, color_pallete[color_num]);
-				map_renderer.AddRouteNameRender(stops_points.back(), it->bus_num_, color_pallete[color_num]);
+				map_renderer.AddTextRender(*stops_points.begin(), it->bus_num_, color_pallete[color_num], false);
+				map_renderer.AddTextRender(stops_points.back(), it->bus_num_, color_pallete[color_num], false);
 			}
 			map_renderer.AddRoutRender(stops_points, color_pallete[color_num]);
 			color_num = (color_num == color_pallete.size() - 1) ? 0 : color_num + 1;

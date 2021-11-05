@@ -20,15 +20,24 @@ namespace renderer
 		return { (coords.lng - min_lon_) * zoom_coeff_ + padding_, (max_lat_ - coords.lat) * zoom_coeff_ + padding_ };
 	}
 
-	//-----------------RouteNamesRender------------------------
+	//-----------------TextRender------------------------
 
 	
 	TextRender::TextRender(const svg::Point& coordinate, const std::string& data, const svg::Color& fill, bool this_stop, const RenderSettings& render_settings)
 		: coordinate_(coordinate), data_(data), fill_(fill), this_stop_(this_stop), render_settings_(render_settings) {}
 
-	void TextRender::Draw(svg::ObjectContainer&) const
+	void TextRender::Draw(svg::ObjectContainer& container) const
 	{
+		svg::Text text;
+		if (this_stop_)
+		{
 
+		}
+		else
+		{
+
+		}
+		container.Add(text);
 	}
 
 	//----------------RouteRender------------------------
@@ -63,9 +72,9 @@ namespace renderer
 		routs_renders_.emplace_back(stops_coordinates, stroke_color, render_settings_);
 	}
 
-	void MapRenderer::AddRouteNameRender(const svg::Point& stop_coordinate, const std::string& data, const svg::Color& text_color, bool this_stop)
+	void MapRenderer::AddTextRender(const svg::Point& stop_coordinate, const std::string& data, const svg::Color& text_color, bool this_stop)
 	{
-		routs_names_renders_.emplace_back();
+		routs_names_renders_.emplace_back(stop_coordinate, data, text_color, this_stop, render_settings_);
 	}
 
 	svg::Document MapRenderer::GetRender() const
