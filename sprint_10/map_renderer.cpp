@@ -1,11 +1,5 @@
 #include "map_renderer.h"
 
-/*
- * В этом файле вы можете разместить код, отвечающий за визуализацию карты маршрутов в формате SVG.
- * Визуализация маршртутов вам понадобится во второй части итогового проекта.
- * Пока можете оставить файл пустым.
- */
-
 namespace renderer
 {
 	//----------------SphereProjector----------------------------
@@ -142,11 +136,11 @@ namespace renderer
 			stop_name.Draw(render);
 		}
 		return render;
-
 	}
 
 	const std::vector<svg::Color> MapRenderer::GetColorPallete() const
 	{
 		return render_settings_.color_palette;
 	}
+
 } // namespace renderer

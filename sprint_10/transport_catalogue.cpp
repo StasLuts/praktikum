@@ -131,5 +131,6 @@ namespace transport_catalogue
 		}
 		return buses;
 	}
+
 } // namespace transport_catalogue
 

@@ -1,4 +1,5 @@
 #pragma once
+
 #include "transport_catalogue.h"
 #include "map_renderer.h"
 
@@ -7,18 +8,13 @@ namespace request_handler
     class RequestHandler
     {
     public:
-        // MapRenderer понадобитс€ в следующей части итогового проекта
+
         RequestHandler(const transport_catalogue::TransportCatalogue& db, const renderer::MapRenderer& renderer);
 
-        // ¬озвращает информацию о маршруте (запрос Bus)
         std::optional<const domain::BusStat*> GetBusStat(const std::string_view& bus_name) const;
 
         std::optional<const domain::StopStat*> GetStopStat(const std::string_view& stop_name) const;
 
-        // ¬озвращает маршруты, проход€щие через
-        const std::unordered_set<domain::BusPtr>* GetBusesByStop(const std::string_view& stop_name) const;
-
-        // Ётот метод будет нужен в следующей части итогового проекта
         svg::Document RenderMap() const;
 
     private:

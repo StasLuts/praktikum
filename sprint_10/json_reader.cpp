@@ -13,7 +13,7 @@ namespace json_reader
 		{
 			MakeBase(trans_cat, base_requests->second.AsArray());
 		}
-		const auto render_settings = dict.find("render_settings");// если render_settings, передаем каталог и словарь в метод инициализируюший рисовалку
+		const auto render_settings = dict.find("render_settings");
 		renderer::MapRenderer map_renderer;
 		if (render_settings != dict.end())
 		{
@@ -100,7 +100,7 @@ namespace json_reader
 
 	//------------------render-------------------------
 
-	const svg::Color GetColor(const json::Node& color)//вытаскиваем тип цвета из документа
+	const svg::Color GetColor(const json::Node& color)
 	{
 		if (color.IsString())
 		{

@@ -162,8 +162,6 @@ namespace svg
 
         Owner& AsOwner()
         {
-            // static_cast безопасно преобразует *this к Owner&,
-            // если класс Owner — наследник PathProps
             return static_cast<Owner&>(*this);
         }
     };
@@ -183,10 +181,6 @@ namespace svg
 
     // ---------- RenderContext ------------------
 
-    /*
-     * Вспомогательная структура, хранящая контекст для вывода SVG-документа с отступами.
-     * Хранит ссылку на поток вывода, текущее значение и шаг отступа при выводе элемента
-     */
     struct RenderContext
     {
         RenderContext(std::ostream& out)
@@ -215,11 +209,6 @@ namespace svg
 
     // ---------- Object ------------------
 
-    /*
-     * Абстрактный базовый класс Object служит для унифицированного хранения
-     * конкретных тегов SVG-документа
-     * Реализует паттерн "Шаблонный метод" для вывода содержимого тега
-     */
     class Object {
     public:
         void Render(const RenderContext& context) const;
@@ -252,7 +241,7 @@ namespace svg
     class Polyline final : public Object, public PathProps <Polyline>
     {
     public:
-        // Добавляет очередную вершину к ломаной линии
+
         Polyline& AddPoint(Point point);
 
     private:
@@ -277,22 +266,17 @@ namespace svg
     class Text final : public Object, public PathProps<Text>
     {
     public:
-        // Задаёт координаты опорной точки (атрибуты x и y)
+
         Text& SetPosition(Point pos);
 
-        // Задаёт смещение относительно опорной точки (атрибуты dx, dy)
         Text& SetOffset(Point offset);
 
-        // Задаёт размеры шрифта (атрибут font-size)
         Text& SetFontSize(uint32_t size);
 
-        // Задаёт название шрифта (атрибут font-family)
         Text& SetFontFamily(std::string font_family);
 
-        // Задаёт толщину шрифта (атрибут font-weight)
         Text& SetFontWeight(std::string font_weight);
 
-        // Задаёт текстовое содержимое объекта (отображается внутри тега text)
         Text& SetData(std::string data);
 
     private:
@@ -337,10 +321,8 @@ namespace svg
     class Document final : public ObjectContainer {
     public:
 
-        // Добавляет в svg-документ объект-наследник svg::Object
         void AddPtr(std::shared_ptr<Object>&& obj) override;
 
-        // Выводит в ostream svg-представление документа
         void Render(std::ostream& out) const;
     };
 
