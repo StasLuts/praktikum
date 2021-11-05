@@ -102,43 +102,23 @@ namespace renderer
         }
     }
 
-    //-----------------RouteNamesRender------------------------
+    //-----------------TextRender------------------------
 
-    class RouteNamesRender : svg::Drawable
+    class TextRender : svg::Drawable
     {
     public:
 
-        RouteNamesRender(const svg::Point&,
-            const svg::Point&,
-            const int,
-            const std::string&,
-            const svg::Color&,
-            const svg::Color&,
-            const double);
+        TextRender(const svg::Point&, const std::string&, const svg::Color&, bool, const RenderSettings&);
 
         void Draw(svg::ObjectContainer&) const override;
 
     private:
 
-        struct Background
-        {
-            Background(const svg::Color&, const double);
-
-            svg::Color background_fill_;
-            svg::Color stroke_;
-            double stroke_width_;
-            const svg::StrokeLineCap stroke_linecap_ = svg::StrokeLineCap::ROUND;
-            const svg::StrokeLineJoin stroke_linejoin_ = svg::StrokeLineJoin::ROUND;
-        };
-
-        svg::Point stop_coordinate_;
-        svg::Point bus_label_offset_;
-        int bus_label_font_size_;
-        const std::string font_family_ = "Verdana";
-        const std::string font_weight_ = "bold";
+        svg::Point coordinate_;
         std::string data_;
         svg::Color fill_;
-        Background background_;
+        bool this_stop_;
+        const RenderSettings& render_settings_;
     };
 
     //----------------RouteRender------------------------
@@ -147,7 +127,7 @@ namespace renderer
     {
     public:
 
-        RouteRender(const std::vector<svg::Point>&, const svg::Color&, const double);
+        RouteRender(const std::vector<svg::Point>&, const svg::Color&, const double, const RenderSettings&);
 
         void Draw(svg::ObjectContainer&) const override;
 
@@ -155,10 +135,7 @@ namespace renderer
 
         std::vector<svg::Point> stops_coordinates_;
         svg::Color stroke_color_;
-        const svg::Color fill_color_ = {"none"};
-        double stroke_width_;
-        const svg::StrokeLineCap stroke_linecap_ = svg::StrokeLineCap::ROUND;
-        const svg::StrokeLineJoin stroke_linejoin_ = svg::StrokeLineJoin::ROUND;
+        const RenderSettings& render_settings_;
     };
 
     //---------------MapRenderer-------------------------
@@ -171,6 +148,8 @@ namespace renderer
 
         void AddRoutRender(const std::vector<svg::Point>&, const svg::Color&);
 
+        void AddRouteNameRender(const svg::Point&, const std::string&,  const svg::Color&);
+        
         svg::Document GetRender() const;
 
         const std::vector<svg::Color> GetColorPallete() const;
@@ -178,6 +157,7 @@ namespace renderer
     private:
 
         std::vector<RouteRender> routs_renders_;
+        std::vector<TextRender> routs_names_renders_;
         RenderSettings render_settings_;
     };
 

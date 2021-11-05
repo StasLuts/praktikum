@@ -22,33 +22,19 @@ namespace renderer
 
 	//-----------------RouteNamesRender------------------------
 
-	RouteNamesRender::RouteNamesRender(const svg::Point& stop_coordinate,
-		const svg::Point& bus_label_offset,
-		const int bus_label_font_size,
-		const std::string& data,
-		const svg::Color& fill,
-		const svg::Color& background,
-		const double stroke_width)
-		:
-		stop_coordinate_(stop_coordinate),
-		bus_label_offset_(bus_label_offset),
-		bus_label_font_size_(bus_label_font_size),
-		data_(data),
-		fill_(fill),
-		background_(background, stroke_width) {}
+	
+	TextRender::TextRender(const svg::Point& coordinate, const std::string& data, const svg::Color& fill, bool this_stop, const RenderSettings& render_settings)
+		: coordinate_(coordinate), data_(data), fill_(fill), this_stop_(this_stop), render_settings_(render_settings) {}
 
-	RouteNamesRender::Background::Background(const svg::Color& fill_and_stroke, const double stroke_width)
-		: background_fill_(fill_and_stroke), stroke_(fill_and_stroke), stroke_width_(stroke_width) {}
-
-	void RouteNamesRender::Draw(svg::ObjectContainer&) const
+	void TextRender::Draw(svg::ObjectContainer&) const
 	{
 
 	}
 
 	//----------------RouteRender------------------------
 
-	RouteRender::RouteRender(const std::vector<svg::Point>& stops_coordinates, const svg::Color& stroke_color, const double stroke_width)
-		: stops_coordinates_(stops_coordinates), stroke_color_(stroke_color), stroke_width_(stroke_width) {}
+	RouteRender::RouteRender(const std::vector<svg::Point>& stops_coordinates, const svg::Color& stroke_color, const double, const RenderSettings& render_settings)
+		: stops_coordinates_(stops_coordinates), stroke_color_(stroke_color), render_settings_(render_settings) {}
 
 	void RouteRender::Draw(svg::ObjectContainer& container) const
 	{
@@ -57,11 +43,11 @@ namespace renderer
 		{
 			render.AddPoint(stop_coordinate);
 		}
-		render.SetFillColor(fill_color_);
+		render.SetFillColor("none");
 		render.SetStrokeColor(stroke_color_);
-		render.SetStrokeWidth(stroke_width_);
-		render.SetStrokeLineCap(stroke_linecap_);
-		render.SetStrokeLineJoin(stroke_linejoin_);
+		render.SetStrokeWidth(render_settings_.line_width);
+		render.SetStrokeLineCap(svg::StrokeLineCap::ROUND);
+		render.SetStrokeLineJoin(svg::StrokeLineJoin::ROUND);
 		container.Add(render);
 	}
 
@@ -74,8 +60,12 @@ namespace renderer
 
 	void MapRenderer::AddRoutRender(const std::vector<svg::Point>& stops_coordinates, const svg::Color& stroke_color)
 	{
-		
-		routs_renders_.emplace_back(stops_coordinates, stroke_color, render_settings_.width);
+		routs_renders_.emplace_back(stops_coordinates, stroke_color, render_settings_);
+	}
+
+	void MapRenderer::AddRouteNameRender(const svg::Point& stop_coordinate, const std::string& data, const svg::Color& text_color, bool this_stop)
+	{
+		routs_names_renders_.emplace_back();
 	}
 
 	svg::Document MapRenderer::GetRender() const
