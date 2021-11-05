@@ -43,7 +43,7 @@ namespace transport_catalogue
 
 		const std::vector<geo::Coordinates> GetAllStopsCoordinates() const;
 
-		const std::vector<geo::Coordinates> GetStopsCoordinates(const std::string_view) const;
+		const std::vector<const domain::Stop*> GetStops(const std::string_view) const;
 
 		const std::deque<domain::BusPtr> GetBuses() const;
 	};

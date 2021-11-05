@@ -102,6 +102,22 @@ namespace renderer
         }
     }
 
+    //----------------StopPointRender------------------------
+
+    class StopPointRender : svg::Drawable
+    {
+    public:
+
+        StopPointRender(const svg::Point&, const RenderSettings&);
+
+        void Draw(svg::ObjectContainer&) const override;
+
+    private:
+
+        svg::Point stop_coordinate_;
+        const RenderSettings& render_settings_;
+    };
+
     //-----------------TextRender------------------------
 
     class TextRender : svg::Drawable
@@ -119,6 +135,10 @@ namespace renderer
         svg::Color fill_;
         bool this_stop_;
         const RenderSettings& render_settings_;
+
+        svg::Text CreateText() const;
+
+        svg::Text CreateBeckgraund() const;
     };
 
     //----------------RouteRender------------------------
@@ -127,7 +147,7 @@ namespace renderer
     {
     public:
 
-        RouteRender(const std::vector<svg::Point>&, const svg::Color&, const double, const RenderSettings&);
+        RouteRender(const std::vector<svg::Point>&, const svg::Color&, const RenderSettings&);
 
         void Draw(svg::ObjectContainer&) const override;
 
@@ -148,6 +168,8 @@ namespace renderer
 
         void AddRoutRender(const std::vector<svg::Point>&, const svg::Color&);
 
+        void AddStopPointRender(const svg::Point&);
+
         void AddTextRender(const svg::Point&, const std::string&,  const svg::Color&, bool);
         
         svg::Document GetRender() const;
@@ -158,6 +180,8 @@ namespace renderer
 
         std::vector<RouteRender> routs_renders_;
         std::vector<TextRender> routs_names_renders_;
+        std::vector<StopPointRender> stops_points_renders_;
+        std::vector<TextRender> stops_names_renders_;
         RenderSettings render_settings_;
     };
 

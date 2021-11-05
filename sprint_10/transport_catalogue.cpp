@@ -112,14 +112,14 @@ namespace transport_catalogue
 		return stops_coordinates;
 	}
 
-	const std::vector<geo::Coordinates> TransportCatalogue::GetStopsCoordinates(const std::string_view bus_name) const
+	const std::vector<const domain::Stop*> TransportCatalogue::GetStops(const std::string_view bus_name) const
 	{
-		std::vector<geo::Coordinates>stops_coordinates;
+		std::vector<const domain::Stop*>stops;
 		for (const auto& stop : buses_map_.at(bus_name)->stops_)
 		{
-			stops_coordinates.emplace_back(stop->coodinates_);
+			stops.emplace_back(stop);
 		}
-		return stops_coordinates;
+		return stops;
 	}
 
 	const std::deque<domain::BusPtr> TransportCatalogue::GetBuses() const

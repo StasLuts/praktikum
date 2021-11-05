@@ -158,9 +158,15 @@ namespace json_reader
 		for (const auto& it : trans_cat.GetBuses())
 		{
 			std::vector<svg::Point> stops_points;
-			for (const auto& coordinate : trans_cat.GetStopsCoordinates(it->bus_num_))
+			for (const auto& stop : trans_cat.GetStops(it->bus_num_))
 			{
-				stops_points.emplace_back(projector(coordinate));
+				stops_points.emplace_back(projector(stop->coodinates_));
+				map_renderer.AddStopPointRender(stops_points.back());
+				map_renderer.AddTextRender(stops_points.back(), stop->stop_name_, color_pallete[color_num], true);
+			}
+			if (stops_points.empty())
+			{
+				continue;
 			}
 			if (it->cicle_type_ == true)
 			{
