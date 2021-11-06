@@ -1,6 +1,7 @@
 #include "json_reader.h"
 
 #include <sstream>
+#include <map>
 
 namespace json_reader
 {
@@ -155,6 +156,8 @@ namespace json_reader
 		renderer::SphereProjector projector(all_stops_coordinates.begin(), all_stops_coordinates.end(), settings.width, settings.height, settings.padding);
 		const std::vector<svg::Color> color_pallete = map_renderer.GetColorPallete();
 		size_t color_num = 0;
+
+		std::map<std::string, svg::Point> stops;
 		for (const auto& it : trans_cat.GetBuses())
 		{
 			if (it->stops_.empty())
@@ -165,8 +168,7 @@ namespace json_reader
 			for (const auto& stop : trans_cat.GetStops(it->bus_num_))
 			{
 				stops_points.emplace_back(projector(stop->coodinates_));
-				map_renderer.AddStopPointRender(stops_points.back());
-				map_renderer.AddTextRender(stops_points.back(), stop->stop_name_, color_pallete[color_num], true);
+				stops[stop->stop_name_] = stops_points.back();
 			}
 			if (it->cicle_type_ == true)
 			{
@@ -180,6 +182,11 @@ namespace json_reader
 			}
 			map_renderer.AddRoutRender(stops_points, color_pallete[color_num]);
 			(color_num == color_pallete.size() - 1) ? color_num = 0 : ++color_num;
+		}
+		for (const auto& [name, coordinate] : stops)
+		{
+			map_renderer.AddStopPointRender(coordinate);
+			map_renderer.AddTextRender(coordinate, name, color_pallete[color_num], true);
 		}
 	}
 

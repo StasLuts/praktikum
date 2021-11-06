@@ -131,7 +131,7 @@ namespace transport_catalogue
 		}
 		std::sort(buses.begin(), buses.end(), [](const domain::BusPtr lhs, const domain::BusPtr rhs)
 			{
-				return lhs->bus_num_ > rhs->bus_num_;
+				return lhs->bus_num_ < rhs->bus_num_;
 			});
 		return buses;
 	}
