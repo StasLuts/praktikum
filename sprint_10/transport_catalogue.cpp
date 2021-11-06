@@ -129,6 +129,10 @@ namespace transport_catalogue
 		{
 			buses.emplace_back(&bus);
 		}
+		std::sort(buses.begin(), buses.end(), [](const domain::BusPtr lhs, const domain::BusPtr rhs)
+			{
+				return lhs->bus_num_ > rhs->bus_num_;
+			});
 		return buses;
 	}
 

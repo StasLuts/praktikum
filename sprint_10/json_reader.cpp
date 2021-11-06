@@ -153,20 +153,20 @@ namespace json_reader
 
 		const auto all_stops_coordinates = trans_cat.GetAllStopsCoordinates();
 		renderer::SphereProjector projector(all_stops_coordinates.begin(), all_stops_coordinates.end(), settings.width, settings.height, settings.padding);
-		const auto color_pallete = map_renderer.GetColorPallete();
+		const std::vector<svg::Color> color_pallete = map_renderer.GetColorPallete();
 		size_t color_num = 0;
 		for (const auto& it : trans_cat.GetBuses())
 		{
+			if (it->stops_.empty())
+			{
+				continue;
+			}
 			std::vector<svg::Point> stops_points;
 			for (const auto& stop : trans_cat.GetStops(it->bus_num_))
 			{
 				stops_points.emplace_back(projector(stop->coodinates_));
 				map_renderer.AddStopPointRender(stops_points.back());
 				map_renderer.AddTextRender(stops_points.back(), stop->stop_name_, color_pallete[color_num], true);
-			}
-			if (stops_points.empty())
-			{
-				continue;
 			}
 			if (it->cicle_type_ == true)
 			{
@@ -176,9 +176,10 @@ namespace json_reader
 			{
 				map_renderer.AddTextRender(*stops_points.begin(), it->bus_num_, color_pallete[color_num], false);
 				map_renderer.AddTextRender(stops_points.back(), it->bus_num_, color_pallete[color_num], false);
+				stops_points.emplace_back(*stops_points.begin());
 			}
 			map_renderer.AddRoutRender(stops_points, color_pallete[color_num]);
-			color_num = (color_num == color_pallete.size() - 1) ? 0 : color_num + 1;
+			(color_num == color_pallete.size() - 1) ? color_num = 0 : ++color_num;
 		}
 	}
 

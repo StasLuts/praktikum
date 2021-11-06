@@ -37,10 +37,7 @@ namespace renderer
 	svg::Text TextRender::CreateText() const
 	{
 		svg::Text text;
-		text.SetPosition(coordinate_);
-		text.SetFontFamily("Verdana");
-		text.SetData(data_);
-		if (this_stop_)
+		if (this_stop_ == true)
 		{
 			text.SetOffset(render_settings_.stop_label_offset);
 			text.SetFontSize(render_settings_.stop_label_font_size);
@@ -53,14 +50,16 @@ namespace renderer
 			text.SetFontWeight("bold");
 			text.SetFillColor(fill_);
 		}
+		text.SetPosition(coordinate_);
+		text.SetFontFamily("Verdana");
+		text.SetData(data_);
 		return text;
 	}
 
 	svg::Text TextRender::CreateBeckgraund() const
 	{
 		svg::Text text{ CreateText() };
-		text.SetFillColor(render_settings_.underlayer_color);
-		text.SetStrokeColor(render_settings_.underlayer_color);
+		text.SetFillColor(render_settings_.underlayer_color).SetStrokeColor(render_settings_.underlayer_color);
 		text.SetStrokeWidth(render_settings_.underlayer_width);
 		text.SetStrokeLineCap(svg::StrokeLineCap::ROUND);
 		text.SetStrokeLineJoin(svg::StrokeLineJoin::ROUND);
@@ -85,7 +84,7 @@ namespace renderer
 		{
 			render.AddPoint(stop_coordinate);
 		}
-		render.SetFillColor("none");
+		render.SetFillColor(svg::NoneColor);
 		render.SetStrokeColor(stroke_color_);
 		render.SetStrokeWidth(render_settings_.line_width);
 		render.SetStrokeLineCap(svg::StrokeLineCap::ROUND);
