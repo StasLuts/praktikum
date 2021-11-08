@@ -8,6 +8,6 @@ namespace geo
         double lng;
     };
 
-    double ComputeDistance(Coordinates from, Coordinates to);
+    double ComputeDistance(const Coordinates& from, const Coordinates& to);
 
 }  // namespace geo

@@ -33,6 +33,6 @@ namespace json_reader
 
 	const json::Dict GetBusInfo(const request_handler::RequestHandler&, const json::Dict&);
 
-	const json::Dict GetMapRender(const request_handler::RequestHandler&, const json::Dict& dict);
+	const json::Dict GetMapRender(const request_handler::RequestHandler&, const json::Dict&);
 
 } // json_reader 

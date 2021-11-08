@@ -6,7 +6,7 @@
 
 namespace geo
 {
-    double ComputeDistance(Coordinates from, Coordinates to)
+    double ComputeDistance(const Coordinates& from, const Coordinates& to)
     {
         using namespace std;
         const double dr = M_PI / 180.0;

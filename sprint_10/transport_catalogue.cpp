@@ -4,27 +4,27 @@
 
 namespace transport_catalogue
 {
-	void TransportCatalogue::SetDistanceBetweenStops(std::string_view from_stop, std::string_view to_stop, int distance)
+	void TransportCatalogue::SetDistanceBetweenStops(const std::string_view& from_stop, const std::string_view& to_stop, const int& distance)
 	{
-		auto lhs = FindStop(move(from_stop));
-		auto rhs = FindStop(move(to_stop));
+		auto lhs = FindStop(from_stop);
+		auto rhs = FindStop(to_stop);
 		stop_to_stop_distance_[std::make_pair(lhs, rhs)] = distance;
 	}
 
-	int TransportCatalogue::GetDistanceBetweenStops(const domain::Stop* lhs, const domain::Stop* rhs) const
+	int TransportCatalogue::GetDistanceBetweenStops(domain::StopPtr lhs, domain::StopPtr rhs) const
 	{
 		return (stop_to_stop_distance_.find(std::make_pair(lhs, rhs)) == stop_to_stop_distance_.end()) ?
 			stop_to_stop_distance_.at(std::make_pair(rhs, lhs)) :
-			stop_to_stop_distance_.at(std::make_pair(lhs, rhs));//¿œ—Õ€
+			stop_to_stop_distance_.at(std::make_pair(lhs, rhs));
 	}
 
-	void TransportCatalogue::AddingBusDatabase(std::string_view bus_num, std::vector<std::string_view>& stops, bool cicle_type)
+	void TransportCatalogue::AddingBusDatabase(const std::string_view& bus_num, const std::vector<std::string_view>& stops, const bool& cicle_type)
 	{
-		std::vector<const domain::Stop*>stops_ptr;
-		std::unordered_set<const domain::Stop*> unicue_stops_ptr;
+		std::vector<domain::StopPtr>stops_ptr;
+		std::unordered_set<domain::StopPtr> unicue_stops_ptr;
 		for (auto& stop : stops)
 		{
-			auto a = FindStop(move(stop));
+			auto a = FindStop(stop);
 			stops_ptr.emplace_back(a);
 			unicue_stops_ptr.emplace(a);
 		}
@@ -32,25 +32,25 @@ namespace transport_catalogue
 		buses_map_[buses_.front().bus_num_] = &buses_.front();
 	}
 
-	void TransportCatalogue::AddingStopDatabase(std::string_view stop_name, const double lat, const double lng)
+	void TransportCatalogue::AddingStopDatabase(const std::string_view& stop_name, const double& lat, const double& lng)
 	{
-		stops_.emplace_front(domain::Stop(move(stop_name), lat, lng));
+		stops_.emplace_front(domain::Stop(stop_name, lat, lng));
 		stops_map_[stops_.front().stop_name_] = &stops_.front();
 	}
 
-	const domain::Bus* TransportCatalogue::FindBus(std::string_view bus_num) const
+	domain::BusPtr TransportCatalogue::FindBus(const std::string_view& bus_num) const
 	{
-		return (buses_map_.find(move(bus_num)) == buses_map_.end()) ? nullptr : buses_map_.at(move(bus_num));
+		return (buses_map_.find(bus_num) == buses_map_.end()) ? nullptr : buses_map_.at(bus_num);
 	}
 
-	const domain::Stop* TransportCatalogue::FindStop(std::string_view stop_name) const
+	domain::StopPtr TransportCatalogue::FindStop(const std::string_view& stop_name) const
 	{
-		return (stops_map_.find(move(stop_name)) == stops_map_.end()) ? nullptr : stops_map_.at(move(stop_name));
+		return (stops_map_.find(stop_name) == stops_map_.end()) ? nullptr : stops_map_.at(stop_name);
 	}
 
-	const domain::StopStat* TransportCatalogue::GetStopStat(std::string_view stop_name) const
+	const domain::StopStat* TransportCatalogue::GetStopStat(const std::string_view& stop_name) const
 	{
-		auto stop = FindStop(move(stop_name));
+		auto stop = FindStop(stop_name);
 		if (stop == nullptr)
 		{
 			return nullptr;
@@ -112,9 +112,9 @@ namespace transport_catalogue
 		return stops_coordinates;
 	}
 
-	const std::vector<const domain::Stop*> TransportCatalogue::GetStops(const std::string_view bus_name) const
+	const std::vector<domain::StopPtr> TransportCatalogue::GetStops(const std::string_view& bus_name) const
 	{
-		std::vector<const domain::Stop*>stops;
+		std::vector<domain::StopPtr>stops;
 		for (const auto& stop : buses_map_.at(bus_name)->stops_)
 		{
 			stops.emplace_back(stop);
@@ -129,7 +129,7 @@ namespace transport_catalogue
 		{
 			buses.emplace_back(&bus);
 		}
-		std::sort(buses.begin(), buses.end(), [](const domain::BusPtr lhs, const domain::BusPtr rhs)
+		std::sort(buses.begin(), buses.end(), [](domain::BusPtr lhs, domain::BusPtr rhs)
 			{
 				return lhs->bus_num_ < rhs->bus_num_;
 			});

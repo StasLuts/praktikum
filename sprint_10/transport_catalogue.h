@@ -20,31 +20,31 @@ namespace transport_catalogue
 
 		std::deque<domain::Bus> buses_;
 		std::deque<domain::Stop> stops_;
-		std::unordered_map<std::string_view, const domain::Bus*> buses_map_;
-		std::unordered_map<std::string_view, const domain::Stop*> stops_map_;
-		std::unordered_map<std::pair<const domain::Stop*, const domain::Stop*>, int, domain::PairStopsHasher> stop_to_stop_distance_;
+		std::unordered_map<std::string_view, domain::BusPtr> buses_map_;
+		std::unordered_map<std::string_view, domain::StopPtr> stops_map_;
+		std::unordered_map<std::pair<domain::StopPtr, domain::StopPtr>, int, domain::PairStopsHasher> stop_to_stop_distance_;
 
 	public:
 
-		void SetDistanceBetweenStops(std::string_view from_stop, std::string_view to_stop, int distance);
+		void SetDistanceBetweenStops(const std::string_view&, const std::string_view&, const int&);
 
-		int GetDistanceBetweenStops(const domain::Stop* lhs, const domain::Stop* rhs) const;
+		int GetDistanceBetweenStops(domain::StopPtr, domain::StopPtr) const;
 
-		void AddingBusDatabase(std::string_view bus_num, std::vector<std::string_view>& stops, bool cicle_type);
+		void AddingBusDatabase(const std::string_view&, const std::vector<std::string_view>&, const bool&);
 
-		void AddingStopDatabase(std::string_view stop_name, const double lat, const double lng);
+		void AddingStopDatabase(const std::string_view&, const double&, const double&);
+		
+		domain::BusPtr FindBus(const std::string_view&) const;
 
-		const domain::Bus* FindBus(std::string_view bus_num) const;
+		domain::StopPtr FindStop(const std::string_view&) const;
 
-		const domain::Stop* FindStop(std::string_view stop_name) const;
+		const domain::StopStat* GetStopStat(const std::string_view&) const;
 
-		const domain::StopStat* GetStopStat(std::string_view stop_name) const;
-
-		const domain::BusStat* GetBusStat(const std::string_view& bus_name) const;
+		const domain::BusStat* GetBusStat(const std::string_view&) const;
 
 		const std::vector<geo::Coordinates> GetAllStopsCoordinates() const;
 
-		const std::vector<const domain::Stop*> GetStops(const std::string_view) const;
+		const std::vector<domain::StopPtr> GetStops(const std::string_view&) const;
 
 		const std::deque<domain::BusPtr> GetBuses() const;
 	};

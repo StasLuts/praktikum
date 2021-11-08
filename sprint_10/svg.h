@@ -17,7 +17,7 @@ namespace svg
 	struct Point
 	{
 		Point() = default;
-		Point(double x, double y);
+		Point(const double& x, const double& y);
 
 		double x = 0;
 		double y = 0;
@@ -26,7 +26,7 @@ namespace svg
 	struct RenderContext
 	{
 		RenderContext(std::ostream& out);
-		RenderContext(std::ostream& out, int indent_step, int indent = 0);
+		RenderContext(std::ostream& out, const int& indent_step, const int& indent = 0);
 
 		RenderContext Indented() const;
 		void RenderIndent() const;
@@ -67,7 +67,7 @@ namespace svg
 	struct Rgb
 	{
 		Rgb() = default;
-		Rgb(uint8_t r, uint8_t g, uint8_t b);
+		Rgb(const uint8_t& r, const uint8_t& g, const uint8_t& b);
 
 		uint8_t
 			red = 0,
@@ -79,7 +79,7 @@ namespace svg
 		: public Rgb
 	{
 		Rgba() = default;
-		Rgba(uint8_t r, uint8_t g, uint8_t b, double o);
+		Rgba(const uint8_t& r, const uint8_t& g, const uint8_t& b, const double& o);
 
 		double opacity = 1.0;
 	};
@@ -88,35 +88,35 @@ namespace svg
 
 	inline const Color NoneColor{};
 
-	std::ostream& operator<<(std::ostream& out, StrokeLineCap line_cap);
-	std::ostream& operator<<(std::ostream& out, StrokeLineJoin line_join);
+	std::ostream& operator<<(std::ostream& out, const StrokeLineCap& line_cap);
+	std::ostream& operator<<(std::ostream& out, const StrokeLineJoin& line_join);
 
 	template <typename Owner>
 	class PathProps
 	{
 	public:
 
-		Owner& SetFillColor(Color color)
+		Owner& SetFillColor(const Color& color)
 		{
 			fill_color_ = std::move(color);
 			return AsOwner();
 		}
-		Owner& SetStrokeColor(Color color)
+		Owner& SetStrokeColor(const Color& color)
 		{
 			stroke_color_ = std::move(color);
 			return AsOwner();
 		}
-		Owner& SetStrokeWidth(double width)
+		Owner& SetStrokeWidth(const double& width)
 		{
 			stroke_width_ = width;
 			return AsOwner();
 		}
-		Owner& SetStrokeLineCap(StrokeLineCap line_cap)
+		Owner& SetStrokeLineCap(const StrokeLineCap& line_cap)
 		{
 			line_cap_ = line_cap;
 			return AsOwner();
 		}
-		Owner& SetStrokeLineJoin(StrokeLineJoin line_join)
+		Owner& SetStrokeLineJoin(const StrokeLineJoin& line_join)
 		{
 			line_join_ = line_join;
 			return AsOwner();
@@ -179,7 +179,7 @@ namespace svg
 				out << "none"sv;
 			}
 
-			void operator()(const std::string_view str) const
+			void operator()(const std::string_view& str) const
 			{
 				using namespace std::literals;
 				out << str;
@@ -210,8 +210,8 @@ namespace svg
 		: public Object
 		, public PathProps<Circle> {
 	public:
-		Circle& SetCenter(Point center);
-		Circle& SetRadius(double radius);
+		Circle& SetCenter(const Point& center);
+		Circle& SetRadius(const double& radius);
 
 	private:
 		Point center_;
@@ -224,7 +224,7 @@ namespace svg
 		: public Object
 		, public PathProps<Polyline> {
 	public:
-		Polyline& AddPoint(Point point);
+		Polyline& AddPoint(const Point& point);
 
 	private:
 		std::vector<Point> points_;
@@ -236,12 +236,12 @@ namespace svg
 		: public Object
 		, public PathProps<Text> {
 	public:
-		Text& SetPosition(Point pos);
-		Text& SetOffset(Point offset);
-		Text& SetFontSize(uint32_t size);
-		Text& SetFontFamily(std::string font_family);
-		Text& SetFontWeight(std::string font_weight);
-		Text& SetData(std::string data);
+		Text& SetPosition(const Point& pos);
+		Text& SetOffset(const Point& offset);
+		Text& SetFontSize(const uint32_t& size);
+		Text& SetFontFamily(const std::string& font_family);
+		Text& SetFontWeight(const std::string& font_weight);
+		Text& SetData(const std::string& data);
 
 	private:
 		Point position_;

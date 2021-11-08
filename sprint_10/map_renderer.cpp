@@ -4,12 +4,12 @@ namespace renderer
 {
 	//----------------SphereProjector----------------------------
 
-	bool IsZero(double value)
+	bool IsZero(const double& value)
 	{
 		return std::abs(value) < EPSILON;
 	}
 
-	svg::Point SphereProjector::operator()(geo::Coordinates coords) const
+	svg::Point SphereProjector::operator()(const geo::Coordinates& coords) const
 	{
 		return { (coords.lng - min_lon_) * zoom_coeff_ + padding_, (max_lat_ - coords.lat) * zoom_coeff_ + padding_ };
 	}
@@ -30,8 +30,8 @@ namespace renderer
 
 	//-----------------TextRender------------------------
 
-	
-	TextRender::TextRender(const svg::Point& coordinate, const std::string& data, const svg::Color& fill, bool this_stop, const RenderSettings& render_settings)
+
+	TextRender::TextRender(const svg::Point& coordinate, const std::string_view& data, const svg::Color& fill, const bool& this_stop, const RenderSettings& render_settings)
 		: coordinate_(coordinate), data_(data), fill_(fill), this_stop_(this_stop), render_settings_(render_settings) {}
 
 	svg::Text TextRender::CreateText() const
@@ -99,9 +99,9 @@ namespace renderer
 		render_settings_ = render_settings;
 	}
 
-	void MapRenderer::AddRoutRender(std::vector<svg::Point>& stops_coordinates, const svg::Color& stroke_color)
+	void MapRenderer::AddRoutRender(const std::vector<svg::Point>& stops_coordinates, const svg::Color& stroke_color)
 	{
-		routs_renders_.emplace_back(move(stops_coordinates), stroke_color, render_settings_);
+		routs_renders_.emplace_back(stops_coordinates, stroke_color, render_settings_);
 	}
 
 	void MapRenderer::AddStopPointRender(const svg::Point& stop_coordinate)
@@ -137,7 +137,7 @@ namespace renderer
 		return render;
 	}
 
-	const std::vector<svg::Color> MapRenderer::GetColorPallete() const
+	const std::vector<svg::Color>& MapRenderer::GetColorPallete() const
 	{
 		return render_settings_.color_palette;
 	}
