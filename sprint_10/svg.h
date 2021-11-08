@@ -206,36 +206,38 @@ namespace svg
 		};
 	};
 
-	class Circle final
-		: public Object
-		, public PathProps<Circle> {
+	class Circle final: public Object, public PathProps<Circle>
+	{
 	public:
+
 		Circle& SetCenter(const Point& center);
 		Circle& SetRadius(const double& radius);
 
 	private:
+
 		Point center_;
 		double radius_ = 1.0;
 
 		void RenderObject(const RenderContext& context) const override;
 	};
 
-	class Polyline
-		: public Object
-		, public PathProps<Polyline> {
+	class Polyline: public Object, public PathProps<Polyline>
+	{
 	public:
+
 		Polyline& AddPoint(const Point& point);
 
 	private:
+
 		std::vector<Point> points_;
 
 		void RenderObject(const RenderContext& context) const override;
 	};
 
-	class Text
-		: public Object
-		, public PathProps<Text> {
+	class Text: public Object, public PathProps<Text>
+	{
 	public:
+
 		Text& SetPosition(const Point& pos);
 		Text& SetOffset(const Point& offset);
 		Text& SetFontSize(const uint32_t& size);
@@ -244,6 +246,7 @@ namespace svg
 		Text& SetData(const std::string& data);
 
 	private:
+
 		Point position_;
 		Point offset_;
 		uint32_t font_size_ = 1;
@@ -273,13 +276,17 @@ namespace svg
 		std::deque<std::shared_ptr<Object>> objects_;
 	};
 
-	class Drawable {
+	class Drawable
+	{
 	public:
+
 		virtual void Draw(ObjectContainer& container) const = 0;
+
 		virtual ~Drawable() = default;
 	};
 
-	class Document final : public ObjectContainer {
+	class Document final : public ObjectContainer
+	{
 	public:
 
 		void AddPtr(std::shared_ptr<Object>&& obj) override;
@@ -287,4 +294,4 @@ namespace svg
 		void Render(std::ostream& out) const;
 	};
 
-}
+} // namespace svg

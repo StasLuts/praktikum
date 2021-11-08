@@ -187,3 +187,5 @@ namespace renderer
     };
 
 } // namespace renderer
+
+//program.exe < input.json

@@ -1,6 +1,7 @@
 #include "json_reader.h"
 
 #include <sstream>
+#include <fstream>
 #include <map>
 
 namespace json_reader
@@ -170,10 +171,10 @@ namespace json_reader
 				map_renderer.AddTextRender(*stops_points.begin(), it->bus_num_, color_pallete[color_num], false);
 				map_renderer.AddRoutRender(stops_points, color_pallete[color_num]);
 			}
-			else
+			else if (it->cicle_type_ == false)
 			{
 				map_renderer.AddTextRender(*stops_points.begin(), it->bus_num_, color_pallete[color_num], false);
-				map_renderer.AddTextRender(stops_points.back(), it->bus_num_, color_pallete[color_num], false);
+				if (*it->stops_.begin() != it->stops_.back())map_renderer.AddTextRender(stops_points.back(), it->bus_num_, color_pallete[color_num], false);
 				stops_points.insert(stops_points.end(), stops_points.rbegin() + 1, stops_points.rend());
 				map_renderer.AddRoutRender(stops_points, color_pallete[color_num]);
 			}
