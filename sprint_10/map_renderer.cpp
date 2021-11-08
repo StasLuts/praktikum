@@ -99,9 +99,9 @@ namespace renderer
 		render_settings_ = render_settings;
 	}
 
-	void MapRenderer::AddRoutRender(const std::vector<svg::Point>& stops_coordinates, const svg::Color& stroke_color)
+	void MapRenderer::AddRoutRender(std::vector<svg::Point>& stops_coordinates, const svg::Color& stroke_color)
 	{
-		routs_renders_.emplace_back(stops_coordinates, stroke_color, render_settings_);
+		routs_renders_.emplace_back(move(stops_coordinates), stroke_color, render_settings_);
 	}
 
 	void MapRenderer::AddStopPointRender(const svg::Point& stop_coordinate)

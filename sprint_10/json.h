@@ -82,7 +82,7 @@ namespace json
 		{
 			return std::holds_alternative<Dict>(*this);
 		}
-		const Dict& AsMap() const
+		const Dict& AsDict() const
 		{
 			return (!IsMap()) ? throw std::logic_error("Not a dict") : std::get<Dict>(*this);
 		}

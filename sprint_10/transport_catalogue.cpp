@@ -6,8 +6,8 @@ namespace transport_catalogue
 {
 	void TransportCatalogue::SetDistanceBetweenStops(std::string_view from_stop, std::string_view to_stop, int distance)
 	{
-		auto lhs = FindStop(from_stop);
-		auto rhs = FindStop(to_stop);
+		auto lhs = FindStop(move(from_stop));
+		auto rhs = FindStop(move(to_stop));
 		stop_to_stop_distance_[std::make_pair(lhs, rhs)] = distance;
 	}
 
@@ -28,29 +28,29 @@ namespace transport_catalogue
 			stops_ptr.emplace_back(a);
 			unicue_stops_ptr.emplace(a);
 		}
-		buses_.emplace_front(domain::Bus(bus_num, stops_ptr, unicue_stops_ptr, cicle_type));
+		buses_.emplace_front(domain::Bus(bus_num, stops_ptr, move(unicue_stops_ptr), cicle_type));
 		buses_map_[buses_.front().bus_num_] = &buses_.front();
 	}
 
 	void TransportCatalogue::AddingStopDatabase(std::string_view stop_name, const double lat, const double lng)
 	{
-		stops_.emplace_front(domain::Stop(stop_name, lat, lng));
+		stops_.emplace_front(domain::Stop(move(stop_name), lat, lng));
 		stops_map_[stops_.front().stop_name_] = &stops_.front();
 	}
 
 	const domain::Bus* TransportCatalogue::FindBus(std::string_view bus_num) const
 	{
-		return (buses_map_.find(bus_num) == buses_map_.end()) ? nullptr : buses_map_.at(bus_num);
+		return (buses_map_.find(move(bus_num)) == buses_map_.end()) ? nullptr : buses_map_.at(move(bus_num));
 	}
 
 	const domain::Stop* TransportCatalogue::FindStop(std::string_view stop_name) const
 	{
-		return (stops_map_.find(stop_name) == stops_map_.end()) ? nullptr : stops_map_.at(stop_name);
+		return (stops_map_.find(move(stop_name)) == stops_map_.end()) ? nullptr : stops_map_.at(move(stop_name));
 	}
 
 	const domain::StopStat* TransportCatalogue::GetStopStat(std::string_view stop_name) const
 	{
-		auto stop = FindStop(stop_name);
+		auto stop = FindStop(move(stop_name));
 		if (stop == nullptr)
 		{
 			return nullptr;
@@ -124,7 +124,7 @@ namespace transport_catalogue
 
 	const std::deque<domain::BusPtr> TransportCatalogue::GetBuses() const
 	{
-		std::deque<domain::BusPtr> buses; 
+		std::deque<domain::BusPtr> buses;
 		for (const auto& bus : buses_)
 		{
 			buses.emplace_back(&bus);

@@ -1,3 +1,4 @@
+﻿
 #include "json.h"
 
 #include <iterator>
@@ -374,7 +375,7 @@ namespace json
 			auto inner_ctx = ctx.Indented();
 			for (const auto& [key, node] : nodes)
 			{
-				if (first) 
+				if (first)
 				{
 					first = false;
 				}
@@ -397,7 +398,7 @@ namespace json
 			std::visit([&ctx](const auto& value)
 				{
 					PrintValue(value, ctx);
-				},node.GetValue());
+				}, node.GetValue());
 		}
 
 	} // namespace

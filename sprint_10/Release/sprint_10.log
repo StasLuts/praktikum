@@ -1,0 +1,12 @@
+﻿  domain.cpp
+  geo.cpp
+  json.cpp
+  json_reader.cpp
+  main.cpp
+  map_renderer.cpp
+  request_handler.cpp
+  svg.cpp
+  transport_catalogue.cpp
+  Создание кода...
+LINK : warning LNK4075: не учитывается "/INCREMENTAL" из-за спецификации "/OPT:ICF"
+  sprint_10.vcxproj -> C:\Users\User\source\repos\StasLuts\praktikum\sprint_10\Release\sprint_10.exe

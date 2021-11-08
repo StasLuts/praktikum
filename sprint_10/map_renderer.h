@@ -167,7 +167,7 @@ namespace renderer
 
         void SetRenderSettings(const RenderSettings&);
 
-        void AddRoutRender(const std::vector<svg::Point>&, const svg::Color&);
+        void AddRoutRender(std::vector<svg::Point>&, const svg::Color&);
 
         void AddStopPointRender(const svg::Point&);
 
@@ -183,6 +183,9 @@ namespace renderer
         std::vector<TextRender> routs_names_renders_;
         std::vector<StopPointRender> stops_points_renders_;
         std::vector<TextRender> stops_names_renders_;
+
+    protected:
+
         RenderSettings render_settings_;
     };
 

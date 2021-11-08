@@ -8,7 +8,7 @@ namespace json_reader
 	void JsonRead(std::istream& input)
 	{
 		transport_catalogue::TransportCatalogue trans_cat;
- 		const auto dict = json::Load(input).GetRoot().AsMap();
+		const auto dict = json::Load(input).GetRoot().AsDict();
 		const auto base_requests = dict.find("base_requests");
 		if (base_requests != dict.end())
 		{
@@ -18,7 +18,7 @@ namespace json_reader
 		renderer::MapRenderer map_renderer;
 		if (render_settings != dict.end())
 		{
-			SetMapRenderer(trans_cat, map_renderer, render_settings->second.AsMap());
+			SetMapRenderer(trans_cat, map_renderer, render_settings->second.AsDict());
 		}
 		const auto stat_requests = dict.find("stat_requests");
 		if (stat_requests != dict.end())
@@ -33,36 +33,36 @@ namespace json_reader
 	{
 		for (const auto& recuest : arr)
 		{
-			const auto rec_type = recuest.AsMap().find("type");
-			if (rec_type != recuest.AsMap().end())
+			const auto rec_type = recuest.AsDict().find("type");
+			if (rec_type != recuest.AsDict().end())
 			{
 				if (rec_type->second.AsString() == "Stop")
 				{
-					ReadStopData(trans_cat, recuest.AsMap());
+					ReadStopData(trans_cat, recuest.AsDict());
 				}
 			}
 		}
 
 		for (const auto& recuest : arr)
 		{
-			const auto rec_type = recuest.AsMap().find("type");
-			if (rec_type != recuest.AsMap().end())
+			const auto rec_type = recuest.AsDict().find("type");
+			if (rec_type != recuest.AsDict().end())
 			{
 				if (rec_type->second.AsString() == "Stop")
 				{
-					ReadStopDistance(trans_cat, recuest.AsMap());
+					ReadStopDistance(trans_cat, recuest.AsDict());
 				}
 			}
 		}
 
 		for (const auto& recuest : arr)
 		{
-			const auto rec_type = recuest.AsMap().find("type");
-			if (rec_type != recuest.AsMap().end())
+			const auto rec_type = recuest.AsDict().find("type");
+			if (rec_type != recuest.AsDict().end())
 			{
 				if (rec_type->second.AsString() == "Bus")
 				{
-					ReadBusData(trans_cat, recuest.AsMap());
+					ReadBusData(trans_cat, recuest.AsDict());
 				}
 			}
 		}
@@ -79,7 +79,7 @@ namespace json_reader
 	void ReadStopDistance(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
 	{
 		const auto from_stop_name = dict.at("name").AsString();
-		const auto stops = dict.at("road_distances").AsMap();
+		const auto stops = dict.at("road_distances").AsDict();
 		for (const auto& [to_stop_name, distance] : stops)
 		{
 			trans_cat.SetDistanceBetweenStops(from_stop_name, to_stop_name, distance.AsInt());
@@ -156,14 +156,9 @@ namespace json_reader
 		renderer::SphereProjector projector(all_stops_coordinates.begin(), all_stops_coordinates.end(), settings.width, settings.height, settings.padding);
 		const std::vector<svg::Color> color_pallete = map_renderer.GetColorPallete();
 		size_t color_num = 0;
-
 		std::map<std::string, svg::Point> stops;
 		for (const auto& it : trans_cat.GetBuses())
 		{
-			if (it->stops_.empty())
-			{
-				continue;
-			}
 			std::vector<svg::Point> stops_points;
 			for (const auto& stop : trans_cat.GetStops(it->bus_num_))
 			{
@@ -173,14 +168,15 @@ namespace json_reader
 			if (it->cicle_type_ == true)
 			{
 				map_renderer.AddTextRender(*stops_points.begin(), it->bus_num_, color_pallete[color_num], false);
+				map_renderer.AddRoutRender(stops_points, color_pallete[color_num]);
 			}
 			else
 			{
 				map_renderer.AddTextRender(*stops_points.begin(), it->bus_num_, color_pallete[color_num], false);
 				map_renderer.AddTextRender(stops_points.back(), it->bus_num_, color_pallete[color_num], false);
-				stops_points.emplace_back(*stops_points.begin());
+				stops_points.insert(stops_points.end(), stops_points.rbegin() + 1, stops_points.rend());
+				map_renderer.AddRoutRender(stops_points, color_pallete[color_num]);
 			}
-			map_renderer.AddRoutRender(stops_points, color_pallete[color_num]);
 			(color_num == color_pallete.size() - 1) ? color_num = 0 : ++color_num;
 		}
 		for (const auto& [name, coordinate] : stops)
@@ -197,20 +193,20 @@ namespace json_reader
 		json::Array response;
 		for (const auto& recuest : arr)
 		{
-			const auto rec_type = recuest.AsMap().find("type");
-			if (rec_type != recuest.AsMap().end())
+			const auto rec_type = recuest.AsDict().find("type");
+			if (rec_type != recuest.AsDict().end())
 			{
 				if (rec_type->second.AsString() == "Stop")
 				{
-					response.emplace_back(GetStopInfo(request_handler, recuest.AsMap()));
+					response.emplace_back(GetStopInfo(request_handler, recuest.AsDict()));
 				}
 				else if (rec_type->second.AsString() == "Bus")
 				{
-					response.emplace_back(GetBusInfo(request_handler, recuest.AsMap()));
+					response.emplace_back(GetBusInfo(request_handler, recuest.AsDict()));
 				}
 				else if (rec_type->second.AsString() == "Map")
 				{
-					response.emplace_back(GetMapRender(request_handler, recuest.AsMap()));
+					response.emplace_back(GetMapRender(request_handler, recuest.AsDict()));
 				}
 			}
 		}

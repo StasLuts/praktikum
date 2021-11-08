@@ -1,6 +1,5 @@
 #pragma once
 
-#include "geo.h"
 #include "domain.h"
 
 #include <string_view>
@@ -11,6 +10,7 @@
 #include <vector>
 #include <set>
 #include <functional>
+#include <map>
 
 namespace transport_catalogue
 {
