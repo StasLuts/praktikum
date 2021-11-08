@@ -3,25 +3,47 @@
 #include "transport_catalogue.h"
 #include <string>
 #include <vector>
-#include <tuple>
+#include <iostream>
 #include <string_view>
 
 namespace transport_catalogue
 {
 	namespace input
 	{
-		std::string ReadLine();
+		struct Stop
+		{
+			std::string_view name;
+			double lat;
+			double lng;
+		};
+
+		struct StopsDictance
+		{
+			std::string_view stop_to;
+			std::string_view stop_from;
+			int dictance;
+		};
+
+		struct Bus
+		{
+			std::string_view name;
+			bool cicle_type;
+			std::vector<std::string_view> stops;
+		};
+
+		std::string ReadLine(std::istream&);
 
 		int ReadLineWithNumber();
 
-		std::tuple<std::string_view, double, double> SplitForStop(std::string_view text);
+		Stop SplitForStop(std::string_view);
 
-		std::tuple<std::string_view, bool, std::vector<std::string_view>> SplitForBus(std::string_view text);
+		Bus SplitForBus(std::string_view);
 
-		std::vector<std::tuple<std::string_view, std::string_view, int>> SplitForDistance(std::string_view text);
+		std::vector<StopsDictance> SplitForDistance(std::string_view);
 
-		void FillData(TransportCatalogue& catalog);
-	}
-}
+		void FillData(TransportCatalogue&, std::istream&);
+
+	} // 	namespace input
+} // namespace transport_catalogue
 
 

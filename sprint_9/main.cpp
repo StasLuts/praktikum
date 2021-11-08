@@ -5,7 +5,7 @@
 int main()
 {
 	transport_catalogue::TransportCatalogue transport_catalogue;
-	transport_catalogue::input::FillData(transport_catalogue);
-	transport_catalogue::output::FillOutputData(transport_catalogue);
+	transport_catalogue::input::FillData(transport_catalogue, std::cin);
+	transport_catalogue::output::OutputData(transport_catalogue, std::cout);
 	return 0;
 }

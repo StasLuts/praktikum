@@ -7,12 +7,13 @@ namespace transport_catalogue
 {
 	namespace output
 	{
-		std::string_view SplitForOutput(std::string_view text);
+		std::string_view SplitForOutput(const std::string_view&);
 
-		void Print_Route_Info(TransportCatalogue& tc, std::string_view query);
+		void PrintRouteInfo(const TransportCatalogue&, const std::string_view&, std::ostream&);
 
-		void Print_Stop_Info(TransportCatalogue& tc, std::string_view query);
+		void PrintStopInfo(const TransportCatalogue&, const std::string_view&, std::ostream&);
 
-		void FillOutputData(TransportCatalogue& catalog);
-	}
-}
+		void OutputData(const TransportCatalogue&, std::ostream&);
+
+	} // namespace output
+} // namespace transport_catalogue
