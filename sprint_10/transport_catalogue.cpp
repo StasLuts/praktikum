@@ -82,16 +82,10 @@ namespace transport_catalogue
 			auto second_stop = *++d_it;
 			curvature += geo::ComputeDistance(second_stop->coodinates_, stop->coodinates_);
 			route_length += GetDistanceBetweenStops(stop, second_stop);
-		}
-		if (bus->cicle_type_ == false)
-		{
-			for (auto it = bus->stops_.end() - 1; it > bus->stops_.begin(); --it)
+			if (bus->cicle_type_ == false)
 			{
-				auto stop = *it;
-				auto d_it = it;
-				auto second_stop = *--d_it;
-				route_length += GetDistanceBetweenStops(stop, second_stop);
-				curvature += geo::ComputeDistance(second_stop->coodinates_, stop->coodinates_);
+				curvature += geo::ComputeDistance(stop->coodinates_, second_stop->coodinates_);
+				route_length += GetDistanceBetweenStops(second_stop, stop);
 			}
 		}
 		double C = (curvature > route_length) ? curvature / route_length : route_length / curvature;

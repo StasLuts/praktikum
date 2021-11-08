@@ -102,7 +102,7 @@ namespace transport_catalogue
                 if (text[0] == 'S') {
                     distance_data.push_back(text);
                     auto [name, lat, lng] = SplitForStop(text);
-                    catalog.AddingStopDatabase(name, lat, lng);
+                    catalog.AddStopDatabase(name, lat, lng);
                 }
                 else {
                     bus_data.push_back(move(text));
@@ -117,7 +117,7 @@ namespace transport_catalogue
             }
             for (auto text : bus_data) {
                 auto [name, cicle, stops] = SplitForBus(text);
-                catalog.AddingBusDatabase(name, stops, cicle);
+                catalog.AddBusDatabase(name, stops, cicle);
             }
         }
 } // namespace input
