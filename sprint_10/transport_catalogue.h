@@ -26,25 +26,25 @@ namespace transport_catalogue
 
 	public:
 
-		void SetDistanceBetweenStops(const std::string_view&, const std::string_view&, const int&);
+		void SetDistanceBetweenStops(const std::string_view& from_stop, const std::string_view& to_stop, const int& distance);
 
-		int GetDistanceBetweenStops(domain::StopPtr, domain::StopPtr) const;
+		int GetDistanceBetweenStops(domain::StopPtr lhs, domain::StopPtr rhs) const;
 
-		void AddBusDatabase(const std::string_view&, const std::vector<std::string_view>&, const bool&);
+		void AddBusDatabase(const std::string_view& bus_num, const std::vector<std::string_view>& stops, const bool& is_circular);
 
-		void AddStopDatabase(const std::string_view&, const double&, const double&);
+		void AddStopDatabase(const std::string_view& stop_name, const double& lat, const double& lng);
 		
-		domain::BusPtr FindBus(const std::string_view&) const;
+		domain::BusPtr FindBus(const std::string_view& bus_num) const;
 
-		domain::StopPtr FindStop(const std::string_view&) const;
+		domain::StopPtr FindStop(const std::string_view& stop_name) const;
 
-		const domain::StopStat* GetStopStat(const std::string_view&) const;
+		const domain::StopStat* GetStopStat(const std::string_view&stop_name) const;
 
-		const domain::BusStat* GetBusStat(const std::string_view&) const;
+		const domain::BusStat* GetBusStat(const std::string_view& bus_name) const;
 
 		const std::vector<geo::Coordinates> GetAllStopsCoordinates() const;
 
-		const std::vector<domain::StopPtr> GetStops(const std::string_view&) const;
+		const std::vector<domain::StopPtr> GetStops(const std::string_view& bus_num) const;
 
 		const std::deque<domain::BusPtr> GetBuses() const;
 	};

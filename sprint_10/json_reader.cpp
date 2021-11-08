@@ -32,38 +32,38 @@ namespace json_reader
 
 	void MakeBase(transport_catalogue::TransportCatalogue& trans_cat, const json::Array& arr)
 	{
-		for (const auto& recuest : arr)
+		for (const auto& request : arr)
 		{
-			const auto rec_type = recuest.AsDict().find("type");
-			if (rec_type != recuest.AsDict().end())
+			const auto request_type= request.AsDict().find("type");
+			if (request_type!= request.AsDict().end())
 			{
-				if (rec_type->second.AsString() == "Stop")
+				if (request_type->second.AsString() == "Stop")
 				{
-					ReadStopData(trans_cat, recuest.AsDict());
+					ReadStopData(trans_cat, request.AsDict());
 				}
 			}
 		}
 
-		for (const auto& recuest : arr)
+		for (const auto& request : arr)
 		{
-			const auto rec_type = recuest.AsDict().find("type");
-			if (rec_type != recuest.AsDict().end())
+			const auto request_type= request.AsDict().find("type");
+			if (request_type!= request.AsDict().end())
 			{
-				if (rec_type->second.AsString() == "Stop")
+				if (request_type->second.AsString() == "Stop")
 				{
-					ReadStopDistance(trans_cat, recuest.AsDict());
+					ReadStopDistance(trans_cat, request.AsDict());
 				}
 			}
 		}
 
-		for (const auto& recuest : arr)
+		for (const auto& request : arr)
 		{
-			const auto rec_type = recuest.AsDict().find("type");
-			if (rec_type != recuest.AsDict().end())
+			const auto request_type= request.AsDict().find("type");
+			if (request_type!= request.AsDict().end())
 			{
-				if (rec_type->second.AsString() == "Bus")
+				if (request_type->second.AsString() == "Bus")
 				{
-					ReadBusData(trans_cat, recuest.AsDict());
+					ReadBusData(trans_cat, request.AsDict());
 				}
 			}
 		}
@@ -96,8 +96,8 @@ namespace json_reader
 			stops.emplace_back(stop.AsString());
 		}
 		dict.at("stops").AsArray();
-		const auto cicle_type = dict.at("is_roundtrip").AsBool();
-		trans_cat.AddBusDatabase(bus_name, stops, cicle_type);
+		const auto is_circular = dict.at("is_roundtrip").AsBool();
+		trans_cat.AddBusDatabase(bus_name, stops, is_circular);
 	}
 
 	//------------------render-------------------------
@@ -161,20 +161,20 @@ namespace json_reader
 		for (const auto& it : trans_cat.GetBuses())
 		{
 			std::vector<svg::Point> stops_points;
-			for (const auto& stop : trans_cat.GetStops(it->bus_num_))
+			for (const auto& stop : trans_cat.GetStops(it->bus_num))
 			{
-				stops_points.emplace_back(projector(stop->coodinates_));
-				stops[stop->stop_name_] = stops_points.back();
+				stops_points.emplace_back(projector(stop->coodinates));
+				stops[stop->stop_name] = stops_points.back();
 			}
-			if (it->cicle_type_ == true)
+			if (it->is_circular == true)
 			{
-				map_renderer.AddTextRender(*stops_points.begin(), it->bus_num_, color_pallete[color_num], false);
+				map_renderer.AddTextRender(*stops_points.begin(), it->bus_num, color_pallete[color_num], false);
 				map_renderer.AddRoutRender(stops_points, color_pallete[color_num]);
 			}
-			else if (it->cicle_type_ == false)
+			else if (it->is_circular == false)
 			{
-				map_renderer.AddTextRender(*stops_points.begin(), it->bus_num_, color_pallete[color_num], false);
-				if (*it->stops_.begin() != it->stops_.back())map_renderer.AddTextRender(stops_points.back(), it->bus_num_, color_pallete[color_num], false);
+				map_renderer.AddTextRender(*stops_points.begin(), it->bus_num, color_pallete[color_num], false);
+				if (*it->stops.begin() != it->stops.back())map_renderer.AddTextRender(stops_points.back(), it->bus_num, color_pallete[color_num], false);
 				stops_points.insert(stops_points.end(), stops_points.rbegin() + 1, stops_points.rend());
 				map_renderer.AddRoutRender(stops_points, color_pallete[color_num]);
 			}
@@ -192,22 +192,22 @@ namespace json_reader
 	void MakeResponse(const request_handler::RequestHandler& request_handler, const json::Array& arr)
 	{
 		json::Array response;
-		for (const auto& recuest : arr)
+		for (const auto& request : arr)
 		{
-			const auto rec_type = recuest.AsDict().find("type");
-			if (rec_type != recuest.AsDict().end())
+			const auto request_type= request.AsDict().find("type");
+			if (request_type!= request.AsDict().end())
 			{
-				if (rec_type->second.AsString() == "Stop")
+				if (request_type->second.AsString() == "Stop")
 				{
-					response.emplace_back(GetStopInfo(request_handler, recuest.AsDict()));
+					response.emplace_back(GetStopInfo(request_handler, request.AsDict()));
 				}
-				else if (rec_type->second.AsString() == "Bus")
+				else if (request_type->second.AsString() == "Bus")
 				{
-					response.emplace_back(GetBusInfo(request_handler, recuest.AsDict()));
+					response.emplace_back(GetBusInfo(request_handler, request.AsDict()));
 				}
-				else if (rec_type->second.AsString() == "Map")
+				else if (request_type->second.AsString() == "Map")
 				{
-					response.emplace_back(GetMapRender(request_handler, recuest.AsDict()));
+					response.emplace_back(GetMapRender(request_handler, request.AsDict()));
 				}
 			}
 		}
@@ -227,7 +227,7 @@ namespace json_reader
 		else
 		{
 			json::Array buses;
-			for (auto& bus : stop_datd.value()->buses_)
+			for (auto& bus : stop_datd.value()->buses)
 			{
 				buses.push_back(static_cast<std::string>(bus));
 			}
@@ -249,11 +249,11 @@ namespace json_reader
 		}
 		else
 		{
-			bus_info.emplace("curvature", bus_data.value()->curvature_);
+			bus_info.emplace("curvature", bus_data.value()->curvature);
 			bus_info.emplace("request_id", dict.at("id").AsInt());
-			bus_info.emplace("route_length", static_cast<int>(bus_data.value()->route_length_));
-			bus_info.emplace("stop_count", bus_data.value()->stops_on_route_);
-			bus_info.emplace("unique_stop_count", bus_data.value()->unique_stops_);
+			bus_info.emplace("route_length", static_cast<int>(bus_data.value()->route_length));
+			bus_info.emplace("stop_count", bus_data.value()->stops_on_route);
+			bus_info.emplace("unique_stop_count", bus_data.value()->unique_stops);
 		}
 		return bus_info;
 	}

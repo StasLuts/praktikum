@@ -7,32 +7,32 @@
 
 namespace json_reader
 {
-	void JsonRead(std::istream&);
+	void JsonRead(std::istream& input);
 
 	//------------------input-------------------------
 
-	void MakeBase(transport_catalogue::TransportCatalogue&, const json::Array&);
+	void MakeBase(transport_catalogue::TransportCatalogue& trans_cat, const json::Array& arr);
 
-	void ReadStopData(transport_catalogue::TransportCatalogue&, const json::Dict&);
+	void ReadStopData(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict);
 
-	void ReadStopDistance(transport_catalogue::TransportCatalogue&, const json::Dict&);
+	void ReadStopDistance(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict);
 
-	void ReadBusData(transport_catalogue::TransportCatalogue&, const json::Dict&);
+	void ReadBusData(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict);
 
 	//------------------render-------------------------
 
-	const svg::Color GetColor(const json::Node&);
+	const svg::Color GetColor(const json::Node& color);
 
-	void SetMapRenderer(const transport_catalogue::TransportCatalogue&, renderer::MapRenderer&, const json::Dict&);
+	void SetMapRenderer(const transport_catalogue::TransportCatalogue& trans_cat, renderer::MapRenderer& map_renderer, const json::Dict& dict);
 
 	//------------------outnput-------------------------
 
-	void MakeResponse(const request_handler::RequestHandler&, const json::Array&);
+	void MakeResponse(const request_handler::RequestHandler& request_handler, const json::Array& arr);
 
-	const json::Dict GetStopInfo(const request_handler::RequestHandler&, const json::Dict&);
+	const json::Dict GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
-	const json::Dict GetBusInfo(const request_handler::RequestHandler&, const json::Dict&);
+	const json::Dict GetBusInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
-	const json::Dict GetMapRender(const request_handler::RequestHandler&, const json::Dict&);
+	const json::Dict GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
 } // json_reader 

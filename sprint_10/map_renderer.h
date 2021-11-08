@@ -109,9 +109,9 @@ namespace renderer
     {
     public:
 
-        StopPointRender(const svg::Point&, const RenderSettings&);
+        StopPointRender(const svg::Point& stop_coordinate, const RenderSettings& render_settings);
 
-        void Draw(svg::ObjectContainer&) const override;
+        void Draw(svg::ObjectContainer& container) const override;
 
     private:
 
@@ -125,7 +125,7 @@ namespace renderer
     {
     public:
 
-        TextRender(const svg::Point&, const std::string_view&, const svg::Color&, const bool&, const RenderSettings&);
+        TextRender(const svg::Point& coordinate, const std::string_view& data, const svg::Color& fill, const bool& this_stop, const RenderSettings& render_settings);
 
         void Draw(svg::ObjectContainer&) const override;
 
@@ -148,7 +148,7 @@ namespace renderer
     {
     public:
 
-        RouteRender(const std::vector<svg::Point>&, const svg::Color&, const RenderSettings&);
+        RouteRender(const std::vector<svg::Point>& stops_coordinates, const svg::Color& stroke_color, const RenderSettings& render_settings);
 
         void Draw(svg::ObjectContainer&) const override;
 
@@ -165,13 +165,13 @@ namespace renderer
     {
     public:
 
-        void SetRenderSettings(const RenderSettings&);
+        void SetRenderSettings(const RenderSettings& render_settings);
 
-        void AddRoutRender(const std::vector<svg::Point>&, const svg::Color&);
+        void AddRoutRender(const std::vector<svg::Point>& stops_coordinates, const svg::Color& stroke_color);
 
-        void AddStopPointRender(const svg::Point&);
+        void AddStopPointRender(const svg::Point& stop_coordinate);
 
-        void AddTextRender(const svg::Point&, const std::string&, const svg::Color&, bool);
+        void AddTextRender(const svg::Point& stop_coordinate, const std::string& data , const svg::Color& text_color, bool this_stop);
 
         svg::Document GetRender() const;
 
