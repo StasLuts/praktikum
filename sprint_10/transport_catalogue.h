@@ -30,9 +30,9 @@ namespace transport_catalogue
 
 		int GetDistanceBetweenStops(domain::StopPtr, domain::StopPtr) const;
 
-		void AddingBusDatabase(const std::string_view&, const std::vector<std::string_view>&, const bool&);
+		void AddBusDatabase(const std::string_view&, const std::vector<std::string_view>&, const bool&);
 
-		void AddingStopDatabase(const std::string_view&, const double&, const double&);
+		void AddStopDatabase(const std::string_view&, const double&, const double&);
 		
 		domain::BusPtr FindBus(const std::string_view&) const;
 

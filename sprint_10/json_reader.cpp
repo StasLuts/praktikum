@@ -74,7 +74,7 @@ namespace json_reader
 		const auto name = dict.at("name").AsString();
 		const auto latitude = dict.at("latitude").AsDouble();
 		const auto longitude = dict.at("longitude").AsDouble();
-		trans_cat.AddingStopDatabase(name, latitude, longitude);
+		trans_cat.AddStopDatabase(name, latitude, longitude);
 	}
 
 	void ReadStopDistance(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
@@ -97,7 +97,7 @@ namespace json_reader
 		}
 		dict.at("stops").AsArray();
 		const auto cicle_type = dict.at("is_roundtrip").AsBool();
-		trans_cat.AddingBusDatabase(bus_name, stops, cicle_type);
+		trans_cat.AddBusDatabase(bus_name, stops, cicle_type);
 	}
 
 	//------------------render-------------------------

@@ -18,7 +18,7 @@ namespace transport_catalogue
 			stop_to_stop_distance_.at(std::make_pair(lhs, rhs));
 	}
 
-	void TransportCatalogue::AddingBusDatabase(const std::string_view& bus_num, const std::vector<std::string_view>& stops, const bool& cicle_type)
+	void TransportCatalogue::AddBusDatabase(const std::string_view& bus_num, const std::vector<std::string_view>& stops, const bool& cicle_type)
 	{
 		std::vector<domain::StopPtr>stops_ptr;
 		std::unordered_set<domain::StopPtr> unicue_stops_ptr;
@@ -32,7 +32,7 @@ namespace transport_catalogue
 		buses_map_[buses_.front().bus_num_] = &buses_.front();
 	}
 
-	void TransportCatalogue::AddingStopDatabase(const std::string_view& stop_name, const double& lat, const double& lng)
+	void TransportCatalogue::AddStopDatabase(const std::string_view& stop_name, const double& lat, const double& lng)
 	{
 		stops_.emplace_front(domain::Stop(stop_name, lat, lng));
 		stops_map_[stops_.front().stop_name_] = &stops_.front();
