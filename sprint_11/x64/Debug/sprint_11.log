@@ -1,0 +1,1261 @@
+﻿  domain.cpp
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,19): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,7): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,30): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,18): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,6): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,29): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,23): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,11): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,34): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,17): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,28): error C2065: string_view: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,8): error C2923: std::set: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35): message : см. объявление "string_view"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,8): error C2976: std::set: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\set(52): message : см. объявление "std::set"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,22): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,10): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,33): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.cpp(5,32): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.cpp(5,43): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.cpp(5,43): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.cpp(8,30): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.cpp(8,41): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.cpp(8,41): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.cpp(11,24): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.cpp(11,35): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.cpp(11,35): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.cpp(14,20): error C2065: lat: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.cpp(15,20): error C2065: lng: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.cpp(18,22): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.cpp(18,33): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.cpp(18,33): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+  geo.cpp
+  json.cpp
+  The contents of <variant> are available only with C++17 or later.
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23,34): error C2039: "variant": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23,41): error C2504: variant: не определен базовый класс
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23,41): error C2143: синтаксическая ошибка: отсутствие "," перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(27,9): error C2653: variant: не является именем класса или пространства имен
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(27,3): error C2873: variant: использование символа в "using"-объявлении не допускается
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(28,17): error C2061: синтаксическая ошибка: идентификатор "variant"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(95,14): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(95,14): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(96,3): error C2334: непредвиденные лексемы перед "{"; пропуск вероятного тела функции
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(32,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(32,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(32,34): error C2062: тип "int" не требуется
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(36,71): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(36,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<int,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(36,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(41,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(41,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(41,34): error C2062: тип "double" не требуется
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(46,90): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(46,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<double,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(46,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(51,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(51,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(51,34): error C2062: тип "bool" не требуется
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(55,69): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(55,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<bool,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(55,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(60,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(60,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(60,34): error C2275: std::nullptr_t: недопустимое использование этого типа в качестве выражения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\predefined C++ types (compiler internal)(346): message : см. объявление "std::nullptr_t"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(65,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(65,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(65,34): error C2275: json::Array: недопустимое использование этого типа в качестве выражения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(13): message : см. объявление "json::Array"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(69,71): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(69,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<json::Array,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(69,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74,39): error C2275: std::string: недопустимое использование этого типа в качестве выражения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74): message : см. объявление "std::string"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(78,73): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(78,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<std::string,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(78,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(83,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(83,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(83,34): error C2275: json::Dict: недопустимое использование этого типа в качестве выражения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(12): message : см. объявление "json::Dict"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(87,68): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(87,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<json::Dict,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(87,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(92,11): error C3861: GetValue: идентификатор не найден
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(92,29): error C2039: "GetValue": не является членом "json::Node".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23): message : см. объявление "json::Node"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(43,33): error C2440: <function-style-cast>: невозможно преобразовать "std::vector<json::Node,std::allocator<json::Node>>" в "json::Node"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(43,33): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(77,31): error C2440: <function-style-cast>: невозможно преобразовать "std::map<std::string,json::Node,std::less<std::string>,std::allocator<std::pair<const std::string,json::Node>>>" в "json::Node"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(77,31): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(135,28): error C2440: <function-style-cast>: невозможно преобразовать "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" в "json::Node"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(135,28): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(141,21): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(145,27): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(157,41): error C2429: для функция языка "Инструкции INIT в if/switch" нужен флаг компилятора "/std:c++17"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(157,62): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(159,26): error C2440: <function-style-cast>: невозможно преобразовать "initializer list" в "json::Node"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(159,16): message : Недопустимая агрегатная инициализация
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(213,29): error C2429: для функция языка "Инструкции INIT в if/switch" нужен флаг компилятора "/std:c++17"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(216,26): error C2429: для функция языка "Инструкции INIT в if/switch" нужен флаг компилятора "/std:c++17"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(228,35): error C2440: return: невозможно преобразовать "int" в "json::Node"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(228,35): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(235,33): error C2440: return: невозможно преобразовать "double" в "json::Node"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(235,33): message : Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(259,7): warning C5051: для атрибута "fallthrough" требуется по меньшей мере "/std:c++17"; игнорируется
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(308,20): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(311,20): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(314,8): warning C5051: для атрибута "fallthrough" требуется по меньшей мере "/std:c++17"; игнорируется
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(317,8): warning C5051: для атрибута "fallthrough" требуется по меньшей мере "/std:c++17"; игнорируется
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(335,1): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(341,1): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(348,1): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(359,1): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(373,1): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(376,22): error C2429: для функция языка "структурированные привязки" нужен флаг компилятора "/std:c++17"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(384,1): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(388,1): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(398,9): error C2039: "visit": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(401,13): error C2039: "GetValue": не является членом "json::Node".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23): message : см. объявление "json::Node"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.cpp(398,14): error C3861: visit: идентификатор не найден
+  json_builder.cpp
+  The contents of <variant> are available only with C++17 or later.
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23,34): error C2039: "variant": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23,41): error C2504: variant: не определен базовый класс
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23,41): error C2143: синтаксическая ошибка: отсутствие "," перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(27,9): error C2653: variant: не является именем класса или пространства имен
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(27,3): error C2873: variant: использование символа в "using"-объявлении не допускается
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(28,17): error C2061: синтаксическая ошибка: идентификатор "variant"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(95,14): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(95,14): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(96,3): error C2334: непредвиденные лексемы перед "{"; пропуск вероятного тела функции
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(32,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(32,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(32,34): error C2062: тип "int" не требуется
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(36,71): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(36,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<int,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(36,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(41,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(41,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(41,34): error C2062: тип "double" не требуется
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(46,90): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(46,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<double,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(46,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(51,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(51,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(51,34): error C2062: тип "bool" не требуется
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(55,69): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(55,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<bool,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(55,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(60,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(60,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(60,34): error C2275: std::nullptr_t: недопустимое использование этого типа в качестве выражения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\predefined C++ types (compiler internal)(346): message : см. объявление "std::nullptr_t"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(65,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(65,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(65,34): error C2275: json::Array: недопустимое использование этого типа в качестве выражения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(13): message : см. объявление "json::Array"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(69,71): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(69,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<json::Array,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(69,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74,39): error C2275: std::string: недопустимое использование этого типа в качестве выражения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74): message : см. объявление "std::string"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(78,73): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(78,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<std::string,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(78,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(83,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(83,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(83,34): error C2275: json::Dict: недопустимое использование этого типа в качестве выражения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(12): message : см. объявление "json::Dict"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(87,68): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(87,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<json::Dict,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(87,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(92,11): error C3861: GetValue: идентификатор не найден
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(92,29): error C2039: "GetValue": не является членом "json::Node".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23): message : см. объявление "json::Node"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json_builder.cpp(8): error C2280: "json::Node::Node(void)": предпринята попытка ссылки на удаленную функцию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(99): message : в этом месте создано компилятором: "json::Node::Node"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(99,2): message : "json::Node::Node(void)": функция неявно удалена, так как в "json::Node" содержится неинициализированный элемент данных "json::Node::Value" с квалификатором const.
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(95): message : см. объявление "json::Node::Value"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json_builder.cpp(16,80): error C2664: "void std::vector<json::Node,std::allocator<json::Node>>::push_back(const _Ty &)": невозможно преобразовать аргумент 1 из "json::Dict" в "const _Ty &"
+          with
+          [
+              _Ty=json::Node
+          ]
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json_builder.cpp(16,80): message : Причина: невозможно преобразовать "json::Dict" в "const _Ty"
+          with
+          [
+              _Ty=json::Node
+          ]
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json_builder.cpp(16,78): message : Для выполнения данного преобразования нет доступного оператора преобразования, определенного пользователем, или вызов оператора невозможен
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(626,23): message : см. объявление "std::vector<json::Node,std::allocator<json::Node>>::push_back"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json_builder.cpp(22,42): error C2679: бинарный "=": не найден оператор, принимающий правый операнд типа "json::Dict" (или приемлемое преобразование отсутствует)
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(99,2): message : может быть "json::Node &json::Node::operator =(const json::Node &)"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json_builder.cpp(22,42): message : при попытке сопоставить список аргументов "(json::Node, json::Dict)"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json_builder.cpp(31,81): error C2664: "void std::vector<json::Node,std::allocator<json::Node>>::push_back(const _Ty &)": невозможно преобразовать аргумент 1 из "json::Array" в "const _Ty &"
+          with
+          [
+              _Ty=json::Node
+          ]
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json_builder.cpp(31,81): message : Причина: невозможно преобразовать "json::Array" в "const _Ty"
+          with
+          [
+              _Ty=json::Node
+          ]
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json_builder.cpp(31,79): message : Для выполнения данного преобразования нет доступного оператора преобразования, определенного пользователем, или вызов оператора невозможен
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(626,23): message : см. объявление "std::vector<json::Node,std::allocator<json::Node>>::push_back"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json_builder.cpp(37,43): error C2679: бинарный "=": не найден оператор, принимающий правый операнд типа "json::Array" (или приемлемое преобразование отсутствует)
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(99,2): message : может быть "json::Node &json::Node::operator =(const json::Node &)"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json_builder.cpp(37,43): message : при попытке сопоставить список аргументов "(json::Node, json::Array)"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json_builder.cpp(68,34): error C2280: "json::Node &json::Node::operator =(const json::Node &)": предпринята попытка ссылки на удаленную функцию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(99): message : в этом месте создано компилятором: "json::Node::operator ="
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(99,2): message : "json::Node &json::Node::operator =(const json::Node &)": функция неявно удалена, так как в "json::Node" содержится элемент данных "json::Node::Value" не являющегося классом типа с квалификатором const.
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(95): message : см. объявление "json::Node::Value"
+  json_reader.cpp
+  The contents of <variant> are available only with C++17 or later.
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23,34): error C2039: "variant": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23,41): error C2504: variant: не определен базовый класс
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23,41): error C2143: синтаксическая ошибка: отсутствие "," перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(27,9): error C2653: variant: не является именем класса или пространства имен
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(27,3): error C2873: variant: использование символа в "using"-объявлении не допускается
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(28,17): error C2061: синтаксическая ошибка: идентификатор "variant"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(95,14): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(95,14): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(96,3): error C2334: непредвиденные лексемы перед "{"; пропуск вероятного тела функции
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(32,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(32,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(32,34): error C2062: тип "int" не требуется
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(36,71): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(36,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<int,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(36,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(41,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(41,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(41,34): error C2062: тип "double" не требуется
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(46,90): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(46,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<double,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(46,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(51,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(51,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(51,34): error C2062: тип "bool" не требуется
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(55,69): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(55,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<bool,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(55,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(60,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(60,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(60,34): error C2275: std::nullptr_t: недопустимое использование этого типа в качестве выражения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\predefined C++ types (compiler internal)(346): message : см. объявление "std::nullptr_t"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(65,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(65,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(65,34): error C2275: json::Array: недопустимое использование этого типа в качестве выражения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(13): message : см. объявление "json::Array"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(69,71): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(69,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<json::Array,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(69,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74,39): error C2275: std::string: недопустимое использование этого типа в качестве выражения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74): message : см. объявление "std::string"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(78,73): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(78,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<std::string,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(78,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(83,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(83,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(83,34): error C2275: json::Dict: недопустимое использование этого типа в качестве выражения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(12): message : см. объявление "json::Dict"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(87,68): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(87,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<json::Dict,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(87,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(92,11): error C3861: GetValue: идентификатор не найден
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(92,29): error C2039: "GetValue": не является членом "json::Node".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23): message : см. объявление "json::Node"
+  The contents of <optional> are available only with C++17 or later.
+  The contents of <string_view> are available only with C++17 or later.
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,21): error C2039: "variant": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,28): error C2061: синтаксическая ошибка: идентификатор "variant"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,34): error C2039: "monostate": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,67): error C2059: синтаксическая ошибка: >
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,21): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,15): error C7525: Встроенные (inline) переменные требуют как минимум "/std:c++17".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,21): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "NoneColor"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,30): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(99,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(207): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "svg::PathProps<Owner>"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(99,34): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(104,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(104,36): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(176,1): error C2061: синтаксическая ошибка: идентификатор "monostate"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(204): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "svg::PathProps<Owner>::ColorPrinter"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(182,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(182,42): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,16): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,42): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,16): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,42): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,19): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,7): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,30): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,18): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,6): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,29): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,23): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,11): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,34): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,17): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,28): error C2065: string_view: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,8): error C2923: std::set: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35): message : см. объявление "string_view"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,8): error C2976: std::set: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\set(52): message : см. объявление "std::set"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,22): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,10): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,33): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(25,20): error C3646: underlayer_color: неизвестный спецификатор переопределения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(25,36): error C2886: svg::Color: использование символа в "using"-объявлении члена не допускается
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(27,14): error C2923: std::vector: "svg::Color" не является допустимым аргументом типа шаблон для параметра "_Ty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(27,14): error C2976: std::vector: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(438): message : см. объявление "std::vector"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(30,25): error C7525: Встроенные (inline) переменные требуют как минимум "/std:c++17".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(128,61): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(128,19): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(128,72): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(136,20): error C3646: fill_: неизвестный спецификатор переопределения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(136,25): error C2886: svg::Color: использование символа в "using"-объявлении члена не допускается
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(136,25): fatal error C1003: число ошибок превышает 100; остановка компиляции
+  main.cpp
+  The contents of <optional> are available only with C++17 or later.
+  The contents of <variant> are available only with C++17 or later.
+  The contents of <string_view> are available only with C++17 or later.
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,21): error C2039: "variant": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,28): error C2061: синтаксическая ошибка: идентификатор "variant"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,34): error C2039: "monostate": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,67): error C2059: синтаксическая ошибка: >
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,21): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,15): error C7525: Встроенные (inline) переменные требуют как минимум "/std:c++17".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,21): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "NoneColor"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,30): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(99,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(207): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "svg::PathProps<Owner>"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(99,34): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(104,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(104,36): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(176,1): error C2061: синтаксическая ошибка: идентификатор "monostate"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(204): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "svg::PathProps<Owner>::ColorPrinter"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(182,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(182,42): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,16): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,42): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,16): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,42): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,19): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,7): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,30): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,18): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,6): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,29): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,23): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,11): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,34): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,17): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,28): error C2065: string_view: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,8): error C2923: std::set: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35): message : см. объявление "string_view"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,8): error C2976: std::set: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\set(52): message : см. объявление "std::set"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,22): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,10): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,33): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(25,20): error C3646: underlayer_color: неизвестный спецификатор переопределения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(25,36): error C2886: svg::Color: использование символа в "using"-объявлении члена не допускается
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(27,14): error C2923: std::vector: "svg::Color" не является допустимым аргументом типа шаблон для параметра "_Ty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(27,14): error C2976: std::vector: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(438): message : см. объявление "std::vector"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(30,25): error C7525: Встроенные (inline) переменные требуют как минимум "/std:c++17".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(128,61): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(128,19): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(128,72): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(136,20): error C3646: fill_: неизвестный спецификатор переопределения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(136,25): error C2886: svg::Color: использование символа в "using"-объявлении члена не допускается
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(151,20): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(151,20): error C2751: svg::Color: имя параметра функции не может быть полным именем
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(151,87): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(158,20): error C3646: stroke_color_: неизвестный спецификатор переопределения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(158,33): error C2886: svg::Color: использование символа в "using"-объявлении члена не допускается
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(170,94): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(170,94): error C2751: svg::Color: имя параметра функции не может быть полным именем
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(170,94): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(174,105): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(174,105): error C2751: svg::Color: имя параметра функции не может быть полным именем
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(174,105): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(178,20): error C2923: std::vector: "svg::Color" не является допустимым аргументом типа шаблон для параметра "_Ty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(178,20): error C2976: std::vector: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(438): message : см. объявление "std::vector"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23,34): error C2039: "variant": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23,41): error C2504: variant: не определен базовый класс
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(23,41): error C2143: синтаксическая ошибка: отсутствие "," перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(27,9): error C2653: variant: не является именем класса или пространства имен
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(27,3): error C2873: variant: использование символа в "using"-объявлении не допускается
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(28,17): error C2061: синтаксическая ошибка: идентификатор "variant"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(95,14): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(95,14): error C2143: синтаксическая ошибка: отсутствие ";" перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(96,3): error C2334: непредвиденные лексемы перед "{"; пропуск вероятного тела функции
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(32,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(32,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(32,34): error C2062: тип "int" не требуется
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(36,71): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(36,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<int,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(36,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(41,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(41,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(41,34): error C2062: тип "double" не требуется
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(46,90): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(46,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<double,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(46,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(51,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(51,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(51,34): error C2062: тип "bool" не требуется
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(55,69): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(55,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<bool,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(55,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(60,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(60,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(60,34): error C2275: std::nullptr_t: недопустимое использование этого типа в качестве выражения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\predefined C++ types (compiler internal)(346): message : см. объявление "std::nullptr_t"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(65,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(65,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(65,34): error C2275: json::Array: недопустимое использование этого типа в качестве выражения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(13): message : см. объявление "json::Array"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(69,71): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(69,1): error C2784: _Ty1 &std::get(std::pair<_Ty1,_Ty2> &) noexcept: не удалось вывести аргумент шаблон для "std::pair<json::Array,_Ty2> &" из "const json::Node"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(539): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(69,1): error C2975: std::get: недопустимый аргумент шаблона для "_Idx", требуется константное выражение времени компиляции
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(532): message : см. объявление "std::get"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74,16): error C2039: "holds_alternative": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74,1): error C2065: holds_alternative: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74,39): error C2275: std::string: недопустимое использование этого типа в качестве выражения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(74): message : см. объявление "std::string"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(78,73): error C2672: "std::get": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\json.h(78,1): fatal error C1003: число ошибок превышает 100; остановка компиляции
+  map_renderer.cpp
+  The contents of <optional> are available only with C++17 or later.
+  The contents of <variant> are available only with C++17 or later.
+  The contents of <string_view> are available only with C++17 or later.
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,21): error C2039: "variant": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,28): error C2061: синтаксическая ошибка: идентификатор "variant"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,34): error C2039: "monostate": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,67): error C2059: синтаксическая ошибка: >
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,21): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,15): error C7525: Встроенные (inline) переменные требуют как минимум "/std:c++17".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,21): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "NoneColor"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,30): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(99,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(207): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "svg::PathProps<Owner>"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(99,34): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(104,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(104,36): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(176,1): error C2061: синтаксическая ошибка: идентификатор "monostate"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(204): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "svg::PathProps<Owner>::ColorPrinter"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(182,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(182,42): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,16): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,42): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,16): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,42): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,19): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,7): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,30): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,18): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,6): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,29): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,23): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,11): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,34): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,17): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,28): error C2065: string_view: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,8): error C2923: std::set: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35): message : см. объявление "string_view"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,8): error C2976: std::set: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\set(52): message : см. объявление "std::set"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,22): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,10): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,33): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(25,20): error C3646: underlayer_color: неизвестный спецификатор переопределения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(25,36): error C2886: svg::Color: использование символа в "using"-объявлении члена не допускается
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(27,14): error C2923: std::vector: "svg::Color" не является допустимым аргументом типа шаблон для параметра "_Ty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(27,14): error C2976: std::vector: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(438): message : см. объявление "std::vector"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(30,25): error C7525: Встроенные (inline) переменные требуют как минимум "/std:c++17".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(128,61): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(128,19): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(128,72): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(136,20): error C3646: fill_: неизвестный спецификатор переопределения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(136,25): error C2886: svg::Color: использование символа в "using"-объявлении члена не допускается
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(151,20): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(151,20): error C2751: svg::Color: имя параметра функции не может быть полным именем
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(151,87): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(158,20): error C3646: stroke_color_: неизвестный спецификатор переопределения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(158,33): error C2886: svg::Color: использование символа в "using"-объявлении члена не допускается
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(170,94): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(170,94): error C2751: svg::Color: имя параметра функции не может быть полным именем
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(170,94): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(174,105): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(174,105): error C2751: svg::Color: имя параметра функции не может быть полным именем
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(174,105): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(178,20): error C2923: std::vector: "svg::Color" не является допустимым аргументом типа шаблон для параметра "_Ty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(178,20): error C2976: std::vector: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(438): message : см. объявление "std::vector"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(27,30): error C2664: "Owner &svg::PathProps<Owner>::SetFillColor(const int)": невозможно преобразовать аргумент 1 из "const char [6]" в "const int"
+          with
+          [
+              Owner=svg::Circle
+          ]
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(27,23): message : Не существует контекста, в котором такое преобразование возможно
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(99,10): message : см. объявление "svg::PathProps<svg::Circle>::SetFillColor"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(34,66): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(34,77): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(34,77): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(35,36): error C2065: data: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(35,49): error C2065: fill: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(35,67): error C2065: this_stop: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(35,96): error C2065: render_settings: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(35,43): error C2614: renderer::TextRender: недопустимая инициализация члена: "fill_" не является базовым классом или членом
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(44,29): error C2664: "Owner &svg::PathProps<Owner>::SetFillColor(const int)": невозможно преобразовать аргумент 1 из "const char [6]" в "const int"
+          with
+          [
+              Owner=svg::Text
+          ]
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(44,22): message : Не существует контекста, в котором такое преобразование возможно
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(99,10): message : см. объявление "svg::PathProps<svg::Text>::SetFillColor"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(51,22): error C2065: fill_: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(62,38): error C2039: "underlayer_color": не является членом "renderer::RenderSettings".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(14): message : см. объявление "renderer::RenderSettings"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(62,88): error C2039: "underlayer_color": не является членом "renderer::RenderSettings".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(14): message : см. объявление "renderer::RenderSettings"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(77,93): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(77,93): error C2751: svg::Color: имя параметра функции не может быть полным именем
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(77,93): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(78,58): error C2065: stroke_color: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(78,90): error C2065: render_settings: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(78,44): error C2614: renderer::RouteRender: недопустимая инициализация члена: "stroke_color_" не является базовым классом или членом
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(88,25): error C2065: stroke_color_: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(102,100): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(102,100): error C2751: svg::Color: имя параметра функции не может быть полным именем
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(102,100): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(104,50): error C2065: stroke_color: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(112,110): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(112,110): error C2751: svg::Color: имя параметра функции не может быть полным именем
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(112,110): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(114,4): error C2065: this_stop: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(114,74): error C2065: text_color: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(114,86): error C2065: this_stop: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(115,63): error C2065: text_color: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(115,75): error C2065: this_stop: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(140,13): error C2923: std::vector: "svg::Color" не является допустимым аргументом типа шаблон для параметра "_Ty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.cpp(140,13): error C2976: std::vector: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(438): message : см. объявление "std::vector"
+  request_handler.cpp
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,19): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,7): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,30): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,18): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,6): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,29): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,23): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,11): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,34): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,17): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,28): error C2065: string_view: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,8): error C2923: std::set: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35): message : см. объявление "string_view"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,8): error C2976: std::set: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\set(52): message : см. объявление "std::set"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,22): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,10): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,33): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+  The contents of <string_view> are available only with C++17 or later.
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(23,27): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(23,38): error C2065: string_view: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(23,8): error C2923: std::unordered_map: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(23): message : см. объявление "string_view"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(23,8): error C2976: std::unordered_map: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_map(67): message : см. объявление "std::unordered_map"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(24,27): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(24,38): error C2065: string_view: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(24,8): error C2923: std::unordered_map: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(24): message : см. объявление "string_view"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(24,8): error C2976: std::unordered_map: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_map(67): message : см. объявление "std::unordered_map"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(29,43): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(29,54): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(29,54): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(33,34): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(33,45): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(33,45): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(35,35): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(35,46): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(35,46): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(37,37): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(37,48): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(37,48): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(39,39): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(39,50): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(39,50): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(41,50): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(41,61): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(41,61): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(43,48): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(43,59): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(43,59): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(47,58): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(47,69): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(47,69): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+  The contents of <optional> are available only with C++17 or later.
+  The contents of <variant> are available only with C++17 or later.
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,21): error C2039: "variant": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\iostream(19): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,28): error C2061: синтаксическая ошибка: идентификатор "variant"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,34): error C2039: "monostate": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\iostream(19): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,67): error C2059: синтаксическая ошибка: >
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,21): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,15): error C7525: Встроенные (inline) переменные требуют как минимум "/std:c++17".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,21): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "NoneColor"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,30): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(99,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(207): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "svg::PathProps<Owner>"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(99,34): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(104,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(104,36): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(176,1): error C2061: синтаксическая ошибка: идентификатор "monostate"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(204): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "svg::PathProps<Owner>::ColorPrinter"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(182,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(182,42): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\iostream(19): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\iostream(19): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\iostream(19): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\iostream(19): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\iostream(19): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\iostream(19): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,16): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,42): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\iostream(19): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,16): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,42): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(25,20): error C3646: underlayer_color: неизвестный спецификатор переопределения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(25,36): error C2886: svg::Color: использование символа в "using"-объявлении члена не допускается
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(27,14): error C2923: std::vector: "svg::Color" не является допустимым аргументом типа шаблон для параметра "_Ty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(27,14): error C2976: std::vector: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(438): message : см. объявление "std::vector"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(30,25): error C7525: Встроенные (inline) переменные требуют как минимум "/std:c++17".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(128,61): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(128,19): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(128,72): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(136,20): error C3646: fill_: неизвестный спецификатор переопределения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(136,25): error C2886: svg::Color: использование символа в "using"-объявлении члена не допускается
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(151,20): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(151,20): error C2751: svg::Color: имя параметра функции не может быть полным именем
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(151,87): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(158,20): error C3646: stroke_color_: неизвестный спецификатор переопределения
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(158,33): error C2886: svg::Color: использование символа в "using"-объявлении члена не допускается
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(170,94): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(170,94): error C2751: svg::Color: имя параметра функции не может быть полным именем
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(170,94): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(174,105): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(174,105): error C2751: svg::Color: имя параметра функции не может быть полным именем
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(174,105): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(178,20): error C2923: std::vector: "svg::Color" не является допустимым аргументом типа шаблон для параметра "_Ty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89): message : см. объявление "svg::Color"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\map_renderer.h(178,20): error C2976: std::vector: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\vector(438): message : см. объявление "std::vector"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.h(14,14): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.h(14,22): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.h(14,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.h(14,69): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.h(14,97): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.h(16,14): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.h(16,22): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.h(16,22): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.h(16,71): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.h(16,100): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.cpp(8,7): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.cpp(8,15): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.cpp(8,15): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.cpp(8,56): error C2039: "GetBusStat": не является членом "request_handler::RequestHandler".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.h(8): message : см. объявление "request_handler::RequestHandler"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.cpp(8,78): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.cpp(9,2): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.cpp(9,2): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.cpp(13,7): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\request_handler.cpp(13,15): fatal error C1003: число ошибок превышает 100; остановка компиляции
+  svg.cpp
+  The contents of <optional> are available only with C++17 or later.
+  The contents of <variant> are available only with C++17 or later.
+  The contents of <string_view> are available only with C++17 or later.
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,21): error C2039: "variant": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,28): error C2061: синтаксическая ошибка: идентификатор "variant"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,34): error C2039: "monostate": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(87,67): error C2059: синтаксическая ошибка: >
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,21): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,15): error C7525: Встроенные (inline) переменные требуют как минимум "/std:c++17".
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,21): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "NoneColor"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(89,30): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(99,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(207): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "svg::PathProps<Owner>"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(99,34): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(104,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(104,36): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,1): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(176,1): error C2061: синтаксическая ошибка: идентификатор "monostate"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(204): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "svg::PathProps<Owner>::ColorPrinter"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(182,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(182,42): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(161,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(162,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(163,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(164,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(165,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,16): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(253,42): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,8): error C2039: "optional": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\deque(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,16): error C2143: синтаксическая ошибка: отсутствие ";" перед "<"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,16): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.h(254,42): error C2238: непредвиденные лексемы перед ";"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(33,24): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(47,19): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(50,20): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(53,21): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(67,19): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(70,20): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(73,20): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(76,25): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(79,20): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(103,28): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(103,57): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(103,80): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(104,19): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(104,39): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(106,16): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(118,33): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(125,17): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(127,28): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(129,16): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(131,16): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(155,3): error C2065: font_family_: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(161,3): error C2065: font_weight_: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(174,19): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(176,20): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(176,50): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(176,74): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(177,21): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(177,50): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(177,72): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(178,28): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(178,51): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(179,7): error C2065: font_family_: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(181,31): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(181,35): error C2065: font_family_: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(181,57): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(183,7): error C2065: font_weight_: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(185,31): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(185,35): error C2065: font_weight_: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(185,57): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(187,15): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(212,40): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(222,59): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(223,74): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\svg.cpp(228,20): error C3688: недопустимый литеральный суффикс "sv"; не удалось найти литеральный оператор или шаблон литерального оператора "operator ""sv"
+  transport_catalogue.cpp
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,19): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,7): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(15,30): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,18): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,6): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(24,29): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,23): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,11): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,34): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,17): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,28): error C2065: string_view: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,8): error C2923: std::set: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35): message : см. объявление "string_view"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(35,8): error C2976: std::set: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\set(52): message : см. объявление "std::set"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,22): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_set(24): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,10): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(40,33): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+  The contents of <string_view> are available only with C++17 or later.
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(23,27): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(23,38): error C2065: string_view: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(23,8): error C2923: std::unordered_map: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(23): message : см. объявление "string_view"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(23,8): error C2976: std::unordered_map: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_map(67): message : см. объявление "std::unordered_map"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(24,27): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(24,38): error C2065: string_view: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(24,8): error C2923: std::unordered_map: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(24): message : см. объявление "string_view"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(24,8): error C2976: std::unordered_map: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_map(67): message : см. объявление "std::unordered_map"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(29,43): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(29,54): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(29,54): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(33,34): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(33,45): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(33,45): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(35,35): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(35,46): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(35,46): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(37,37): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(37,48): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(37,48): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(39,39): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(39,50): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(39,50): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(41,50): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(41,61): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(41,61): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(43,48): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(43,59): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(43,59): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(47,58): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\map(25): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(47,69): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.h(47,69): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(7,62): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(7,73): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(7,73): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(9,23): error C2065: from_stop: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(10,23): error C2065: to_stop: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(11,44): error C3536: lhs: не может использоваться до инициализации
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(11,49): error C3536: rhs: не может использоваться до инициализации
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(11,50): error C2679: бинарный "[": не найден оператор, принимающий правый операнд типа "std::pair<int,int>" (или приемлемое преобразование отсутствует)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_map(381,18): message : может быть "int &std::unordered_map<std::pair<domain::StopPtr,domain::StopPtr>,int,domain::PairStopsHasher,std::equal_to<std::pair<domain::StopPtr,domain::StopPtr>>,std::allocator<std::pair<const std::pair<domain::StopPtr,domain::StopPtr>,int>>>::operator [](const std::pair<domain::StopPtr,domain::StopPtr> &)"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_map(208,18): message : или       "int &std::unordered_map<std::pair<domain::StopPtr,domain::StopPtr>,int,domain::PairStopsHasher,std::equal_to<std::pair<domain::StopPtr,domain::StopPtr>>,std::allocator<std::pair<const std::pair<domain::StopPtr,domain::StopPtr>,int>>>::operator [](std::pair<domain::StopPtr,domain::StopPtr> &&)"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(11,50): message : при попытке сопоставить список аргументов "(std::unordered_map<std::pair<domain::StopPtr,domain::StopPtr>,int,domain::PairStopsHasher,std::equal_to<std::pair<domain::StopPtr,domain::StopPtr>>,std::allocator<std::pair<const std::pair<domain::StopPtr,domain::StopPtr>,int>>>, std::pair<int,int>)"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(11,54): error C2065: distance: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(21,53): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(21,64): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(21,64): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(25,21): error C2065: stops: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(25,3): error C2530: stop: ссылки должны быть инициализированы
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(25,3): error C3531: stop: символ, тип которого содержит спецификатор 'auto' должен иметь инициализатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(25,19): error C2143: синтаксическая ошибка: отсутствие ";" перед ":"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(25,26): error C2143: синтаксическая ошибка: отсутствие ";" перед ")"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(31,36): error C2065: bus_num: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(31,80): error C2065: is_circular: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(31,9): error C2672: "std::deque<domain::Bus,std::allocator<domain::Bus>>::emplace_front": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(32,36): error C2678: бинарный "[": не найден оператор, принимающий левый операнд типа "std::unordered_map" (или приемлемое преобразование отсутствует)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_map(381,18): message : может быть "_Ty &std::unordered_map<_Kty,_Ty,_Hasher,_Keyeq,_Alloc>::operator [](const _Kty &)"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_map(208,18): message : или       "_Ty &std::unordered_map<_Kty,_Ty,_Hasher,_Keyeq,_Alloc>::operator [](_Kty &&)"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(32,36): message : при попытке сопоставить список аргументов "(std::unordered_map, std::string)"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(35,54): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(35,65): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(35,65): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(37,37): error C2065: stop_name: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(37,48): error C2065: lat: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(37,53): error C2065: lng: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(37,9): error C2672: "std::deque<domain::Stop,std::allocator<domain::Stop>>::emplace_front": не найдена соответствующая перегруженная функция
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(38,38): error C2678: бинарный "[": не найден оператор, принимающий левый операнд типа "std::unordered_map" (или приемлемое преобразование отсутствует)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_map(381,18): message : может быть "_Ty &std::unordered_map<_Kty,_Ty,_Hasher,_Keyeq,_Alloc>::operator [](const _Kty &)"
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\unordered_map(208,18): message : или       "_Ty &std::unordered_map<_Kty,_Ty,_Hasher,_Keyeq,_Alloc>::operator [](_Kty &&)"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(38,38): message : при попытке сопоставить список аргументов "(std::unordered_map, std::string)"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(41,56): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(41,67): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(41,67): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(43,27): error C2065: bus_num: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(43,49): error C2663: std::_Hash<_Traits>::end: для 4 перегрузок нет допустимого преобразования для указателя "this"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(43,83): error C2065: bus_num: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(46,58): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(46,69): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(46,69): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(48,27): error C2065: stop_name: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(48,51): error C2663: std::_Hash<_Traits>::end: для 4 перегрузок нет допустимого преобразования для указателя "this"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(48,85): error C2065: stop_name: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(51,69): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(51,80): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(51,80): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(53,24): error C2065: stop_name: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(54,6): error C3536: stop: не может использоваться до инициализации
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(54,22): error C2446: ==: нет преобразования "nullptr" в "int"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(54,15): message : Машинный "nullptr" может быть преобразован только в логический тип, либо, при указании reinterpret_cast, в интегральный тип
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(58,17): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(58,8): error C2923: std::set: "string_view" не является допустимым аргументом типа шаблон для параметра "_Kty"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(51): message : см. объявление "string_view"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(58,8): error C2976: std::set: слишком мало аргументов шаблон
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\set(52): message : см. объявление "std::set"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(58,35): error C2133: buses: неизвестный размер
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(58,30): error C2512: std::set: нет подходящего конструктора по умолчанию
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\set(52,11): message : см. объявление "std::set"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(61,24): error C2672: "std::_Hash<std::_Uset_traits<_Kty,std::_Uhash_compare<_Kty,_Hasher,_Keyeq>,_Alloc,false>>::find": не найдена соответствующая перегруженная функция
+          with
+          [
+              _Kty=const domain::Stop *,
+              _Hasher=std::hash<const domain::Stop *>,
+              _Keyeq=std::equal_to<const domain::Stop *>,
+              _Alloc=std::allocator<domain::StopPtr>
+          ]
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(61,7): error C2440: инициализация: невозможно преобразовать "int" в "const _Kty &"
+          with
+          [
+              _Kty=const domain::Stop *
+          ]
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(61,7): message : Причина: невозможно преобразовать "int" в "const _Kty"
+          with
+          [
+              _Kty=const domain::Stop *
+          ]
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(61,30): message : Для преобразования из целого типа в указатель требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(63,30): error C2662: std::pair<conditional<std::is_same_v<_Traits::key_type,_Traits::value_type>,std::_Tree_const_iterator<std::_Tree_val<conditional<std::_Is_simple_alloc_v<allocator_traits<_Traits::allocator_type>::rebind_alloc<std::_Tree_node<_Traits::value_type,allocator_traits<allocator_traits<_Traits::allocator_type>::rebind_alloc<_Traits::value_type>>::void_pointer>>>,std::_Tree_simple_types<_Traits::value_type>,std::_Tree_iter_types<_Traits::value_type,allocator_traits<allocator_traits<_Traits::allocator_type>::rebind_alloc<_Traits::value_type>>::size_type,allocator_traits<allocator_traits<_Traits::allocator_type>::rebind_alloc<_Traits::value_type>>::difference_type,allocator_traits<allocator_traits<_Traits::allocator_type>::rebind_alloc<_Traits::value_type>>::pointer,allocator_traits<allocator_traits<_Traits::allocator_type>::rebind_alloc<_Traits::value_type>>::const_pointer,_Traits::value_type&,const _Traits::value_type&,allocator_traits<allocator_traits<_Traits::allocator_type>::rebind_alloc<std::_Tree_node<_Traits::value_type,allocator_traits<allocator_traits<_Traits::allocator_type>::rebind_alloc<_Traits::value_type>>::void_pointer>>>::pointer>>::type>>,std::_Tree_iterator<std::_Tree_val<conditional<std::_Is_simple_alloc_v<allocator_traits<_Traits::allocator_type>::rebind_alloc<std::_Tree_node<_Traits::value_type,allocator_traits<allocator_traits<_Traits::allocator_type>::rebind_alloc<_Traits::value_type>>::void_pointer>>>,std::_Tree_simple_types<_Traits::value_type>,std::_Tree_iter_types<_Traits::value_type,allocator_traits<allocator_traits<_Traits::allocator_type>::rebind_alloc<_Traits::value_type>>::size_type,allocator_traits<allocator_traits<_Traits::allocator_type>::rebind_alloc<_Traits::value_type>>::difference_type,allocator_traits<allocator_traits<_Traits::allocator_type>::rebind_alloc<_Traits::value_type>>::pointer,allocator_traits<allocator_traits<_Traits::allocator_type>::rebind_alloc<_Traits::value_type>>::const_pointer,_Traits::value_type&,const _Traits::value_type&,allocator_traits<allocator_traits<_Traits::allocator_type>::rebind_alloc<std::_Tree_node<_Traits::value_type,allocator_traits<allocator_traits<_Traits::allocator_type>::rebind_alloc<_Traits::value_type>>::void_pointer>>>::pointer>>::type>>>::type,bool> std::_Tree<_Traits>::emplace<const std::string&>(const std::string &): невозможно преобразовать указатель "this" из "std::set" в "std::_Tree<_Traits> &"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(63,30): message : Причина: невозможно преобразовать "std::set" в "std::_Tree<_Traits>"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(63,5): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\xtree(1036,26): message : см. объявление "std::_Tree<_Traits>::emplace"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(66,54): error C2664: "domain::StopStat::StopStat(const int)": невозможно преобразовать аргумент 1 из "std::set" в "const int"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(66,48): message : Для выполнения данного преобразования нет доступного оператора преобразования, определенного пользователем, или вызов оператора невозможен
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\domain.h(33,3): message : см. объявление "domain::StopStat::StopStat"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(69,67): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(69,78): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(69,78): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(71,22): error C2065: bus_num: необъявленный идентификатор
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(72,6): error C3536: bus: не может использоваться до инициализации
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(72,21): error C2446: ==: нет преобразования "nullptr" в "int"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(72,14): message : Машинный "nullptr" может быть преобразован только в логический тип, либо, при указании reinterpret_cast, в интегральный тип
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(78,41): error C3536: it: не может использоваться до инициализации
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(80,16): error C2100: недопустимое косвенное обращение
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(82,23): error C2100: недопустимое косвенное обращение
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(83,79): error C2660: geo::ComputeDistance: функция не принимает 1 аргументов
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\geo.h(11,12): message : см. объявление "geo::ComputeDistance"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(84,61): error C2664: "int transport_catalogue::TransportCatalogue::GetDistanceBetweenStops(domain::StopPtr,domain::StopPtr) const": невозможно преобразовать аргумент 1 из "int" в "domain::StopPtr"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(84,44): message : Для преобразования из целого типа в указатель требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(14,26): message : см. объявление "transport_catalogue::TransportCatalogue::GetDistanceBetweenStops"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(87,80): error C2660: geo::ComputeDistance: функция не принимает 1 аргументов
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\geo.h(11,12): message : см. объявление "geo::ComputeDistance"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(88,62): error C2664: "int transport_catalogue::TransportCatalogue::GetDistanceBetweenStops(domain::StopPtr,domain::StopPtr) const": невозможно преобразовать аргумент 1 из "int" в "domain::StopPtr"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(88,45): message : Для преобразования из целого типа в указатель требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(14,26): message : см. объявление "transport_catalogue::TransportCatalogue::GetDistanceBetweenStops"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(92,29): error C2661: domain::BusStat::BusStat: нет перегруженной функции, принимающей 2 аргументов
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(109,77): error C2039: "string_view": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\algorithm(40): message : см. объявление "std"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(109,88): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(109,88): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_11\transport_catalogue.cpp(109,88): fatal error C1003: число ошибок превышает 100; остановка компиляции
+  Создание кода...
