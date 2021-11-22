@@ -211,7 +211,7 @@ namespace json_reader
 				}
 			}
 		}
-		json::Print(json::Document{ json::Builder{}.Value(response).Build() }, std::cout);
+		json::Print(json::Document(json::Builder{}.Value(response).Build()), std::cout);
 	}
 
 	const json::Dict GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
