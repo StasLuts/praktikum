@@ -214,7 +214,7 @@ namespace json_reader
 		json::Print(json::Document(json::Builder{}.Value(response).Build()), std::cout);
 	}
 
-	const json::Dict GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
+	const json::Node GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
 	{
 		const std::string stop_name = dict.at("name").AsString();
 		const auto stop_datd = request_handler.GetStopStat(stop_name);
@@ -233,10 +233,10 @@ namespace json_reader
 		return json::Builder{}.StartDict()
 			.Key("buses").Value(buses)
 			.Key("request_id").Value(dict.at("id").AsInt())
-			.EndDict().Build().AsDict();
+			.EndDict().Build();
 	}
 
-	const json::Dict GetBusInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
+	const json::Node GetBusInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
 	{
 		const std::string bus_name = dict.at("name").AsString();
 		const auto bus_data = request_handler.GetBusStat(bus_name);
@@ -250,10 +250,10 @@ namespace json_reader
 			.Key("route_length").Value(static_cast<int>(bus_data.value()->route_length))
 			.Key("stop_count").Value(bus_data.value()->stops_on_route)
 			.Key("unique_stop_count").Value(bus_data.value()->unique_stops)
-			.EndDict().Build().AsDict();
+			.EndDict().Build();
 	}
 
-	const json::Dict GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
+	const json::Node GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
 	{
 		svg::Document render = request_handler.RenderMap();
 		std::ostringstream strm;
@@ -261,7 +261,7 @@ namespace json_reader
 		return json::Builder{}.StartDict()
 			.Key("map").Value(strm.str())
 			.Key("request_id").Value(dict.at("id").AsInt())
-			.EndDict().Build().AsDict();
+			.EndDict().Build();
 	}
 
 } // namespace json_reader
