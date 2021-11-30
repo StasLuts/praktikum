@@ -29,10 +29,12 @@ namespace json_reader
 
 	void MakeResponse(const request_handler::RequestHandler& request_handler, const json::Array& arr);
 
-	const json::Node GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
+	const json::Node& GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
-	const json::Node GetBusInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
+	const json::Node& GetBusInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
-	const json::Node GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
+	const json::Node& GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
+
+	const json::Node& GetRouteInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
 } // json_reader 
