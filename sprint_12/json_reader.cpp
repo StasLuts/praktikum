@@ -9,7 +9,7 @@ namespace json_reader
 	void JsonRead(std::istream& input)
 	{
 		transport_catalogue::TransportCatalogue trans_cat;
-		const auto dict = json::Load(input).GetRoot().AsDict();
+		const json::Dict dict = json::Load(input).GetRoot().AsDict();
 		const auto base_requests = dict.find("base_requests");
 		if (base_requests != dict.end())
 		{
@@ -211,62 +211,57 @@ namespace json_reader
 				}
 			}
 		}
-		json::Print(json::Document(response), std::cout);
+		json::Print(json::Document(json::Builder{}.Value(response).Build()), std::cout);
 	}
 
-	const json::Dict GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
+	const json::Node GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
 	{
-		const auto stop_name = dict.at("name").AsString();
+		const std::string stop_name = dict.at("name").AsString();
 		const auto stop_datd = request_handler.GetStopStat(stop_name);
-		json::Dict stop_info;
-		if(stop_datd == nullptr)
+		if (stop_datd == nullptr)
 		{
-			stop_info.emplace("request_id", dict.at("id").AsInt());
-			stop_info.emplace("error_message", "not found");
+			return json::Builder{}.StartDict()
+				.Key("request_id").Value(dict.at("id").AsInt())
+				.Key("error_message").Value("not found")
+				.EndDict().Build().AsDict();
 		}
-		else
+		json::Array buses;
+		for (auto& bus : stop_datd.value()->buses)
 		{
-			json::Array buses;
-			for (auto& bus : stop_datd.value()->buses)
-			{
-				buses.push_back(static_cast<std::string>(bus));
-			}
-			stop_info.emplace("buses", buses);
-			stop_info.emplace("request_id", dict.at("id").AsInt());
+			buses.push_back(static_cast<std::string>(bus));
 		}
-		return stop_info;
+		return json::Builder{}.StartDict()
+			.Key("buses").Value(buses)
+			.Key("request_id").Value(dict.at("id").AsInt())
+			.EndDict().Build();
 	}
 
-	const json::Dict GetBusInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
+	const json::Node GetBusInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
 	{
-		const auto bus_name = dict.at("name").AsString();
+		const std::string bus_name = dict.at("name").AsString();
 		const auto bus_data = request_handler.GetBusStat(bus_name);
-		json::Dict bus_info;
-		if (bus_data == nullptr)
-		{
-			bus_info.emplace("request_id", dict.at("id").AsInt());
-			bus_info.emplace("error_message", "not found");
-		}
-		else
-		{
-			bus_info.emplace("curvature", bus_data.value()->curvature);
-			bus_info.emplace("request_id", dict.at("id").AsInt());
-			bus_info.emplace("route_length", static_cast<int>(bus_data.value()->route_length));
-			bus_info.emplace("stop_count", bus_data.value()->stops_on_route);
-			bus_info.emplace("unique_stop_count", bus_data.value()->unique_stops);
-		}
-		return bus_info;
+		return (bus_data == nullptr) ? json::Builder{}.StartDict()
+			.Key("request_id").Value(dict.at("id").AsInt())
+			.Key("error_message").Value("not found")
+			.EndDict().Build().AsDict()
+			: json::Builder{}.StartDict()
+			.Key("curvature").Value(bus_data.value()->curvature)
+			.Key("request_id").Value(dict.at("id").AsInt())
+			.Key("route_length").Value(static_cast<int>(bus_data.value()->route_length))
+			.Key("stop_count").Value(bus_data.value()->stops_on_route)
+			.Key("unique_stop_count").Value(bus_data.value()->unique_stops)
+			.EndDict().Build();
 	}
 
-	const json::Dict GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
+	const json::Node GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
 	{
 		svg::Document render = request_handler.RenderMap();
 		std::ostringstream strm;
 		render.Render(strm);
-		json::Dict map_render;
-		map_render.emplace("map", strm.str());
-		map_render.emplace("request_id", dict.at("id").AsInt());
-		return map_render;
+		return json::Builder{}.StartDict()
+			.Key("map").Value(strm.str())
+			.Key("request_id").Value(dict.at("id").AsInt())
+			.EndDict().Build();
 	}
 
 } // namespace json_reader

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "json.h"
+#include "json_builder.h"
 #include "map_renderer.h"
 #include "transport_catalogue.h"
 #include "request_handler.h"
@@ -29,10 +29,10 @@ namespace json_reader
 
 	void MakeResponse(const request_handler::RequestHandler& request_handler, const json::Array& arr);
 
-	const json::Dict GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
+	const json::Node GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
-	const json::Dict GetBusInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
+	const json::Node GetBusInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
-	const json::Dict GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
+	const json::Node GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
 } // json_reader 
