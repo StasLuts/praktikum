@@ -12,36 +12,52 @@ using VertexId = size_t;
 using EdgeId = size_t;
 
 template <typename Weight>
-struct Edge {
-    VertexId from;
-    VertexId to;
-    Weight weight;
+struct Edge // ребро
+{
+    VertexId from; // вершина (оостановка отправления)
+    VertexId to; // вершина (остановка прибытия)
+    Weight weight; // вес ребра (расстояние между остановками
 };
 
 template <typename Weight>
-class DirectedWeightedGraph
+class DirectedWeightedGraph // направленный взвешенный граф
 {
 private:
 
-    using IncidenceList = std::vector<EdgeId>;
-    using IncidentEdgesRange = ranges::Range<typename IncidenceList::const_iterator>;
+    // список событий
+    using IncidenceList = std::vector<EdgeId>; // вектор номеров ребер
+    // дивпазон ребер инцедента
+    using IncidentEdgesRange = ranges::Range<typename IncidenceList::const_iterator>; // хуйня списков событий
 
 public:
 
     DirectedWeightedGraph() = default;
+
+    // конструктор принимающий колличество  вершин
     explicit DirectedWeightedGraph(size_t vertex_count);
+
+    // добавить ребро
     EdgeId AddEdge(const Edge<Weight>& edge);
 
+    // вернуть колличество вершин
     size_t GetVertexCount() const;
+
+    // вернуть колличество ребер
     size_t GetEdgeCount() const;
+
+    // вернуть ребро по ай-ди ребра
     const Edge<Weight>& GetEdge(EdgeId edge_id) const;
+
+    // вернуть ребра инцедента
     IncidentEdgesRange GetIncidentEdges(VertexId vertex) const;
 
 private:
 
-    std::vector<Edge<Weight>> edges_;
-    std::vector<IncidenceList> incidence_lists_;
+    std::vector<Edge<Weight>> edges_; // ребра
+    std::vector<IncidenceList> incidence_lists_; // события
 };
+
+// определения 
 
 template <typename Weight>
 DirectedWeightedGraph<Weight>::DirectedWeightedGraph(size_t vertex_count)

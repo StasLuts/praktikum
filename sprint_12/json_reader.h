@@ -1,5 +1,6 @@
 #pragma once
 
+#include "transport_router.h"
 #include "json_builder.h"
 #include "map_renderer.h"
 #include "transport_catalogue.h"
@@ -19,6 +20,8 @@ namespace json_reader
 
 	void ReadBusData(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict);
 
+	void SetRoutingSettings(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict);
+
 	//------------------render-------------------------
 
 	const svg::Color GetColor(const json::Node& color);
@@ -27,7 +30,7 @@ namespace json_reader
 
 	//------------------outnput-------------------------
 
-	void MakeResponse(const request_handler::RequestHandler& request_handler, const json::Array& arr);
+	void MakeResponse(const request_handler::RequestHandler& request_handler, const transport_router::TransportRouter& trans_roter, const json::Array& arr);
 
 	const json::Node& GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
@@ -35,6 +38,6 @@ namespace json_reader
 
 	const json::Node& GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
-	const json::Node& GetRouteInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
+	const json::Node& GetRouteInfo(const transport_router::TransportRouter& trans_roter, const json::Dict& dict);
 
 } // json_reader 

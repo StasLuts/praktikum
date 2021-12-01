@@ -24,19 +24,12 @@ namespace json_reader
 		const auto stat_requests = dict.find("stat_requests");
 		if (stat_requests != dict.end())
 		{
-			MakeResponse(request_handler::RequestHandler(trans_cat, map_renderer), stat_requests->second.AsArray());
+			MakeResponse(request_handler::RequestHandler(trans_cat, map_renderer), transport_router::TransportRouter(trans_cat), stat_requests->second.AsArray());
 		}
 		const auto stat_requests = dict.find("routing_settings");
 		if (stat_requests != dict.end())
 		{
-			/*
-			метод принимаюший словарь и инфу из него
-			скорее всего не хэндлер
-			отдельный класс с методами подсчета
-			очень похожий на транспортный каталог
-			стоит воспользоваться готовой библиотекой
-			*/
-
+			SetRoutingSettings(trans_cat, stat_requests->second.AsDict());
 		}
 	}
 
@@ -110,6 +103,11 @@ namespace json_reader
 		dict.at("stops").AsArray();
 		const auto is_circular = dict.at("is_roundtrip").AsBool();
 		trans_cat.AddBusDatabase(bus_name, stops, is_circular);
+	}
+
+	void SetRoutingSettings(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
+	{
+		trans_cat.SetRoutingSettings(dict.at("bus_wait_time").AsInt(), dict.at("bus_velocity").AsDouble());
 	}
 
 	//------------------render-------------------------
@@ -201,7 +199,7 @@ namespace json_reader
 
 	//------------------outnput-------------------------
 
-	void MakeResponse(const request_handler::RequestHandler& request_handler, const json::Array& arr)
+	void MakeResponse(const request_handler::RequestHandler& request_handler, const transport_router::TransportRouter& trans_roter , const json::Array& arr)
 	{
 		json::Array response;
 		for (const auto& request : arr)
@@ -220,6 +218,10 @@ namespace json_reader
 				else if (request_type->second.AsString() == "Map")
 				{
 					response.emplace_back(GetMapRender(request_handler, request.AsDict()));
+				}
+				else if (request_type->second.AsString() == "Route")
+				{
+					response.emplace_back(GetRouteInfo(trans_roter, request.AsDict()));
 				}
 			}
 		}
@@ -276,11 +278,9 @@ namespace json_reader
 			.EndDict().Build();
 	}
 
-	const json::Node& GetRouteInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
+	const json::Node& GetRouteInfo(const transport_router::TransportRouter& trans_roter, const json::Dict& dict)
 	{
-		// переменная принимающая инфу о маршруте между двумя остановками (возможно только ожидание или поездка) или нулл;
-		// инфа берется по названию двух остановок
-		const auto route_data = nullptr;
+		//const auto route_data = nullptr;
 		return (route_data == nullptr) ? json::Builder{}.StartDict()
 			.Key("request_id").Value(dict.at("id").AsInt())
 			.Key("error_message").Value("not found")

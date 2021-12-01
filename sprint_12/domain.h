@@ -9,6 +9,11 @@
 
 namespace domain
 {
+	struct RoutingSettings
+	{
+		int bus_wait_time;
+		double bus_velocity;
+	};
 
 	struct Stop
 	{
