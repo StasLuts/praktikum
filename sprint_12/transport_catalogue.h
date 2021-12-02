@@ -23,11 +23,8 @@ namespace transport_catalogue
 		std::unordered_map<std::string_view, domain::BusPtr> buses_map_;
 		std::unordered_map<std::string_view, domain::StopPtr> stops_map_;
 		std::unordered_map<std::pair<domain::StopPtr, domain::StopPtr>, int, domain::PairStopsHasher> stop_to_stop_distance_;
-		domain::RoutingSettings routing_settings_;
 
 	public:
-
-		void SetRoutingSettings(const int bus_wait_time, const double bus_velocity);
 
 		void SetDistanceBetweenStops(const std::string_view from_stop, const std::string_view to_stop, const int distance);
 

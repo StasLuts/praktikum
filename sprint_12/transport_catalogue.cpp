@@ -4,12 +4,6 @@
 
 namespace transport_catalogue
 {
-	void TransportCatalogue::SetRoutingSettings(const int bus_wait_time, const double bus_velocity)
-	{
-		routing_settings_.bus_wait_time = bus_wait_time;
-		routing_settings_.bus_velocity = bus_velocity;
-	}
-
 	void TransportCatalogue::SetDistanceBetweenStops(const std::string_view from_stop, const std::string_view to_stop, const int distance)
 	{
 		auto lhs = FindStop(from_stop);

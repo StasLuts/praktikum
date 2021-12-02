@@ -20,7 +20,7 @@ namespace json_reader
 
 	void ReadBusData(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict);
 
-	void SetRoutingSettings(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict);
+	//void SetRoutingSettings(transport_router::TransportRouter& trans_roter, const json::Dict& dict);
 
 	//------------------render-------------------------
 
@@ -30,14 +30,14 @@ namespace json_reader
 
 	//------------------outnput-------------------------
 
-	void MakeResponse(const request_handler::RequestHandler& request_handler, const transport_router::TransportRouter& trans_roter, const json::Array& arr);
+	void MakeResponse(const request_handler::RequestHandler& request_handler, const json::Array& arr);
 
-	const json::Node& GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
+	const json::Node GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
-	const json::Node& GetBusInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
+	const json::Node GetBusInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
-	const json::Node& GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
+	const json::Node GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
-	const json::Node& GetRouteInfo(const transport_router::TransportRouter& trans_roter, const json::Dict& dict);
+	//const json::Node& GetRouteInfo(const transport_router::TransportRouter& trans_roter, const json::Dict& dict);
 
 } // json_reader 

@@ -11,6 +11,6 @@ int main()
 {
     //std::ifstream in;
     //in.open("C:\\Users\\User\\Downloads\\s10_final_opentest\\s10_final_opentest_1.json");
-    json_reader::JsonRead(cin);
+    json_reader::JsonRead(std::cin);
     return 0;
 }
