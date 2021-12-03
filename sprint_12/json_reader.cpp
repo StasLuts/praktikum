@@ -9,6 +9,7 @@ namespace json_reader
 	void JsonRead(std::istream& input)
 	{
 		transport_catalogue::TransportCatalogue trans_cat;
+		transport_router::TransportRouter trans_roter(trans_cat);
 		const json::Dict dict = json::Load(input).GetRoot().AsDict();
 		const auto base_requests = dict.find("base_requests");
 		if (base_requests != dict.end())
@@ -24,12 +25,12 @@ namespace json_reader
 		const auto routing_settings = dict.find("routing_settings");
 		if (routing_settings != dict.end())
 		{
-			//SetRoutingSettings(trans_roter, stat_requests->second.AsDict());
+			SetRoutingSettings(trans_roter, routing_settings->second.AsDict());
 		}
 		const auto stat_requests = dict.find("stat_requests");
 		if (stat_requests != dict.end())
 		{
-			MakeResponse(request_handler::RequestHandler(trans_cat, map_renderer), stat_requests->second.AsArray());
+			MakeResponse(request_handler::RequestHandler(trans_cat, trans_roter, map_renderer), stat_requests->second.AsArray());
 		}
 	}
 
@@ -105,10 +106,10 @@ namespace json_reader
 		trans_cat.AddBusDatabase(bus_name, stops, is_circular);
 	}
 
-	/*void SetRoutingSettings(transport_router::TransportRouter& trans_roter, const json::Dict& dict)
+	void SetRoutingSettings(transport_router::TransportRouter& trans_roter, const json::Dict& dict)
 	{
 		trans_roter.SetRoutingSettings(dict.at("bus_wait_time").AsInt(), dict.at("bus_velocity").AsDouble());
-	}*/
+	}
 
 	//------------------render-------------------------
 
@@ -221,7 +222,7 @@ namespace json_reader
 				}
 				else if (request_type->second.AsString() == "Route")
 				{
-					//response.emplace_back(GetRouteInfo(trans_roter, request.AsDict()));
+					response.emplace_back(GetRouteInfo(request_handler, request.AsDict()));
 				}
 			}
 		}
@@ -278,9 +279,14 @@ namespace json_reader
 			.EndDict().Build();
 	}
 
-	/*const json::Node& GetRouteInfo(const transport_router::TransportRouter& trans_roter, const json::Dict& dict)
+	const json::Node GetRouteInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
 	{
-		json::Builder request{};
+		auto route_data = request_handler.GetRoute(dict.at("from").AsString(), dict.at("to").AsString());
+		return json::Builder{}.StartDict()
+			.Key("request_id").Value(dict.at("id").AsInt())
+			.Key("error_message").Value("not found")
+			.EndDict().Build().AsDict();
+		/*json::Builder request{};
 		const auto edges_data = trans_roter.GetEdgesData();
 		auto route_data = trans_roter.FindRoute(dict.at("from").AsString(), dict.at("to").AsString());
 		request.StartDict().Key("request_id").Value(dict.at("id").AsInt());
@@ -324,8 +330,8 @@ namespace json_reader
 				.StartArray()
 				.EndArray();
 		}
-		request.EndDict();
+		request.EndDict();*/
 
-	}*/
+	}
 
 } // namespace json_reader

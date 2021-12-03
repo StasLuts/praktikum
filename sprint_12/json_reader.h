@@ -20,7 +20,7 @@ namespace json_reader
 
 	void ReadBusData(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict);
 
-	//void SetRoutingSettings(transport_router::TransportRouter& trans_roter, const json::Dict& dict);
+	void SetRoutingSettings(transport_router::TransportRouter& trans_roter, const json::Dict& dict);
 
 	//------------------render-------------------------
 
@@ -38,6 +38,6 @@ namespace json_reader
 
 	const json::Node GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
-	//const json::Node& GetRouteInfo(const transport_router::TransportRouter& trans_roter, const json::Dict& dict);
+	const json::Node GetRouteInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
 } // json_reader 

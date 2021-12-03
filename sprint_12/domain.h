@@ -11,8 +11,8 @@ namespace domain
 {
 	struct RoutingSettings
 	{
-		int bus_wait_time;
-		double bus_velocity;
+		int bus_wait_time = 0;
+		double bus_velocity = 0.0;
 	};
 
 	struct Stop

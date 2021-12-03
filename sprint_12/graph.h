@@ -11,12 +11,21 @@ namespace graph
 using VertexId = size_t;
 using EdgeId = size_t;
 
+enum class EdgeType
+{
+    WAIT,
+    BUS
+};
+
 template <typename Weight>
 struct Edge // ребро
 {
-    VertexId from; // вершина (оостановка отправления)
-    VertexId to; // вершина (остановка прибытия)
-    Weight weight; // вес ребра (расстояние между остановками
+    VertexId from; // остановка
+    VertexId to; // остановка
+    Weight weight; // время
+    std::string_view bus_or_stop_name;
+    EdgeType type;
+    size_t span_count;
 };
 
 template <typename Weight>

@@ -4,6 +4,8 @@
 
 namespace transport_catalogue
 {
+	//------------------------------TransportCatalogue--------------------
+
 	void TransportCatalogue::SetDistanceBetweenStops(const std::string_view from_stop, const std::string_view to_stop, const int distance)
 	{
 		auto lhs = FindStop(from_stop);
@@ -104,6 +106,19 @@ namespace transport_catalogue
 			}
 		}
 		return stops_coordinates;
+	}
+
+	const std::vector<domain::StopPtr> TransportCatalogue::GetAllStops() const
+	{
+		std::vector<domain::StopPtr>stops;
+		for (const auto& bus : buses_)
+		{
+			for (const auto& stop : bus.stops)
+			{
+				stops.push_back(stop);
+			}
+		}
+		return stops;
 	}
 
 	const std::vector<domain::StopPtr> TransportCatalogue::GetStops(const std::string_view bus_num) const
