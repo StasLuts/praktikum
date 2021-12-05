@@ -27,11 +27,13 @@ namespace transport_router
 
 	void TransportRouter::FillGraph()
 	{
+		size_t edge_num = 0;
 		for (const auto& bus : trans_cat_.GetBuses())
 		{
 			for(const auto& stop : bus->stops)
 			{
-				graph_.AddEdge();
+				stop_vertexid_map[stop->stop_name] = edge_num;
+				graph_.AddEdge({edge_num, edge_num, settings_.bus_wait_time, graph::EdgeType::WAIT, });
 			}
 		}
 	}

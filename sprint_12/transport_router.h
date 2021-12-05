@@ -22,6 +22,7 @@ namespace transport_router
 		domain::RoutingSettings settings_;
 		std::unique_ptr<graph::Router<double>> router_ = nullptr;
 		graph::DirectedWeightedGraph<double> graph_;
+		std::unordered_map<std::string_view, int> stop_vertexid_map;
 
 		void FillGraph();
 	};
