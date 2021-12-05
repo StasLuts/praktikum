@@ -282,10 +282,17 @@ namespace json_reader
 	const json::Node GetRouteInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict)
 	{
 		auto route_data = request_handler.GetRoute(dict.at("from").AsString(), dict.at("to").AsString());
-		return json::Builder{}.StartDict()
+		return (!route_data) ?
+			json::Builder{}.StartDict()
+			.Key("request_id").Value(dict.at("id").AsInt())
+			.Key("error_message").Value("not found")
+			.EndDict().Build().AsDict()
+			:
+			json::Builder{}.StartDict()
 			.Key("request_id").Value(dict.at("id").AsInt())
 			.Key("error_message").Value("not found")
 			.EndDict().Build().AsDict();
+
 		/*json::Builder request{};
 		const auto edges_data = trans_roter.GetEdgesData();
 		auto route_data = trans_roter.FindRoute(dict.at("from").AsString(), dict.at("to").AsString());

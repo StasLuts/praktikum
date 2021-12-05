@@ -26,4 +26,5 @@ namespace transport_router
 
 		void FillGraph();
 	};
+
 } // namespace transport_router

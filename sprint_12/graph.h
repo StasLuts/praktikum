@@ -1,5 +1,6 @@
 #pragma once
 
+#include <optional>
 #include "ranges.h"
 
 #include <cstdlib>
@@ -25,7 +26,7 @@ struct Edge // ребро
     Weight weight; // время
     std::string_view bus_or_stop_name;
     EdgeType type;
-    size_t span_count;
+    std::optional<size_t> span_count;
 };
 
 template <typename Weight>
@@ -73,7 +74,8 @@ DirectedWeightedGraph<Weight>::DirectedWeightedGraph(size_t vertex_count)
     : incidence_lists_(vertex_count) {}
 
 template <typename Weight>
-EdgeId DirectedWeightedGraph<Weight>::AddEdge(const Edge<Weight>& edge) {
+EdgeId DirectedWeightedGraph<Weight>::AddEdge(const Edge<Weight>& edge)
+{
     edges_.push_back(edge);
     const EdgeId id = edges_.size() - 1;
     incidence_lists_.at(edge.from).push_back(id);

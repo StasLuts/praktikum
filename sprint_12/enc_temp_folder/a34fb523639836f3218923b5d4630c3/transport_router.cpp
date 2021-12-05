@@ -31,10 +31,9 @@ namespace transport_router
 		for (const auto& route : trans_cat_.GetBuses())
 		{
 			double road_distance = 0.0;
-			for (size_t stop_from = 0, stop_to = 1; stop_from < route->stops.size() - 1; ++stop_from, ++stop_to)
+			for (size_t stop_from = 0, stop_to = 1; stop_from < route->stops.size(); ++stop_from, ++stop_to)
 			{
-				graph_.AddEdge({ stop_from, stop_from + 1, (road_distance / (settings_.bus_velocity * 1.0 * 1000)) * 60, route->bus_num ,graph::EdgeType::BUS, stop_to });
-				//stop_vertexid_map.insert({ route->stops[stop_from]->stop_name, stop_from });
+				stop_vertexid_map.insert({ route->stops[stop_from]->stop_name, stop_from });
 				graph_.AddEdge({ stop_from, stop_from, settings_.bus_wait_time * 1.0, route->stops[stop_from]->stop_name ,graph::EdgeType::WAIT });
 				road_distance += trans_cat_.GetDistanceBetweenStops(route->stops[stop_from], route->stops[stop_to]);
 				graph_.AddEdge({ stop_from, stop_to, (road_distance / (settings_.bus_velocity * 1.0 * 1000)) * 60, route->bus_num ,graph::EdgeType::BUS, stop_to });
