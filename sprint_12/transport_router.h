@@ -10,6 +10,12 @@ namespace transport_router
 	{
 	public:
 
+		struct RouteData
+		{
+			double total_time = 0.0;
+			std::vector<std::string_view> items;
+		};
+
 		TransportRouter(const transport_catalogue::TransportCatalogue& trans_cat);
 
 		void SetRoutingSettings(const int bus_wait_time, const double bus_velocity);
@@ -20,9 +26,10 @@ namespace transport_router
 
 		const transport_catalogue::TransportCatalogue& trans_cat_;
 		domain::RoutingSettings settings_;
-		std::unique_ptr<graph::Router<double>> router_ = nullptr;
 		graph::DirectedWeightedGraph<double> graph_;
-		std::unordered_map<std::string_view, int> stop_vertexid_map;
+		std::shared_ptr<graph::Router<double>> router_;
+		std::map<std::string_view, size_t> vertex_wait;
+		std::map<std::string_view, size_t> vertex_move;
 
 		void FillGraph();
 	};
