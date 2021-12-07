@@ -15,8 +15,11 @@ namespace transport_router
 
 	const TransportRouter::RouteData TransportRouter::GetRoute(const std::string_view from, const std::string_view to)
 	{
-		FillGraph();
-		auto r = router_->BuildRoute(vertex_wait.find(from)->second, vertex_move.find(to)->second);
+		if (!router_)
+		{
+			FillGraph();
+		}
+		auto r = router_->BuildRoute(vertex_wait.at(from), vertex_move.at(to));
 		RouteData result;
 		for (const auto& ro : r->edges)
 		{
@@ -53,8 +56,7 @@ namespace transport_router
 		for (const auto& route : trans_cat_.GetBuses())
 		{
 			for (size_t it_from = 0; it_from < route->stops.size(); ++it_from)
-			{
-				int span_count = 1;
+			{ 
 				double road_distance = 0.0;
 				for (size_t it_to = it_from + 1; it_to < route->stops.size(); ++it_to)
 				{
@@ -65,7 +67,7 @@ namespace transport_router
 							road_distance / (settings_.bus_velocity * km_to_min),
 							route->bus_num,
 							graph::EdgeType::BUS,
-							span_count
+							it_to
 						});
 				}
 			}
