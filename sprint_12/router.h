@@ -35,17 +35,14 @@ public:
 
 private:
 
-    // Внутренние Данные Маршрута
     struct RouteInternalData
     {
-        Weight weight; // вершина (остановка видимо)
-        std::optional<EdgeId> prev_edge; // айди предидушего ребра
+        Weight weight;
+        std::optional<EdgeId> prev_edge;
     };
 
-    // Внутренние Данные МаршрутОВ
-    using RoutesInternalData = std::vector<std::vector<std::optional<RouteInternalData>>>; // вектор векторов Внутренние Данные Маршрута
+    using RoutesInternalData = std::vector<std::vector<std::optional<RouteInternalData>>>;
 
-    // Инициализация Внутренних Данных Маршрутов
     void InitializeRoutesInternalData(const Graph& graph)
     {
         const size_t vertex_count = graph.GetVertexCount();
@@ -67,8 +64,7 @@ private:
             }
         }
     }
-
-    // Легкий маршрут 
+ 
     void RelaxRoute(VertexId vertex_from, VertexId vertex_to, const RouteInternalData& route_from, const RouteInternalData& route_to)
     {
         auto& route_relaxing = routes_internal_data_[vertex_from][vertex_to];
@@ -79,7 +75,6 @@ private:
         }
     }
 
-    // простые пути Внутренние Данные Через Вершину
     void RelaxRoutesInternalDataThroughVertex(size_t vertex_count, VertexId vertex_through)
     {
         for (VertexId vertex_from = 0; vertex_from < vertex_count; ++vertex_from)
@@ -96,13 +91,10 @@ private:
             }
         }
     }
-
     static constexpr Weight ZERO_WEIGHT{};
     const Graph& graph_;
     RoutesInternalData routes_internal_data_;
 };
-
-// определения
 
 template <typename Weight>
 Router<Weight>::Router(const Graph& graph)
@@ -133,5 +125,4 @@ std::optional<typename Router<Weight>::RouteInfo> Router<Weight>::BuildRoute(Ver
     std::reverse(edges.begin(), edges.end());
     return RouteInfo{weight, std::move(edges)};
 }
-
 }  // namespace graph

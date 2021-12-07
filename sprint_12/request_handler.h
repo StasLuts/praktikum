@@ -10,7 +10,7 @@ namespace request_handler
     {
     public:
 
-        RequestHandler(const transport_catalogue::TransportCatalogue& db, transport_router::TransportRouter& tr, const renderer::MapRenderer& renderer);
+        RequestHandler(const transport_catalogue::TransportCatalogue& db, const renderer::MapRenderer& renderer);
 
         std::optional<const domain::BusStat*> GetBusStat(const std::string_view& bus_name) const;
 
@@ -23,7 +23,6 @@ namespace request_handler
     private:
 
         const transport_catalogue::TransportCatalogue& db_;
-        transport_router::TransportRouter& tr_;
         const renderer::MapRenderer& renderer_;
     };
 

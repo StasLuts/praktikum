@@ -30,7 +30,7 @@ namespace json_reader
 
 	//------------------outnput-------------------------
 
-	void MakeResponse(const request_handler::RequestHandler& request_handler, const json::Array& arr);
+	void MakeResponse(const request_handler::RequestHandler& request_handler, transport_router::TransportRouter& trans_roter, const json::Array& arr);
 
 	const json::Node GetStopInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
@@ -38,6 +38,6 @@ namespace json_reader
 
 	const json::Node GetMapRender(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
 
-	const json::Node GetRouteInfo(const request_handler::RequestHandler& request_handler, const json::Dict& dict);
+	const json::Node GetRouteInfo(transport_router::TransportRouter& trans_roter, const json::Dict& dict);
 
 } // json_reader 

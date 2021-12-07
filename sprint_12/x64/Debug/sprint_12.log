@@ -1,44 +1,8 @@
 ﻿  Проверка источников на наличие зависимостей модуля…
-  json_builder.cpp
-  json.cpp
-  domain.cpp
-  geo.cpp
-  json_reader.cpp
-  main.cpp
-  map_renderer.cpp
-  request_handler.cpp
-  svg.cpp
-  transport_catalogue.cpp
   transport_router.cpp
   Компиляция…
-  domain.cpp
-  json_builder.cpp
-  json.cpp
-  geo.cpp
-  json_reader.cpp
-  main.cpp
-  request_handler.cpp
-  map_renderer.cpp
-  svg.cpp
-  transport_catalogue.cpp
   transport_router.cpp
-C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_12\transport_catalogue.cpp(95,46): error C2220: следующее предупреждение рассматривается как ошибка
-C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_12\transport_catalogue.cpp(95,46): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(190,48): error C2220: следующее предупреждение рассматривается как ошибка
-  C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_12\transport_router.cpp(33): note: выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<const std::string_view,int>::pair<const std::string&,size_t&,0>(_Other1,_Other2) noexcept"
-          with
-          [
-              _Other1=const std::string &,
-              _Other2=size_t &
-          ]
-  C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_12\transport_router.cpp(33): note: выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<const std::string_view,int>::pair<const std::string&,size_t&,0>(_Other1,_Other2) noexcept"
-          with
-          [
-              _Other1=const std::string &,
-              _Other2=size_t &
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\include\utility(190,48): warning C4267: инициализация: преобразование из "size_t" в "_Ty2"; возможна потеря данных
-          with
-          [
-              _Ty2=int
-          ]
+LINK : warning LNK4300: "/INCREMENTAL" игнорируется, так как входной модуль содержит метаданные ASAN
+domain.obj : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/INCREMENTAL:NO"
+     Создается библиотека C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_12\x64\Debug\sprint_12.lib и объект C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_12\x64\Debug\sprint_12.exp
+  sprint_12.vcxproj -> C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_12\x64\Debug\sprint_12.exe

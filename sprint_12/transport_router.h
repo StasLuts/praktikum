@@ -10,17 +10,25 @@ namespace transport_router
 	{
 	public:
 
+		struct Item
+		{
+			std::string bus_or_stop_name;
+			std::optional<int> span_count;
+			double time;
+			graph::EdgeType type;
+		};
+
 		struct RouteData
 		{
 			double total_time = 0.0;
-			std::vector<std::string_view> items;
+			std::vector<Item> items;
 		};
 
 		TransportRouter(const transport_catalogue::TransportCatalogue& trans_cat);
 
 		void SetRoutingSettings(const int bus_wait_time, const double bus_velocity);
 
-		std::optional<graph::Router<double>::RouteInfo> GetRoute(const std::string_view from, const std::string_view to);
+		const RouteData GetRoute(const std::string_view from, const std::string_view to);
 
 	private:
 
