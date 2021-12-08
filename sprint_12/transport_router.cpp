@@ -19,7 +19,7 @@ namespace transport_router
 		{
 			FillGraph();
 		}
-		auto r = router_->BuildRoute(vertex_wait.at(from), vertex_move.at(to));
+		auto r = router_->BuildRoute(vertex_wait.at(from), vertex_wait.at(to));
 		RouteData result;
 		for (const auto& ro : r->edges)
 		{
@@ -52,9 +52,9 @@ namespace transport_router
 				});
 			++vertex_id;
 		}
-		constexpr double km_to_min = 1000 * 1.0 / 60;
 		for (const auto& route : trans_cat_.GetBuses())
 		{
+			// туда
 			for (size_t it_from = 0; it_from < route->stops.size(); ++it_from)
 			{ 
 				double road_distance = 0.0;
@@ -63,12 +63,31 @@ namespace transport_router
  					road_distance += geo::ComputeDistance(route->stops[it_from]->coodinates, route->stops[it_to]->coodinates);
 					graph_.AddEdge({
 							vertex_move.at(route->stops[it_from]->stop_name),
-							vertex_move.at(route->stops[it_to]->stop_name),
-							road_distance / (settings_.bus_velocity * km_to_min),
+							vertex_wait.at(route->stops[it_to]->stop_name),
+							road_distance / (settings_.bus_velocity * 1000 / 60),
 							route->bus_num,
 							graph::EdgeType::BUS,
 							it_to
 						});
+				}
+			}
+			if (!route->is_circular)
+			{
+				for (int it_from = route->stops.size() - 1; it_from > 0; --it_from)
+				{
+					double road_distance = 0.0;
+					for (int it_to = it_from - 1; it_to > 0; --it_to)
+					{
+						road_distance += geo::ComputeDistance(route->stops[it_from]->coodinates, route->stops[it_to]->coodinates);
+						graph_.AddEdge({
+								vertex_move.at(route->stops[it_from]->stop_name),
+								vertex_wait.at(route->stops[it_to]->stop_name),
+								road_distance / (settings_.bus_velocity * 1000 / 60),
+								route->bus_num,
+								graph::EdgeType::BUS,
+								it_to
+							});
+					}
 				}
 			}
 		}
