@@ -25,11 +25,11 @@ namespace transport_router
 		{
 			auto f = graph_.GetEdge(ro);
 			result.total_time += f.weight;
-			result.items.emplace_back(
+			result.items.emplace_back(Item{
 				f.bus_or_stop_name,
 				(f.type == graph::EdgeType::BUS) ? f.span_count : 0,
 				f.weight,
-				f.type);
+				f.type });
 		}
 		return result;
 	}
@@ -48,7 +48,8 @@ namespace transport_router
 					vertex_move.at(stop->stop_name),
 					settings_.bus_wait_time * 1.0,
 					stop->stop_name,
-					graph::EdgeType::WAIT
+					graph::EdgeType::WAIT,
+					0
 				});
 			++vertex_id;
 		}
@@ -56,18 +57,18 @@ namespace transport_router
 		{
 			// туда
 			for (size_t it_from = 0; it_from < route->stops.size(); ++it_from)
-			{ 
+			{
 				double road_distance = 0.0;
 				for (size_t it_to = it_from + 1; it_to < route->stops.size(); ++it_to)
 				{
- 					road_distance += geo::ComputeDistance(route->stops[it_from]->coodinates, route->stops[it_to]->coodinates);
+					road_distance += geo::ComputeDistance(route->stops[it_from]->coodinates, route->stops[it_to]->coodinates);
 					graph_.AddEdge({
 							vertex_move.at(route->stops[it_from]->stop_name),
 							vertex_wait.at(route->stops[it_to]->stop_name),
 							road_distance / (settings_.bus_velocity * 1000 / 60),
 							route->bus_num,
 							graph::EdgeType::BUS,
-							it_to
+							static_cast<int>(it_to)
 						});
 				}
 			}

@@ -3,6 +3,7 @@
 #include "transport_catalogue.h"
 #include "domain.h"
 #include "router.h"
+#include <memory>
 
 namespace transport_router
 {
