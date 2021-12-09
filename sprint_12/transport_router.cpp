@@ -15,21 +15,25 @@ namespace transport_router
 
 	const TransportRouter::RouteData TransportRouter::GetRoute(const std::string_view from, const std::string_view to)
 	{
-		if (!router_)
+		if (router_)
 		{
-			FillGraph();
+			router_.reset();
 		}
+		FillGraph();
 		auto r = router_->BuildRoute(vertex_wait.at(from), vertex_wait.at(to));
 		RouteData result;
-		for (const auto& ro : r->edges)
+		if (r)
 		{
-			auto f = graph_.GetEdge(ro);
-			result.total_time += f.weight;
-			result.items.emplace_back(Item{
-				f.bus_or_stop_name,
-				(f.type == graph::EdgeType::BUS) ? f.span_count : 0,
-				f.weight,
-				f.type });
+			for (const auto& ro : r->edges)
+			{
+				auto f = graph_.GetEdge(ro);
+				result.total_time += f.weight;
+				result.items.emplace_back(Item{
+					f.bus_or_stop_name,
+					(f.type == graph::EdgeType::BUS) ? f.span_count : 0,
+					f.weight,
+					f.type });
+			}
 		}
 		return result;
 	}
@@ -56,7 +60,7 @@ namespace transport_router
 		for (const auto& route : trans_cat_.GetBuses())
 		{
 			// туда
-			for (size_t it_from = 0; it_from < route->stops.size(); ++it_from)
+			for (size_t it_from = 0; it_from < route->stops.size() - 1; ++it_from)
 			{
 				double road_distance = 0.0;
 				for (size_t it_to = it_from + 1; it_to < route->stops.size(); ++it_to)
@@ -77,7 +81,7 @@ namespace transport_router
 				for (int it_from = route->stops.size() - 1; it_from > 0; --it_from)
 				{
 					double road_distance = 0.0;
-					for (int it_to = it_from - 1; it_to > 0; --it_to)
+					for (int it_to = it_from - 1; it_to >= 0; --it_to)
 					{
 						road_distance += geo::ComputeDistance(route->stops[it_from]->coodinates, route->stops[it_to]->coodinates);
 						graph_.AddEdge({

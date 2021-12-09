@@ -281,6 +281,14 @@ namespace json_reader
 
 	const json::Node GetRouteInfo(transport_router::TransportRouter& trans_roter, const json::Dict& dict)
 	{
+		if (dict.at("from").AsString() == dict.at("to").AsString())
+		{
+			return json::Builder{}.StartDict()
+				.Key("items").StartArray().EndArray()
+				.Key("request_id").Value(dict.at("id").AsInt())
+				.Key("total_time").Value(0)
+				.EndDict().Build().AsDict();
+		}
 		auto route_data = trans_roter.GetRoute(dict.at("from").AsString(), dict.at("to").AsString());
 		if (route_data.items.empty())
 		{
