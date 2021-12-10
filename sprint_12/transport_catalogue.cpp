@@ -148,12 +148,9 @@ namespace transport_catalogue
 		const auto dist_it = stop_to_stop_distance_.find({ prev_stop, next_stop });
 		if (dist_it == stop_to_stop_distance_.end()) {
 			const auto dist_reverse_it_ = stop_to_stop_distance_.find({ next_stop, prev_stop });
-			if (dist_reverse_it_ != stop_to_stop_distance_.end()) {
-				fact_distanse = dist_reverse_it_->second;
-			}
-			else {
+			(dist_reverse_it_ != stop_to_stop_distance_.end()) ?
+				fact_distanse = dist_reverse_it_->second :
 				fact_distanse = -1.0;
-			}
 		}
 		else {
 			fact_distanse = dist_it->second;

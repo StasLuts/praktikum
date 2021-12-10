@@ -1,6 +1,4 @@
 #include "transport_router.h"
-#include <execution>
-#include <mutex>
 
 namespace transport_router
 {
@@ -13,31 +11,25 @@ namespace transport_router
 	{
 		settings_.bus_wait_time = bus_wait_time;
 		settings_.bus_velocity = bus_velocity;
+		FillGraph();
 	}
 
 	const TransportRouter::RouteData TransportRouter::GetRoute(const std::string_view from, const std::string_view to)
 	{
-		if (!router_)
-		{
-			FillGraph();
-		}
 		RouteData result;
-		if (vertex_wait.find(from) != vertex_wait.end() && vertex_wait.find(to) != vertex_wait.end())
+		auto r = router_->BuildRoute(vertex_wait.at(from), vertex_wait.at(to));
+		if (r)
 		{
-			auto r = router_->BuildRoute(vertex_wait.at(from), vertex_wait.at(to));
-			if (r)
+			result.find = true;
+			for (const auto& ro : r->edges)
 			{
-				result.find = true;
-				for (const auto& ro : r->edges)
-				{
-					auto f = graph_.GetEdge(ro);
-					result.total_time += f.weight;
-					result.items.emplace_back(Item{
-						f.bus_or_stop_name,
-						(f.type == graph::EdgeType::BUS) ? f.span_count : 0,
-						f.weight,
-						f.type });
-				}
+				auto f = graph_.GetEdge(ro);
+				result.total_time += f.weight;
+				result.items.emplace_back(Item{
+					f.bus_or_stop_name,
+					(f.type == graph::EdgeType::BUS) ? f.span_count : 0,
+					f.weight,
+					f.type });
 			}
 		}
 		return result;
@@ -63,21 +55,45 @@ namespace transport_router
 			++vertex_id;
 		}
 
+
 		const auto all_rauts = trans_cat_.GetBuses(); //route
-		std::mutex mut;
-		std::for_each(std::execution::par, all_rauts.begin(), all_rauts.end(), [&](const auto& route)
+		//std::mutex mut;
+		//std::for_each( all_rauts.begin(), all_rauts.end(), [&](const auto& route)
+		for (const auto& route : trans_cat_.GetBuses())
+		{
+			// туда
+			for (size_t it_from = 0; it_from < route->stops.size() - 1; ++it_from)
 			{
-				// туда
-				for (size_t it_from = 0; it_from < route->stops.size() - 1; ++it_from)
+				int span_count = 0;
+				for (size_t it_to = it_from + 1; it_to < route->stops.size(); ++it_to)
+				{
+					double road_distance = 0.0;
+					for (size_t k = it_from + 1; k <= it_to; ++k) {
+						road_distance += trans_cat_.ComputeFactGeoLength(route->stops[k - 1], route->stops[k]);
+					}
+					//std::lock_guard<std::mutex> lock(mut);
+					graph_.AddEdge({
+							vertex_move.at(route->stops[it_from]->stop_name),
+							vertex_wait.at(route->stops[it_to]->stop_name),
+							road_distance / (settings_.bus_velocity * 1000 / 60),
+							route->bus_num,
+							graph::EdgeType::BUS,
+							++span_count
+						});
+				}
+			}
+			if (*route->stops.begin() != route->stops.back())
+			{
+				for (int it_from = route->stops.size() - 1; it_from > 0; --it_from)
 				{
 					int span_count = 0;
-					for (size_t it_to = it_from + 1; it_to < route->stops.size(); ++it_to)
+					for (int it_to = it_from - 1; it_to >= 0; --it_to)
 					{
 						double road_distance = 0.0;
-						for (size_t k = it_from + 1; k <= it_to; ++k) {
-							road_distance += trans_cat_.ComputeFactGeoLength(route->stops[k - 1], route->stops[k]);
+						for (int k = it_from; k > it_to; --k) {
+							road_distance += trans_cat_.ComputeFactGeoLength(route->stops[k], route->stops[k - 1]);
 						}
-						std::lock_guard<std::mutex> lock(mut);
+						//std::lock_guard<std::mutex> lock(mut);
 						graph_.AddEdge({
 								vertex_move.at(route->stops[it_from]->stop_name),
 								vertex_wait.at(route->stops[it_to]->stop_name),
@@ -88,32 +104,10 @@ namespace transport_router
 							});
 					}
 				}
-				if (*route->stops.begin() != route->stops.back())
-				{
-					for (int it_from = route->stops.size() - 1; it_from > 0; --it_from)
-					{
-						int span_count = 0;
-						for (int it_to = it_from - 1; it_to >= 0; --it_to)
-						{
-							double road_distance = 0.0;
-							for (int k = it_from; k > it_to; --k) {
-								road_distance += trans_cat_.ComputeFactGeoLength(route->stops[k], route->stops[k - 1]);
-							}
-							std::lock_guard<std::mutex> lock(mut);
-							graph_.AddEdge({
-									vertex_move.at(route->stops[it_from]->stop_name),
-									vertex_wait.at(route->stops[it_to]->stop_name),
-									road_distance / (settings_.bus_velocity * 1000 / 60),
-									route->bus_num,
-									graph::EdgeType::BUS,
-									++span_count
-								});
-						}
-					}
-				}
-			});
-		graph::Router<double> router(graph_);
-		router_ = std::make_unique<graph::Router<double>>(router);
+			}
+		}
+		//graph::Router<double> router(graph_);
+		router_ = std::make_unique<graph::Router<double>>(graph_);
 	}
 
 } // namespace transport_router

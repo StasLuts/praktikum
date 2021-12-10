@@ -298,7 +298,7 @@ namespace json_reader
 			{
 				items_map["type"] = "Bus";
 				items_map["bus"] = item.bus_or_stop_name;
-				items_map["span_count"] = item.span_count.value();
+				items_map["span_count"] = item.span_count;
 			}
 			else if(item.type == graph::EdgeType::WAIT)
 			{
