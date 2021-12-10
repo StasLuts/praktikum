@@ -42,6 +42,8 @@ namespace transport_catalogue
 
 		const std::deque<domain::BusPtr> GetBuses() const;
 
+		double ComputeFactGeoLength(domain::StopPtr const prev_stop, domain::StopPtr const next_stop) const;
+
 	private:
 
 		std::deque<domain::Bus> buses_;

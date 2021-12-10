@@ -15,13 +15,12 @@ namespace transport_router
 
 	const TransportRouter::RouteData TransportRouter::GetRoute(const std::string_view from, const std::string_view to)
 	{
-		if (router_)
+		if (!router_)
 		{
-			router_.reset();
+			FillGraph();
 		}
-		FillGraph();
-		auto r = router_->BuildRoute(vertex_wait.at(from), vertex_wait.at(to));
 		RouteData result;
+		auto r = router_->BuildRoute(vertex_wait.at(from), vertex_wait.at(to));
 		if (r)
 		{
 			for (const auto& ro : r->edges)
@@ -42,7 +41,7 @@ namespace transport_router
 
 	void TransportRouter::FillGraph()
 	{
-		size_t vertex_id = 0;
+		int vertex_id = 0;
 		for (const auto& stop : trans_cat_.GetAllStops())
 		{
 			vertex_wait.insert({ stop->stop_name, vertex_id });
@@ -62,17 +61,20 @@ namespace transport_router
 			// туда
 			for (size_t it_from = 0; it_from < route->stops.size() - 1; ++it_from)
 			{
-				double road_distance = 0.0;
+				int span_count = 0;
 				for (size_t it_to = it_from + 1; it_to < route->stops.size(); ++it_to)
 				{
-					road_distance += geo::ComputeDistance(route->stops[it_from]->coodinates, route->stops[it_to]->coodinates);
+					double road_distance = 0.0;
+					for (size_t k = it_from + 1; k <= it_to; ++k) {
+						road_distance += trans_cat_.ComputeFactGeoLength(route->stops[k -1 ], route->stops[k]);
+					}
 					graph_.AddEdge({
 							vertex_move.at(route->stops[it_from]->stop_name),
 							vertex_wait.at(route->stops[it_to]->stop_name),
 							road_distance / (settings_.bus_velocity * 1000 / 60),
 							route->bus_num,
 							graph::EdgeType::BUS,
-							static_cast<int>(it_to)
+							++span_count
 						});
 				}
 			}
@@ -80,17 +82,20 @@ namespace transport_router
 			{
 				for (int it_from = route->stops.size() - 1; it_from > 0; --it_from)
 				{
-					double road_distance = 0.0;
+					int span_count = 0;
 					for (int it_to = it_from - 1; it_to >= 0; --it_to)
 					{
-						road_distance += geo::ComputeDistance(route->stops[it_from]->coodinates, route->stops[it_to]->coodinates);
+						double road_distance = 0.0;
+						for (int k = it_from; k > it_to; --k) {
+							road_distance += trans_cat_.ComputeFactGeoLength(route->stops[k], route->stops[k - 1]);
+						}
 						graph_.AddEdge({
 								vertex_move.at(route->stops[it_from]->stop_name),
 								vertex_wait.at(route->stops[it_to]->stop_name),
 								road_distance / (settings_.bus_velocity * 1000 / 60),
 								route->bus_num,
 								graph::EdgeType::BUS,
-								it_to
+								++span_count
 							});
 					}
 				}

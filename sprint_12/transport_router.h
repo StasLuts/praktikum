@@ -36,7 +36,7 @@ namespace transport_router
 		const transport_catalogue::TransportCatalogue& trans_cat_;
 		domain::RoutingSettings settings_;
 		graph::DirectedWeightedGraph<double> graph_;
-		std::shared_ptr<graph::Router<double>> router_;
+		std::shared_ptr<graph::Router<double>> router_ = nullptr;
 		std::map<std::string_view, size_t> vertex_wait;
 		std::map<std::string_view, size_t> vertex_move;
 

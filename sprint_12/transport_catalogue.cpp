@@ -111,12 +111,9 @@ namespace transport_catalogue
 	const std::vector<domain::StopPtr> TransportCatalogue::GetAllStops() const
 	{
 		std::vector<domain::StopPtr>stops;
-		for (const auto& bus : buses_)
+		for (const auto& [name, bus_ptr] : stops_map_)
 		{
-			for (const auto& stop : bus.stops)
-			{
-				stops.push_back(stop);
-			}
+			stops.push_back(bus_ptr);
 		}
 		return stops;
 	}
@@ -144,6 +141,26 @@ namespace transport_catalogue
 			});
 		return buses;
 	}
+
+	double TransportCatalogue::ComputeFactGeoLength(domain::StopPtr const prev_stop, domain::StopPtr const next_stop) const
+	{
+		double fact_distanse = 0.0;
+		const auto dist_it = stop_to_stop_distance_.find({ prev_stop, next_stop });
+		if (dist_it == stop_to_stop_distance_.end()) {
+			const auto dist_reverse_it_ = stop_to_stop_distance_.find({ next_stop, prev_stop });
+			if (dist_reverse_it_ != stop_to_stop_distance_.end()) {
+				fact_distanse = dist_reverse_it_->second;
+			}
+			else {
+				fact_distanse = -1.0;
+			}
+		}
+		else {
+			fact_distanse = dist_it->second;
+		}
+		return fact_distanse;
+	}
+
 
 } // namespace transport_catalogue
 
