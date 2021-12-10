@@ -88,7 +88,7 @@ namespace transport_router
 							});
 					}
 				}
-				if (!route->is_circular)
+				if (*route->stops.begin() != route->stops.back())
 				{
 					for (int it_from = route->stops.size() - 1; it_from > 0; --it_from)
 					{
