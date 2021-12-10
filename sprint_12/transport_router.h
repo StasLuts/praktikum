@@ -23,6 +23,7 @@ namespace transport_router
 		{
 			double total_time = 0.0;
 			std::vector<Item> items;
+			bool find = false;
 		};
 
 		TransportRouter(const transport_catalogue::TransportCatalogue& trans_cat);

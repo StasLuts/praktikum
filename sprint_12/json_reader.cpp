@@ -259,7 +259,8 @@ namespace json_reader
 			.Key("request_id").Value(dict.at("id").AsInt())
 			.Key("error_message").Value("not found")
 			.EndDict().Build().AsDict()
-			: json::Builder{}.StartDict()
+			:
+			json::Builder{}.StartDict()
 			.Key("curvature").Value(bus_data.value()->curvature)
 			.Key("request_id").Value(dict.at("id").AsInt())
 			.Key("route_length").Value(static_cast<int>(bus_data.value()->route_length))
@@ -281,16 +282,8 @@ namespace json_reader
 
 	const json::Node GetRouteInfo(transport_router::TransportRouter& trans_roter, const json::Dict& dict)
 	{
-		if (dict.at("from").AsString() == dict.at("to").AsString())
-		{
-			return json::Builder{}.StartDict()
-				.Key("items").StartArray().EndArray()
-				.Key("request_id").Value(dict.at("id").AsInt())
-				.Key("total_time").Value(0)
-				.EndDict().Build().AsDict();
-		}
 		auto route_data = trans_roter.GetRoute(dict.at("from").AsString(), dict.at("to").AsString());
-		if (route_data.items.empty())
+		if (!route_data.find)
 		{
 			return json::Builder{}.StartDict()
 				.Key("request_id").Value(dict.at("id").AsInt())
@@ -307,7 +300,7 @@ namespace json_reader
 				items_map["bus"] = item.bus_or_stop_name;
 				items_map["span_count"] = item.span_count.value();
 			}
-			else
+			else if(item.type == graph::EdgeType::WAIT)
 			{
 				items_map["type"] = "Wait";
 				items_map["stop_name"] = item.bus_or_stop_name;
