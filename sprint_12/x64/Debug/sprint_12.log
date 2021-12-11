@@ -1,8 +1,0 @@
-﻿  Проверка источников на наличие зависимостей модуля…
-  transport_router.cpp
-  Компиляция…
-  transport_router.cpp
-LINK : warning LNK4300: "/INCREMENTAL" игнорируется, так как входной модуль содержит метаданные ASAN
-domain.obj : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/INCREMENTAL:NO"
-     Создается библиотека C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_12\x64\Debug\sprint_12.lib и объект C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_12\x64\Debug\sprint_12.exp
-  sprint_12.vcxproj -> C:\Users\jonid\source\repos\StasLuts\praktikum\sprint_12\x64\Debug\sprint_12.exe
