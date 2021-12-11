@@ -25,7 +25,7 @@ struct Edge
     Weight weight;
     std::string bus_or_stop_name;
     EdgeType type;
-    int span_count;
+    int span_count = 0;
 };
 
 template <typename Weight>

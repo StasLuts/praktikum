@@ -11,11 +11,14 @@ namespace transport_router
 	{
 		settings_.bus_wait_time = bus_wait_time;
 		settings_.bus_velocity = bus_velocity;
-		FillGraph();
 	}
 
 	const TransportRouter::RouteData TransportRouter::GetRoute(const std::string_view from, const std::string_view to)
 	{
+		if (!router_)
+		{
+			FillGraph();
+		}
 		RouteData result;
 		auto r = router_->BuildRoute(vertex_wait.at(from), vertex_wait.at(to));
 		if (r)
@@ -54,24 +57,18 @@ namespace transport_router
 				});
 			++vertex_id;
 		}
-
-
-		const auto all_rauts = trans_cat_.GetBuses(); //route
-		//std::mutex mut;
-		//std::for_each( all_rauts.begin(), all_rauts.end(), [&](const auto& route)
 		for (const auto& route : trans_cat_.GetBuses())
 		{
-			// туда
 			for (size_t it_from = 0; it_from < route->stops.size() - 1; ++it_from)
 			{
 				int span_count = 0;
 				for (size_t it_to = it_from + 1; it_to < route->stops.size(); ++it_to)
 				{
 					double road_distance = 0.0;
-					for (size_t k = it_from + 1; k <= it_to; ++k) {
-						road_distance += trans_cat_.ComputeFactGeoLength(route->stops[k - 1], route->stops[k]);
+					for (size_t it = it_from + 1; it <= it_to; ++it)
+					{
+						road_distance += trans_cat_.ComputeRoadDistance(route->stops[it - 1], route->stops[it]);
 					}
-					//std::lock_guard<std::mutex> lock(mut);
 					graph_.AddEdge({
 							vertex_move.at(route->stops[it_from]->stop_name),
 							vertex_wait.at(route->stops[it_to]->stop_name),
@@ -82,7 +79,7 @@ namespace transport_router
 						});
 				}
 			}
-			if (*route->stops.begin() != route->stops.back())
+			if (!route->is_circular)
 			{
 				for (int it_from = route->stops.size() - 1; it_from > 0; --it_from)
 				{
@@ -90,10 +87,10 @@ namespace transport_router
 					for (int it_to = it_from - 1; it_to >= 0; --it_to)
 					{
 						double road_distance = 0.0;
-						for (int k = it_from; k > it_to; --k) {
-							road_distance += trans_cat_.ComputeFactGeoLength(route->stops[k], route->stops[k - 1]);
+						for (int it = it_from; it > it_to; --it)
+						{
+							road_distance += trans_cat_.ComputeRoadDistance(route->stops[it], route->stops[it - 1]);
 						}
-						//std::lock_guard<std::mutex> lock(mut);
 						graph_.AddEdge({
 								vertex_move.at(route->stops[it_from]->stop_name),
 								vertex_wait.at(route->stops[it_to]->stop_name),
@@ -106,7 +103,6 @@ namespace transport_router
 				}
 			}
 		}
-		//graph::Router<double> router(graph_);
 		router_ = std::make_unique<graph::Router<double>>(graph_);
 	}
 

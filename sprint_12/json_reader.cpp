@@ -77,7 +77,7 @@ namespace json_reader
 
 	void ReadStopData(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
 	{
-		const auto name = dict.at("name").AsString();
+		const std::string name = dict.at("name").AsString();
 		const auto latitude = dict.at("latitude").AsDouble();
 		const auto longitude = dict.at("longitude").AsDouble();
 		trans_cat.AddStopDatabase(name, latitude, longitude);
@@ -85,8 +85,8 @@ namespace json_reader
 
 	void ReadStopDistance(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
 	{
-		const auto from_stop_name = dict.at("name").AsString();
-		const auto stops = dict.at("road_distances").AsDict();
+		const std::string from_stop_name = dict.at("name").AsString();
+		const json::Dict stops = dict.at("road_distances").AsDict();
 		for (const auto& [to_stop_name, distance] : stops)
 		{
 			trans_cat.SetDistanceBetweenStops(from_stop_name, to_stop_name, distance.AsInt());
@@ -95,7 +95,7 @@ namespace json_reader
 
 	void ReadBusData(transport_catalogue::TransportCatalogue& trans_cat, const json::Dict& dict)
 	{
-		const auto bus_name = dict.at("name").AsString();
+		const std::string bus_name = dict.at("name").AsString();
 		std::vector<std::string_view> stops;
 		for (const auto& stop : dict.at("stops").AsArray())
 		{
@@ -314,4 +314,5 @@ namespace json_reader
 			.Key("items").Value(items)
 			.EndDict().Build().AsDict();
 	}
+
 } // namespace json_reader

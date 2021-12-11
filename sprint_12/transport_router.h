@@ -14,8 +14,8 @@ namespace transport_router
 		struct Item
 		{
 			std::string bus_or_stop_name;
-			int span_count;
-			double time;
+			int span_count = 0;
+			double time = 0.0;
 			graph::EdgeType type;
 		};
 
@@ -37,7 +37,7 @@ namespace transport_router
 		const transport_catalogue::TransportCatalogue& trans_cat_;
 		domain::RoutingSettings settings_;
 		graph::DirectedWeightedGraph<double> graph_;
-		std::unique_ptr<graph::Router<double>> router_;
+		std::unique_ptr<graph::Router<double>> router_ = nullptr;
 		std::unordered_map<std::string_view, size_t> vertex_wait;
 		std::unordered_map<std::string_view, size_t> vertex_move;
 

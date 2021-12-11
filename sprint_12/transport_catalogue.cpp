@@ -20,6 +20,24 @@ namespace transport_catalogue
 			stop_to_stop_distance_.at(std::make_pair(lhs, rhs));
 	}
 
+	double TransportCatalogue::ComputeRoadDistance(domain::StopPtr lhs, domain::StopPtr rhs) const
+	{
+		double fact_distanse = 0.0;
+		const auto dist_it = stop_to_stop_distance_.find({ lhs, rhs });
+		if (dist_it == stop_to_stop_distance_.end())
+		{
+			const auto dist_reverse_it_ = stop_to_stop_distance_.find({ rhs, lhs });
+			(dist_reverse_it_ != stop_to_stop_distance_.end()) ?
+				fact_distanse = dist_reverse_it_->second :
+				fact_distanse = -1.0;
+		}
+		else
+		{
+			fact_distanse = dist_it->second;
+		}
+		return fact_distanse;
+	}
+
 	void TransportCatalogue::AddBusDatabase(const std::string_view bus_num, const std::vector<std::string_view>& stops, const bool is_circular)
 	{
 		std::vector<domain::StopPtr>stops_ptr;
@@ -141,23 +159,6 @@ namespace transport_catalogue
 			});
 		return buses;
 	}
-
-	double TransportCatalogue::ComputeFactGeoLength(domain::StopPtr const prev_stop, domain::StopPtr const next_stop) const
-	{
-		double fact_distanse = 0.0;
-		const auto dist_it = stop_to_stop_distance_.find({ prev_stop, next_stop });
-		if (dist_it == stop_to_stop_distance_.end()) {
-			const auto dist_reverse_it_ = stop_to_stop_distance_.find({ next_stop, prev_stop });
-			(dist_reverse_it_ != stop_to_stop_distance_.end()) ?
-				fact_distanse = dist_reverse_it_->second :
-				fact_distanse = -1.0;
-		}
-		else {
-			fact_distanse = dist_it->second;
-		}
-		return fact_distanse;
-	}
-
 
 } // namespace transport_catalogue
 

@@ -22,6 +22,8 @@ namespace transport_catalogue
 
 		int GetDistanceBetweenStops(domain::StopPtr lhs, domain::StopPtr rhs) const;
 
+		double ComputeRoadDistance(domain::StopPtr lhs, domain::StopPtr rhs) const;
+
 		void AddBusDatabase(const std::string_view bus_num, const std::vector<std::string_view>& stops, const bool is_circular);
 
 		void AddStopDatabase(const std::string_view stop_name, const double lat, const double lng);
@@ -41,8 +43,6 @@ namespace transport_catalogue
 		const std::vector<domain::StopPtr> GetStops(const std::string_view bus_num) const;
 
 		const std::deque<domain::BusPtr> GetBuses() const;
-
-		double ComputeFactGeoLength(domain::StopPtr const prev_stop, domain::StopPtr const next_stop) const;
 
 	private:
 
