@@ -36,6 +36,7 @@
 #VS
 *.sln
 /.vs
+/x64
 /*/.vs
 /*/Debug
 *.vcxproj
