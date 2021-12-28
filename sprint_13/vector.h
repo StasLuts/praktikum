@@ -301,6 +301,7 @@ public:
 	template <typename... Args>
 	iterator Emplace(const_iterator pos, Args&&... args)
 	{
+		assert(pos >= cbegin() && pos <= cend());
 		const size_t res_index = pos - begin();
 		if (size_ == res_index)
 		{
@@ -347,6 +348,7 @@ public:
 
 	iterator Erase(const_iterator pos) noexcept(std::is_nothrow_move_assignable_v<T>)
 	{
+		assert(pos >= cbegin() && pos < cend());
 		size_t it = pos - cbegin();
 		if (it + 1 < size_)
 		{
