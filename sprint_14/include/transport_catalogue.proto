@@ -22,7 +22,7 @@ message Bus
 	repeated bytes raw_route = 4;
 	repeated Stop route = 5;
 	bool is_round_trip = 6;
-	double distance = 3;
+	double distance = 7;
 }
 
 message Distance
