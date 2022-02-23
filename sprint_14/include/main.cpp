@@ -1,16 +1,33 @@
-#include "map_renderer.h"
-#include "json_reader.h"
-#include "request_handler.h"
-
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <string_view>
 
 using namespace std::literals;
 
-int main()
-{
-    //std::ifstream in;
-    //in.open("C:\\Users\\User\\Downloads\\s10_final_opentest\\s10_final_opentest_1.json");
-    json_reader::JsonRead(std::cin);
-    return 0;
+void PrintUsage(std::ostream& stream = std::cerr) {
+    stream << "Usage: transport_catalogue [make_base|process_requests]\n"sv;
+}
+
+int main(int argc, char* argv[]) {
+    if (argc != 2) {
+        PrintUsage();
+        return 1;
+    }
+
+    const std::string_view mode(argv[1]);
+
+    if (mode == "make_base"sv) {
+
+        // make base here
+
+    }
+    else if (mode == "process_requests"sv) {
+
+        // process requests here
+
+    }
+    else {
+        PrintUsage();
+        return 1;
+    }
 }

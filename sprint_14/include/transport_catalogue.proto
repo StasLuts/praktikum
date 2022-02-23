@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package transport_catalogue_serealize;
+
+message Coordinates
+{
+	double lat = 1;
+	double lng = 2;
+}
+
+message Stop
+{
+	bytes name = 1;
+	Coordinates coordinates = 2;
+}
+
+message Bus
+{
+	uint32 unique_stops = 1;
+	uint32 stops_number = 2;
+	bytes number = 3;
+	repeated bytes raw_route = 4;
+	repeated Stop route = 5;
+	bool is_round_trip = 6;
+	double distance = 3;
+}
+
+message Distance
+{
+	bytes from = 1;
+	bytes to = 2;
+	double distance = 3;
+}
