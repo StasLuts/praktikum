@@ -5,6 +5,7 @@
 #include "map_renderer.h"
 #include "transport_catalogue.h"
 #include "request_handler.h"
+#include "serialization.h"
 
 namespace json_reader
 {
