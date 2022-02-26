@@ -10,6 +10,10 @@ namespace json_reader
 {
 	void JsonRead(std::istream& input);
 
+	void JsonSerialize(std::istream& input);
+
+	void JsonDeserialize(std::istream& input, std::ostream output);
+
 	//------------------input-------------------------
 
 	void MakeBase(transport_catalogue::TransportCatalogue& trans_cat, const json::Array& arr);

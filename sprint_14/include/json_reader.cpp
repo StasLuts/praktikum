@@ -34,6 +34,51 @@ namespace json_reader
 		}
 	}
 
+	void JsonSerialize(std::istream& input)
+	{
+		transport_catalogue::TransportCatalogue trans_cat;
+		const json::Dict dict = json::Load(input).GetRoot().AsDict();
+		const auto base_requests = dict.find("base_requests");
+		if (base_requests != dict.end())
+		{
+			MakeBase(trans_cat, base_requests->second.AsArray());
+		}
+		const auto render_settings = dict.find("render_settings");
+		renderer::MapRenderer map_renderer;
+		if (render_settings != dict.end())
+		{
+			SetMapRenderer(trans_cat, map_renderer, render_settings->second.AsDict());
+		}
+		const auto routing_settings = dict.find("routing_settings");
+		transport_router::TransportRouter trans_roter(trans_cat);
+		if (routing_settings != dict.end())
+		{
+			SetRoutingSettings(trans_roter, routing_settings->second.AsDict());
+		}
+		serialize::Serializer serializer(trans_cat, map_renderer);
+		const auto serialization_settings = dict.find("serialization_settings");
+		if (serialization_settings != dict.end())
+		{
+			serializer.Serialize(serialization_settings->second.AsDict().at("file").AsString());
+		}
+	}
+
+	void JsonDeserialize(std::istream& input, std::ostream output)
+	{
+		transport_catalogue::TransportCatalogue trans_cat;
+		renderer::MapRenderer map_renderer;
+		transport_router::TransportRouter router(trans_cat);
+		const auto dict = json::Load(input).GetRoot().AsDict();
+		const auto serialization_settings = dict.find("serialization_settings");
+		serialize::Deserializer deserializer;
+		deserializer.Deserialize(trans_cat, map_renderer, router, serialization_settings->second.AsDict().at("file").AsString());
+		const auto stat_requests = dict.find("stat_requests");
+		if (stat_requests != dict.end())
+		{
+			MakeResponse(request_handler::RequestHandler(trans_cat, map_renderer), router, stat_requests->second.AsArray());
+		}
+	}
+
 	//------------------input-------------------------
 
 	void MakeBase(transport_catalogue::TransportCatalogue& trans_cat, const json::Array& arr)
