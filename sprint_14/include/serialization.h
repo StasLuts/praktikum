@@ -28,16 +28,28 @@ namespace serialize
 
 		const transport_catalogue::TransportCatalogue& trans_cat_;
 		const renderer::MapRenderer& map_renderer_;
+		transport_catalogue_serialize::TransportCatalogue trans_cat_ser_;
+
+		/*std::unordered_map<domain::StopPtr, int> stops_to_vertex_ids_;
+		transport_catalogue_serialize::Router buf_router_;
+		transport_catalogue_serialize::Graph buf_graph_;
+		double bus_wait_time_ = 0.0;
+		double bus_velocity_ = 0.0;*/
+
+		void SerializeStop(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
+		void SerializeBus(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
 	};
 
 	class Deserializer
 	{
 	public:
-		Deserializer();
-		~Deserializer();
+
+		Deserializer(transport_catalogue::TransportCatalogue& trans_cat, renderer::MapRenderer& map_renderer, transport_router::TransportRouter& router, const std::string& filename);
 
 	private:
 
+		domain::Stop DeserializeStop(const transport_catalogue_serialize::Stop& stop_ser);
+		domain::Bus DeserializeBus(const transport_catalogue_serialize::Bus& bus_ser);
 	};
 
 } // namespace serialize
