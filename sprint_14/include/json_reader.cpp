@@ -63,7 +63,7 @@ namespace json_reader
 		}
 	}
 
-	void JsonDeserialize(std::istream& input, std::ostream output)
+	void JsonDeserialize(std::istream& input, std::ostream& output)
 	{
 		transport_catalogue::TransportCatalogue trans_cat;
 		renderer::MapRenderer map_renderer;

@@ -13,7 +13,7 @@ namespace json_reader
 
 	void JsonSerialize(std::istream& input);
 
-	void JsonDeserialize(std::istream& input, std::ostream output);
+	void JsonDeserialize(std::istream& input, std::ostream& output);
 
 	//------------------input-------------------------
 
