@@ -38,18 +38,20 @@ namespace serialize
 
 		void SerializeStop(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
 		void SerializeBus(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
+		void SerializeDistance(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
 	};
 
 	class Deserializer
 	{
 	public:
 
-		Deserializer(transport_catalogue::TransportCatalogue& trans_cat, renderer::MapRenderer& map_renderer, transport_router::TransportRouter& router, const std::string& filename);
+		void Deserialize(transport_catalogue::TransportCatalogue& trans_cat, renderer::MapRenderer& map_renderer, transport_router::TransportRouter& router, const std::string& filename);
 
 	private:
 
 		domain::Stop DeserializeStop(const transport_catalogue_serialize::Stop& stop_ser);
 		domain::Bus DeserializeBus(const transport_catalogue_serialize::Bus& bus_ser);
+		std::pair<std::pair<domain::StopPtr, domain::StopPtr>, int> DeserializeDistance(const transport_catalogue_serialize::Distance& distance_ser, const transport_catalogue::TransportCatalogue& trans_cat);
 	};
 
 } // namespace serialize

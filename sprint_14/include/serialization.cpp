@@ -8,7 +8,7 @@ namespace serialize
 	{
 		std::ofstream out(filename, std::ios::binary);
 		SerializeStop(trans_cat_ser_);
-		//SerializeDistance(trans_cat_ser_);
+		SerializeDistance(trans_cat_ser_);
 		SerializeBus(trans_cat_ser_);
 		trans_cat_ser_.SerializeToOstream(&out);
 	}
@@ -34,15 +34,9 @@ namespace serialize
 		for (const auto& bus : trans_cat_.GetBuses())
 		{
 			transport_catalogue_serialize::Bus buf_bus;
-			buf_bus.set_unique_stops(bus->unique_stops.size());
-			buf_bus.set_stops_number(bus->stops.size());
-			buf_bus.set_number(bus->bus_num);
-			buf_bus.set_is_round_trip(bus->is_circular);
-			buf_bus.set_distance(trans_cat_.GetBusStat(bus->bus_num)->route_length);
-
-			//raw
-
-			for (auto stop : bus->unique_stops)
+			buf_bus.set_bus_num(bus->bus_num);
+			buf_bus.set_is_circular(bus->is_circular);
+			for (auto stop : bus->stops)
 			{
 				transport_catalogue_serialize::Stop buf_stop;
 				transport_catalogue_serialize::Coordinates buf_coordinates;
@@ -50,32 +44,50 @@ namespace serialize
 				buf_coordinates.set_lng(stop->coodinates.lng);
 				buf_stop.set_name(stop->stop_name);
 				*buf_stop.mutable_coordinates() = buf_coordinates;
-				*buf_bus.add_route() = buf_stop;
+				*buf_bus.add_stops() = buf_stop;
 			}
 			*trans_cat_ser.add_buses() = buf_bus;
 		}
 	}
 
+	void Serializer::SerializeDistance(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser)
+	{
+		for (const auto& distance : trans_cat_.GetAllDistances())
+		{
+			transport_catalogue_serialize::Distance buf_distance;
+			buf_distance.set_from(distance.first.first->stop_name);
+			buf_distance.set_to(distance.first.second->stop_name);
+			buf_distance.set_distance(distance.second);
+			*trans_cat_ser.add_distances() = buf_distance;
+		}
+	}
+
 	//Deserializer
 
-	Deserializer::Deserializer(transport_catalogue::TransportCatalogue& trans_cat, renderer::MapRenderer& map_renderer, transport_router::TransportRouter& router, const std::string& filename)
+	void Deserializer::Deserialize(transport_catalogue::TransportCatalogue& trans_cat, renderer::MapRenderer& map_renderer, transport_router::TransportRouter& router, const std::string& filename)
 	{
 		std::ifstream in(filename, std::ios::binary);
 		transport_catalogue_serialize::TransportCatalogue trans_cat_ser;
 		trans_cat_ser.ParseFromIstream(&in);
 		for (int i = 0; i < trans_cat_ser.stops().size(); ++i)
 		{
-
+			domain::Stop stop = DeserializeStop(trans_cat_ser.stops(i));
+			trans_cat.AddStopDatabase(stop.stop_name, stop.coodinates.lat, stop.coodinates.lng);
 		}
-
 		for (int i = 0; i < trans_cat_ser.buses().size(); ++i)
 		{
-
+			domain::Bus bus = DeserializeBus(trans_cat_ser.buses(i));
+			std::vector<std::string_view> stops;
+			for (const auto& stop : bus.stops)
+			{
+				stops.push_back(stop->stop_name);
+			}
+			trans_cat.AddBusDatabase(bus.bus_num, stops, bus.is_circular);
 		}
-
 		for (int i = 0; i < trans_cat_ser.distances_size(); ++i)
 		{
-
+			const auto deserialized_distance = DeserializeDistance(trans_cat_ser.distances(i), trans_cat);
+			trans_cat.SetDistanceBetweenStops(deserialized_distance.first.first->stop_name, deserialized_distance.first.second->stop_name, deserialized_distance.second);
 		}
 	}
 
@@ -83,12 +95,28 @@ namespace serialize
 
 	domain::Stop Deserializer::DeserializeStop(const transport_catalogue_serialize::Stop& stop_ser)
 	{
-		return domain::Stop();
+		domain::Stop stop(stop_ser.name(), stop_ser.coordinates().lat(), stop_ser.coordinates().lng());
+		return stop;
 	}
 
 	domain::Bus Deserializer::DeserializeBus(const transport_catalogue_serialize::Bus& bus_ser)
 	{
-		return domain::Bus();
+		std::vector<domain::StopPtr> stops;
+		for (const auto& stop_ser : bus_ser.stops())
+		{
+			domain::Stop stop(stop_ser.name(), stop_ser.coordinates().lat(), stop_ser.coordinates().lng());
+			stops.push_back(&stop);
+		}
+		std::unordered_set<domain::StopPtr> unique_stops(stops.begin(), stops.end());
+		domain::Bus bus(bus_ser.bus_num(), stops, unique_stops, bus_ser.is_circular());
+		return bus;
 	}
 
+	std::pair<std::pair<domain::StopPtr, domain::StopPtr>, int> Deserializer::DeserializeDistance(const transport_catalogue_serialize::Distance& distance_ser, const transport_catalogue::TransportCatalogue& trans_cat)
+	{
+		domain::StopPtr stop_from = trans_cat.FindStop(distance_ser.from());
+		domain::StopPtr stop_to = trans_cat.FindStop(distance_ser.to());
+		int64_t distance = distance_ser.distance();
+		return std::make_pair(std::make_pair(stop_from, stop_to), distance);
+	}
 } // namespace serialize

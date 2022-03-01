@@ -22,6 +22,8 @@ namespace transport_catalogue
 
 		int GetDistanceBetweenStops(domain::StopPtr lhs, domain::StopPtr rhs) const;
 
+		const std::unordered_map<std::pair<domain::StopPtr, domain::StopPtr>, int, domain::PairStopsHasher>& GetAllDistances() const;
+
 		double ComputeRoadDistance(domain::StopPtr lhs, domain::StopPtr rhs) const;
 
 		void AddBusDatabase(const std::string_view bus_num, const std::vector<std::string_view>& stops, const bool is_circular);

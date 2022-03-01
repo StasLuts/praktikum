@@ -2,31 +2,33 @@ syntax = "proto3";
 
 package transport_catalogue_serialize;
 
-message Coordinates {
+message Coordinates
+{
 	double lat = 1;
 	double lng = 2;
 }
 
-message Stop {
-	bytes name = 1;
+message Stop
+{
+	string name = 1;
 	Coordinates coordinates = 2;
 }
 
-message Bus {
-	uint32 unique_stops = 1;
-	uint32 stops_number = 2;
-	bytes number = 3;
-	repeated bytes raw_route = 4;
-	repeated Stop route = 5;
-	bool is_round_trip = 6;
-	double distance = 7;	
+message Bus
+{
+	string bus_num = 1;
+	repeated Stop stops = 2;
+	bool is_circular = 3;
 }
 
-message Distance {
+message Distance
+{
 	bytes from = 1;
 	bytes to = 2;
-	double distance = 3;
+	int64 distance = 3;
 }
+
+
 
 message Point {
 	double x = 1;
@@ -50,7 +52,7 @@ message RenderSettings {
 	double width = 1;
 	double height = 2;
 	double padding = 3;
-	double line_width = 4;
+	double line_width = 4; 
 	double stop_radius = 5;
 	uint32 bus_label_font_size = 6;
 	Point bus_label_offset = 7;
