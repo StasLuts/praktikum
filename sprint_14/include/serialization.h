@@ -49,8 +49,6 @@ namespace serialize
 
 	private:
 
-		domain::Stop DeserializeStop(const transport_catalogue_serialize::Stop& stop_ser);
-		domain::Bus DeserializeBus(const transport_catalogue_serialize::Bus& bus_ser);
 		std::pair<std::pair<domain::StopPtr, domain::StopPtr>, int> DeserializeDistance(const transport_catalogue_serialize::Distance& distance_ser, const transport_catalogue::TransportCatalogue& trans_cat);
 	};
 

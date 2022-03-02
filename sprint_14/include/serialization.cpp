@@ -71,18 +71,18 @@ namespace serialize
 		trans_cat_ser.ParseFromIstream(&in);
 		for (int i = 0; i < trans_cat_ser.stops().size(); ++i)
 		{
-			domain::Stop stop = DeserializeStop(trans_cat_ser.stops(i));
-			trans_cat.AddStopDatabase(stop.stop_name, stop.coodinates.lat, stop.coodinates.lng);
+			auto stop_ser = trans_cat_ser.stops(i);
+			trans_cat.AddStopDatabase(stop_ser.name(), stop_ser.coordinates().lat(), stop_ser.coordinates().lng());
 		}
 		for (int i = 0; i < trans_cat_ser.buses().size(); ++i)
 		{
-			domain::Bus bus = DeserializeBus(trans_cat_ser.buses(i));
+			auto bus_ser = trans_cat_ser.buses(i);
 			std::vector<std::string_view> stops;
-			for (const auto& stop : bus.stops)
+			for (const auto& stop_ser : bus_ser.stops())
 			{
-				stops.push_back(stop->stop_name);
+				stops.push_back(stop_ser.name());
 			}
-			trans_cat.AddBusDatabase(bus.bus_num, stops, bus.is_circular);
+			trans_cat.AddBusDatabase(bus_ser.bus_num(), stops, bus_ser.is_circular());
 		}
 		for (int i = 0; i < trans_cat_ser.distances_size(); ++i)
 		{
@@ -92,25 +92,6 @@ namespace serialize
 	}
 
 	//Deserializer private
-
-	domain::Stop Deserializer::DeserializeStop(const transport_catalogue_serialize::Stop& stop_ser)
-	{
-		domain::Stop stop(stop_ser.name(), stop_ser.coordinates().lat(), stop_ser.coordinates().lng());
-		return stop;
-	}
-
-	domain::Bus Deserializer::DeserializeBus(const transport_catalogue_serialize::Bus& bus_ser)
-	{
-		std::vector<domain::StopPtr> stops;
-		for (const auto& stop_ser : bus_ser.stops())
-		{
-			domain::Stop stop(stop_ser.name(), stop_ser.coordinates().lat(), stop_ser.coordinates().lng());
-			stops.push_back(&stop);
-		}
-		std::unordered_set<domain::StopPtr> unique_stops(stops.begin(), stops.end());
-		domain::Bus bus(bus_ser.bus_num(), stops, unique_stops, bus_ser.is_circular());
-		return bus;
-	}
 
 	std::pair<std::pair<domain::StopPtr, domain::StopPtr>, int> Deserializer::DeserializeDistance(const transport_catalogue_serialize::Distance& distance_ser, const transport_catalogue::TransportCatalogue& trans_cat)
 	{

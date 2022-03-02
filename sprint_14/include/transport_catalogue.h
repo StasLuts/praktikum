@@ -22,7 +22,7 @@ namespace transport_catalogue
 
 		int GetDistanceBetweenStops(domain::StopPtr lhs, domain::StopPtr rhs) const;
 
-		const std::unordered_map<std::pair<domain::StopPtr, domain::StopPtr>, int, domain::PairStopsHasher>& GetAllDistances() const;
+		std::unordered_map<std::pair<domain::StopPtr, domain::StopPtr>, int, domain::PairStopsHasher> GetAllDistances() const;
 
 		double ComputeRoadDistance(domain::StopPtr lhs, domain::StopPtr rhs) const;
 

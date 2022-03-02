@@ -28,8 +28,6 @@ message Distance
 	int64 distance = 3;
 }
 
-
-
 message Point {
 	double x = 1;
 	double y = 2;
@@ -63,18 +61,21 @@ message RenderSettings {
 	repeated Color color_palette = 12;
 }
 
-message StopsToVertex {
+message StopsToVertex
+{
 	bytes stop_name = 1;
 	uint32 stop_in_id = 2;
 	uint32 stop_out_id = 3;
 }
 
-message RoutingSettings {
+message RoutingSettings
+{
 	int32 wait_time = 1;
 	double velocity = 2;
 }
 
-message EdgesInfo {
+message EdgesInfo
+{
 	uint32 edge_id = 1;
 	bytes name = 2;
 	double total_time = 3;
@@ -82,25 +83,29 @@ message EdgesInfo {
 	int32 span_count = 5;
 }
 
-message Edge {
+message Edge
+{
 	uint32 from = 1;
 	uint32 to = 2;
 	double weight = 3;
 }
 
-message Graph {
+message Graph
+{
 	uint32 vertex_count = 1;
 	repeated Edge edge = 2;
 }
 
-message Router {
+message Router
+{
 	RoutingSettings routing_settings = 1;
 	repeated StopsToVertex stops_to_vertex = 2;
 	repeated EdgesInfo edges_info = 3;	
 	Graph graph = 4;
 }
 
-message TransportCatalogue {
+message TransportCatalogue
+{
 	repeated Stop stops = 1;
 	repeated Bus buses = 2;
 	repeated Distance distances = 3;

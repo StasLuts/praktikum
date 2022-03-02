@@ -20,7 +20,7 @@ namespace transport_catalogue
 			stop_to_stop_distance_.at(std::make_pair(lhs, rhs));
 	}
 
-	const std::unordered_map<std::pair<domain::StopPtr, domain::StopPtr>, int, domain::PairStopsHasher>& TransportCatalogue::GetAllDistances() const
+	std::unordered_map<std::pair<domain::StopPtr, domain::StopPtr>, int, domain::PairStopsHasher> TransportCatalogue::GetAllDistances() const
 	{
 		return std::unordered_map<std::pair<domain::StopPtr, domain::StopPtr>, int, domain::PairStopsHasher>(stop_to_stop_distance_);
 	}
