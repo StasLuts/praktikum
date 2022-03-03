@@ -39,6 +39,7 @@ namespace serialize
 		void SerializeStop(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
 		void SerializeBus(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
 		void SerializeDistance(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
+		void SerealizeRenderSettings(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
 	};
 
 	class Deserializer

@@ -167,6 +167,8 @@ namespace renderer
 
         void SetRenderSettings(const RenderSettings& render_settings);
 
+        const RenderSettings& GetRenderSettings() const;
+
         void AddRoutRender(const std::vector<svg::Point>& stops_coordinates, const svg::Color& stroke_color);
 
         void AddStopPointRender(const svg::Point& stop_coordinate);

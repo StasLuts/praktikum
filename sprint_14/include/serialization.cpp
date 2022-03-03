@@ -10,6 +10,7 @@ namespace serialize
 		SerializeStop(trans_cat_ser_);
 		SerializeDistance(trans_cat_ser_);
 		SerializeBus(trans_cat_ser_);
+		SerealizeRenderSettings(trans_cat_ser_);
 		trans_cat_ser_.SerializeToOstream(&out);
 	}
 
@@ -60,6 +61,20 @@ namespace serialize
 			buf_distance.set_distance(distance.second);
 			*trans_cat_ser.add_distances() = buf_distance;
 		}
+	}
+
+	void Serializer::SerealizeRenderSettings(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser)
+	{
+		auto render_settings = map_renderer_.GetRenderSettings();
+		transport_catalogue_serialize::RenderSettings buf_render_settings;
+		transport_catalogue_serialize::Point buf_point;
+		buf_render_settings.set_width(render_settings.width);
+		buf_render_settings.set_height(render_settings.height);
+		buf_render_settings.set_padding(render_settings.padding);
+		buf_render_settings.set_line_width(render_settings.line_width);
+		buf_render_settings.set_stop_radius(render_settings.stop_radius);
+		buf_render_settings.set_bus_label_font_size(render_settings.bus_label_font_size);
+		buf_render_settings.set_stop_label_font_size(render_settings.stop_label_font_size);
 	}
 
 	//Deserializer
