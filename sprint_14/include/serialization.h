@@ -40,6 +40,7 @@ namespace serialize
 		void SerializeBus(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
 		void SerializeDistance(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
 		void SerealizeRenderSettings(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
+		transport_catalogue_serialize::Color SerealizeColor(const svg::Color& color);
 	};
 
 	class Deserializer
@@ -51,6 +52,8 @@ namespace serialize
 	private:
 
 		std::pair<std::pair<domain::StopPtr, domain::StopPtr>, int> DeserializeDistance(const transport_catalogue_serialize::Distance& distance_ser, const transport_catalogue::TransportCatalogue& trans_cat);
+		renderer::RenderSettings DeserealizeRenderSettings(const transport_catalogue_serialize::RenderSettings& render_settings_ser);
+		svg::Color DserealizeColor(const transport_catalogue_serialize::Color& color_ser);
 	};
 
 } // namespace serialize
