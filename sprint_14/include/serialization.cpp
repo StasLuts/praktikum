@@ -152,7 +152,45 @@ namespace serialize
 			const auto deserialized_distance = DeserializeDistance(trans_cat_ser.distances(i), trans_cat);
 			trans_cat.SetDistanceBetweenStops(deserialized_distance.first.first->stop_name, deserialized_distance.first.second->stop_name, deserialized_distance.second);
 		}
-		map_renderer.SetRenderSettings(DeserealizeRenderSettings(trans_cat_ser.render_settings()));
+
+		// Mb
+		auto settings  = DeserealizeRenderSettings(trans_cat_ser.render_settings());
+		map_renderer.SetRenderSettings(settings);
+
+		const auto all_stops_coordinates = trans_cat.GetAllStopsCoordinates();
+		renderer::SphereProjector projector(all_stops_coordinates.begin(), all_stops_coordinates.end(), settings.width, settings.height, settings.padding);
+		const std::vector<svg::Color> color_pallete = map_renderer.GetColorPallete();
+		size_t color_num = 0;
+		std::map<std::string, svg::Point> stops;
+		for (const auto& it : trans_cat.GetBuses())
+		{
+			std::vector<svg::Point> stops_points;
+			for (const auto& stop : trans_cat.GetStops(it->bus_num))
+			{
+				stops_points.emplace_back(projector(stop->coodinates));
+				stops[stop->stop_name] = stops_points.back();
+			}
+			if (it->is_circular == true)
+			{
+				map_renderer.AddTextRender(*stops_points.begin(), it->bus_num, color_pallete[color_num], false);
+				map_renderer.AddRoutRender(stops_points, color_pallete[color_num]);
+			}
+			else if (it->is_circular == false)
+			{
+				map_renderer.AddTextRender(*stops_points.begin(), it->bus_num, color_pallete[color_num], false);
+				if (*it->stops.begin() != it->stops.back())map_renderer.AddTextRender(stops_points.back(), it->bus_num, color_pallete[color_num], false);
+				stops_points.insert(stops_points.end(), stops_points.rbegin() + 1, stops_points.rend());
+				map_renderer.AddRoutRender(stops_points, color_pallete[color_num]);
+			}
+			(color_num == color_pallete.size() - 1) ? color_num = 0 : ++color_num;
+		}
+		for (const auto& [name, coordinate] : stops)
+		{
+			map_renderer.AddStopPointRender(coordinate);
+			map_renderer.AddTextRender(coordinate, name, color_pallete[color_num], true);
+		}
+
+		// Mb
 	}
 
 	//Deserializer private
