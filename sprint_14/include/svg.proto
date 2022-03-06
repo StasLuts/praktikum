@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package svg_serealize;
+package transport_catalogue_serialize;
 
 message Point
 {
