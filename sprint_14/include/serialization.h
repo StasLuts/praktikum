@@ -19,8 +19,8 @@ namespace serialize
 	{
 	public:
 		
-		Serializer(const transport_catalogue::TransportCatalogue& trans_cat, const renderer::MapRenderer& map_renderer)
-			: trans_cat_(trans_cat), map_renderer_(map_renderer) {}
+		Serializer(const transport_catalogue::TransportCatalogue& trans_cat, const renderer::MapRenderer& map_renderer, const transport_router::TransportRouter& trans_rote)
+			: trans_cat_(trans_cat), map_renderer_(map_renderer), trans_rote_(trans_rote) {}
 
 		void Serialize(const std::string& filename);
 
@@ -28,26 +28,23 @@ namespace serialize
 
 		const transport_catalogue::TransportCatalogue& trans_cat_;
 		const renderer::MapRenderer& map_renderer_;
+		const transport_router::TransportRouter& trans_rote_;
 		transport_catalogue_serialize::TransportCatalogue trans_cat_ser_;
-
-		/*std::unordered_map<domain::StopPtr, int> stops_to_vertex_ids_;
-		transport_catalogue_serialize::Router buf_router_;
-		transport_catalogue_serialize::Graph buf_graph_;
-		double bus_wait_time_ = 0.0;
-		double bus_velocity_ = 0.0;*/
 
 		void SerializeStop(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
 		void SerializeBus(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
 		void SerializeDistance(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
 		void SerealizeRenderSettings(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
 		transport_catalogue_serialize::Color SerealizeColor(const svg::Color& color);
+		void SerealizeRoutingSettings(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser);
 	};
 
 	class Deserializer
 	{
 	public:
 
-		void Deserialize(transport_catalogue::TransportCatalogue& trans_cat, renderer::MapRenderer& map_renderer, transport_router::TransportRouter& router, const std::string& filename);
+		void DeserializeCatalogAndRenderer(transport_catalogue::TransportCatalogue& trans_cat, renderer::MapRenderer& map_renderer, const std::string& filename);
+		void DeserealizeRouter(transport_router::TransportRouter& trans_rote, const std::string& filename);
 
 	private:
 

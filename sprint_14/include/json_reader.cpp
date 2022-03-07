@@ -55,7 +55,7 @@ namespace json_reader
 		{
 			SetRoutingSettings(trans_roter, routing_settings->second.AsDict());
 		}
-		serialize::Serializer serializer(trans_cat, map_renderer);
+		serialize::Serializer serializer(trans_cat, map_renderer, trans_roter);
 		const auto serialization_settings = dict.find("serialization_settings");
 		if (serialization_settings != dict.end())
 		{
@@ -67,11 +67,12 @@ namespace json_reader
 	{
 		transport_catalogue::TransportCatalogue trans_cat;
 		renderer::MapRenderer map_renderer;
-		transport_router::TransportRouter router(trans_cat);
 		const auto dict = json::Load(input).GetRoot().AsDict();
 		const auto serialization_settings = dict.find("serialization_settings");
 		serialize::Deserializer deserializer;
-		deserializer.Deserialize(trans_cat, map_renderer, router, serialization_settings->second.AsDict().at("file").AsString());
+		deserializer.DeserializeCatalogAndRenderer(trans_cat, map_renderer, serialization_settings->second.AsDict().at("file").AsString());
+		transport_router::TransportRouter router(trans_cat);
+		deserializer.DeserealizeRouter(router, serialization_settings->second.AsDict().at("file").AsString());
 		const auto stat_requests = dict.find("stat_requests");
 		if (stat_requests != dict.end())
 		{

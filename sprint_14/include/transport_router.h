@@ -30,6 +30,8 @@ namespace transport_router
 
 		void SetRoutingSettings(const int bus_wait_time, const double bus_velocity);
 
+		const domain::RoutingSettings& GetRoutingSettings() const;
+
 		const RouteData GetRoute(const std::string_view from, const std::string_view to);
 
 	private:

@@ -9,7 +9,6 @@
 
 namespace json_reader
 {
-	void JsonRead(std::istream& input);
 
 	void JsonSerialize(std::istream& input);
 

@@ -6,9 +6,9 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(Protobuf REQUIRED)
 find_package(Threads REQUIRED)
 
-protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS svg.proto map_renderer.proto transport_catalogue.proto)
+protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS svg.proto map_renderer.proto transport_router.proto transport_catalogue.proto)
 
-set(TRANSPORT_CATALOGUE_FILES domain.cpp domain.h geo.cpp geo.h graph.h json.cpp json.h json_builder.cpp json_builder.h json_reader.cpp json_reader.h main.cpp map_renderer.cpp map_renderer.h map_renderer.proto ranges.h request_handler.cpp request_handler.h router.h serialization.h serialization.cpp svg.cpp svg.h svg.proto transport_catalogue.cpp transport_catalogue.h transport_catalogue.proto transport_router.cpp transport_router.h)
+set(TRANSPORT_CATALOGUE_FILES domain.cpp domain.h geo.cpp geo.h graph.h json.cpp json.h json_builder.cpp json_builder.h json_reader.cpp json_reader.h main.cpp map_renderer.cpp map_renderer.h map_renderer.proto ranges.h request_handler.cpp request_handler.h router.h serialization.h serialization.cpp svg.cpp svg.h svg.proto transport_catalogue.cpp transport_catalogue.h transport_catalogue.proto transport_router.cpp transport_router.h transport_router.proto)
 
 add_executable(transport_catalogue ${PROTO_SRCS} ${PROTO_HDRS} ${TRANSPORT_CATALOGUE_FILES})
 target_include_directories(transport_catalogue PUBLIC ${Protobuf_INCLUDE_DIRS})

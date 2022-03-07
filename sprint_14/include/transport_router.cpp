@@ -13,6 +13,11 @@ namespace transport_router
 		settings_.bus_velocity = bus_velocity;
 	}
 
+	const domain::RoutingSettings& TransportRouter::GetRoutingSettings() const
+	{
+		return settings_;
+	}
+
 	const TransportRouter::RouteData TransportRouter::GetRoute(const std::string_view from, const std::string_view to)
 	{
 		if (!router_)

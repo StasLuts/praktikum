@@ -11,6 +11,7 @@ namespace serialize
 		SerializeDistance(trans_cat_ser_);
 		SerializeBus(trans_cat_ser_);
 		SerealizeRenderSettings(trans_cat_ser_);
+		SerealizeRoutingSettings(trans_cat_ser_);
 		trans_cat_ser_.SerializeToOstream(&out);
 	}
 
@@ -125,13 +126,23 @@ namespace serialize
 		return buf_color;
 	}
 
+	void Serializer::SerealizeRoutingSettings(transport_catalogue_serialize::TransportCatalogue& trans_cat_ser)
+	{
+		transport_catalogue_serialize::RoutingSettings buf_routing_settings;
+		auto routing_settings = trans_rote_.GetRoutingSettings();
+		buf_routing_settings.set_bus_velocity(routing_settings.bus_velocity);
+		buf_routing_settings.set_bus_wait_time(routing_settings.bus_wait_time);
+		*trans_cat_ser.mutable_routing_settings() = buf_routing_settings;
+	}
+
 	//Deserializer
 
-	void Deserializer::Deserialize(transport_catalogue::TransportCatalogue& trans_cat, renderer::MapRenderer& map_renderer, transport_router::TransportRouter& router, const std::string& filename)
+	void Deserializer::DeserializeCatalogAndRenderer(transport_catalogue::TransportCatalogue& trans_cat, renderer::MapRenderer& map_renderer, const std::string& filename)
 	{
 		std::ifstream in(filename, std::ios::binary);
 		transport_catalogue_serialize::TransportCatalogue trans_cat_ser;
 		trans_cat_ser.ParseFromIstream(&in);
+		// trans_cat
 		for (int i = 0; i < trans_cat_ser.stops().size(); ++i)
 		{
 			auto stop_ser = trans_cat_ser.stops(i);
@@ -152,11 +163,9 @@ namespace serialize
 			const auto deserialized_distance = DeserializeDistance(trans_cat_ser.distances(i), trans_cat);
 			trans_cat.SetDistanceBetweenStops(deserialized_distance.first.first->stop_name, deserialized_distance.first.second->stop_name, deserialized_distance.second);
 		}
-
-		// Mb
+		// map_renderer
 		auto settings  = DeserealizeRenderSettings(trans_cat_ser.render_settings());
 		map_renderer.SetRenderSettings(settings);
-
 		const auto all_stops_coordinates = trans_cat.GetAllStopsCoordinates();
 		renderer::SphereProjector projector(all_stops_coordinates.begin(), all_stops_coordinates.end(), settings.width, settings.height, settings.padding);
 		const std::vector<svg::Color> color_pallete = map_renderer.GetColorPallete();
@@ -189,8 +198,15 @@ namespace serialize
 			map_renderer.AddStopPointRender(coordinate);
 			map_renderer.AddTextRender(coordinate, name, color_pallete[color_num], true);
 		}
+	}
 
-		// Mb
+	void Deserializer::DeserealizeRouter(transport_router::TransportRouter& trans_rote, const std::string& filename)
+	{
+		std::ifstream in(filename, std::ios::binary);
+		transport_catalogue_serialize::TransportCatalogue trans_cat_ser;
+		trans_cat_ser.ParseFromIstream(&in);
+		auto routing_settings_ser = trans_cat_ser.routing_settings();
+		trans_rote.SetRoutingSettings(routing_settings_ser.bus_wait_time(), routing_settings_ser.bus_velocity());
 	}
 
 	//Deserializer private
