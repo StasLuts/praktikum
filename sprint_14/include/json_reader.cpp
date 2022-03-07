@@ -6,34 +6,6 @@
 
 namespace json_reader
 {
-	/*void JsonRead(std::istream& input)
-	{
-		transport_catalogue::TransportCatalogue trans_cat;
-		const json::Dict dict = json::Load(input).GetRoot().AsDict();
-		const auto base_requests = dict.find("base_requests");
-		if (base_requests != dict.end())
-		{
-			MakeBase(trans_cat, base_requests->second.AsArray());
-		}
-		const auto render_settings = dict.find("render_settings");
-		renderer::MapRenderer map_renderer;
-		if (render_settings != dict.end())
-		{
-			SetMapRenderer(trans_cat, map_renderer, render_settings->second.AsDict());
-		}
-		const auto routing_settings = dict.find("routing_settings");
-		transport_router::TransportRouter trans_roter(trans_cat);
-		if (routing_settings != dict.end())
-		{
-			SetRoutingSettings(trans_roter, routing_settings->second.AsDict());
-		}
-		const auto stat_requests = dict.find("stat_requests");
-		if (stat_requests != dict.end())
-		{
-			MakeResponse(request_handler::RequestHandler(trans_cat, map_renderer), trans_roter, stat_requests->second.AsArray());
-		}
-	}*/
-
 	void JsonSerialize(std::istream& input)
 	{
 		transport_catalogue::TransportCatalogue trans_cat;
@@ -209,39 +181,6 @@ namespace json_reader
 			settings.color_palette.emplace_back(GetColor(color));
 		}
 		map_renderer.SetRenderSettings(settings);
-
-		/*const auto all_stops_coordinates = trans_cat.GetAllStopsCoordinates();
-		renderer::SphereProjector projector(all_stops_coordinates.begin(), all_stops_coordinates.end(), settings.width, settings.height, settings.padding);
-		const std::vector<svg::Color> color_pallete = map_renderer.GetColorPallete();
-		size_t color_num = 0;
-		std::map<std::string, svg::Point> stops;
-		for (const auto& it : trans_cat.GetBuses())
-		{
-			std::vector<svg::Point> stops_points;
-			for (const auto& stop : trans_cat.GetStops(it->bus_num))
-			{
-				stops_points.emplace_back(projector(stop->coodinates));
-				stops[stop->stop_name] = stops_points.back();
-			}
-			if (it->is_circular == true)
-			{
-				map_renderer.AddTextRender(*stops_points.begin(), it->bus_num, color_pallete[color_num], false);
-				map_renderer.AddRoutRender(stops_points, color_pallete[color_num]);
-			}
-			else if (it->is_circular == false)
-			{
-				map_renderer.AddTextRender(*stops_points.begin(), it->bus_num, color_pallete[color_num], false);
-				if (*it->stops.begin() != it->stops.back())map_renderer.AddTextRender(stops_points.back(), it->bus_num, color_pallete[color_num], false);
-				stops_points.insert(stops_points.end(), stops_points.rbegin() + 1, stops_points.rend());
-				map_renderer.AddRoutRender(stops_points, color_pallete[color_num]);
-			}
-			(color_num == color_pallete.size() - 1) ? color_num = 0 : ++color_num;
-		}
-		for (const auto& [name, coordinate] : stops)
-		{
-			map_renderer.AddStopPointRender(coordinate);
-			map_renderer.AddTextRender(coordinate, name, color_pallete[color_num], true);
-		}*/
 	}
 
 	//------------------outnput-------------------------
