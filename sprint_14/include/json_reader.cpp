@@ -6,7 +6,7 @@
 
 namespace json_reader
 {
-	void JsonRead(std::istream& input)
+	/*void JsonRead(std::istream& input)
 	{
 		transport_catalogue::TransportCatalogue trans_cat;
 		const json::Dict dict = json::Load(input).GetRoot().AsDict();
@@ -32,7 +32,7 @@ namespace json_reader
 		{
 			MakeResponse(request_handler::RequestHandler(trans_cat, map_renderer), trans_roter, stat_requests->second.AsArray());
 		}
-	}
+	}*/
 
 	void JsonSerialize(std::istream& input)
 	{
@@ -209,7 +209,7 @@ namespace json_reader
 		}
 		map_renderer.SetRenderSettings(settings);
 
-		const auto all_stops_coordinates = trans_cat.GetAllStopsCoordinates();
+		/*const auto all_stops_coordinates = trans_cat.GetAllStopsCoordinates();
 		renderer::SphereProjector projector(all_stops_coordinates.begin(), all_stops_coordinates.end(), settings.width, settings.height, settings.padding);
 		const std::vector<svg::Color> color_pallete = map_renderer.GetColorPallete();
 		size_t color_num = 0;
@@ -240,7 +240,7 @@ namespace json_reader
 		{
 			map_renderer.AddStopPointRender(coordinate);
 			map_renderer.AddTextRender(coordinate, name, color_pallete[color_num], true);
-		}
+		}*/
 	}
 
 	//------------------outnput-------------------------

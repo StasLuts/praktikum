@@ -99,23 +99,23 @@ namespace serialize
 	{
 		transport_catalogue_serialize::Color buf_color;
 		transport_catalogue_serialize::Rgba buf_rgba;
-
-		if (std::holds_alternative<svg::Rgba>(color))
+		 
+		if (std::holds_alternative<svg::Rgb>(color))
+		{
+		svg::Rgb rgb = std::get<svg::Rgb>(color);
+		buf_rgba.set_blue(rgb.blue);
+		buf_rgba.set_green(rgb.green);
+		buf_rgba.set_red(rgb.red);
+		*buf_color.mutable_rgba() = buf_rgba;
+		}
+		else if (std::holds_alternative<svg::Rgba>(color))
 		{
 			svg::Rgba rgba = std::get<svg::Rgba>(color);
 			buf_rgba.set_blue(rgba.blue);
 			buf_rgba.set_green(rgba.green);
 			buf_rgba.set_red(rgba.red);
 			buf_rgba.set_opacity(rgba.opacity);
-			*buf_color.mutable_rgba() = buf_rgba;
 			buf_color.set_is_rgba(true);
-		}
-		else if (std::holds_alternative<svg::Rgb>(color))
-		{
-			svg::Rgb rgb = std::get<svg::Rgb>(color);
-			buf_rgba.set_blue(rgb.blue);
-			buf_rgba.set_green(rgb.green);
-			buf_rgba.set_red(rgb.red);
 			*buf_color.mutable_rgba() = buf_rgba;
 		}
 		else if(std::holds_alternative<std::string>(color))
@@ -235,8 +235,10 @@ namespace serialize
 		{
 			return color_ser.name();
 		}
-		return (color_ser.is_rgba()) ?
-			svg::Rgba(color_ser.rgba().red(), color_ser.rgba().green(), color_ser.rgba().blue(), color_ser.rgba().opacity()) :
-			svg::Rgb(color_ser.rgba().red(), color_ser.rgba().green(), color_ser.rgba().blue());
+		else if (color_ser.is_rgba())
+		{
+			return svg::Rgba(color_ser.rgba().red(), color_ser.rgba().green(), color_ser.rgba().blue(), color_ser.rgba().opacity());
+		}
+		return svg::Rgb(color_ser.rgba().red(), color_ser.rgba().green(), color_ser.rgba().blue());
 	}
 } // namespace serialize

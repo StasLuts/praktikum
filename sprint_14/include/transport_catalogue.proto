@@ -12,13 +12,13 @@ message Coordinates
 
 message Stop
 {
-	string name = 1;
+	bytes name = 1;
 	Coordinates coordinates = 2;
 }
 
 message Bus
 {
-	string bus_num = 1;
+	bytes bus_num = 1;
 	repeated Stop stops = 2;
 	bool is_circular = 3;
 }
