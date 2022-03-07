@@ -12,9 +12,6 @@
 
 namespace serialize
 {
-	const int METERS_TO_KM = 1'000;
-	const int HOURS_TO_MINUTES = 60;
-
 	class Serializer
 	{
 	public:

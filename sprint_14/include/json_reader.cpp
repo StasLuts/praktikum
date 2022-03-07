@@ -6,6 +6,8 @@
 
 namespace json_reader
 {
+	//------------------input-------------------------
+
 	void JsonSerialize(std::istream& input)
 	{
 		transport_catalogue::TransportCatalogue trans_cat;
@@ -34,25 +36,6 @@ namespace json_reader
 			serializer.Serialize(serialization_settings->second.AsDict().at("file").AsString());
 		}
 	}
-
-	void JsonDeserialize(std::istream& input, std::ostream& output)
-	{
-		transport_catalogue::TransportCatalogue trans_cat;
-		renderer::MapRenderer map_renderer;
-		const auto dict = json::Load(input).GetRoot().AsDict();
-		const auto serialization_settings = dict.find("serialization_settings");
-		serialize::Deserializer deserializer;
-		deserializer.DeserializeCatalogAndRenderer(trans_cat, map_renderer, serialization_settings->second.AsDict().at("file").AsString());
-		transport_router::TransportRouter router(trans_cat);
-		deserializer.DeserealizeRouter(router, serialization_settings->second.AsDict().at("file").AsString());
-		const auto stat_requests = dict.find("stat_requests");
-		if (stat_requests != dict.end())
-		{
-			MakeResponse(request_handler::RequestHandler(trans_cat, map_renderer), router, stat_requests->second.AsArray());
-		}
-	}
-
-	//------------------input-------------------------
 
 	void MakeBase(transport_catalogue::TransportCatalogue& trans_cat, const json::Array& arr)
 	{
@@ -184,6 +167,23 @@ namespace json_reader
 	}
 
 	//------------------outnput-------------------------
+
+	void JsonDeserialize(std::istream& input, std::ostream& output)
+	{
+		transport_catalogue::TransportCatalogue trans_cat;
+		renderer::MapRenderer map_renderer;
+		const auto dict = json::Load(input).GetRoot().AsDict();
+		const auto serialization_settings = dict.find("serialization_settings");
+		serialize::Deserializer deserializer;
+		deserializer.DeserializeCatalogAndRenderer(trans_cat, map_renderer, serialization_settings->second.AsDict().at("file").AsString());
+		transport_router::TransportRouter router(trans_cat);
+		deserializer.DeserealizeRouter(router, serialization_settings->second.AsDict().at("file").AsString());
+		const auto stat_requests = dict.find("stat_requests");
+		if (stat_requests != dict.end())
+		{
+			MakeResponse(request_handler::RequestHandler(trans_cat, map_renderer), router, stat_requests->second.AsArray());
+		}
+	}
 
 	void MakeResponse(const request_handler::RequestHandler& request_handler, transport_router::TransportRouter& trans_roter, const json::Array& arr)
 	{
