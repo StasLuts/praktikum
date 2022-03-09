@@ -7,6 +7,7 @@
 #include <string>
 #include <variant>
 #include <vector>
+#include <map>
 
 namespace parse
 {
@@ -153,7 +154,23 @@ namespace parse
 
 	private:
 
-		// Реализуйте приватную часть самостоятельно
+		std::vector<Token> tokens_;
+		std::vector<Token>::const_iterator current_token;
+		std::map<std::string, Token> keywords_
+		{
+			{ "class",  token_type::Class  },
+			{ "return", token_type::Return },
+			{ "if",     token_type::If     },
+			{ "else",   token_type::Else   },
+			{ "def",    token_type::Def    },
+			{ "print",  token_type::Print  },
+			{ "or",     token_type::Or     },
+			{ "None",   token_type::None   },
+			{ "and",    token_type::And    },
+			{ "not",    token_type::Not    },
+			{ "True",   token_type::True   },
+			{ "False",  token_type::False  }
+		}
 	};
 
 }  // namespace parse

@@ -85,7 +85,7 @@ namespace parse
         return os << "Unknown token :("sv;
     }
 
-    Lexer::Lexer(std::istream& /*input*/)
+    Lexer::Lexer(std::istream& input)
     {
         // Реализуйте конструктор самостоятельно
     }
