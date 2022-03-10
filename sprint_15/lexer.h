@@ -155,7 +155,7 @@ namespace parse
 	private:
 
 		std::vector<Token> tokens_;
-		std::vector<Token>::const_iterator current_token;
+		std::vector<Token>::const_iterator current_token_;
 		std::map<std::string, Token> keywords_
 		{
 			{ "class",  token_type::Class  },
@@ -170,7 +170,9 @@ namespace parse
 			{ "not",    token_type::Not    },
 			{ "True",   token_type::True   },
 			{ "False",  token_type::False  }
-		}
+		};
+
+		void ParseTokens(std::istream& input);
 	};
 
 }  // namespace parse

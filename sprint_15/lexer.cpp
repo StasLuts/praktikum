@@ -3,11 +3,15 @@
 #include <algorithm>
 #include <charconv>
 #include <unordered_map>
+#include <cctype>
 
 using namespace std;
 
 namespace parse
 {
+
+    //----------------Functions-------------------------
+
     bool operator==(const Token& lhs, const Token& rhs)
     {
         using namespace token_type;
@@ -85,9 +89,11 @@ namespace parse
         return os << "Unknown token :("sv;
     }
 
+    //-----------------Lexer---------------------------
+
     Lexer::Lexer(std::istream& input)
     {
-        // Реализуйте конструктор самостоятельно
+        ParseTokens(input);
     }
 
     const Token& Lexer::CurrentToken() const
@@ -100,6 +106,20 @@ namespace parse
     {
         // Заглушка. Реализуйте метод самостоятельно
         throw std::logic_error("Not implemented"s);
+    }
+
+    //-------------------Lexer private----------------
+
+    //посимвольно считывает поток и проверяет его на соответсвие одному из токенов
+    //в метод считывания токена передает ОСТАТОК потока
+    void Lexer::ParseTokens(std::istream& input)
+    {
+        char current_char;
+
+        while (input.get(current_char))
+        {
+            if()
+        }
     }
 
 }  // namespace parse
