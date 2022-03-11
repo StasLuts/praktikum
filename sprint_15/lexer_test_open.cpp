@@ -9,7 +9,8 @@ using namespace std;
 namespace parse {
 
 namespace {
-void TestSimpleAssignment() {
+void TestSimpleAssignment()
+{
     istringstream input("x = 42\n"s);
     Lexer lexer(input);
 

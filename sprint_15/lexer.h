@@ -158,21 +158,27 @@ namespace parse
 		std::vector<Token>::const_iterator current_token_;
 		std::map<std::string, Token> keywords_
 		{
-			{ "class",  token_type::Class  },
-			{ "return", token_type::Return },
-			{ "if",     token_type::If     },
-			{ "else",   token_type::Else   },
-			{ "def",    token_type::Def    },
-			{ "print",  token_type::Print  },
-			{ "or",     token_type::Or     },
-			{ "None",   token_type::None   },
-			{ "and",    token_type::And    },
-			{ "not",    token_type::Not    },
-			{ "True",   token_type::True   },
-			{ "False",  token_type::False  }
+			{ "class",  token_type::Class{}  },
+			{ "return", token_type::Return{} },
+			{ "if",     token_type::If{}     },
+			{ "else",   token_type::Else{}   },
+			{ "def",    token_type::Def{}    },
+			{ "print",  token_type::Print{}  },
+			{ "or",     token_type::Or{}     },
+			{ "None",   token_type::None{}   },
+			{ "and",    token_type::And{}    },
+			{ "not",    token_type::Not{}    },
+			{ "True",   token_type::True{}   },
+			{ "False",  token_type::False{}  }
 		};
 
 		void ParseTokens(std::istream& input);
+		void ParseString(std::istream& input);
+		void ParseNumber(std::istream& input);
+		void ParseIdentifer(std::istream& input);
+		void ParseChar(std::istream& input);
+
+		void SkippedSpace(std::istream& input);
 	};
 
 }  // namespace parse

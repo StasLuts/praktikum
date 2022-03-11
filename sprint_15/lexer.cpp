@@ -5,6 +5,8 @@
 #include <unordered_map>
 #include <cctype>
 
+#include <iostream>
+
 using namespace std;
 
 namespace parse
@@ -49,7 +51,6 @@ namespace parse
         using namespace token_type;
 
     #define VALUED_OUTPUT(type) \
-
         if (auto p = rhs.TryAs<type>()) return os << #type << '{' << p->value << '}';
 
         VALUED_OUTPUT(Number);
@@ -60,7 +61,6 @@ namespace parse
     #undef VALUED_OUTPUT
 
     #define UNVALUED_OUTPUT(type) \
-
         if (rhs.Is<type>()) return os << #type;
 
         UNVALUED_OUTPUT(Class);
@@ -98,14 +98,12 @@ namespace parse
 
     const Token& Lexer::CurrentToken() const
     {
-        // Заглушка. Реализуйте метод самостоятельно
-        throw std::logic_error("Not implemented"s);
+        return (current_token_ == tokens_.end()) ? token_type::Eof{} : *current_token_;
     }
 
     Token Lexer::NextToken()
     {
-        // Заглушка. Реализуйте метод самостоятельно
-        throw std::logic_error("Not implemented"s);
+        return ((current_token_ + 1) == tokens_.end()) ? token_type::Eof{} : *++current_token_;
     }
 
     //-------------------Lexer private----------------
@@ -116,9 +114,86 @@ namespace parse
     {
         char current_char;
 
-        while (input.get(current_char))
+        while (input.get(current_char)) // читаем из потока символ
         {
-            if()
+            input.putback(current_char); // загоняем обратно в поток
+            
+            //ParseString(input);
+            ParseNumber(input);
+            ParseIdentifer(input);
+            SkippedSpace(input);
+        }
+
+        current_token_ = tokens_.begin();
+    }
+
+    void Lexer::ParseString(std::istream& input)
+    {
+        char current_char;
+        input.get(current_char);
+        if (current_char == '\"' || current_char == '\'')
+        {
+            std::string parse_str;
+        }
+        else
+        {
+            input.putback(current_char);
+        }
+    }
+
+    void Lexer::ParseNumber(std::istream& input)
+    {
+        char current_char = input.peek();
+        if (std::isdigit(current_char))
+        {
+            std::string parse_num;
+            while (input.get(current_char))
+            {
+                if (std::isdigit(current_char))
+                {
+                    parse_num.push_back(current_char);
+                }
+                else
+                {
+                    input.putback(current_char);
+                    break;
+                }
+            }
+            int num = std::stoi(parse_num);
+            tokens_.emplace_back(token_type::Number{ num });
+        }
+    }
+
+    void Lexer::ParseIdentifer(std::istream& input)
+    {
+        char current_char = input.peek();
+        if (std::isalpha(current_char) || current_char == '_')
+        {
+            std::string parse_identifer;
+            while (input.get(current_char))
+            {
+                if (std::isalnum(current_char) || current_char == '_')
+                {
+                    parse_identifer.push_back(current_char);
+                }
+                else
+                {
+                    input.putback(current_char);
+                    break;
+                }
+            }
+            tokens_.emplace_back((keywords_.find(parse_identifer) != keywords_.end()) ? keywords_[parse_identifer] : token_type::Id{ parse_identifer });
+        }
+    }
+
+    //--------------------Skippeds----------------------------
+
+    void Lexer::SkippedSpace(std::istream& input)
+    {
+        char current_char = input.peek();
+        if (current_char == ' ')
+        {
+            input.get(current_char); 
         }
     }
 
