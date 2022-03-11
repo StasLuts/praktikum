@@ -98,12 +98,20 @@ namespace parse
 
     const Token& Lexer::CurrentToken() const
     {
-        return (current_token_ == tokens_.end()) ? token_type::Eof{} : *current_token_;
+        if (current_token_ == tokens_.end())
+        {
+            return token_type::Eof{};
+        }
+        return *current_token_;
     }
 
     Token Lexer::NextToken()
     {
-        return ((current_token_ + 1) == tokens_.end()) ? token_type::Eof{} : *++current_token_;
+        if ((current_token_ + 1) == tokens_.end())
+        {
+            return token_type::Eof{};
+        }
+        return *++current_token_;
     }
 
     //-------------------Lexer private----------------
@@ -114,13 +122,15 @@ namespace parse
     {
         char current_char;
 
-        while (input.get(current_char)) // читаем из потока символ
+        while (input.get(current_char))
         {
-            input.putback(current_char); // загоняем обратно в поток
+            input.putback(current_char);
             
-            //ParseString(input);
+            ParseString(input);
             ParseNumber(input);
             ParseIdentifer(input);
+            ParseChar(input);
+
             SkippedSpace(input);
         }
 
@@ -182,7 +192,34 @@ namespace parse
                     break;
                 }
             }
-            tokens_.emplace_back((keywords_.find(parse_identifer) != keywords_.end()) ? keywords_[parse_identifer] : token_type::Id{ parse_identifer });
+            tokens_.emplace_back((keywords_.find(parse_identifer) != keywords_.end()) ? keywords_.at(parse_identifer) : token_type::Id{ parse_identifer });
+        }
+    }
+
+    void Lexer::ParseChar(std::istream& input)
+    {
+        char current_char = input.peek();
+        if (current_char == '\n')
+        {
+            input.get(current_char);
+            tokens_.emplace_back(token_type::Newline{});
+        }
+        else if (std::ispunct(current_char))
+        {
+            string parse_comparison_operand;
+            input.get(current_char);
+            parse_comparison_operand.push_back(current_char);
+            input.get(current_char);
+            if (std::ispunct(current_char))
+            {
+                parse_comparison_operand.push_back(current_char);
+                if (keywords_.find(parse_comparison_operand) != keywords_.end())
+                {
+                    tokens_.emplace_back(keywords_.at(parse_comparison_operand));
+                }
+            }
+            input.putback(current_char);
+            tokens_.emplace_back(token_type::Char{ parse_comparison_operand.front() });
         }
     }
 

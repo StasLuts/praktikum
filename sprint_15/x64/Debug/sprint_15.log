@@ -1,7 +1,4 @@
-﻿  lexer.cpp
+﻿  lexer_test_open.cpp
 C:\Users\User\source\repos\StasLuts\praktikum\sprint_15\lexer.h(101,2): warning C4623: "parse::LexerError": конструктор по умолчанию неявно определен как удаленный
-C:\Users\User\source\repos\StasLuts\praktikum\sprint_15\lexer.cpp(146,41): warning C4242: инициализация: преобразование "int" в "char", возможна потеря данных
-C:\Users\User\source\repos\StasLuts\praktikum\sprint_15\lexer.cpp(169,41): warning C4242: инициализация: преобразование "int" в "char", возможна потеря данных
-C:\Users\User\source\repos\StasLuts\praktikum\sprint_15\lexer.cpp(193,41): warning C4242: инициализация: преобразование "int" в "char", возможна потеря данных
-C:\Users\User\source\repos\StasLuts\praktikum\sprint_15\lexer.cpp(101): warning C4172: возвращение адреса локальной или временной переменной
+C:\Users\User\source\repos\StasLuts\praktikum\sprint_15\test_runner_p.h(98,6): warning C4514: TestRunner::~TestRunner: подставляемая функция, не используемая в ссылках, была удалена
   sprint_15.vcxproj -> C:\Users\User\source\repos\StasLuts\praktikum\sprint_15\x64\Debug\sprint_15.exe

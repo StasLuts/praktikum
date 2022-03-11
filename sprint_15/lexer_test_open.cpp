@@ -23,7 +23,8 @@ void TestSimpleAssignment()
     ASSERT_EQUAL(lexer.NextToken(), Token(token_type::Eof{}));
 }
 
-void TestKeywords() {
+void TestKeywords()
+{
     istringstream input("class return if else def print or None and not True False"s);
     Lexer lexer(input);
 
@@ -41,7 +42,8 @@ void TestKeywords() {
     ASSERT_EQUAL(lexer.NextToken(), Token(token_type::False{}));
 }
 
-void TestNumbers() {
+void TestNumbers()
+{
     istringstream input("42 15 -53"s);
     Lexer lexer(input);
 
@@ -52,30 +54,28 @@ void TestNumbers() {
     ASSERT_EQUAL(lexer.NextToken(), Token(token_type::Number{53}));
 }
 
-void TestIds() {
+void TestIds()
+{
     istringstream input("x    _42 big_number   Return Class  dEf"s);
     Lexer lexer(input);
 
     ASSERT_EQUAL(lexer.CurrentToken(), Token(token_type::Id{"x"s}));
     ASSERT_EQUAL(lexer.NextToken(), Token(token_type::Id{"_42"s}));
     ASSERT_EQUAL(lexer.NextToken(), Token(token_type::Id{"big_number"s}));
-    ASSERT_EQUAL(lexer.NextToken(),
-                 Token(token_type::Id{"Return"s}));  // keywords are case-sensitive
+    ASSERT_EQUAL(lexer.NextToken(), Token(token_type::Id{"Return"s}));  // keywords are case-sensitive
     ASSERT_EQUAL(lexer.NextToken(), Token(token_type::Id{"Class"s}));
     ASSERT_EQUAL(lexer.NextToken(), Token(token_type::Id{"dEf"s}));
 }
 
-void TestStrings() {
-    istringstream input(
-        R"('word' "two words" 'long string with a double quote " inside' "another long string with single quote ' inside")"s);
+void TestStrings()
+{
+    istringstream input(R"('word' "two words" 'long string with a double quote " inside' "another long string with single quote ' inside")"s);
     Lexer lexer(input);
 
     ASSERT_EQUAL(lexer.CurrentToken(), Token(token_type::String{"word"s}));
     ASSERT_EQUAL(lexer.NextToken(), Token(token_type::String{"two words"s}));
-    ASSERT_EQUAL(lexer.NextToken(),
-                 Token(token_type::String{"long string with a double quote \" inside"s}));
-    ASSERT_EQUAL(lexer.NextToken(),
-                 Token(token_type::String{"another long string with single quote ' inside"s}));
+    ASSERT_EQUAL(lexer.NextToken(), Token(token_type::String{"long string with a double quote \" inside"s}));
+    ASSERT_EQUAL(lexer.NextToken(), Token(token_type::String{"another long string with single quote ' inside"s}));
 }
 
 void TestOperations() {

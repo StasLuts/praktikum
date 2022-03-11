@@ -158,19 +158,31 @@ namespace parse
 		std::vector<Token>::const_iterator current_token_;
 		std::map<std::string, Token> keywords_
 		{
-			{ "class",  token_type::Class{}  },
-			{ "return", token_type::Return{} },
-			{ "if",     token_type::If{}     },
-			{ "else",   token_type::Else{}   },
-			{ "def",    token_type::Def{}    },
-			{ "print",  token_type::Print{}  },
-			{ "or",     token_type::Or{}     },
-			{ "None",   token_type::None{}   },
-			{ "and",    token_type::And{}    },
-			{ "not",    token_type::Not{}    },
-			{ "True",   token_type::True{}   },
-			{ "False",  token_type::False{}  }
+			{ "class",  token_type::Class{}       },
+			{ "return", token_type::Return{}      },
+			{ "if",     token_type::If{}          },
+			{ "else",   token_type::Else{}        },
+			{ "def",    token_type::Def{}         },
+			{ "print",  token_type::Print{}       },
+			{ "or",     token_type::Or{}          },
+			{ "None",   token_type::None{}        },
+			{ "and",    token_type::And{}         },
+			{ "not",    token_type::Not{}         },
+			{ "True",   token_type::True{}        },
+			{ "False",  token_type::False{}       },
+			{ "==",     token_type::Eq{}          },
+			{ "!=",     token_type::NotEq{}       },
+			{ "<=",     token_type::LessOrEq{}    },
+			{ ">=",     token_type::GreaterOrEq{} },
+			{ "\n",     token_type::Newline{}     }
 		};
+
+		/*
+		struct Eq {};      // Лексема «==»
+		struct NotEq {};   // Лексема «!=»
+		struct LessOrEq {};     // Лексема «<=»
+		struct GreaterOrEq {};  // Лексема «>=»
+		*/
 
 		void ParseTokens(std::istream& input);
 		void ParseString(std::istream& input);
