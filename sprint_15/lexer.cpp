@@ -118,7 +118,11 @@ namespace parse
 
     void Lexer::ParseTokens(std::istream& input)
     {
-        char current_char;
+        char current_char = input.peek();
+        if (current_char == '\n')
+        {
+            input.get(current_char);
+        }
 
         while (input.get(current_char))
         {
@@ -137,15 +141,28 @@ namespace parse
 
     void Lexer::ParseString(std::istream& input)
     {
-        char current_char;
-        input.get(current_char);
-        if (current_char == '\"' || current_char == '\'')
+        char first_char; // открывающий символ
+        input.get(first_char); // считываем
+        if (first_char == '\"' || first_char == '\'') // если относится к стороке то
         {
+            char current_char;
             std::string parse_str;
+            while (input.get(current_char))
+            {
+                if (first_char == '\"' && current_char == '\"' || first_char == '\'' && current_char == '\'')
+                {
+                    break;
+                }
+                else
+                {
+                    parse_str.push_back(current_char);
+                }
+            }
+            tokens_.emplace_back(token_type::String{ parse_str });
         }
-        else
+        else // если нет то
         {
-            input.putback(current_char);
+            input.putback(first_char); // вернуть символ обратно в поток
         }
     }
 
@@ -214,6 +231,7 @@ namespace parse
                 if (keywords_.find(parse_comparison_operand) != keywords_.end())
                 {
                     tokens_.emplace_back(keywords_.at(parse_comparison_operand));
+                    return;
                 }
             }
             input.putback(current_char);
@@ -225,10 +243,20 @@ namespace parse
 
     void Lexer::SkippedSpace(std::istream& input)
     {
-        char current_char = input.peek();
+        /*char current_char = input.peek();
         if (current_char == ' ')
         {
             input.get(current_char); 
+        }*/
+        char current_char;
+        input.get(current_char);
+        if (current_char == ' ' && input.peek() == ' ' && tokens_.back() != token_type::Indent{})
+        {
+            tokens_.emplace_back(token_type::Indent{});
+        }
+        else if (current_char != ' ')
+        {
+            input.putback(current_char);
         }
     }
 
