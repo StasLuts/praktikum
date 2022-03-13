@@ -218,7 +218,10 @@ namespace parse
         if (current_char == '\n')
         {
             input.get(current_char);
-            tokens_.emplace_back(token_type::Newline{});
+            if (tokens_.back() != token_type::Newline{})
+            {
+                tokens_.emplace_back(token_type::Newline{});
+            }
         }
         else if (std::ispunct(current_char))
         {
@@ -258,21 +261,26 @@ namespace parse
                     break;
                 }
             }
-            if (current_space_count > global_space_count && current_space_count % 2  == 0) // если текушие блольше чем предидушие на 2 то 
+            input.get(current_char);
+            if (current_char != '\n')
             {
-                for (int i = current_space_count; i > global_space_count; i -= 2)
+                if (current_space_count > global_space_count && current_space_count % 2 == 0) // если текушие блольше чем предидушие на 2 то 
                 {
-                    tokens_.emplace_back(token_type::Indent{});
+                    for (int i = current_space_count; i > global_space_count; i -= 2)
+                    {
+                        tokens_.emplace_back(token_type::Indent{});
+                    }
+                    global_space_count = current_space_count; // присваеваем
                 }
-                global_space_count = current_space_count; // присваеваем
-            }
-            else if (current_space_count < global_space_count && current_space_count % 2 == 0) // если текушие блольше чем предидушие на 2 то 
-            {
-                for (int i = current_space_count; i < global_space_count; i += 2)
+                else if (current_space_count < global_space_count && current_space_count % 2 == 0) // если текушие блольше чем предидушие на 2 то 
                 {
-                    tokens_.emplace_back(token_type::Dedent{});
+                    for (int i = current_space_count; i < global_space_count; i += 2)
+                    {
+                        tokens_.emplace_back(token_type::Dedent{});
+                    }
+                    global_space_count = current_space_count; // присваеваем
                 }
-                global_space_count = current_space_count; // присваеваем
+                input.putback(current_char);
             }
         }
     }
