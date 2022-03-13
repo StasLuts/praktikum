@@ -154,8 +154,6 @@ namespace parse
 
 	private:
 
-		std::vector<Token> tokens_;
-		std::vector<Token>::const_iterator current_token_;
 		std::map<std::string, Token> keywords_
 		{
 			{ "class",  token_type::Class{}       },
@@ -176,19 +174,16 @@ namespace parse
 			{ ">=",     token_type::GreaterOrEq{} },
 			{ "\n",     token_type::Newline{}     }
 		};
-
-		/*
-		struct Eq {};      // Лексема «==»
-		struct NotEq {};   // Лексема «!=»
-		struct LessOrEq {};     // Лексема «<=»
-		struct GreaterOrEq {};  // Лексема «>=»
-		*/
-
+		std::vector<Token> tokens_;
+		int global_space_count = 0;
+		std::vector<Token>::const_iterator current_token_;
+		
 		void ParseTokens(std::istream& input);
 		void ParseString(std::istream& input);
 		void ParseNumber(std::istream& input);
 		void ParseIdentifer(std::istream& input);
 		void ParseChar(std::istream& input);
+		void ParseDent(std::istream& input);
 
 		void SkippedSpace(std::istream& input);
 	};

@@ -132,6 +132,7 @@ namespace parse
             ParseNumber(input);
             ParseIdentifer(input);
             ParseChar(input);
+            ParseDent(input);
 
             SkippedSpace(input);
         }
@@ -239,24 +240,45 @@ namespace parse
         }
     }
 
+    void Lexer::ParseDent(std::istream& input)
+    {
+        char current_char = input.peek();
+        if (current_char == ' ' && tokens_.back() == token_type::Newline{})
+        {
+            int current_space_count = 0;
+            while (input.get(current_char))
+            {
+                if (current_char == ' ')
+                {
+                    ++current_space_count;
+                }
+                else
+                {
+                    input.putback(current_char);
+                    break;
+                }
+            }
+            if (current_space_count == global_space_count * 2)
+            {
+                tokens_.emplace_back(token_type::Indent{});
+                global_space_count = current_space_count;
+            }
+            else if (current_space_count == global_space_count / 2)
+            {
+                tokens_.emplace_back(token_type::Dedent{});
+                global_space_count = current_space_count;
+            }
+        }
+    }
+
     //--------------------Skippeds----------------------------
 
     void Lexer::SkippedSpace(std::istream& input)
     {
-        /*char current_char = input.peek();
-        if (current_char == ' ')
+        char current_char = input.peek();
+        if (current_char == ' ' && tokens_.back() != token_type::Newline{})
         {
             input.get(current_char); 
-        }*/
-        char current_char;
-        input.get(current_char);
-        if (current_char == ' ' && input.peek() == ' ' && tokens_.back() != token_type::Indent{})
-        {
-            tokens_.emplace_back(token_type::Indent{});
-        }
-        else if (current_char != ' ')
-        {
-            input.putback(current_char);
         }
     }
 
