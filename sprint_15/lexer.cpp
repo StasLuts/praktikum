@@ -243,14 +243,14 @@ namespace parse
     void Lexer::ParseDent(std::istream& input)
     {
         char current_char = input.peek();
-        if (current_char == ' ' && tokens_.back() == token_type::Newline{})
+        if (tokens_.back() == token_type::Newline{}) // если пробельный символ и предыдуший токет \n
         {
-            int current_space_count = 0;
-            while (input.get(current_char))
+            int current_space_count = 0; // текушее количество проболов
+            while (input.get(current_char)) // пока поток
             {
-                if (current_char == ' ')
+                if (current_char == ' ') // если пробел
                 {
-                    ++current_space_count;
+                    ++current_space_count; // на единичку увеличиваем текушие пробелы
                 }
                 else
                 {
@@ -258,15 +258,21 @@ namespace parse
                     break;
                 }
             }
-            if (current_space_count == global_space_count * 2)
+            if (current_space_count > global_space_count && current_space_count % 2  == 0) // если текушие блольше чем предидушие на 2 то 
             {
-                tokens_.emplace_back(token_type::Indent{});
-                global_space_count = current_space_count;
+                for (int i = current_space_count; i > global_space_count; i -= 2)
+                {
+                    tokens_.emplace_back(token_type::Indent{});
+                }
+                global_space_count = current_space_count; // присваеваем
             }
-            else if (current_space_count == global_space_count / 2)
+            else if (current_space_count < global_space_count && current_space_count % 2 == 0) // если текушие блольше чем предидушие на 2 то 
             {
-                tokens_.emplace_back(token_type::Dedent{});
-                global_space_count = current_space_count;
+                for (int i = current_space_count; i < global_space_count; i += 2)
+                {
+                    tokens_.emplace_back(token_type::Dedent{});
+                }
+                global_space_count = current_space_count; // присваеваем
             }
         }
     }
