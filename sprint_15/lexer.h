@@ -20,12 +20,12 @@ namespace parse
 		};
 
 		struct Id // Лексема «идентификатор»
-		{             
+		{
 			std::string value; // Имя идентификатора
 		};
 
 		struct Char // Ле ксема «символ»
-		{    
+		{
 			char value; // код символа
 		};
 
@@ -117,7 +117,7 @@ namespace parse
 		template <typename T>
 		const T& Expect() const
 		{
-			return (CurrentToken().Is<T>()) ?  CurrentToken().As<T>() : throw LexerError("Not implemented"s);
+			return (CurrentToken().Is<T>()) ? CurrentToken().As<T>() : throw LexerError("Not implemented"s);
 		}
 
 		// Метод проверяет, что текущий токен имеет тип T, а сам токен содержит значение value.
@@ -175,7 +175,7 @@ namespace parse
 		std::vector<Token> tokens_;
 		int global_space_count = 0;
 		std::vector<Token>::const_iterator current_token_;
-		
+
 		std::vector<Token>::const_iterator ParseTokens(std::istream& input);
 		void ParseString(std::istream& input);
 		void ParseNumber(std::istream& input);

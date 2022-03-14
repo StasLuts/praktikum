@@ -1,4 +1,4 @@
-#include "lexer.h"
+﻿#include "lexer.h"
 
 #include <algorithm>
 #include <charconv>
@@ -142,9 +142,9 @@ namespace parse
 
     void Lexer::ParseString(std::istream& input)
     {
-        char first_char; // ??????????? ??????
-        input.get(first_char); // ?????????
-        if (first_char == '\"' || first_char == '\'') // ???? ????????? ? ??????? ??
+        char first_char; // îòêðûâàþùèé ñèìâîë
+        input.get(first_char); // ñ÷èòûâàåì
+        if (first_char == '\"' || first_char == '\'') // åñëè îòíîñèòñÿ ê ñòîðîêå òî
         {
             char current_char;
             std::string parse_str;
@@ -161,9 +161,9 @@ namespace parse
             }
             tokens_.emplace_back(token_type::String{ parse_str });
         }
-        else // ???? ??? ??
+        else // åñëè íåò òî
         {
-            input.putback(first_char); // ??????? ?????? ??????? ? ?????
+            input.putback(first_char); // âåðíóòü ñèìâîë îáðàòíî â ïîòîê
         }
     }
 
@@ -246,14 +246,14 @@ namespace parse
     void Lexer::ParseDent(std::istream& input)
     {
         char current_char = input.peek();
-        if (tokens_.back() == token_type::Newline{}) // ???? ?????????? ?????? ? ?????????? ????? \n
+        if (tokens_.back() == token_type::Newline{}) // åñëè ïðîáåëüíûé ñèìâîë è ïðåäûäóøèé òîêåò \n
         {
-            int current_space_count = 0; // ??????? ?????????? ????????
-            while (input.get(current_char)) // ???? ?????
+            int current_space_count = 0; // òåêóøåå êîëè÷åñòâî ïðîáîëîâ
+            while (input.get(current_char)) // ïîêà ïîòîê
             {
-                if (current_char == ' ') // ???? ??????
+                if (current_char == ' ') // åñëè ïðîáåë
                 {
-                    ++current_space_count; // ?? ???????? ??????????? ??????? ???????
+                    ++current_space_count; // íà åäèíè÷êó óâåëè÷èâàåì òåêóøèå ïðîáåëû
                 }
                 else
                 {
@@ -264,21 +264,21 @@ namespace parse
             input.get(current_char);
             if (current_char != '\n')
             {
-                if (current_space_count > global_space_count && current_space_count % 2 == 0) // ???? ??????? ??????? ??? ?????????? ?? 2 ?? 
+                if (current_space_count > global_space_count && current_space_count % 2 == 0) // åñëè òåêóøèå áëîëüøå ÷åì ïðåäèäóøèå íà 2 òî 
                 {
                     for (int i = current_space_count; i > global_space_count; i -= 2)
                     {
                         tokens_.emplace_back(token_type::Indent{});
                     }
-                    global_space_count = current_space_count; // ???????????
+                    global_space_count = current_space_count; // ïðèñâàåâàåì
                 }
-                else if (current_space_count < global_space_count && current_space_count % 2 == 0) // ???? ??????? ??????? ??? ?????????? ?? 2 ?? 
+                else if (current_space_count < global_space_count && current_space_count % 2 == 0) // åñëè òåêóøèå áëîëüøå ÷åì ïðåäèäóøèå íà 2 òî 
                 {
                     for (int i = current_space_count; i < global_space_count; i += 2)
                     {
                         tokens_.emplace_back(token_type::Dedent{});
                     }
-                    global_space_count = current_space_count; // ???????????
+                    global_space_count = current_space_count; // ïðèñâàåâàåì
                 }
                 input.putback(current_char);
             }
