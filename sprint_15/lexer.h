@@ -117,11 +117,7 @@ namespace parse
 		template <typename T>
 		const T& Expect() const
 		{
-			if (CurrentToken().Is<T>())
-			{
-				return CurrentToken().As<T>();
-			}
-			throw LexerError("Not implemented"s);
+			return (CurrentToken().Is<T>()) ?  CurrentToken().As<T>() : throw LexerError("Not implemented"s);
 		}
 
 		// Метод проверяет, что текущий токен имеет тип T, а сам токен содержит значение value.
@@ -129,10 +125,11 @@ namespace parse
 		template <typename T, typename U>
 		void Expect(const U& value) const
 		{
-			if (!CurrentToken().Is<T>() || CurrentToken().As<T>().value != value);
+			if (Expect<T>().value == value)
 			{
-				throw LexerError("Not implemented"s);
+				return;
 			}
+			throw LexerError("Not implemented"s);
 		}
 
 		// Если следующий токен имеет тип T, метод возвращает ссылку на него.
@@ -140,19 +137,17 @@ namespace parse
 		template <typename T>
 		const T& ExpectNext()
 		{
-			using namespace std::literals;
-			// Заглушка. Реализуйте метод самостоятельно
-			throw LexerError("Not implemented"s);
+			NextToken();
+			return Expect<T>();
 		}
 
 		// Метод проверяет, что следующий токен имеет тип T, а сам токен содержит значение value.
 		// В противном случае метод выбрасывает исключение LexerError
 		template <typename T, typename U>
-		void ExpectNext(const U& /*value*/)
+		void ExpectNext(const U& value)
 		{
-			using namespace std::literals;
-			// Заглушка. Реализуйте метод самостоятельно
-			throw LexerError("Not implemented"s);
+			NextToken();
+			Expect<T>(value);
 		}
 
 	private:
@@ -181,7 +176,7 @@ namespace parse
 		int global_space_count = 0;
 		std::vector<Token>::const_iterator current_token_;
 		
-		void ParseTokens(std::istream& input);
+		std::vector<Token>::const_iterator ParseTokens(std::istream& input);
 		void ParseString(std::istream& input);
 		void ParseNumber(std::istream& input);
 		void ParseIdentifer(std::istream& input);

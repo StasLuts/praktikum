@@ -50,7 +50,7 @@ namespace parse
     {
         using namespace token_type;
 
-    #define VALUED_OUTPUT(type) \
+#define VALUED_OUTPUT(type) \
         if (auto p = rhs.TryAs<type>()) return os << #type << '{' << p->value << '}';
 
         VALUED_OUTPUT(Number);
@@ -58,9 +58,9 @@ namespace parse
         VALUED_OUTPUT(String);
         VALUED_OUTPUT(Char);
 
-    #undef VALUED_OUTPUT
+#undef VALUED_OUTPUT
 
-    #define UNVALUED_OUTPUT(type) \
+#define UNVALUED_OUTPUT(type) \
         if (rhs.Is<type>()) return os << #type;
 
         UNVALUED_OUTPUT(Class);
@@ -84,7 +84,7 @@ namespace parse
         UNVALUED_OUTPUT(False);
         UNVALUED_OUTPUT(Eof);
 
-    #undef UNVALUED_OUTPUT
+#undef UNVALUED_OUTPUT
 
         return os << "Unknown token :("sv;
     }
@@ -93,7 +93,7 @@ namespace parse
 
     Lexer::Lexer(std::istream& input)
     {
-        ParseTokens(input);
+        current_token_ = ParseTokens(input);
     }
 
     const Token& Lexer::CurrentToken() const
@@ -116,7 +116,7 @@ namespace parse
 
     //-------------------Lexer private----------------
 
-    void Lexer::ParseTokens(std::istream& input)
+    std::vector<Token>::const_iterator Lexer::ParseTokens(std::istream& input)
     {
         char current_char = input.peek();
         if (current_char == '\n')
@@ -127,7 +127,7 @@ namespace parse
         while (input.get(current_char))
         {
             input.putback(current_char);
-            
+
             ParseString(input);
             ParseNumber(input);
             ParseIdentifer(input);
@@ -137,14 +137,14 @@ namespace parse
             SkippedSpace(input);
         }
 
-        current_token_ = tokens_.begin();
+        return tokens_.begin();
     }
 
     void Lexer::ParseString(std::istream& input)
     {
-        char first_char; // открывающий символ
-        input.get(first_char); // считываем
-        if (first_char == '\"' || first_char == '\'') // если относится к стороке то
+        char first_char; // ??????????? ??????
+        input.get(first_char); // ?????????
+        if (first_char == '\"' || first_char == '\'') // ???? ????????? ? ??????? ??
         {
             char current_char;
             std::string parse_str;
@@ -161,9 +161,9 @@ namespace parse
             }
             tokens_.emplace_back(token_type::String{ parse_str });
         }
-        else // если нет то
+        else // ???? ??? ??
         {
-            input.putback(first_char); // вернуть символ обратно в поток
+            input.putback(first_char); // ??????? ?????? ??????? ? ?????
         }
     }
 
@@ -246,14 +246,14 @@ namespace parse
     void Lexer::ParseDent(std::istream& input)
     {
         char current_char = input.peek();
-        if (tokens_.back() == token_type::Newline{}) // если пробельный символ и предыдуший токет \n
+        if (tokens_.back() == token_type::Newline{}) // ???? ?????????? ?????? ? ?????????? ????? \n
         {
-            int current_space_count = 0; // текушее количество проболов
-            while (input.get(current_char)) // пока поток
+            int current_space_count = 0; // ??????? ?????????? ????????
+            while (input.get(current_char)) // ???? ?????
             {
-                if (current_char == ' ') // если пробел
+                if (current_char == ' ') // ???? ??????
                 {
-                    ++current_space_count; // на единичку увеличиваем текушие пробелы
+                    ++current_space_count; // ?? ???????? ??????????? ??????? ???????
                 }
                 else
                 {
@@ -264,21 +264,21 @@ namespace parse
             input.get(current_char);
             if (current_char != '\n')
             {
-                if (current_space_count > global_space_count && current_space_count % 2 == 0) // если текушие блольше чем предидушие на 2 то 
+                if (current_space_count > global_space_count && current_space_count % 2 == 0) // ???? ??????? ??????? ??? ?????????? ?? 2 ?? 
                 {
                     for (int i = current_space_count; i > global_space_count; i -= 2)
                     {
                         tokens_.emplace_back(token_type::Indent{});
                     }
-                    global_space_count = current_space_count; // присваеваем
+                    global_space_count = current_space_count; // ???????????
                 }
-                else if (current_space_count < global_space_count && current_space_count % 2 == 0) // если текушие блольше чем предидушие на 2 то 
+                else if (current_space_count < global_space_count && current_space_count % 2 == 0) // ???? ??????? ??????? ??? ?????????? ?? 2 ?? 
                 {
                     for (int i = current_space_count; i < global_space_count; i += 2)
                     {
                         tokens_.emplace_back(token_type::Dedent{});
                     }
-                    global_space_count = current_space_count; // присваеваем
+                    global_space_count = current_space_count; // ???????????
                 }
                 input.putback(current_char);
             }
@@ -292,7 +292,7 @@ namespace parse
         char current_char = input.peek();
         if (current_char == ' ' && tokens_.back() != token_type::Newline{})
         {
-            input.get(current_char); 
+            input.get(current_char);
         }
     }
 
