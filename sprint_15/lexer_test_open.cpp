@@ -327,7 +327,7 @@ void TestCommentsAreIgnored() {
     }
     {
         istringstream is(R"(# comment
-
+  
 )"s);
         Lexer lexer(is);
         ASSERT_EQUAL(lexer.CurrentToken(), Token(token_type::Eof{}));

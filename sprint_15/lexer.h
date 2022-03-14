@@ -14,46 +14,46 @@ namespace parse
 
 	namespace token_type
 	{
-		struct Number // Лексема «число»
+		struct Number
 		{
-			int value; // число
+			int value;
 		};
 
-		struct Id // Лексема «идентификатор»
-		{
-			std::string value; // Имя идентификатора
-		};
-
-		struct Char // Ле ксема «символ»
-		{
-			char value; // код символа
-		};
-
-		struct String // Лексема «строковая константа»
+		struct Id
 		{
 			std::string value;
 		};
 
-		struct Class {};    // Лексема «class»
-		struct Return {};   // Лексема «return»
-		struct If {};       // Лексема «if»
-		struct Else {};     // Лексема «else»
-		struct Def {};      // Лексема «def»
-		struct Newline {};  // Лексема «конец строки»
-		struct Print {};    // Лексема «print»
-		struct Indent {};  // Лексема «увеличение отступа», соответствует двум пробелам
-		struct Dedent {};  // Лексема «уменьшение отступа»
-		struct Eof {};     // Лексема «конец файла»
-		struct And {};     // Лексема «and»
-		struct Or {};      // Лексема «or»
-		struct Not {};     // Лексема «not»
-		struct Eq {};      // Лексема «==»
-		struct NotEq {};   // Лексема «!=»
-		struct LessOrEq {};     // Лексема «<=»
-		struct GreaterOrEq {};  // Лексема «>=»
-		struct None {};         // Лексема «None»
-		struct True {};         // Лексема «True»
-		struct False {};        // Лексема «False»
+		struct Char
+		{
+			char value;
+		};
+
+		struct String
+		{
+			std::string value;
+		};
+
+		struct Class {};
+		struct Return {};
+		struct If {};
+		struct Else {};
+		struct Def {};
+		struct Newline {};
+		struct Print {};
+		struct Indent {};
+		struct Dedent {};
+		struct Eof {};
+		struct And {};
+		struct Or {};
+		struct Not {};
+		struct Eq {};
+		struct NotEq {};
+		struct LessOrEq {};
+		struct GreaterOrEq {};
+		struct None {};
+		struct True {};
+		struct False {};
 
 	}  // namespace token_type
 
@@ -106,25 +106,21 @@ namespace parse
 
 		explicit Lexer(std::istream& input);
 
-		// Возвращает ссылку на текущий токен или token_type::Eof, если поток токенов закончился
 		[[nodiscard]] const Token& CurrentToken() const;
 
-		// Возвращает следующий токен, либо token_type::Eof, если поток токенов закончился
 		Token NextToken();
 
-		// Если текущий токен имеет тип T, метод возвращает ссылку на него.
-		// В противном случае метод выбрасывает исключение LexerError
 		template <typename T>
 		const T& Expect() const
 		{
+			using namespace std::literals;
 			return (CurrentToken().Is<T>()) ? CurrentToken().As<T>() : throw LexerError("Not implemented"s);
 		}
 
-		// Метод проверяет, что текущий токен имеет тип T, а сам токен содержит значение value.
-		// В противном случае метод выбрасывает исключение LexerError
 		template <typename T, typename U>
 		void Expect(const U& value) const
 		{
+			using namespace std::literals;
 			if (Expect<T>().value == value)
 			{
 				return;
@@ -132,8 +128,6 @@ namespace parse
 			throw LexerError("Not implemented"s);
 		}
 
-		// Если следующий токен имеет тип T, метод возвращает ссылку на него.
-		// В противном случае метод выбрасывает исключение LexerError
 		template <typename T>
 		const T& ExpectNext()
 		{
@@ -141,8 +135,6 @@ namespace parse
 			return Expect<T>();
 		}
 
-		// Метод проверяет, что следующий токен имеет тип T, а сам токен содержит значение value.
-		// В противном случае метод выбрасывает исключение LexerError
 		template <typename T, typename U>
 		void ExpectNext(const U& value)
 		{
@@ -165,25 +157,24 @@ namespace parse
 			{ "and",    token_type::And{}         },
 			{ "not",    token_type::Not{}         },
 			{ "True",   token_type::True{}        },
-			{ "False",  token_type::False{}       },
-			{ "==",     token_type::Eq{}          },
-			{ "!=",     token_type::NotEq{}       },
-			{ "<=",     token_type::LessOrEq{}    },
-			{ ">=",     token_type::GreaterOrEq{} },
-			{ "\n",     token_type::Newline{}     }
+			{ "False",  token_type::False{}       }
 		};
 		std::vector<Token> tokens_;
 		int global_space_count = 0;
 		std::vector<Token>::const_iterator current_token_;
 
 		std::vector<Token>::const_iterator ParseTokens(std::istream& input);
-		void ParseString(std::istream& input);
-		void ParseNumber(std::istream& input);
-		void ParseIdentifer(std::istream& input);
-		void ParseChar(std::istream& input);
-		void ParseDent(std::istream& input);
 
-		void SkippedSpace(std::istream& input);
+		void ParseChars(std::istream& input);
+		void ParseDoubleChars(std::istream& input);
+		void ParseNewLine(std::istream& input);
+		void ParseIndent(std::istream& input);
+		void ParseStrings(std::istream& input);
+		void ParseNumbers(std::istream& input);
+		void ParseId(std::istream& input);
+
+		void SkipSpaces(std::istream& input);
+		void SkipComment(std::istream& input);
 	};
 
 }  // namespace parse

@@ -98,10 +98,6 @@ namespace parse
 
     const Token& Lexer::CurrentToken() const
     {
-        if (current_token_ == tokens_.end())
-        {
-            return token_type::Eof{};
-        }
         return *current_token_;
     }
 
@@ -118,89 +114,160 @@ namespace parse
 
     std::vector<Token>::const_iterator Lexer::ParseTokens(std::istream& input)
     {
-        char current_char = input.peek();
-        if (current_char == '\n')
-        {
-            input.get(current_char);
-        }
-
+        char current_char;
         while (input.get(current_char))
         {
             input.putback(current_char);
 
-            ParseString(input);
-            ParseNumber(input);
-            ParseIdentifer(input);
-            ParseChar(input);
-            ParseDent(input);
+            ParseNewLine(input);
+            ParseStrings(input);
+            ParseId(input);
+            ParseDoubleChars(input);
+            ParseChars(input);
+            ParseNumbers(input);
 
-            SkippedSpace(input);
+            SkipSpaces(input);
         }
-
+        if (!tokens_.empty() && tokens_.back() != token_type::Newline{} && tokens_.back() != token_type::Dedent{})
+        {
+            tokens_.emplace_back(token_type::Newline{});
+        }
+        tokens_.emplace_back(token_type::Eof{});
         return tokens_.begin();
     }
 
-    void Lexer::ParseString(std::istream& input)
+    void Lexer::ParseNewLine(std::istream& input)
     {
-        char first_char; // îòêðûâàþùèé ñèìâîë
-        input.get(first_char); // ñ÷èòûâàåì
-        if (first_char == '\"' || first_char == '\'') // åñëè îòíîñèòñÿ ê ñòîðîêå òî
+        char current_char;
+        input.get(current_char);
+
+        if (current_char == '\n')
         {
-            char current_char;
-            std::string parse_str;
-            while (input.get(current_char))
+            if (!tokens_.empty() && tokens_.back() != token_type::Newline{})
             {
-                if (first_char == '\"' && current_char == '\"' || first_char == '\'' && current_char == '\'')
-                {
-                    break;
-                }
-                else
-                {
-                    parse_str.push_back(current_char);
-                }
+                tokens_.emplace_back(token_type::Newline{});
             }
-            tokens_.emplace_back(token_type::String{ parse_str });
+            ParseIndent(input);
         }
-        else // åñëè íåò òî
+        else
         {
-            input.putback(first_char); // âåðíóòü ñèìâîë îáðàòíî â ïîòîê
+            input.putback(current_char);
         }
     }
 
-    void Lexer::ParseNumber(std::istream& input)
+    void Lexer::ParseIndent(std::istream& input)
     {
-        char current_char = input.peek();
-        if (std::isdigit(current_char))
+        constexpr int INDENT_SPACES_COUNT = 2;
+        int spaces_counts = 0;
+        char current_char;
+        while (input.get(current_char) && current_char == ' ')
         {
-            std::string parse_num;
-            while (input.get(current_char))
-            {
-                if (std::isdigit(current_char))
-                {
-                    parse_num.push_back(current_char);
-                }
-                else
-                {
-                    input.putback(current_char);
-                    break;
-                }
-            }
-            int num = std::stoi(parse_num);
-            tokens_.emplace_back(token_type::Number{ num });
+            ++spaces_counts;
+        }
+        if (input.rdstate() != std::ios_base::eofbit)
+        {
+            input.putback(current_char);
+        }
+        char next_char = input.peek();
+        if (next_char == '\n' || next_char == '#')
+        {
+            return;
+        }
+        int indents_count = (spaces_counts - global_space_count) / INDENT_SPACES_COUNT;
+        global_space_count = spaces_counts;
+        Token indent_type;
+        if (indents_count > 0)
+        {
+            indent_type = token_type::Indent{};
+        }
+        else if (indents_count < 0)
+        {
+            indent_type = token_type::Dedent{};
+        }
+        for (int i = 0; i < std::abs(indents_count); ++i)
+        {
+            tokens_.emplace_back(indent_type);
         }
     }
 
-    void Lexer::ParseIdentifer(std::istream& input)
+    void Lexer::ParseStrings(std::istream& input)
     {
-        char current_char = input.peek();
+        char quote_type;
+        input.get(quote_type);
+        if (quote_type == '\'' || quote_type == '\"')
+        {
+            auto it = std::istreambuf_iterator<char>(input);
+            auto end = std::istreambuf_iterator<char>();
+            std::string str;
+            while (it != end)
+            {
+                const char current_char = *it;
+                if (current_char == quote_type)
+                {
+                    ++it;
+                    break;
+                }
+                else if (current_char == '\\')
+                {
+                    ++it;
+                    if (it == end)
+                    {
+                        throw std::logic_error("String parsing error");
+                    }
+                    const char escaped_char = *(it);
+                    switch (escaped_char) {
+                    case 'n':
+                        str.push_back('\n');
+                        break;
+                    case 't':
+                        str.push_back('\t');
+                        break;
+                    case 'r':
+                        str.push_back('\r');
+                        break;
+                    case '"':
+                        str.push_back('"');
+                        break;
+                    case '\'':
+                        str.push_back('\'');
+                        break;
+                    case '\\':
+                        str.push_back('\\');
+                        break;
+                    default:
+                        throw std::logic_error("Unrecognized escape sequence \\"s + escaped_char);
+                    }
+                }
+                else if (current_char == '\n' || current_char == '\r')
+                {
+                    throw std::logic_error("Unexpected end of line"s);
+                }
+                else
+                {
+                    str.push_back(current_char);
+                }
+                ++it;
+            }
+            tokens_.emplace_back(token_type::String{ str });
+        }
+        else
+        {
+            input.putback(quote_type);
+        }
+    }
+
+    void Lexer::ParseId(std::istream& input)
+    {
+        char current_char;
+        current_char = input.peek();
         if (std::isalpha(current_char) || current_char == '_')
         {
-            std::string parse_identifer;
+            std::string parsed_id;
             while (input.get(current_char))
             {
                 if (std::isalnum(current_char) || current_char == '_')
                 {
-                    parse_identifer.push_back(current_char);
+                    parsed_id.push_back(current_char);
                 }
                 else
                 {
@@ -208,52 +275,76 @@ namespace parse
                     break;
                 }
             }
-            tokens_.emplace_back((keywords_.find(parse_identifer) != keywords_.end()) ? keywords_.at(parse_identifer) : token_type::Id{ parse_identifer });
+            if (keywords_.find(parsed_id) != keywords_.end())
+            {
+                tokens_.push_back(keywords_.at(parsed_id));
+            }
+            else
+            {
+                tokens_.emplace_back(token_type::Id{ parsed_id });
+            }
         }
     }
 
-    void Lexer::ParseChar(std::istream& input)
+    void Lexer::ParseDoubleChars(std::istream& input)
     {
-        char current_char = input.peek();
-        if (current_char == '\n')
+        char current_char;
+        input.get(current_char);
+        char next_char = input.peek();
+        if (current_char == '=' && next_char == '=')
         {
-            input.get(current_char);
-            if (tokens_.back() != token_type::Newline{})
-            {
-                tokens_.emplace_back(token_type::Newline{});
-            }
+            input.get();
+            tokens_.emplace_back(token_type::Eq{});
         }
-        else if (std::ispunct(current_char))
+        else if (current_char == '!' && next_char == '=')
         {
-            string parse_comparison_operand;
-            input.get(current_char);
-            parse_comparison_operand.push_back(current_char);
-            input.get(current_char);
-            if (std::ispunct(current_char))
-            {
-                parse_comparison_operand.push_back(current_char);
-                if (keywords_.find(parse_comparison_operand) != keywords_.end())
-                {
-                    tokens_.emplace_back(keywords_.at(parse_comparison_operand));
-                    return;
-                }
-            }
+            input.get();
+            tokens_.emplace_back(token_type::NotEq{});
+        }
+        else if (current_char == '>' && next_char == '=')
+        {
+            input.get();
+            tokens_.emplace_back(token_type::GreaterOrEq{});
+        }
+        else if (current_char == '<' && next_char == '=')
+        {
+            input.get();
+            tokens_.emplace_back(token_type::LessOrEq{});
+        }
+        else
+        {
             input.putback(current_char);
-            tokens_.emplace_back(token_type::Char{ parse_comparison_operand.front() });
         }
     }
 
-    void Lexer::ParseDent(std::istream& input)
+    void Lexer::ParseChars(std::istream& input)
     {
-        char current_char = input.peek();
-        if (tokens_.back() == token_type::Newline{}) // åñëè ïðîáåëüíûé ñèìâîë è ïðåäûäóøèé òîêåò \n
+        char current_char;
+        current_char = input.peek();
+        if (std::ispunct(current_char))
         {
-            int current_space_count = 0; // òåêóøåå êîëè÷åñòâî ïðîáîëîâ
-            while (input.get(current_char)) // ïîêà ïîòîê
+            if (current_char == '#')
             {
-                if (current_char == ' ') // åñëè ïðîáåë
+                SkipComment(input);
+                return;
+            }
+            input.get(current_char);
+            tokens_.emplace_back(token_type::Char{ current_char });
+        }
+    }
+
+    void Lexer::ParseNumbers(std::istream& input)
+    {
+        char current_char;
+        current_char = input.peek();
+        if (std::isdigit(current_char))
+        {
+            string parsed_num;
+            while (input.get(current_char))
+            {
+                if (std::isdigit(current_char))
                 {
-                    ++current_space_count; // íà åäèíè÷êó óâåëè÷èâàåì òåêóøèå ïðîáåëû
+                    parsed_num.push_back(current_char);
                 }
                 else
                 {
@@ -261,38 +352,36 @@ namespace parse
                     break;
                 }
             }
-            input.get(current_char);
-            if (current_char != '\n')
-            {
-                if (current_space_count > global_space_count && current_space_count % 2 == 0) // åñëè òåêóøèå áëîëüøå ÷åì ïðåäèäóøèå íà 2 òî 
-                {
-                    for (int i = current_space_count; i > global_space_count; i -= 2)
-                    {
-                        tokens_.emplace_back(token_type::Indent{});
-                    }
-                    global_space_count = current_space_count; // ïðèñâàåâàåì
-                }
-                else if (current_space_count < global_space_count && current_space_count % 2 == 0) // åñëè òåêóøèå áëîëüøå ÷åì ïðåäèäóøèå íà 2 òî 
-                {
-                    for (int i = current_space_count; i < global_space_count; i += 2)
-                    {
-                        tokens_.emplace_back(token_type::Dedent{});
-                    }
-                    global_space_count = current_space_count; // ïðèñâàåâàåì
-                }
-                input.putback(current_char);
-            }
+            int num = std::stoi(parsed_num);
+            tokens_.emplace_back(token_type::Number{ num });
         }
     }
 
     //--------------------Skippeds----------------------------
 
-    void Lexer::SkippedSpace(std::istream& input)
+    void Lexer::SkipSpaces(std::istream& input)
     {
-        char current_char = input.peek();
-        if (current_char == ' ' && tokens_.back() != token_type::Newline{})
+        while (input.peek() == ' ') {
+            input.get();
+        }
+    }
+
+    void Lexer::SkipComment(std::istream& input)
+    {
+        char current_char;
+        input.get(current_char);
+        if (current_char == '#')
         {
-            input.get(current_char);
+            string comment;
+            getline(input, comment, '\n');
+            if (input.rdstate() != std::ios_base::eofbit)
+            {
+                input.putback('\n');
+            }
+        }
+        else
+        {
+            input.putback(current_char);
         }
     }
 
