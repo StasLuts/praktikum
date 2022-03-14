@@ -361,7 +361,8 @@ namespace parse
 
     void Lexer::SkipSpaces(std::istream& input)
     {
-        while (input.peek() == ' ') {
+        while (input.peek() == ' ')
+        {
             input.get();
         }
     }
