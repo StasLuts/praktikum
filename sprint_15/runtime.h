@@ -192,6 +192,10 @@ namespace runtime
 		[[nodiscard]] Closure& Fields();
 		// Возвращает константную ссылку на Closure, содержащую поля объекта
 		[[nodiscard]] const Closure& Fields() const;
+
+	private:
+
+		const Class& cls_;
 	};
 
 	/*

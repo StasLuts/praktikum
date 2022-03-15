@@ -57,21 +57,30 @@ namespace runtime
 
     bool IsTrue(const ObjectHolder& object)
     {
-        // Заглушка. Реализуйте метод самостоятельно
-        return false;
+        return (!object ||
+            object.TryAs<Bool>()->GetValue() ||
+            object.TryAs<Number>()->GetValue() == 0 ||
+            object.TryAs<String>()->GetValue().empty()) ?
+            false : true;
     }
 
     //---------------------ClassInstance-------------------------------
 
     void ClassInstance::Print(std::ostream& os, Context& context)
     {
-        // Заглушка, реализуйте метод самостоятельно
+        if (this->HasMethod("__str__", 0))
+        {
+            this->Call("__str__", {}, context)->Print(os, context);
+        }
+        else
+        {
+            os << this;
+        }
     }
 
     bool ClassInstance::HasMethod(const std::string& method, size_t argument_count) const
     {
-        // Заглушка, реализуйте метод самостоятельно
-        return false;
+        return (cls_.GetMethod(method) && cls_.GetMethod(method)->formal_params.size() == argument_count);
     }
 
     Closure& ClassInstance::Fields()
@@ -87,9 +96,7 @@ namespace runtime
     }
 
     ClassInstance::ClassInstance(const Class& cls)
-    {
-        // Реализуйте метод самостоятельно
-    }
+        : cls_(cls) {}
 
     ObjectHolder ClassInstance::Call(const std::string& method, const std::vector<ObjectHolder>& actual_args, Context& context)
     {     
