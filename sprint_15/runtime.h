@@ -162,6 +162,13 @@ namespace runtime
 
 		// Выводит в os строку "Class <имя класса>", например "Class cat"
 		void Print(std::ostream& os, Context& context) override;
+
+	private:
+
+		std::unordered_map<std::string_view, const Method*> names_methods_;
+		std::string name_;
+		std::vector<Method> methods_;
+		const Class* parent_ = nullptr;
 	};
 
 	// Экземпляр класса
@@ -196,6 +203,7 @@ namespace runtime
 	private:
 
 		const Class& cls_;
+		Closure fields_;
 	};
 
 	/*
