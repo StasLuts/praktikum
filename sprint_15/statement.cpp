@@ -5,171 +5,248 @@
 
 using namespace std;
 
-namespace ast {
+namespace ast
+{
 
-using runtime::Closure;
-using runtime::Context;
-using runtime::ObjectHolder;
+    using runtime::Closure;
+    using runtime::Context;
+    using runtime::ObjectHolder;
 
-namespace {
-const string ADD_METHOD = "__add__"s;
-const string INIT_METHOD = "__init__"s;
-}  // namespace
+    namespace
+    {
+        const string ADD_METHOD = "__add__"s;
+        const string INIT_METHOD = "__init__"s;
 
-ObjectHolder Assignment::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    }  // namespace
 
-Assignment::Assignment(std::string /*var*/, std::unique_ptr<Statement> /*rv*/) {
-}
+    //-------------------------------Assignment-----------------------------------
 
-VariableValue::VariableValue(const std::string& /*var_name*/) {
-}
+    ObjectHolder Assignment::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
 
-VariableValue::VariableValue(std::vector<std::string> /*dotted_ids*/) {
-}
+    Assignment::Assignment(std::string /*var*/, std::unique_ptr<Statement> /*rv*/)
+    {
 
-ObjectHolder VariableValue::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    }
 
-unique_ptr<Print> Print::Variable(const std::string& /*name*/) {
-    // Заглушка, реализуйте метод самостоятельно
-    throw std::logic_error("Not implemented"s);
-}
+    //-------------------------VariableValue----------------------------------------
 
-Print::Print(unique_ptr<Statement> /*argument*/) {
-    // Заглушка, реализуйте метод самостоятельно
-}
+    VariableValue::VariableValue(const std::string& /*var_name*/)
+    {
 
-Print::Print(vector<unique_ptr<Statement>> /*args*/) {
-    // Заглушка, реализуйте метод самостоятельно
-}
+    }
 
-ObjectHolder Print::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    VariableValue::VariableValue(std::vector<std::string> /*dotted_ids*/)
+    {
 
-MethodCall::MethodCall(std::unique_ptr<Statement> /*object*/, std::string /*method*/,
-                       std::vector<std::unique_ptr<Statement>> /*args*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-}
+    }
 
-ObjectHolder MethodCall::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    ObjectHolder VariableValue::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
 
-ObjectHolder Stringify::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    //-------------------------Print------------------------------------------------
 
-ObjectHolder Add::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    unique_ptr<Print> Print::Variable(const std::string& /*name*/)
+    {
+        // Заглушка, реализуйте метод самостоятельно
+        throw std::logic_error("Not implemented"s);
+    }
 
-ObjectHolder Sub::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    Print::Print(unique_ptr<Statement> /*argument*/)
+    {
+        // Заглушка, реализуйте метод самостоятельно
+    }
 
-ObjectHolder Mult::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    Print::Print(vector<unique_ptr<Statement>> /*args*/)
+    {
+        // Заглушка, реализуйте метод самостоятельно
+    }
 
-ObjectHolder Div::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    ObjectHolder Print::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
 
-ObjectHolder Compound::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    //----------------------------MethodCall---------------------------------------
 
-ObjectHolder Return::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    MethodCall::MethodCall(std::unique_ptr<Statement> /*object*/, std::string /*method*/, std::vector<std::unique_ptr<Statement>> /*args*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+    }
 
-ClassDefinition::ClassDefinition(ObjectHolder /*cls*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-}
+    ObjectHolder MethodCall::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
 
-ObjectHolder ClassDefinition::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    //----------------------Stringify-------------------------------------------
 
-FieldAssignment::FieldAssignment(VariableValue /*object*/, std::string /*field_name*/,
-                                 std::unique_ptr<Statement> /*rv*/) {
-}
+    ObjectHolder Stringify::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
 
-ObjectHolder FieldAssignment::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    //-------------------------------------Add-------------------------------
 
-IfElse::IfElse(std::unique_ptr<Statement> /*condition*/, std::unique_ptr<Statement> /*if_body*/,
-               std::unique_ptr<Statement> /*else_body*/) {
-    // Реализуйте метод самостоятельно
-}
+    ObjectHolder Add::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
 
-ObjectHolder IfElse::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    //-------------------------Sub---------------------------------------
 
-ObjectHolder Or::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    ObjectHolder Sub::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
 
-ObjectHolder And::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    //---------------------------Mult---------------------------------------
 
-ObjectHolder Not::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    ObjectHolder Mult::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
 
-Comparison::Comparison(Comparator /*cmp*/, unique_ptr<Statement> lhs, unique_ptr<Statement> rhs)
-    : BinaryOperation(std::move(lhs), std::move(rhs)) {
-    // Реализуйте метод самостоятельно
-}
+    //---------------------------------Div---------------------------------
 
-ObjectHolder Comparison::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    ObjectHolder Div::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
 
-NewInstance::NewInstance(const runtime::Class& /*class_*/, std::vector<std::unique_ptr<Statement>> /*args*/){
-    // Заглушка. Реализуйте метод самостоятельно
-}
+    //---------------------------Compound------------------------------------
 
-NewInstance::NewInstance(const runtime::Class& /*class_*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-}
+    ObjectHolder Compound::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
 
-ObjectHolder NewInstance::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    //-----------------------------Return-----------------------------------
 
-MethodBody::MethodBody(std::unique_ptr<Statement>&& /*body*/) {
-}
+    ObjectHolder Return::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
 
-ObjectHolder MethodBody::Execute(Closure& /*closure*/, Context& /*context*/) {
-    // Заглушка. Реализуйте метод самостоятельно
-    return {};
-}
+    //------------------------ClassDefinition--------------------------------
+
+    ClassDefinition::ClassDefinition(ObjectHolder /*cls*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+    }
+
+    ObjectHolder ClassDefinition::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
+
+    //-------------------------FieldAssignment----------------------------------------
+
+    FieldAssignment::FieldAssignment(VariableValue /*object*/, std::string /*field_name*/, std::unique_ptr<Statement> /*rv*/)
+    {
+    }
+
+    ObjectHolder FieldAssignment::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
+
+    //--------------------------------IfElse-----------------------------------------------------
+
+    IfElse::IfElse(std::unique_ptr<Statement> /*condition*/, std::unique_ptr<Statement> /*if_body*/, std::unique_ptr<Statement> /*else_body*/)
+    {
+        // Реализуйте метод самостоятельно
+    }
+
+    ObjectHolder IfElse::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
+
+    //--------------------------------Or----------------------------------
+
+    ObjectHolder Or::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
+
+    //-----------------------------And----------------------------------
+
+    ObjectHolder And::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
+
+    //----------------------------Not-----------------------------------
+
+    ObjectHolder Not::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
+
+    //-------------------------------Comparison-----------------------------------------------
+
+    Comparison::Comparison(Comparator /*cmp*/, unique_ptr<Statement> lhs, unique_ptr<Statement> rhs)
+    : BinaryOperation(std::move(lhs), std::move(rhs))
+    {
+        // Реализуйте метод самостоятельно
+    }
+
+    ObjectHolder Comparison::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
+
+    //------------------------------NewInstance-----------------------------------------
+
+    NewInstance::NewInstance(const runtime::Class& /*class_*/, std::vector<std::unique_ptr<Statement>> /*args*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+    }
+
+    NewInstance::NewInstance(const runtime::Class& /*class_*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+    }
+
+    ObjectHolder NewInstance::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
+    
+    //-----------------------MethodBody--------------------------
+
+    MethodBody::MethodBody(std::unique_ptr<Statement>&& /*body*/)
+    {
+    }
+
+    ObjectHolder MethodBody::Execute(Closure& /*closure*/, Context& /*context*/)
+    {
+        // Заглушка. Реализуйте метод самостоятельно
+        return {};
+    }
 
 }  // namespace ast
