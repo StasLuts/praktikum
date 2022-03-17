@@ -34,20 +34,25 @@ namespace ast
 
     //-------------------------VariableValue----------------------------------------
 
-    VariableValue::VariableValue(const std::string& /*var_name*/)
-    {
+    VariableValue::VariableValue(const std::string& var_name)
+        : var_name_(std::move(var_name)) {}
 
-    }
-
-    VariableValue::VariableValue(std::vector<std::string> /*dotted_ids*/)
-    {
-
-    }
+    VariableValue::VariableValue(std::vector<std::string> dotted_ids)
+        : dotted_ids_(std::move(dotted_ids)) {}
 
     ObjectHolder VariableValue::Execute(Closure& /*closure*/, Context& /*context*/)
     {
-        // Заглушка. Реализуйте метод самостоятельно
-        return {};
+        ObjectHolder()
+    }
+
+    std::string VariableValue::GetName() const
+    {
+        return std::string();
+    }
+
+    const std::vector<std::string>& VariableValue::GetDottedIds() const
+    {
+        // TODO: вставьте здесь оператор return
     }
 
     //-------------------------Print------------------------------------------------
