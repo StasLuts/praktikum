@@ -52,7 +52,7 @@ void TestPositionToStringInvalid() {
 }
 
 void TestStringToPositionInvalid() {
-    ASSERT(!Position::FromString("").IsValid());
+    ASSERT(!Position::FromString("XFD16385").IsValid());
     ASSERT(!Position::FromString("A").IsValid());
     ASSERT(!Position::FromString("1").IsValid());
     ASSERT(!Position::FromString("e2").IsValid());
@@ -68,9 +68,13 @@ void TestStringToPositionInvalid() {
 }
 }  // namespace
 int main() {
+
+    std::cout << Position::FromString("AA1").ToString() << std::endl;
+
     TestRunner tr;
+    RUN_TEST(tr, TestStringToPositionInvalid);
     RUN_TEST(tr, TestPositionAndStringConversion);
     RUN_TEST(tr, TestPositionToStringInvalid);
-    RUN_TEST(tr, TestStringToPositionInvalid);
+    
     return 0;
 }
