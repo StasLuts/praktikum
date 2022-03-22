@@ -3,6 +3,7 @@
 #include <cctype>
 #include <sstream>
 #include <regex>
+#include <cmath>
 
 const int LETTERS = 26; // юзаемые символы
 const int MAX_POSITION_LENGTH = 17; // масимальная длина пользовательской позиции
@@ -24,32 +25,28 @@ bool Position::operator<(const Position rhs) const
 
 bool Position::IsValid() const
 {
-	return (this->col <= 16383 && this->row <= 16383 && !(*this == Position::NONE));
+	return (this->col >= 0 && this->col < MAX_COLS &&
+		this->row >= 0 && this->row < MAX_ROWS);
 }
 
 std::string Position::ToString() const
 {
-	/*
-	* последовательно делим col на 26 с остатком
-	* остаток складываем в вектор интов
-	* челую часть опять делим на основание пока целая часть больше 0
-	* все числа кроме первого в веторе увеличиваем на 1
-	* В строку запихивыем INDEX_FIRST_CHAR_TWENTY_SIX_SISTEM + число с последнего
-	*/
-	std:: 
-	int ost = 0;
-	int chel = col;
-	while (chel > 0)
+	if (IsValid())
 	{
-		int ost = this->col % 26;
-		int chel =/ 26;
+		std::string userest_num;
+		int integer_part = col;
+		while (integer_part >= 0)
+		{
+			userest_num.insert(userest_num.begin(), 'A' + integer_part % LETTERS);
+			integer_part = integer_part / LETTERS - 1;
+		}
+		return userest_num += std::to_string(row + 1);
 	}
 	return "";
 }
 
 Position Position::FromString(std::string_view str)
 {
-	//1-16383
 	std::regex pos_reg("[A-Z]{1,3}[1-9][0-9]{0,4}");
 	if (!std::regex_match(std::string(str), pos_reg))
 	{
@@ -66,8 +63,8 @@ Position Position::FromString(std::string_view str)
 	for (size_t i = 0; i < col_str.size(); ++i)
 	{
 		col += (i > 0) ?
-			((1 + col_str[i]) - INDEX_FIRST_CHAR_TWENTY_SIX_SISTEM) * std::pow(26, i) :
-			(col_str[i] - INDEX_FIRST_CHAR_TWENTY_SIX_SISTEM) * std::pow(26, i);
+			((1 + col_str[i]) - INDEX_FIRST_CHAR_TWENTY_SIX_SISTEM) * std::pow(LETTERS, i) :
+			(col_str[i] - INDEX_FIRST_CHAR_TWENTY_SIX_SISTEM) * std::pow(LETTERS, i);
 	}
 	return  Position{std::stoi(row_str) - 1, col};
 }

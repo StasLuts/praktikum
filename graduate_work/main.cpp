@@ -24,11 +24,9 @@ void TestPositionAndStringConversion() {
         ASSERT_EQUAL(pos.ToString(), str);
         ASSERT_EQUAL(Position::FromString(str), pos);
     };
-
     for (int i = 0; i < 25; ++i) {
         test_single(Position{i, i}, char('A' + i) + std::to_string(i + 1));
     }
-
     test_single(Position{0, 0}, "A1");
     test_single(Position{0, 1}, "B1");
     test_single(Position{0, 25}, "Z1");
@@ -67,14 +65,12 @@ void TestStringToPositionInvalid() {
     ASSERT(!Position::FromString("ABCDEFGHIJKLMNOPQRS8").IsValid());
 }
 }  // namespace
-int main() {
-
-    std::cout << Position::FromString("AA1").ToString() << std::endl;
-
+int main()
+{
+    Position::FromString("ZZ1").ToString();
     TestRunner tr;
     RUN_TEST(tr, TestStringToPositionInvalid);
     RUN_TEST(tr, TestPositionAndStringConversion);
-    RUN_TEST(tr, TestPositionToStringInvalid);
-    
+    RUN_TEST(tr, TestPositionToStringInvalid);   
     return 0;
 }
