@@ -158,6 +158,27 @@ namespace ASTImpl
 			// При делении на 0 выбрасывайте ошибку вычисления FormulaError
 			double Evaluate() const override
 			{
+				double lhs = lhs_.get()->Evaluate();
+				double rhs = rhs_.get()->Evaluate();
+				char t(type_);
+				switch (t)
+				{
+				case '+':
+					return lhs + rhs;
+				case '-':
+					return lhs - rhs;
+				case '*':
+					return lhs * rhs;
+				case '/':
+					if (rhs <= 0)
+					{
+						throw FormulaError("DIV/0");
+					}
+					else
+					{
+						return lhs / rhs;
+					}
+				}
 				return 0;
 			}
 
