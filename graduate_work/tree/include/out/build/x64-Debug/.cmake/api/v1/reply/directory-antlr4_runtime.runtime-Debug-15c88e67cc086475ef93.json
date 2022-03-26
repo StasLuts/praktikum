@@ -1,0 +1,127 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"antlr4_runtime/runtime/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 143,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 146,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 150,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 157,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 159,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/dist/antlr4-runtime.lib"
+			],
+			"targetId" : "antlr4_shared::@e05a23ba9f1f17879cbc",
+			"targetIndex" : 0,
+			"targetIsImportLibrary" : true,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/dist/antlr4-runtime.dll"
+			],
+			"targetId" : "antlr4_shared::@e05a23ba9f1f17879cbc",
+			"targetIndex" : 0,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/dist/antlr4-runtime-static.lib"
+			],
+			"targetId" : "antlr4_static::@e05a23ba9f1f17879cbc",
+			"targetIndex" : 1,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "dev",
+			"destination" : "include/antlr4-runtime",
+			"paths" : 
+			[
+				{
+					"from" : "antlr4_runtime/runtime/src",
+					"to" : "."
+				}
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "include/antlr4-runtime",
+			"paths" : 
+			[
+				"out/build/x64-Debug/runtime/thirdparty/utfcpp/source/utf8.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "dev",
+			"destination" : "include/antlr4-runtime",
+			"paths" : 
+			[
+				"out/build/x64-Debug/runtime/thirdparty/utfcpp/source/utf8"
+			],
+			"type" : "directory"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "antlr4_runtime/runtime",
+		"source" : "antlr4_runtime/runtime"
+	}
+}

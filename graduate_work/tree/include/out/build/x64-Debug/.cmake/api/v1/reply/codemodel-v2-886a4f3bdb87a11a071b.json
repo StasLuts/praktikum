@@ -1,0 +1,157 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-64117c6acf784ae83eb7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "antlr4_runtime",
+					"childIndexes" : 
+					[
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-antlr4_runtime-Debug-c7f2c52f3362dc9daf9d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "antlr4_runtime"
+				},
+				{
+					"build" : "antlr4_runtime/runtime",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-antlr4_runtime.runtime-Debug-15c88e67cc086475ef93.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "antlr4_runtime/runtime",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "formulaAST",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1,
+						2
+					],
+					"name" : "LIBANTLR4",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "antlr4_shared::@e05a23ba9f1f17879cbc",
+					"jsonFile" : "target-antlr4_shared-Debug-a8fe5d67d81040368608.json",
+					"name" : "antlr4_shared",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "antlr4_static::@e05a23ba9f1f17879cbc",
+					"jsonFile" : "target-antlr4_static-Debug-778c863a7d1b8a3979fe.json",
+					"name" : "antlr4_static",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "make_lib_output_dir::@e05a23ba9f1f17879cbc",
+					"jsonFile" : "target-make_lib_output_dir-Debug-7e2780c113640baafc3e.json",
+					"name" : "make_lib_output_dir",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "spreadsheet::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-spreadsheet-Debug-38dda2ecb8129fe85ef0.json",
+					"name" : "spreadsheet",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "utf8cpp::@e05a23ba9f1f17879cbc",
+					"jsonFile" : "target-utf8cpp-Debug-7b417ae55282fe4b95fe.json",
+					"name" : "utf8cpp",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "utf8cpp-build::@e05a23ba9f1f17879cbc",
+					"jsonFile" : "target-utf8cpp-build-Debug-2779814011cb094ab405.json",
+					"name" : "utf8cpp-build",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/out/build/x64-Debug",
+		"source" : "C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
