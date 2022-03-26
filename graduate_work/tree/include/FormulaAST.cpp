@@ -50,264 +50,308 @@ namespace ASTImpl
 	// A + (B - C) - always okay (nothing of lower grammatic precedence could have been written to the
 	// right) A - (B + C) - never okay A - (B - C) - never okay A * (B * C) - always okay (the parent
 	// has the highest grammatic precedence) A * (B / C) - always okay (the parent has the highest
-// grammatic precedence) A / (B * C) - never okay A / (B / C) - never okay
-// -(A + B) - never okay
-// -(A - B) - never okay
-// -(A * B) - always okay (the resulting binary op has the highest grammatic precedence)
-// -(A / B) - always okay (the resulting binary op has the highest grammatic precedence)
-// +(A + B) - **sometimes okay** (e.g. parens in +(A + B) / C are **not** optional)
-//     (currently in the table we're always putting in the parentheses)
-// +(A - B) - **sometimes okay** (same)
-//     (currently in the table we're always putting in the parentheses)
-// +(A * B) - always okay (the resulting binary op has the highest grammatic precedence)
-// +(A / B) - always okay (the resulting binary op has the highest grammatic precedence)
-constexpr PrecedenceRule PRECEDENCE_RULES[EP_END][EP_END] = {
+	// grammatic precedence) A / (B * C) - never okay A / (B / C) - never okay
+	// -(A + B) - never okay
+	// -(A - B) - never okay
+	// -(A * B) - always okay (the resulting binary op has the highest grammatic precedence)
+	// -(A / B) - always okay (the resulting binary op has the highest grammatic precedence)
+	// +(A + B) - **sometimes okay** (e.g. parens in +(A + B) / C are **not** optional)
+	//     (currently in the table we're always putting in the parentheses)
+	// +(A - B) - **sometimes okay** (same)
+	//     (currently in the table we're always putting in the parentheses)
+	// +(A * B) - always okay (the resulting binary op has the highest grammatic precedence)
+	// +(A / B) - always okay (the resulting binary op has the highest grammatic precedence)
+	
+	constexpr PrecedenceRule PRECEDENCE_RULES[EP_END][EP_END] = {
 	/* EP_ADD */ {PR_NONE, PR_NONE, PR_NONE, PR_NONE, PR_NONE, PR_NONE},
 	/* EP_SUB */ {PR_RIGHT, PR_RIGHT, PR_NONE, PR_NONE, PR_NONE, PR_NONE},
 	/* EP_MUL */ {PR_BOTH, PR_BOTH, PR_NONE, PR_NONE, PR_NONE, PR_NONE},
 	/* EP_DIV */ {PR_BOTH, PR_BOTH, PR_RIGHT, PR_RIGHT, PR_NONE, PR_NONE},
 	/* EP_UNARY */ {PR_BOTH, PR_BOTH, PR_NONE, PR_NONE, PR_NONE, PR_NONE},
 	/* EP_ATOM */ {PR_NONE, PR_NONE, PR_NONE, PR_NONE, PR_NONE, PR_NONE},
-};
-
-class Expr {
-public:
-	virtual ~Expr() = default;
-	virtual void Print(std::ostream& out) const = 0;
-	virtual void DoPrintFormula(std::ostream& out, ExprPrecedence precedence) const = 0;
-	virtual double Evaluate() const = 0;
-
-	// higher is tighter
-	virtual ExprPrecedence GetPrecedence() const = 0;
-
-	void PrintFormula(std::ostream& out, ExprPrecedence parent_precedence,
-					  bool right_child = false) const {
-		auto precedence = GetPrecedence();
-		auto mask = right_child ? PR_RIGHT : PR_LEFT;
-		bool parens_needed = PRECEDENCE_RULES[parent_precedence][precedence] & mask;
-		if (parens_needed) {
-			out << '(';
-		}
-
-		DoPrintFormula(out, precedence);
-
-		if (parens_needed) {
-			out << ')';
-		}
-	}
-};
-
-namespace {
-class BinaryOpExpr final : public Expr {
-public:
-	enum Type : char {
-		Add = '+',
-		Subtract = '-',
-		Multiply = '*',
-		Divide = '/',
 	};
 
-public:
-	explicit BinaryOpExpr(Type type, std::unique_ptr<Expr> lhs, std::unique_ptr<Expr> rhs)
-		: type_(type)
-		, lhs_(std::move(lhs))
-		, rhs_(std::move(rhs)) {
-	}
+	class Expr
+	{
+	public:
 
-	void Print(std::ostream& out) const override {
-		out << '(' << static_cast<char>(type_) << ' ';
-		lhs_->Print(out);
-		out << ' ';
-		rhs_->Print(out);
-		out << ')';
-	}
+		virtual ~Expr() = default;
+		virtual void Print(std::ostream& out) const = 0;
+		virtual void DoPrintFormula(std::ostream& out, ExprPrecedence precedence) const = 0;
+		virtual double Evaluate() const = 0;
 
-	void DoPrintFormula(std::ostream& out, ExprPrecedence precedence) const override {
-		lhs_->PrintFormula(out, precedence);
-		out << static_cast<char>(type_);
-		rhs_->PrintFormula(out, precedence, /* right_child = */ true);
-	}
+		// higher is tighter
+		virtual ExprPrecedence GetPrecedence() const = 0;
 
-	ExprPrecedence GetPrecedence() const override {
-		switch (type_) {
-			case Add:
-				return EP_ADD;
-			case Subtract:
-				return EP_SUB;
-			case Multiply:
-				return EP_MUL;
-			case Divide:
-				return EP_DIV;
-			default:
-				// have to do this because VC++ has a buggy warning
-				assert(false);
-				return static_cast<ExprPrecedence>(INT_MAX);
+		void PrintFormula(std::ostream& out, ExprPrecedence parent_precedence, bool right_child = false) const
+		{
+			auto precedence = GetPrecedence();
+			auto mask = right_child ? PR_RIGHT : PR_LEFT;
+			bool parens_needed = PRECEDENCE_RULES[parent_precedence][precedence] & mask;
+			if (parens_needed)
+			{
+				out << '(';
+			}
+			DoPrintFormula(out, precedence);
+			if (parens_needed)
+			{
+				out << ')';
+			}
 		}
-	}
-
-// Реализуйте метод Evaluate() для бинарных операций.
-// При делении на 0 выбрасывайте ошибку вычисления FormulaError
-	double Evaluate() const override {
-	}
-
-private:
-	Type type_;
-	std::unique_ptr<Expr> lhs_;
-	std::unique_ptr<Expr> rhs_;
-};
-
-class UnaryOpExpr final : public Expr {
-public:
-	enum Type : char {
-		UnaryPlus = '+',
-		UnaryMinus = '-',
 	};
 
-public:
-	explicit UnaryOpExpr(Type type, std::unique_ptr<Expr> operand)
-		: type_(type)
-		, operand_(std::move(operand)) {
-	}
+	namespace
+	{
+		class BinaryOpExpr final : public Expr
+		{
+		public:
 
-	void Print(std::ostream& out) const override {
-		out << '(' << static_cast<char>(type_) << ' ';
-		operand_->Print(out);
-		out << ')';
-	}
+			enum Type : char
+			{
+				Add = '+',
+				Subtract = '-',
+				Multiply = '*',
+				Divide = '/',
+			};
 
-	void DoPrintFormula(std::ostream& out, ExprPrecedence precedence) const override {
-		out << static_cast<char>(type_);
-		operand_->PrintFormula(out, precedence);
-	}
+		public:
 
-	ExprPrecedence GetPrecedence() const override {
-		return EP_UNARY;
-	}
+			explicit BinaryOpExpr(Type type, std::unique_ptr<Expr> lhs, std::unique_ptr<Expr> rhs)
+				: type_(type), lhs_(std::move(lhs)), rhs_(std::move(rhs)) {}
 
-// Реализуйте метод Evaluate() для унарных операций.
-	double Evaluate() const override {
-	}
+			void Print(std::ostream& out) const override
+			{
+				out << '(' << static_cast<char>(type_) << ' ';
+				lhs_->Print(out);
+				out << ' ';
+				rhs_->Print(out);
+				out << ')';
+			}
 
-private:
-	Type type_;
-	std::unique_ptr<Expr> operand_;
-};
+			void DoPrintFormula(std::ostream& out, ExprPrecedence precedence) const override
+			{
+				lhs_->PrintFormula(out, precedence);
+				out << static_cast<char>(type_);
+				rhs_->PrintFormula(out, precedence, /* right_child = */ true);
+			}
 
-class NumberExpr final : public Expr {
-public:
-	explicit NumberExpr(double value)
-		: value_(value) {
-	}
+			ExprPrecedence GetPrecedence() const override
+			{
+				switch (type_)
+				{
+				case Add:
+					return EP_ADD;
+				case Subtract:
+					return EP_SUB;
+				case Multiply:
+					return EP_MUL;
+				case Divide:
+					return EP_DIV;
+				default:
+					// have to do this because VC++ has a buggy warning
+					assert(false);
+					return static_cast<ExprPrecedence>(INT_MAX);
+				}
+			}
 
-	void Print(std::ostream& out) const override {
-		out << value_;
-	}
+			// Реализуйте метод Evaluate() для бинарных операций.
+			// При делении на 0 выбрасывайте ошибку вычисления FormulaError
+			double Evaluate() const override
+			{
+				return 0;
+			}
 
-	void DoPrintFormula(std::ostream& out, ExprPrecedence /* precedence */) const override {
-		out << value_;
-	}
+		private:
 
-	ExprPrecedence GetPrecedence() const override {
-		return EP_ATOM;
-	}
+			Type type_;
+			std::unique_ptr<Expr> lhs_;
+			std::unique_ptr<Expr> rhs_;
+		};
 
-// Для чисел метод возвращает значение числа.
-	double Evaluate() const override {
-		return value_;
-		
-	}
+		class UnaryOpExpr final : public Expr
+		{
+		public:
 
-private:
-	double value_;
-};
+			enum Type : char
+			{
+				UnaryPlus = '+',
+				UnaryMinus = '-',
+			};
 
-class ParseASTListener final : public FormulaBaseListener {
-public:
-	std::unique_ptr<Expr> MoveRoot() {
-		assert(args_.size() == 1);
-		auto root = std::move(args_.front());
-		args_.clear();
+		public:
 
-		return root;
-	}
+			explicit UnaryOpExpr(Type type, std::unique_ptr<Expr> operand)
+				: type_(type), operand_(std::move(operand)) {}
 
-public:
-	void exitUnaryOp(FormulaParser::UnaryOpContext* ctx) override {
-		assert(args_.size() >= 1);
+			void Print(std::ostream& out) const override
+			{
+				out << '(' << static_cast<char>(type_) << ' ';
+				operand_->Print(out);
+				out << ')';
+			}
 
-		auto operand = std::move(args_.back());
+			void DoPrintFormula(std::ostream& out, ExprPrecedence precedence) const override
+			{
+				out << static_cast<char>(type_);
+				operand_->PrintFormula(out, precedence);
+			}
 
-		UnaryOpExpr::Type type;
-		if (ctx->SUB()) {
-			type = UnaryOpExpr::UnaryMinus;
-		} else {
-			assert(ctx->ADD() != nullptr);
-			type = UnaryOpExpr::UnaryPlus;
-		}
+			ExprPrecedence GetPrecedence() const override
+			{
+				return EP_UNARY;
+			}
 
-		auto node = std::make_unique<UnaryOpExpr>(type, std::move(operand));
-		args_.back() = std::move(node);
-	}
+			// Реализуйте метод Evaluate() для унарных операций.
+			double Evaluate() const override
+			{
+				return 0;
+			}
 
-	void exitLiteral(FormulaParser::LiteralContext* ctx) override {
-		double value = 0;
-		auto valueStr = ctx->NUMBER()->getSymbol()->getText();
-		std::istringstream in(valueStr);
-		in >> value;
-		if (!in) {
-			throw ParsingError("Invalid number: " + valueStr);
-		}
+		private:
 
-		auto node = std::make_unique<NumberExpr>(value);
-		args_.push_back(std::move(node));
-	}
+			Type type_;
+			std::unique_ptr<Expr> operand_;
+		};
 
-	void exitBinaryOp(FormulaParser::BinaryOpContext* ctx) override {
-		assert(args_.size() >= 2);
+		class NumberExpr final : public Expr
+		{
+		public:
 
-		auto rhs = std::move(args_.back());
-		args_.pop_back();
+			explicit NumberExpr(double value)
+				: value_(value) {}
 
-		auto lhs = std::move(args_.back());
+			void Print(std::ostream& out) const override
+			{
+				out << value_;
+			}
 
-		BinaryOpExpr::Type type;
-		if (ctx->ADD()) {
-			type = BinaryOpExpr::Add;
-		} else if (ctx->SUB()) {
-			type = BinaryOpExpr::Subtract;
-		} else if (ctx->MUL()) {
-			type = BinaryOpExpr::Multiply;
-		} else {
-			assert(ctx->DIV() != nullptr);
-			type = BinaryOpExpr::Divide;
-		}
+			void DoPrintFormula(std::ostream& out, ExprPrecedence /* precedence */) const override
+			{
+				out << value_;
+			}
 
-		auto node = std::make_unique<BinaryOpExpr>(type, std::move(lhs), std::move(rhs));
-		args_.back() = std::move(node);
-	}
+			ExprPrecedence GetPrecedence() const override
+			{
+				return EP_ATOM;
+			}
 
-	void visitErrorNode(antlr4::tree::ErrorNode* node) override {
-		throw ParsingError("Error when parsing: " + node->getSymbol()->getText());
-	}
+			// Для чисел метод возвращает значение числа.
+			double Evaluate() const override
+			{
+				return value_;
+			}
+
+		private:
+
+			double value_;
+		};
+
+		class ParseASTListener final : public FormulaBaseListener
+		{
+		public:
+
+			std::unique_ptr<Expr> MoveRoot()
+			{
+				assert(args_.size() == 1);
+				auto root = std::move(args_.front());
+				args_.clear();
+
+				return root;
+			}
+
+		public:
+
+			void exitUnaryOp(FormulaParser::UnaryOpContext* ctx) override
+			{
+				assert(args_.size() >= 1);
+
+				auto operand = std::move(args_.back());
+
+				UnaryOpExpr::Type type;
+				if (ctx->SUB())
+				{
+					type = UnaryOpExpr::UnaryMinus;
+				}
+				else
+				{
+					assert(ctx->ADD() != nullptr);
+					type = UnaryOpExpr::UnaryPlus;
+				}
+				auto node = std::make_unique<UnaryOpExpr>(type, std::move(operand));
+				args_.back() = std::move(node);
+			}
+
+			void exitLiteral(FormulaParser::LiteralContext* ctx) override
+			{
+				double value = 0;
+				auto valueStr = ctx->NUMBER()->getSymbol()->getText();
+				std::istringstream in(valueStr);
+				in >> value;
+				if (!in)
+				{
+					throw ParsingError("Invalid number: " + valueStr);
+				}
+				auto node = std::make_unique<NumberExpr>(value);
+				args_.push_back(std::move(node));
+			}
+
+			void exitBinaryOp(FormulaParser::BinaryOpContext* ctx) override
+			{
+				assert(args_.size() >= 2);
+
+				auto rhs = std::move(args_.back());
+				args_.pop_back();
+
+				auto lhs = std::move(args_.back());
+
+				BinaryOpExpr::Type type;
+				if (ctx->ADD())
+				{
+					type = BinaryOpExpr::Add;
+				}
+				else if (ctx->SUB())
+				{
+					type = BinaryOpExpr::Subtract;
+				}
+				else if (ctx->MUL())
+				{
+					type = BinaryOpExpr::Multiply;
+				}
+				else
+				{
+					assert(ctx->DIV() != nullptr);
+					type = BinaryOpExpr::Divide;
+				}
+				auto node = std::make_unique<BinaryOpExpr>(type, std::move(lhs), std::move(rhs));
+				args_.back() = std::move(node);
+			}
+
+			void visitErrorNode(antlr4::tree::ErrorNode* node) override
+			{
+				throw ParsingError("Error when parsing: " + node->getSymbol()->getText());
+			}
 	
-private:
-	std::vector<std::unique_ptr<Expr>> args_;
-};
+		private:
 
-class BailErrorListener : public antlr4::BaseErrorListener {
-public:
-	void syntaxError(antlr4::Recognizer* /* recognizer */, antlr4::Token* /* offendingSymbol */,
-					 size_t /* line */, size_t /* charPositionInLine */, const std::string& msg,
-					 std::exception_ptr /* e */
-					 ) override {
-		throw ParsingError("Error when lexing: " + msg);
-	}
-};
+			std::vector<std::unique_ptr<Expr>> args_;
+		};
 
-}  // namespace
+		class BailErrorListener : public antlr4::BaseErrorListener
+		{
+		public:
+
+			void syntaxError(antlr4::Recognizer* /* recognizer */, antlr4::Token* /* offendingSymbol */, size_t /* line */, size_t /* charPositionInLine */, const std::string& msg, std::exception_ptr /* e */) override
+			{
+				throw ParsingError("Error when lexing: " + msg);
+			}
+		};
+
+	}  // namespace
+
 }  // namespace ASTImpl
 
-FormulaAST ParseFormulaAST(std::istream& in) {
+FormulaAST ParseFormulaAST(std::istream& in)
+{
 	using namespace antlr4;
 
 	ANTLRInputStream input(in);
@@ -331,29 +375,35 @@ FormulaAST ParseFormulaAST(std::istream& in) {
 	return FormulaAST(listener.MoveRoot());
 }
 
-FormulaAST ParseFormulaAST(const std::string& in_str) {
+FormulaAST ParseFormulaAST(const std::string& in_str)
+{
 	std::istringstream in(in_str);
-	try {
+	try
+	{
 		return ParseFormulaAST(in);
-	} catch (const std::exception& exc) {
+	}
+	catch (const std::exception& exc)
+	{
 		std::throw_with_nested(FormulaException(exc.what()));
 	}
 }
 
-void FormulaAST::Print(std::ostream& out) const {
+void FormulaAST::Print(std::ostream& out) const
+{
 	root_expr_->Print(out);
 }
 
-void FormulaAST::PrintFormula(std::ostream& out) const {
+void FormulaAST::PrintFormula(std::ostream& out) const
+{
 	root_expr_->PrintFormula(out, ASTImpl::EP_ATOM);
 }
 
-double FormulaAST::Execute() const {
+double FormulaAST::Execute() const
+{
 	return root_expr_->Evaluate();
 }
 
 FormulaAST::FormulaAST(std::unique_ptr<ASTImpl::Expr> root_expr)
-	: root_expr_(std::move(root_expr)) {
-}
+	: root_expr_(std::move(root_expr)) {}
 
 FormulaAST::~FormulaAST() = default;
