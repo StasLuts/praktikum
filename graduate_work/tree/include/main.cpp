@@ -3,9 +3,9 @@
 #include "test_runner_p.h"
 
 namespace {
-double ExecuteASTFormula(const std::string& expression) {
-    return ParseFormulaAST(expression).Execute();
-}
+    double ExecuteASTFormula(const std::string& expression) {
+        return ParseFormulaAST(expression).Execute();
+    }
 }  // namespace
 
 int main() {
@@ -13,7 +13,8 @@ int main() {
     ASSERT_EQUAL(ExecuteASTFormula("1+2*3-4/5"), 6.2);
     try {
         ExecuteASTFormula("1/0");
-    } catch (const FormulaError& fe) {
+    }
+    catch (const FormulaError& fe) {
         std::cout << fe.what() << std::endl;
     }
 

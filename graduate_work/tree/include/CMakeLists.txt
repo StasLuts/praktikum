@@ -43,7 +43,7 @@ add_executable(
   spreadsheet
   ${ANTLR_FormulaParser_CXX_OUTPUTS}
   ${sources}
-  )
+   "formula.h" "formula.cpp")
 
 target_link_libraries(spreadsheet antlr4_static)
 if(MSVC)

@@ -61,14 +61,14 @@ namespace ASTImpl
 	//     (currently in the table we're always putting in the parentheses)
 	// +(A * B) - always okay (the resulting binary op has the highest grammatic precedence)
 	// +(A / B) - always okay (the resulting binary op has the highest grammatic precedence)
-	
+
 	constexpr PrecedenceRule PRECEDENCE_RULES[EP_END][EP_END] = {
-	/* EP_ADD */ {PR_NONE, PR_NONE, PR_NONE, PR_NONE, PR_NONE, PR_NONE},
-	/* EP_SUB */ {PR_RIGHT, PR_RIGHT, PR_NONE, PR_NONE, PR_NONE, PR_NONE},
-	/* EP_MUL */ {PR_BOTH, PR_BOTH, PR_NONE, PR_NONE, PR_NONE, PR_NONE},
-	/* EP_DIV */ {PR_BOTH, PR_BOTH, PR_RIGHT, PR_RIGHT, PR_NONE, PR_NONE},
-	/* EP_UNARY */ {PR_BOTH, PR_BOTH, PR_NONE, PR_NONE, PR_NONE, PR_NONE},
-	/* EP_ATOM */ {PR_NONE, PR_NONE, PR_NONE, PR_NONE, PR_NONE, PR_NONE},
+		/* EP_ADD */ {PR_NONE, PR_NONE, PR_NONE, PR_NONE, PR_NONE, PR_NONE},
+		/* EP_SUB */ {PR_RIGHT, PR_RIGHT, PR_NONE, PR_NONE, PR_NONE, PR_NONE},
+		/* EP_MUL */ {PR_BOTH, PR_BOTH, PR_NONE, PR_NONE, PR_NONE, PR_NONE},
+		/* EP_DIV */ {PR_BOTH, PR_BOTH, PR_RIGHT, PR_RIGHT, PR_NONE, PR_NONE},
+		/* EP_UNARY */ {PR_BOTH, PR_BOTH, PR_NONE, PR_NONE, PR_NONE, PR_NONE},
+		/* EP_ATOM */ {PR_NONE, PR_NONE, PR_NONE, PR_NONE, PR_NONE, PR_NONE},
 	};
 
 	class Expr
@@ -158,25 +158,22 @@ namespace ASTImpl
 			// При делении на 0 выбрасывайте ошибку вычисления FormulaError
 			double Evaluate() const override
 			{
-				double lhs = lhs_.get()->Evaluate();
-				double rhs = rhs_.get()->Evaluate();
-				char t(type_);
-				switch (t)
+				switch (type_)
 				{
-				case '+':
-					return lhs + rhs;
-				case '-':
-					return lhs - rhs;
-				case '*':
-					return lhs * rhs;
-				case '/':
-					if (rhs <= 0)
+				case Add:
+					return lhs_->Evaluate() + rhs_->Evaluate();
+				case Subtract:
+					return lhs_->Evaluate() - rhs_->Evaluate();
+				case Multiply:
+					return lhs_->Evaluate() * rhs_->Evaluate();
+				case Divide:
+					if (std::isfinite(lhs_->Evaluate() / rhs_->Evaluate()))
 					{
-						throw FormulaError("DIV/0");
+						return lhs_->Evaluate() / rhs_->Evaluate();
 					}
 					else
 					{
-						return lhs / rhs;
+						throw FormulaError("DIV/0");
 					}
 				}
 				return 0;
@@ -225,7 +222,14 @@ namespace ASTImpl
 			// Реализуйте метод Evaluate() для унарных операций.
 			double Evaluate() const override
 			{
-				return 0;
+				switch (type_)
+				{
+				case UnaryPlus:
+					return operand_->Evaluate();
+				case UnaryMinus:
+					return -operand_->Evaluate();
+				}
+				return operand_->Evaluate();
 			}
 
 		private:
@@ -351,7 +355,7 @@ namespace ASTImpl
 			{
 				throw ParsingError("Error when parsing: " + node->getSymbol()->getText());
 			}
-	
+
 		private:
 
 			std::vector<std::unique_ptr<Expr>> args_;
