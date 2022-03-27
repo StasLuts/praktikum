@@ -119,10 +119,9 @@ namespace runtime
 
     ObjectHolder ClassInstance::Call(const std::string& method, const std::vector<ObjectHolder>& actual_args, Context& context)
     {
-        // Заглушка. Реализуйте метод самостоятельно.
-        if (!this->HasMethod(method, actual_args.size())) // если экземпляр класса не имеент метода с таким колличеством параметров
+        if (!this->HasMethod(method, actual_args.size()))
         {
-            throw std::runtime_error("Not implemented"s); // то эррор
+            throw std::runtime_error("Not implemented"s);
         }
         Closure closure = { {"self", ObjectHolder::Share(*this)} };
         auto method_ptr = cls_.GetMethod(method);

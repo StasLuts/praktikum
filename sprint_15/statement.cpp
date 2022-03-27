@@ -34,7 +34,7 @@ namespace ast
 
     VariableValue::VariableValue(const std::string& var_name)
     {
-        dotted_ids_.push_back(std::move(var_name));
+        dotted_ids_.push_back(var_name);
     }
 
     VariableValue::VariableValue(std::vector<std::string> dotted_ids)
