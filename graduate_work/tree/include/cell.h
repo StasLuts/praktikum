@@ -3,8 +3,10 @@
 #include "common.h"
 #include "formula.h"
 
-class Cell : public CellInterface {
+class Cell : public CellInterface
+{
 public:
+
     Cell();
     ~Cell();
 
@@ -15,11 +17,48 @@ public:
     std::string GetText() const override;
 
 private:
-    //можете воспользоваться нашей подсказкой, но это необязательно.
-    /*    class Impl;
-        class EmptyImpl;
-        class TextImpl;
-        class FormulaImpl;
-        std::unique_ptr<Impl> impl_;
-    */
+    
+
+    // базовый класс ждя ячеек разных типов
+    class Impl
+    {
+    public:
+
+        // виртуальный конструктор
+
+        //метод возвращающий значение
+    };
+
+    class EmptyImpl : Impl
+    {
+    public:
+
+        // констрпуктор без параметорв
+
+    private:
+
+        //некая пустота
+    };
+
+    class TextImpl : Impl
+    {
+    public:
+
+        // конструкторп 
+
+    private:
+
+        std::string data;
+    };
+
+    class FormulaImpl
+    {
+    public:
+
+    private:
+
+        // некаф формула
+    };
+
+    std::unique_ptr<Impl> impl_;
 };
