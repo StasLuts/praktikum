@@ -3,6 +3,63 @@
 #include "common.h"
 #include "formula.h"
 
+class Impl
+{
+public:
+
+    virtual CellInterface::Value ImplGetValue() const = 0;
+
+    virtual std::string ImplGetText() const = 0;
+
+    virtual ~Impl() = default;
+};
+
+
+class EmptyImpl : public Impl
+{
+public:
+
+    EmptyImpl() {}
+
+    CellInterface::Value ImplGetValue() const override;
+
+    std::string ImplGetText() const;
+
+private:
+
+    std::string empty_ = "";
+};
+
+class TextImpl : public Impl
+{
+public:
+
+    TextImpl(const std::string& text);
+
+    CellInterface::Value ImplGetValue() const override;
+
+    std::string ImplGetText() const;
+
+private:
+
+    std::string text_;
+};
+
+class FormulaImpl : public Impl
+{
+public:
+
+    FormulaImpl(const std::string& text);
+
+    CellInterface::Value ImplGetValue() const override;
+
+    std::string ImplGetText() const;
+
+private:
+
+    std::unique_ptr<FormulaInterface>formula_;
+};
+
 class Cell : public CellInterface
 {
 public:
@@ -17,48 +74,6 @@ public:
     std::string GetText() const override;
 
 private:
-    
-
-    // базовый класс ждя ячеек разных типов
-    class Impl
-    {
-    public:
-
-        // виртуальный конструктор
-
-        //метод возвращающий значение
-    };
-
-    class EmptyImpl : Impl
-    {
-    public:
-
-        // констрпуктор без параметорв
-
-    private:
-
-        //некая пустота
-    };
-
-    class TextImpl : Impl
-    {
-    public:
-
-        // конструкторп 
-
-    private:
-
-        std::string data;
-    };
-
-    class FormulaImpl
-    {
-    public:
-
-    private:
-
-        // некаф формула
-    };
 
     std::unique_ptr<Impl> impl_;
 };
