@@ -1,4 +1,4 @@
-﻿#include "cell.h"
+#include "cell.h"
 
 #include <cassert>
 #include <iostream>

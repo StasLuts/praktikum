@@ -229,7 +229,7 @@ namespace ASTImpl
 				case UnaryMinus:
 					return -operand_->Evaluate();
 				}
-				return operand_->Evaluate();
+                return operand_->Evaluate();
 			}
 
 		private:

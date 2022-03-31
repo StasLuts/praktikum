@@ -6,6 +6,7 @@
 #include <cassert>
 #include <cctype>
 #include <sstream>
+#include <iostream>
 
 
 using namespace std::literals;
@@ -20,7 +21,7 @@ namespace
     class Formula : public FormulaInterface
     {
     public:
-        // Реализуйте следующие методы:
+        // Р РµР°Р»РёР·СѓР№С‚Рµ СЃР»РµРґСѓСЋС‰РёРµ РјРµС‚РѕРґС‹:
         explicit Formula(std::string expression)
             : ast_(ParseFormulaAST(std::move(expression))) {}
 
