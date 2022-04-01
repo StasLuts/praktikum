@@ -86,7 +86,8 @@ namespace {
         ASSERT_EQUAL(std::get<std::string>(cell->GetValue()), "=escaped");
     }
 
-    void TestClearCell() {
+    void TestClearCell()
+    {
         auto sheet = CreateSheet();
 
         sheet->SetCell("C2"_pos, "Me gusta");
@@ -96,7 +97,8 @@ namespace {
         sheet->ClearCell("A1"_pos);
         sheet->ClearCell("J10"_pos);
     }
-    void TestPrint() {
+    void TestPrint()
+    {
         auto sheet = CreateSheet();
         sheet->SetCell("A2"_pos, "meow");
         sheet->SetCell("B2"_pos, "=1+2");
@@ -120,8 +122,8 @@ namespace {
 
 int main() {
     TestRunner tr;
-    //RUN_TEST(tr, TestEmpty);
-    //RUN_TEST(tr, TestInvalidPosition);
+    RUN_TEST(tr, TestEmpty);
+    RUN_TEST(tr, TestInvalidPosition);
     RUN_TEST(tr, TestSetCellPlainText);
     RUN_TEST(tr, TestClearCell);
     RUN_TEST(tr, TestPrint);
