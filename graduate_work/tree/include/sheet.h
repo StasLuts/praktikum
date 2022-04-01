@@ -4,9 +4,12 @@
 #include "common.h"
 
 #include <functional>
+#include <map>
 
-class Sheet : public SheetInterface {
+class Sheet : public SheetInterface
+{
 public:
+
     ~Sheet();
 
     void SetCell(Position pos, std::string text) override;
@@ -23,7 +26,7 @@ public:
 
 	// Можете дополнить ваш класс нужными полями и методами
 
-
 private:
 	// Можете дополнить ваш класс нужными полями и методами
+    std::map<int, std::map<int, Cell>> sheet_;
 };

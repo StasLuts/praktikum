@@ -9,7 +9,8 @@
 #include <vector>
 
 // Позиция ячейки. Индексация с нуля.
-struct Position {
+struct Position
+{
 	int row = 0;
 	int col = 0;
 
@@ -26,7 +27,8 @@ struct Position {
 	static const Position NONE;
 };
 
-struct Size {
+struct Size
+{
 	int rows = 0;
 	int cols = 0;
 
@@ -34,8 +36,10 @@ struct Size {
 };
 
 // Описывает ошибки, которые могут возникнуть при вычислении формулы.
-class FormulaError : public std::runtime_error {
+class FormulaError : public std::runtime_error
+{
 public:
+
 	using std::runtime_error::runtime_error;
 };
 
