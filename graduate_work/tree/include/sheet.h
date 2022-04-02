@@ -24,10 +24,8 @@ public:
     void PrintValues(std::ostream& output) const override;
     void PrintTexts(std::ostream& output) const override;
 
-	// Можете дополнить ваш класс нужными полями и методами
-
 private:
-	// Можете дополнить ваш класс нужными полями и методами
+	
     std::map<Position, Cell> sheet_;
 
     void PositionCorrect(Position pos) const;
