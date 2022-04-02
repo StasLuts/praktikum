@@ -29,11 +29,7 @@ const CellInterface* Sheet::GetCell(Position pos) const
 CellInterface* Sheet::GetCell(Position pos)
 {
     PositionCorrect(pos);
-    if (sheet_.find(pos) != sheet_.end())
-    {
-        return &sheet_.at(pos);
-    }
-    return nullptr;
+    return (sheet_.find(pos) != sheet_.end()) ? &sheet_.at(pos) : nullptr;
 }
 
 void Sheet::ClearCell(Position pos)
