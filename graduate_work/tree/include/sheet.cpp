@@ -10,15 +10,15 @@
 
 using namespace std::literals;
 
+//----------------------Sheet----------------------------
+
 Sheet::~Sheet()
 {}
 
 void Sheet::SetCell(Position pos, std::string text)
 {
-    if (pos.IsValid())
-    {
-        sheet_[pos.row][pos.col].Set(text);
-    }
+    PositionCorrect(pos);
+    sheet_[pos].Set(text);
 }
 
 const CellInterface* Sheet::GetCell(Position pos) const
@@ -28,45 +28,30 @@ const CellInterface* Sheet::GetCell(Position pos) const
 
 CellInterface* Sheet::GetCell(Position pos)
 {
-    if (pos.IsValid() && sheet_.count(pos.row))
+    PositionCorrect(pos);
+    if (sheet_.find(pos) != sheet_.end())
     {
-        if (sheet_.at(pos.row).count(pos.col))
-        {
-            return &sheet_.at(pos.row).at(pos.col);
-        }
+        return &sheet_.at(pos);
     }
     return nullptr;
 }
 
 void Sheet::ClearCell(Position pos)
 {
-    if (pos.IsValid() && sheet_.count(pos.row))
+    PositionCorrect(pos);
+    if (pos.IsValid() && sheet_.find(pos) != sheet_.end())
     {
-        if (sheet_.at(pos.row).count(pos.col))
-        {
-            sheet_.at(pos.row).erase(pos.col);
-            if (sheet_.at(pos.row).empty())
-            {
-                sheet_.erase(pos.row);
-            }
-        }
+        sheet_.erase(pos);
     }
 }
 
 Size Sheet::GetPrintableSize() const
 {
     Size s;
-    if (!sheet_.empty())
+    for (const auto& [pos, cell] : sheet_)
     {
-        s.rows = sheet_.rbegin()->first + 1;
-        for (const auto& [row, col] : sheet_)
-        {
-            int len = col.rbegin()->first + 1;
-            if (len > s.cols)
-            {
-                s.cols = len;
-            }
-        }
+        s.cols = std::max(s.cols, pos.col + 1);
+        s.rows = std::max(s.rows, pos.row + 1);
     }
     return s;
 }
@@ -126,6 +111,18 @@ void Sheet::PrintTexts(std::ostream& output) const
         output << '\n';
     }
 }
+
+//--------------------SheetPrivate-------------------------------
+
+void Sheet::PositionCorrect(Position pos) const
+{
+    if (!pos.IsValid())
+    {
+        throw InvalidPositionException("The position is incorrect");
+    }
+}
+
+//------------------Functoions---------------------------------
 
 std::unique_ptr<SheetInterface> CreateSheet()
 {
