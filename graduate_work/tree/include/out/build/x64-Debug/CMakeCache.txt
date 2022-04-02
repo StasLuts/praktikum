@@ -119,7 +119,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=formulaAST
+CMAKE_PROJECT_NAME:STATIC=spreadsheet
 
 //RC compiler
 CMAKE_RC_COMPILER:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.19041.0/x64/rc.exe
@@ -268,6 +268,15 @@ formulaAST_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 formulaAST_SOURCE_DIR:STATIC=C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include
+
+//Value Computed by CMake
+spreadsheet_BINARY_DIR:STATIC=C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/out/build/x64-Debug
+
+//Value Computed by CMake
+spreadsheet_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+spreadsheet_SOURCE_DIR:STATIC=C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include
 
 //The directory containing a CMake configuration file for utf8cpp.
 utf8cpp_DIR:PATH=utf8cpp_DIR-NOTFOUND

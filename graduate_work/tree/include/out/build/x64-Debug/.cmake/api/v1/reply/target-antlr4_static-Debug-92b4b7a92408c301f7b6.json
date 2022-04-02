@@ -28,8 +28,7 @@
 		],
 		"files" : 
 		[
-			"antlr4_runtime/runtime/CMakeLists.txt",
-			"CMakeLists.txt"
+			"antlr4_runtime/runtime/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -67,15 +66,6 @@
 				"parent" : 0
 			},
 			{
-				"file" : 1
-			},
-			{
-				"command" : 3,
-				"file" : 1,
-				"line" : 50,
-				"parent" : 6
-			},
-			{
 				"command" : 4,
 				"file" : 0,
 				"line" : 1,
@@ -105,10 +95,6 @@
 					"fragment" : "/MDd"
 				},
 				{
-					"backtrace" : 7,
-					"fragment" : "/W0"
-				},
-				{
 					"fragment" : "-std:c++17"
 				}
 			],
@@ -124,43 +110,43 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 8,
+					"backtrace" : 6,
 					"path" : "C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/antlr4_runtime/runtime/src"
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 6,
 					"path" : "C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/antlr4_runtime/runtime/src/atn"
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 6,
 					"path" : "C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/antlr4_runtime/runtime/src/dfa"
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 6,
 					"path" : "C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/antlr4_runtime/runtime/src/misc"
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 6,
 					"path" : "C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/antlr4_runtime/runtime/src/support"
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 6,
 					"path" : "C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/antlr4_runtime/runtime/src/tree"
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 6,
 					"path" : "C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/antlr4_runtime/runtime/src/tree/pattern"
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 6,
 					"path" : "C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/antlr4_runtime/runtime/src/tree/xpath"
 				},
 				{
-					"backtrace" : 9,
+					"backtrace" : 7,
 					"path" : "C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/out/build/x64-Debug/runtime/thirdparty/utfcpp/install/include/utf8cpp"
 				},
 				{
-					"backtrace" : 9,
+					"backtrace" : 7,
 					"path" : "C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/out/build/x64-Debug/runtime/thirdparty/utfcpp/install/include/utf8cpp/utf8"
 				}
 			],

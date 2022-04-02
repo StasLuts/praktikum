@@ -24,9 +24,17 @@ public:
     void PrintValues(std::ostream& output) const override;
     void PrintTexts(std::ostream& output) const override;
 
+	// Можете дополнить ваш класс нужными полями и методами
+
 private:
-	
+	// Можете дополнить ваш класс нужными полями и методами
     std::map<Position, Cell> sheet_;
 
-    void PositionCorrect(Position pos) const;
+    void PositionCorrect(Position pos) const
+    {
+        if (!pos.IsValid())
+        {
+            throw InvalidPositionException("The position is incorrect");
+        }
+    }
 };

@@ -711,7 +711,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "formulaAST"
+			"value" : "spreadsheet"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1419,6 +1419,42 @@
 		},
 		{
 			"name" : "formulaAST_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include"
+		},
+		{
+			"name" : "spreadsheet_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/out/build/x64-Debug"
+		},
+		{
+			"name" : "spreadsheet_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "spreadsheet_SOURCE_DIR",
 			"properties" : 
 			[
 				{

@@ -120,7 +120,8 @@ namespace {
 
 }  // namespace
 
-int main() {
+int main()
+{
     TestRunner tr;
     RUN_TEST(tr, TestEmpty);
     RUN_TEST(tr, TestInvalidPosition);

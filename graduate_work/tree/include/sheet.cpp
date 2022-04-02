@@ -10,8 +10,6 @@
 
 using namespace std::literals;
 
-//----------------------Sheet----------------------------
-
 Sheet::~Sheet()
 {}
 
@@ -29,7 +27,11 @@ const CellInterface* Sheet::GetCell(Position pos) const
 CellInterface* Sheet::GetCell(Position pos)
 {
     PositionCorrect(pos);
-    return (sheet_.find(pos) != sheet_.end()) ? &sheet_.at(pos) : nullptr;
+    if (sheet_.find(pos) != sheet_.end())
+    {
+        return &sheet_.at(pos);
+    }
+    return nullptr;
 }
 
 void Sheet::ClearCell(Position pos)
@@ -107,18 +109,6 @@ void Sheet::PrintTexts(std::ostream& output) const
         output << '\n';
     }
 }
-
-//--------------------SheetPrivate-------------------------------
-
-void Sheet::PositionCorrect(Position pos) const
-{
-    if (!pos.IsValid())
-    {
-        throw InvalidPositionException("The position is incorrect");
-    }
-}
-
-//------------------Functoions---------------------------------
 
 std::unique_ptr<SheetInterface> CreateSheet()
 {
