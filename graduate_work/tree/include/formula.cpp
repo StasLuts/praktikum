@@ -25,7 +25,7 @@ namespace
         explicit Formula(std::string expression)
             : ast_(ParseFormulaAST(std::move(expression))) {}
 
-        Value Evaluate() const override
+        Value Evaluate(const SheetInterface& sheet) const override
         {
             try
             {

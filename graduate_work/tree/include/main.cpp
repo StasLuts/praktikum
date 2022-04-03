@@ -153,7 +153,7 @@ namespace
 		sheet->ClearCell("J10"_pos);
 	}
 
-	/*void TestFormulaArithmetic()
+	void TestFormulaArithmetic()
 	{
 		auto sheet = CreateSheet();
 		auto evaluate = [&](std::string expr)
@@ -168,7 +168,7 @@ namespace
 		ASSERT_EQUAL(evaluate("4/2 + 6/3"), 4);
 		ASSERT_EQUAL(evaluate("(2+3)*4 + (3-4)*5"), 15);
 		ASSERT_EQUAL(evaluate("(12+13) * (14+(13-24/(1+1))*55-46)"), 575);
-	}*/
+	}
 
 	/*void TestFormulaReferences()
 	{

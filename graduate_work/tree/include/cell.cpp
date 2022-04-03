@@ -9,22 +9,22 @@
 
 //--------------------EmptyImpl------------------
 
-CellInterface::Value Cell::EmptyImpl::ImplGetValue() const
+CellInterface::Value EmptyImpl::ImplGetValue() const
 {
 	return empty_;
 }
 
-std::string Cell::EmptyImpl::ImplGetText() const
+std::string EmptyImpl::ImplGetText() const
 {
 	return empty_;
 }
 
 //-----------------TextImpl--------------------
 
-Cell::TextImpl::TextImpl(const std::string& text)
+TextImpl::TextImpl(const std::string& text)
 	: text_(text) {}
 
-CellInterface::Value Cell::TextImpl::ImplGetValue() const
+CellInterface::Value TextImpl::ImplGetValue() const
 {
 	if (text_.front() == ESCAPE_SIGN)
 	{
@@ -36,19 +36,19 @@ CellInterface::Value Cell::TextImpl::ImplGetValue() const
 	}
 }
 
-std::string Cell::TextImpl::ImplGetText() const
+std::string TextImpl::ImplGetText() const
 {
 	return text_;
 }
 
 //-----------------FormulaImpl------------------
 
-Cell::FormulaImpl::FormulaImpl(const std::string& text)
-	: formula_(ParseFormula(text)) {}
+FormulaImpl::FormulaImpl(SheetInterface& sheet, const std::string& text)
+	: sheet_(sheet), formula_(ParseFormula(text)) {}
 
-CellInterface::Value Cell::FormulaImpl::ImplGetValue() const
+CellInterface::Value FormulaImpl::ImplGetValue() const
 {
-	const auto val = formula_->Evaluate();
+	const auto val = formula_->Evaluate(sheet_);
 	if (std::holds_alternative<double>(val))
 	{
 		return std::get<double>(val);
@@ -56,14 +56,14 @@ CellInterface::Value Cell::FormulaImpl::ImplGetValue() const
 	return std::get<FormulaError>(val);
 }
 
-std::string Cell::FormulaImpl::ImplGetText() const
+std::string FormulaImpl::ImplGetText() const
 {
 	return '=' + formula_->GetExpression();
 }
 
 //---------------Cell-----------------------
 
-Cell::Cell(Sheet& sheet)
+Cell::Cell(SheetInterface& sheet)
 	: sheet_(sheet)
 {
 	impl_ = std::make_unique<EmptyImpl>();
@@ -86,7 +86,7 @@ void Cell::Set(std::string text)
 	}
 	else
 	{
-		impl_ = std::make_unique<FormulaImpl>(text.substr(1));
+		impl_ = std::make_unique<FormulaImpl>(sheet_, text.substr(1));
 	}
 }
 
