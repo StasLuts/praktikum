@@ -14,7 +14,9 @@ using namespace std::literals;
 void Sheet::SetCell(Position pos, std::string text)
 {
     PositionCorrect(pos);
-    //rjycnhernjhjr
+    Cell c(*this);
+    c.Set(text);
+    sheet_[pos] = &c;
 }
 
 const CellInterface* Sheet::GetCell(Position pos) const
@@ -27,7 +29,7 @@ CellInterface* Sheet::GetCell(Position pos)
     PositionCorrect(pos);
     if (sheet_.find(pos) != sheet_.end())
     {
-        return sheet_.at(pos).get();
+        return sheet_.at(pos);
     }
     return nullptr;
 }
