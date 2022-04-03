@@ -14,9 +14,9 @@ using namespace std::literals;
 void Sheet::SetCell(Position pos, std::string text)
 {
     PositionCorrect(pos);
-    Cell c(*this);
-    c.Set(text);
-    sheet_[pos] = &c;
+    auto tmp_cell = std::make_unique<Cell>(*this);
+    tmp_cell.get()->Set(text);
+    sheet_[pos] = std::move(tmp_cell);
 }
 
 const CellInterface* Sheet::GetCell(Position pos) const
@@ -29,7 +29,7 @@ CellInterface* Sheet::GetCell(Position pos)
     PositionCorrect(pos);
     if (sheet_.find(pos) != sheet_.end())
     {
-        return sheet_.at(pos);
+        return sheet_.at(pos).get();
     }
     return nullptr;
 }

@@ -28,7 +28,7 @@ public:
 
 private:
 	// Можете дополнить ваш класс нужными полями и методами
-    std::map<Position, Cell*> sheet_;
+    std::map<Position, std::unique_ptr<Cell>> sheet_;
 
     void PositionCorrect(Position pos) const;
 };
