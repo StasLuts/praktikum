@@ -136,7 +136,7 @@ namespace {
         sheet->ClearCell("J10"_pos);
     }
 
-    void TestFormulaArithmetic() {
+    /*void TestFormulaArithmetic() {
         auto sheet = CreateSheet();
         auto evaluate = [&](std::string expr) {
             return std::get<double>(ParseFormula(std::move(expr))->Evaluate(*sheet));
@@ -149,9 +149,9 @@ namespace {
         ASSERT_EQUAL(evaluate("4/2 + 6/3"), 4);
         ASSERT_EQUAL(evaluate("(2+3)*4 + (3-4)*5"), 15);
         ASSERT_EQUAL(evaluate("(12+13) * (14+(13-24/(1+1))*55-46)"), 575);
-    }
+    }*/
 
-    void TestFormulaReferences() {
+    /*void TestFormulaReferences() {
         auto sheet = CreateSheet();
         auto evaluate = [&](std::string expr) {
             return std::get<double>(ParseFormula(std::move(expr))->Evaluate(*sheet));
@@ -167,7 +167,7 @@ namespace {
         ASSERT_EQUAL(evaluate("A1+B3"), 1);  // ячейка с пустым текстом
         ASSERT_EQUAL(evaluate("A1+B1"), 1);  // ѕуста€ €чейка
         ASSERT_EQUAL(evaluate("A1+E4"), 1);  // ячейка за пределами таблицы
-    }
+    }*/
 
     void TestFormulaExpressionFormatting() {
         auto reformat = [](std::string expr) {
@@ -182,7 +182,7 @@ namespace {
         ASSERT_EQUAL(reformat("( ( (  1) ) )"), "1");
     }
 
-    void TestFormulaReferencedCells() {
+    /*void TestFormulaReferencedCells() {
         ASSERT(ParseFormula("1")->GetReferencedCells().empty());
 
         auto a1 = ParseFormula("A1");
@@ -194,7 +194,7 @@ namespace {
         auto tricky = ParseFormula("A1 + A2 + A1 + A3 + A1 + A2 + A1");
         ASSERT_EQUAL(tricky->GetExpression(), "A1+A2+A1+A3+A1+A2+A1");
         ASSERT_EQUAL(tricky->GetReferencedCells(), (std::vector{ "A1"_pos, "A2"_pos, "A3"_pos }));
-    }
+    }*/
 
     void TestErrorValue() {
         auto sheet = CreateSheet();
@@ -364,10 +364,10 @@ int main() {
     RUN_TEST(tr, TestInvalidPosition);
     RUN_TEST(tr, TestSetCellPlainText);
     RUN_TEST(tr, TestClearCell);
-    RUN_TEST(tr, TestFormulaArithmetic);
-    RUN_TEST(tr, TestFormulaReferences);
+    //RUN_TEST(tr, TestFormulaArithmetic);
+    //RUN_TEST(tr, TestFormulaReferences);
     RUN_TEST(tr, TestFormulaExpressionFormatting);
-    RUN_TEST(tr, TestFormulaReferencedCells);
+    //RUN_TEST(tr, TestFormulaReferencedCells);
     RUN_TEST(tr, TestErrorValue);
     RUN_TEST(tr, TestErrorDiv0);
     RUN_TEST(tr, TestEmptyCellTreatedAsZero);

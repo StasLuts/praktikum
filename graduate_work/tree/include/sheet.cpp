@@ -10,13 +10,11 @@
 
 using namespace std::literals;
 
-Sheet::~Sheet()
-{}
 
 void Sheet::SetCell(Position pos, std::string text)
 {
     PositionCorrect(pos);
-    sheet_[pos].Set(text);
+    //rjycnhernjhjr
 }
 
 const CellInterface* Sheet::GetCell(Position pos) const
@@ -29,7 +27,7 @@ CellInterface* Sheet::GetCell(Position pos)
     PositionCorrect(pos);
     if (sheet_.find(pos) != sheet_.end())
     {
-        return &sheet_.at(pos);
+        return sheet_.at(pos).get();
     }
     return nullptr;
 }
@@ -107,6 +105,14 @@ void Sheet::PrintTexts(std::ostream& output) const
             }
         }
         output << '\n';
+    }
+}
+
+void Sheet::PositionCorrect(Position pos) const
+{
+    if (!pos.IsValid())
+    {
+        throw InvalidPositionException("The position is incorrect");
     }
 }
 

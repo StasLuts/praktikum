@@ -7,24 +7,24 @@
 #include <memory>
 
 
-//--------------------CellInterface------------------
+//--------------------EmptyImpl------------------
 
-CellInterface::Value EmptyImpl::ImplGetValue() const
+CellInterface::Value Cell::EmptyImpl::ImplGetValue() const
 {
 	return empty_;
 }
 
-std::string EmptyImpl::ImplGetText() const
+std::string Cell::EmptyImpl::ImplGetText() const
 {
 	return empty_;
 }
 
 //-----------------TextImpl--------------------
 
-TextImpl::TextImpl(const std::string& text)
+Cell::TextImpl::TextImpl(const std::string& text)
 	: text_(text) {}
 
-CellInterface::Value TextImpl::ImplGetValue() const
+CellInterface::Value Cell::TextImpl::ImplGetValue() const
 {
 	if (text_.front() == ESCAPE_SIGN)
 	{
@@ -36,17 +36,17 @@ CellInterface::Value TextImpl::ImplGetValue() const
 	}
 }
 
-std::string TextImpl::ImplGetText() const
+std::string Cell::TextImpl::ImplGetText() const
 {
 	return text_;
 }
 
 //-----------------FormulaImpl------------------
 
-FormulaImpl::FormulaImpl(const std::string& text)
+Cell::FormulaImpl::FormulaImpl(const std::string& text)
 	: formula_(ParseFormula(text)) {}
 
-CellInterface::Value FormulaImpl::ImplGetValue() const
+CellInterface::Value Cell::FormulaImpl::ImplGetValue() const
 {
 	const auto val = formula_->Evaluate();
 	if (std::holds_alternative<double>(val))
@@ -56,14 +56,15 @@ CellInterface::Value FormulaImpl::ImplGetValue() const
 	return std::get<FormulaError>(val);
 }
 
-std::string FormulaImpl::ImplGetText() const
+std::string Cell::FormulaImpl::ImplGetText() const
 {
 	return '=' + formula_->GetExpression();
 }
 
 //---------------Cell-----------------------
 
-Cell::Cell()
+Cell::Cell(Sheet& sheet)
+	: sheet_(sheet)
 {
 	impl_ = std::make_unique<EmptyImpl>();
 }
@@ -102,4 +103,14 @@ Cell::Value Cell::GetValue() const
 std::string Cell::GetText() const
 {
 	return impl_->ImplGetText();
+}
+
+std::vector<Position> Cell::GetReferencedCells() const
+{
+	return std::vector<Position>();
+}
+
+bool Cell::IsReferenced() const
+{
+	return false;
 }

@@ -10,7 +10,7 @@ class Sheet : public SheetInterface
 {
 public:
 
-    ~Sheet();
+    ~Sheet() = default;
 
     void SetCell(Position pos, std::string text) override;
 
@@ -28,13 +28,7 @@ public:
 
 private:
 	// Можете дополнить ваш класс нужными полями и методами
-    std::map<Position, Cell> sheet_;
+    std::map<Position, std::unique_ptr<Cell>> sheet_;
 
-    void PositionCorrect(Position pos) const
-    {
-        if (!pos.IsValid())
-        {
-            throw InvalidPositionException("The position is incorrect");
-        }
-    }
+    void PositionCorrect(Position pos) const;
 };

@@ -173,7 +173,7 @@ namespace ASTImpl
 					}
 					else
 					{
-						throw FormulaError("DIV/0");
+						throw FormulaError(FormulaError::Category::Div0);
 					}
 				}
 				return 0;
