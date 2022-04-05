@@ -16,6 +16,8 @@ public:
 
     virtual std::string ImplGetText() const = 0;
 
+    virtual std::vector<Position> ImplGetReferencedCells() const = 0;
+
     virtual ~Impl() = default;
 };
 
@@ -29,6 +31,8 @@ public:
     CellInterface::Value ImplGetValue() const override;
 
     std::string ImplGetText() const override;
+
+    std::vector<Position> ImplGetReferencedCells() const override;
 
 private:
 
@@ -45,6 +49,8 @@ public:
 
     std::string ImplGetText() const override;
 
+    std::vector<Position> ImplGetReferencedCells() const override;
+
 private:
 
     std::string text_;
@@ -59,6 +65,8 @@ public:
     CellInterface::Value ImplGetValue() const override;
 
     std::string ImplGetText() const override;
+
+    std::vector<Position> ImplGetReferencedCells() const override;
 
 private:
 

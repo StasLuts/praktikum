@@ -14,8 +14,8 @@ using namespace std::literals;
 void Sheet::SetCell(Position pos, std::string text)
 {
     PositionCorrect(pos);
-    auto tmp_cell = std::make_unique<Cell>(*this);
-    tmp_cell.get()->Set(text);
+    auto tmp_cell = std::make_unique<Cell>(*this); // создается ячейка, выполняется привязка к листу
+    tmp_cell.get()->Set(text); // сет сам пасит то что в него передали
     sheet_[pos] = std::move(tmp_cell);
 }
 

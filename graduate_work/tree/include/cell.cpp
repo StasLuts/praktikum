@@ -19,6 +19,11 @@ std::string EmptyImpl::ImplGetText() const
 	return empty_;
 }
 
+std::vector<Position> EmptyImpl::ImplGetReferencedCells() const
+{
+	return {};
+}
+
 //-----------------TextImpl--------------------
 
 TextImpl::TextImpl(const std::string& text)
@@ -41,6 +46,11 @@ std::string TextImpl::ImplGetText() const
 	return text_;
 }
 
+std::vector<Position> TextImpl::ImplGetReferencedCells() const
+{
+	return {};
+}
+
 //-----------------FormulaImpl------------------
 
 FormulaImpl::FormulaImpl(SheetInterface& sheet, const std::string& text)
@@ -59,6 +69,11 @@ CellInterface::Value FormulaImpl::ImplGetValue() const
 std::string FormulaImpl::ImplGetText() const
 {
 	return '=' + formula_->GetExpression();
+}
+
+std::vector<Position> FormulaImpl::ImplGetReferencedCells() const
+{
+	return formula_->GetReferencedCells();
 }
 
 //---------------Cell-----------------------
@@ -105,9 +120,9 @@ std::string Cell::GetText() const
 	return impl_->ImplGetText();
 }
 
-std::vector<Position> Cell::GetReferencedCells() const
+std::vector<Position> Cell::GetReferencedCells() const //
 {
-	return std::vector<Position>();
+	return impl_->ImplGetReferencedCells();
 }
 
 bool Cell::IsReferenced() const

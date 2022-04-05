@@ -398,7 +398,7 @@ int main()
 	RUN_TEST(tr, TestSetCellPlainText); 
  	RUN_TEST(tr, TestClearCell);
 	RUN_TEST(tr, TestFormulaArithmetic);
-	RUN_TEST(tr, TestFormulaReferences); // 
+	RUN_TEST(tr, TestFormulaReferences); // пуста€ €чейка не але
 	RUN_TEST(tr, TestFormulaExpressionFormatting);
 	RUN_TEST(tr, TestFormulaReferencedCells);
 	RUN_TEST(tr, TestErrorValue);
