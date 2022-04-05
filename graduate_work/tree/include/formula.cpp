@@ -29,7 +29,7 @@ namespace
         {
             try
             {
-                return ast_.Execute();
+                return ast_.Execute(0);//////
             }
             catch (FormulaError& fe)
             {
@@ -42,6 +42,11 @@ namespace
             std::stringstream ss;
             ast_.PrintFormula(ss);
             return ss.str();
+        }
+
+        std::vector<Position> GetReferencedCells() const override
+        {
+            return { {} };
         }
 
     private:

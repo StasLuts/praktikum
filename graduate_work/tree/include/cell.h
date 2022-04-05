@@ -28,7 +28,7 @@ public:
 
     CellInterface::Value ImplGetValue() const override;
 
-    std::string ImplGetText() const;
+    std::string ImplGetText() const override;
 
 private:
 
@@ -43,7 +43,7 @@ public:
 
     CellInterface::Value ImplGetValue() const override;
 
-    std::string ImplGetText() const;
+    std::string ImplGetText() const override;
 
 private:
 
@@ -58,12 +58,12 @@ public:
 
     CellInterface::Value ImplGetValue() const override;
 
-    std::string ImplGetText() const;
+    std::string ImplGetText() const override;
 
 private:
 
-    std::unique_ptr<FormulaInterface>formula_;
     SheetInterface& sheet_;
+    std::unique_ptr<FormulaInterface>formula_;
 };
 
 class Cell : public CellInterface

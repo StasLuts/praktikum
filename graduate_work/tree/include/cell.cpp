@@ -44,7 +44,7 @@ std::string TextImpl::ImplGetText() const
 //-----------------FormulaImpl------------------
 
 FormulaImpl::FormulaImpl(SheetInterface& sheet, const std::string& text)
-	: sheet_(sheet), formula_(ParseFormula(text)) {}
+	: formula_(ParseFormula(text)), sheet_(sheet) {}
 
 CellInterface::Value FormulaImpl::ImplGetValue() const
 {
