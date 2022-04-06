@@ -13,10 +13,46 @@ using namespace std::literals;
 
 void Sheet::SetCell(Position pos, std::string text)
 {
-    PositionCorrect(pos);
-    auto tmp_cell = std::make_unique<Cell>(*this); // создается ячейка, выполняется привязка к листу
-    tmp_cell.get()->Set(text); // сет сам пасит то что в него передали
-    sheet_[pos] = std::move(tmp_cell);
+    PositionCorrect(pos); // если позиция не корректна, кидает throw
+    const auto existing_cell = GetCell(pos); // пытаемся записать ячейку в переменную  сушестрвующая_ячейка
+    if (existing_cell && existing_cell->GetText() == text) // если она присутствоует в таблице и ее содержимое рвыно аргументу
+    {
+        return; // завершаем работу метода
+    }
+
+    if (existing_cell) // если она присутствоует в таблице
+    {
+        std::string old_text = existing_cell->GetText(); // записываем старое содержимое ячейки в переменную старый_текс
+        //InvalidateCellsByPos(pos);
+        //DeleteDependencedCell(pos);
+        dynamic_cast<Cell*>(existing_cell)->Set(std::move(text)); // записываем в ячейку новое содержимое
+        if (dynamic_cast<Cell*>(existing_cell)->CircularDependency(dynamic_cast<Cell*>(existing_cell), pos)) // если есть цикличиская зависимость 
+        {
+            dynamic_cast<Cell*>(existing_cell)->Set(std::move(old_text)); // возвращаем старое содержимое обратно 
+            throw CircularDependencyException("Circular Exception!"); // кидаем исключение
+        }
+
+        /*for (const auto ref_pos : dynamic_cast<Cell*>(existing_cell)->GetReferencedCells())
+        {
+            AddDependencedCell(ref_pos, pos);
+        }*/
+    }
+    else // если ячейки нет
+    {
+        auto tmp_cell = std::make_unique<Cell>(*this); // зоздаем 
+        tmp_cell.get()->Set(text);
+        if (tmp_cell.get()->CircularDependency(tmp_cell.get(), pos)) // проверяем на циклическую завистимость, если есть
+        {
+            throw CircularDependencyException("Circular Exception!"); // кидаем тров, завершаем метод
+        }
+
+        /*for (const auto ref_pos : tmp_cell.get()->GetReferencedCells())
+        {
+            AddDependencedCell(ref_pos, pos);
+        }*/
+
+        sheet_[pos] = std::move(tmp_cell); // записвыдваем в таблицу
+    }
 }
 
 const CellInterface* Sheet::GetCell(Position pos) const

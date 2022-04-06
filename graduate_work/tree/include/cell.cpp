@@ -6,6 +6,12 @@
 #include <optional>
 #include <memory>
 
+//---------------------Impl--------------------
+
+bool Impl::CacheValid() const
+{
+	return true;
+}
 
 //--------------------EmptyImpl------------------
 
@@ -129,3 +135,36 @@ bool Cell::IsReferenced() const
 {
 	return false;
 }
+
+// принимает создаваемую // измен€емую €чейку и ее позицию
+bool Cell::CircularDependency(const Cell* main_cell, const Position& pos) const
+{
+	for (const auto& cell_pos : GetReferencedCells()) // проходимс€ по спискк позиций включенных €чеек
+	{
+		const Cell* ref_cell = dynamic_cast<const Cell*>(sheet_.GetCell(cell_pos)); // берем €чейку из списка
+
+		if (pos == cell_pos) // €чейка ссылаетс€ сама на себ€ 
+		{
+			return true; // цикличиска€ зависимоть
+		}
+
+		if (!ref_cell) // если включена нулл €чейка
+		{
+			sheet_.SetCell(cell_pos, ""); // зоздаем на ее позиции просто пустую €чейку
+			ref_cell = dynamic_cast<const Cell*>(sheet_.GetCell(cell_pos)); // вызывем созданную нами €чейку?
+		}
+
+		if (main_cell == ref_cell) // если указатели ссылаюс€ на одно и тоже 
+		{
+			return true; // цикличска€ зависимоть
+		}
+
+		if (ref_cell->CircularDependency(main_cell, pos)) // рекурси€  
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+
