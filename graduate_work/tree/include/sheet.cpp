@@ -27,7 +27,7 @@ void Sheet::SetCell(Position pos, std::string text)
         InvalidateCellsByPos(pos);
         DeleteDependencedCell(pos);
         dynamic_cast<Cell*>(existing_cell)->Set(std::move(text)); // записываем в ячейку новое содержимое
-        if (dynamic_cast<Cell*>(existing_cell)->CyclicalDependence(dynamic_cast<Cell*>(existing_cell), pos)) // если есть цикличиская зависимость 
+        if (dynamic_cast<Cell*>(existing_cell)->hasCircularDependency(dynamic_cast<Cell*>(existing_cell), pos)) // если есть цикличиская зависимость 
         {
             dynamic_cast<Cell*>(existing_cell)->Set(std::move(old_text)); // возвращаем старое содержимое обратно 
             throw CircularDependencyException("Circular Exception!"); // кидаем исключение
@@ -40,9 +40,8 @@ void Sheet::SetCell(Position pos, std::string text)
     }
     else // если ячейки нет
     {
-        auto tmp_cell = std::make_unique<Cell>(*this); // зоздаем 
-        tmp_cell.get()->Set(text);
-        if (tmp_cell.get()->CyclicalDependence(tmp_cell.get(), pos)) // проверяем на циклическую завистимость, если есть
+        auto tmp_cell = std::make_unique<Cell>(*this, text); // зоздаем 
+        if (tmp_cell.get()->hasCircularDependency(tmp_cell.get(), pos)) // проверяем на циклическую завистимость, если есть
         {
             throw CircularDependencyException("Circular Exception!"); // кидаем тров, завершаем метод
         }
@@ -152,7 +151,7 @@ void Sheet::InvalidateCellsByPos(const Position& pos)
     for (const auto cell_pos : GetDepCellByPos(pos))
     {
         auto cell = GetCell(cell_pos);
-        dynamic_cast<Cell*>(cell)->InvalidateCash();
+        dynamic_cast<Cell*>(cell)->InvalidateCache();
         InvalidateCellsByPos(cell_pos);
     }
 }

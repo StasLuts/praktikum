@@ -4,180 +4,91 @@
 #include <iostream>
 #include <string>
 #include <optional>
-#include <memory>
 
-//---------------------Impl--------------------
-
-bool Impl::IsCacheValid() const
-{
-	return true;
+Cell::~Cell() {
+	cell_value_.reset();
 }
 
-void Impl::ResetCash()
-{
-	return;
-}
-
-//--------------------EmptyImpl------------------
-
-CellInterface::Value EmptyImpl::ImplGetValue() const
-{
-	return empty_;
-}
-
-std::string EmptyImpl::ImplGetText() const
-{
-	return empty_;
-}
-
-std::vector<Position> EmptyImpl::ImplGetReferencedCells() const
-{
-	return {};
-}
-
-//-----------------TextImpl--------------------
-
-TextImpl::TextImpl(const std::string& text)
-	: text_(text) {}
-
-CellInterface::Value TextImpl::ImplGetValue() const
-{
-	if (text_.front() == ESCAPE_SIGN)
-	{
-		return text_.substr(1);
+void Cell::Set(std::string text) {
+	if (text.empty()) {
+		cell_value_ = std::make_unique<CellEmptyImpl>();
+		return;
 	}
-	else
-	{
-		return text_;
+
+	else if (text[0] != FORMULA_SIGN || (text[0] == FORMULA_SIGN && text.size() == 1)) {
+		cell_value_ = std::make_unique<CellTextImpl>(text);
+		return;
 	}
-}
 
-std::string TextImpl::ImplGetText() const
-{
-	return text_;
-}
+	else {
+		std::string sub_str = text.erase(0, 1);
 
-std::vector<Position> TextImpl::ImplGetReferencedCells() const
-{
-	return {};
-}
-
-//-----------------FormulaImpl------------------
-
-FormulaImpl::FormulaImpl(SheetInterface& sheet, const std::string& text)
-	: formula_(ParseFormula(text)), sheet_(sheet) {}
-
-CellInterface::Value FormulaImpl::ImplGetValue() const
-{
-	const auto val = formula_->Evaluate(sheet_);
-	if (std::holds_alternative<double>(val))
-	{
-		return std::get<double>(val);
-	}
-	return std::get<FormulaError>(val);
-}
-
-std::string FormulaImpl::ImplGetText() const
-{
-	return '=' + formula_->GetExpression();
-}
-
-std::vector<Position> FormulaImpl::ImplGetReferencedCells() const
-{
-	return formula_->GetReferencedCells();
-}
-
-bool FormulaImpl::IsCacheValid() const
-{
-	return cache_value_.has_value();
-}
-
-void FormulaImpl::ResetCash()
-{
-	cache_value_.reset();
-}
-
-//---------------Cell-----------------------
-
-Cell::Cell(SheetInterface& sheet)
-	: sheet_(sheet)
-{
-	impl_ = std::make_unique<EmptyImpl>();
-}
-
-Cell::~Cell()
-{
-	impl_.reset();
-}
-
-void Cell::Set(std::string text)
-{
-	if (text.empty())
-	{
-		impl_ = std::make_unique<EmptyImpl>();
-	}
-	else if (text.front() != FORMULA_SIGN || text == "=")
-	{
-		impl_ = std::make_unique<TextImpl>(text);
-	}
-	else
-	{
-		impl_ = std::make_unique<FormulaImpl>(sheet_, text.substr(1));
-	}
-}
-
-void Cell::Clear()
-{
-	impl_ = std::make_unique<EmptyImpl>();
-}
-
-Cell::Value Cell::GetValue() const
-{
-	return impl_->ImplGetValue();
-}
-
-std::string Cell::GetText() const
-{
-	return impl_->ImplGetText();
-}
-
-std::vector<Position> Cell::GetReferencedCells() const //
-{
-	return impl_->ImplGetReferencedCells();
-}
-
-// принимает создаваемую // измен€емую €чейку и ее позицию
-bool Cell::CyclicalDependence(const Cell* main_cell, const Position& pos) const
-{
-	for (const auto& cell_pos : GetReferencedCells()) // проходимс€ по спискк позиций включенных €чеек
-	{
-		const Cell* ref_cell = dynamic_cast<const Cell*>(sheet_.GetCell(cell_pos)); // берем €чейку из списка
-
-		if (pos == cell_pos) // €чейка ссылаетс€ сама на себ€ 
-		{
-			return true; // цикличиска€ зависимоть
+		try {
+			cell_value_ = std::make_unique<CellFormulaImpl>(sub_str, sheet_);
 		}
 
-		if (!ref_cell) // если включена нулл €чейка
-		{
-			sheet_.SetCell(cell_pos, ""); // зоздаем на ее позиции просто пустую €чейку
-			ref_cell = dynamic_cast<const Cell*>(sheet_.GetCell(cell_pos)); // вызывем созданную нами €чейку?
+		catch (...) {
+			std::string ref = "#REF!";
+			throw FormulaException(ref);
+		}
+		return;
+	}
+}
+
+void Cell::Clear() {
+	cell_value_ = std::make_unique<CellEmptyImpl>();
+}
+
+Cell::Value Cell::GetValue() const {
+	return cell_value_.get()->ImplGetValue();
+}
+std::string Cell::GetText() const {
+	return cell_value_.get()->ImplGetText();
+}
+
+std::vector<Position> Cell::GetReferencedCells() const {
+	return cell_value_.get()->GetReferencedCells();
+}
+
+bool Cell::hasCircularDependency(const Cell* main_cell, const Position& pos) const {
+	for (const auto cell_pos : GetReferencedCells()) {
+		const Cell* ref_cell = dynamic_cast<const Cell*>(sheet_.GetCell(cell_pos));
+
+		if (pos == cell_pos) {
+			return true;
 		}
 
-		if (main_cell == ref_cell) // если указатели ссылаюс€ на одно и тоже 
-		{
-			return true; // цикличска€ зависимоть
+		if (!ref_cell) {
+			sheet_.SetCell(cell_pos, "");
+			ref_cell = dynamic_cast<const Cell*>(sheet_.GetCell(cell_pos));
 		}
 
-		if (ref_cell->CyclicalDependence(main_cell, pos)) // рекурси€  
-		{
+		if (main_cell == ref_cell) {
+			return true;
+		}
+
+		if (ref_cell->hasCircularDependency(main_cell, pos)) {
 			return true;
 		}
 	}
 	return false;
 }
 
-void Cell::InvalidateCash()
+void Cell::InvalidateCache() {
+	cell_value_->ResetCache();
+}
+
+bool CellImpl::isCacheValid() const
 {
-	impl_->ResetCash();
+	return true;
+}
+
+void CellImpl::ResetCache()
+{
+	return;
+}
+
+CellEmptyImpl::CellEmptyImpl()
+{
+	empty_ = "";
 }
