@@ -5,6 +5,7 @@
 
 #include <functional>
 #include <map>
+#include <set>
 
 class Sheet : public SheetInterface
 {
@@ -26,8 +27,19 @@ public:
 
 	// Можете дополнить ваш класс нужными полями и методами
 
+    void InvalidateCellsByPos(const Position& pos);
+    const std::set<Position> GetDepCellByPos(const Position& pos);
+
+    const std::map<Position, std::set<Position>> GetSheetDepCells() const;
+
+    void AddDependencedCell(const Position& pos_key, const Position& pos_value);
+
+    void DeleteDependencedCell(const Position& pos);
+
 private:
-	// Можете дополнить ваш класс нужными полями и методами
+	
+    // Можете дополнить ваш класс нужными полями и методами
+    std::map<Position, std::set<Position>> sheet_dependenced_cells_;
     std::map<Position, std::unique_ptr<Cell>> sheet_;
 
     void PositionCorrect(Position pos) const;

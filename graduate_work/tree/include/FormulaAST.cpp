@@ -156,26 +156,27 @@ namespace ASTImpl
 
 			double Evaluate(const std::function<double(Position)>& cell_fun) const override
 			{
-				// Скопируйте ваше решение из предыдущих уроков.
+				double lhs = lhs_.get()->Evaluate(cell_fun);
+				double rhs = rhs_.get()->Evaluate(cell_fun);
 				switch (type_)
 				{
 				case Add:
-					return lhs_->Evaluate(cell_fun) + rhs_->Evaluate(cell_fun);
+					return lhs + rhs;
 				case Subtract:
-					return lhs_->Evaluate(cell_fun) - rhs_->Evaluate(cell_fun);
+					return lhs - rhs;
 				case Multiply:
-					return lhs_->Evaluate(cell_fun) * rhs_->Evaluate(cell_fun);
+					return lhs * rhs;
 				case Divide:
-					if (std::isfinite(lhs_->Evaluate(cell_fun) / rhs_->Evaluate(cell_fun)))
+					if (std::isfinite(lhs / rhs))
 					{
-						return lhs_->Evaluate(cell_fun) / rhs_->Evaluate(cell_fun);
+						return lhs / rhs;
 					}
 					else
 					{
 						throw FormulaError(FormulaError::Category::Div0);
 					}
 				}
-				return 0;
+				return 1.0;
 			}
 
 		private:

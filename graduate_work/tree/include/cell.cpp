@@ -8,9 +8,14 @@
 
 //---------------------Impl--------------------
 
-bool Impl::CacheValid() const
+bool Impl::IsCacheValid() const
 {
 	return true;
+}
+
+void Impl::ResetCash()
+{
+	return;
 }
 
 //--------------------EmptyImpl------------------
@@ -82,6 +87,16 @@ std::vector<Position> FormulaImpl::ImplGetReferencedCells() const
 	return formula_->GetReferencedCells();
 }
 
+bool FormulaImpl::IsCacheValid() const
+{
+	return cache_value_.has_value();
+}
+
+void FormulaImpl::ResetCash()
+{
+	cache_value_.reset();
+}
+
 //---------------Cell-----------------------
 
 Cell::Cell(SheetInterface& sheet)
@@ -131,13 +146,8 @@ std::vector<Position> Cell::GetReferencedCells() const //
 	return impl_->ImplGetReferencedCells();
 }
 
-bool Cell::IsReferenced() const
-{
-	return false;
-}
-
 // принимает создаваемую // измен€емую €чейку и ее позицию
-bool Cell::CircularDependency(const Cell* main_cell, const Position& pos) const
+bool Cell::CyclicalDependence(const Cell* main_cell, const Position& pos) const
 {
 	for (const auto& cell_pos : GetReferencedCells()) // проходимс€ по спискк позиций включенных €чеек
 	{
@@ -159,7 +169,7 @@ bool Cell::CircularDependency(const Cell* main_cell, const Position& pos) const
 			return true; // цикличска€ зависимоть
 		}
 
-		if (ref_cell->CircularDependency(main_cell, pos)) // рекурси€  
+		if (ref_cell->CyclicalDependence(main_cell, pos)) // рекурси€  
 		{
 			return true;
 		}
@@ -167,4 +177,7 @@ bool Cell::CircularDependency(const Cell* main_cell, const Position& pos) const
 	return false;
 }
 
-
+void Cell::InvalidateCash()
+{
+	impl_->ResetCash();
+}

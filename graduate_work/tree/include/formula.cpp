@@ -13,7 +13,17 @@ using namespace std::literals;
 
 std::ostream& operator<<(std::ostream& output, FormulaError fe)
 {
-    return output << "#DIV/0!";
+    FormulaError::Category cat = fe.GetCategory();
+    switch (cat)
+    {
+    case FormulaError::Category::Ref:
+        return output << "#REF!";
+    case FormulaError::Category::Value:
+        return output << "#VALUE!";
+    case FormulaError::Category::Div0:
+        return output << "#DIV/0!";
+    }
+    return output << "";
 }
 
 namespace

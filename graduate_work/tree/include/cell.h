@@ -3,34 +3,22 @@
 #include "common.h"
 #include "formula.h"
 
+#include <optional>
 #include <functional>
 #include <unordered_set>
 
 class Sheet;
 
-// абстрактный базовый класс ячейки
 class Impl
 {
 public:
 
-    // Возвращает видимое значение ячейки.
-    // В случае текстовой ячейки это её текст (без экранирующих символов). В
-    // случае формулы - числовое значение формулы или сообщение об ошибке.
     virtual CellInterface::Value ImplGetValue() const = 0;
-
-    // Возвращает внутренний текст ячейки, как если бы мы начали её
-    // редактирование. В случае текстовой ячейки это её текст (возможно,
-    // содержащий экранирующие символы). В случае формулы - её выражение.
     virtual std::string ImplGetText() const = 0;
-
-    // Возвращает список ячеек, которые непосредственно задействованы в данной
-    // формуле. Список отсортирован по возрастанию и не содержит повторяющихся
-    // ячеек. В случае текстовой ячейки список пуст.
     virtual std::vector<Position> ImplGetReferencedCells() const = 0;
+    virtual bool IsCacheValid() const;
+    virtual void ResetCash();
 
-    virtual bool CacheValid() const;
-
-    // декструктор
     virtual ~Impl() = default;
 };
 
@@ -40,18 +28,8 @@ class EmptyImpl : public Impl
 public:
 
     EmptyImpl() {}
-
-    // Возвращает видимое значение ячейки.
-    // В случае текстовой ячейки это её текст (без экранирующих символов). В
-    // случае формулы - числовое значение формулы или сообщение об ошибке.
     CellInterface::Value ImplGetValue() const override;
-    // Возвращает внутренний текст ячейки, как если бы мы начали её
-    // редактирование. В случае текстовой ячейки это её текст (возможно,
-    // содержащий экранирующие символы). В случае формулы - её выражение.
     std::string ImplGetText() const override;
-    // Возвращает список ячеек, которые непосредственно задействованы в данной
-    // формуле. Список отсортирован по возрастанию и не содержит повторяющихся
-    // ячеек. В случае текстовой и пустой ячейки список пуст.
     std::vector<Position> ImplGetReferencedCells() const override;
 
 private:
@@ -63,81 +41,50 @@ class TextImpl : public Impl
 {
 public:
 
-    // конструктор принимает текст
     TextImpl(const std::string& text);
-    // Возвращает видимое значение ячейки.
-    // В случае текстовой ячейки это её текст (без экранирующих символов). В
-    // случае формулы - числовое значение формулы или сообщение об ошибке.
     CellInterface::Value ImplGetValue() const override;
-    // Возвращает внутренний текст ячейки, как если бы мы начали её
-    // редактирование. В случае текстовой ячейки это её текст (возможно,
-    // содержащий экранирующие символы). В случае формулы - её выражение.
     std::string ImplGetText() const override;
-    // Возвращает список ячеек, которые непосредственно задействованы в данной
-    // формуле. Список отсортирован по возрастанию и не содержит повторяющихся
-    // ячеек. В случае текстовой ячейки список пуст.
     std::vector<Position> ImplGetReferencedCells() const override;
 
 private:
 
-    std::string text_; // текст ячейки
+    std::string text_;
 };
 
-// формульная ячейка
 class FormulaImpl : public Impl
 {
 public:
 
-    // принимает ссылку на таблицу для привязки к конкретному листу
     FormulaImpl(SheetInterface& sheet, const std::string& text);
-    // Возвращает видимое значение ячейки.
-    // В случае текстовой ячейки это её текст (без экранирующих символов). В
-    // случае формулы - числовое значение формулы или сообщение об ошибке.
     CellInterface::Value ImplGetValue() const override;
-    // Возвращает внутренний текст ячейки, как если бы мы начали её
-    // редактирование. В случае текстовой ячейки это её текст (возможно,
-    // содержащий экранирующие символы). В случае формулы - её выражение.
     std::string ImplGetText() const override;
-    // Возвращает список ячеек, которые непосредственно задействованы в данной
-    // формуле. Список отсортирован по возрастанию и не содержит повторяющихся
-    // ячеек. В случае текстовой ячейки список пуст.
     std::vector<Position> ImplGetReferencedCells() const override;
+    bool IsCacheValid() const override;
+    void ResetCash() override;
 
 private:
 
-    SheetInterface& sheet_; // таблица к которой относится ячейка
-    std::unique_ptr<FormulaInterface>formula_; // формула
+    mutable std::optional<CellInterface::Value> cache_value_;
+    SheetInterface& sheet_;
+    std::unique_ptr<FormulaInterface>formula_;
 };
 
 class Cell : public CellInterface
 {
 public:
-    //принимает ссылку на таблицу
+    
     Cell(SheetInterface& sheet);
     ~Cell();
-    // конструирует в импл  ячейку в зависимости от text
     void Set(std::string text);
-    // очишает ячейку
     void Clear();
-    // Возвращает видимое значение ячейки.
-    // В случае текстовой ячейки это её текст (без экранирующих символов). В
-    // случае формулы - числовое значение формулы или сообщение об ошибке.
     Value GetValue() const override;
-    // Возвращает внутренний текст ячейки, как если бы мы начали её
-    // редактирование. В случае текстовой ячейки это её текст (возможно,
-    // содержащий экранирующие символы). В случае формулы - её выражение.
     std::string GetText() const override;
-    // Возвращает список ячеек, которые непосредственно задействованы в данной
-    // формуле. Список отсортирован по возрастанию и не содержит повторяющихся
-    // ячеек. В случае текстовой ячейки список пуст.
     std::vector<Position> GetReferencedCells() const override;
-    // входит ли ячейка в список ?
-    bool IsReferenced() const;
-    // есть ли цикличиская зависимость
-    bool CircularDependency(const Cell* main_cell, const Position& pos) const;
+    bool CyclicalDependence(const Cell* main_cell, const Position& pos) const;
+    void InvalidateCash();
 
 private:
 
-    std::unique_ptr<Impl> impl_; // указатель на один из вариантов ячейки
-    SheetInterface& sheet_; // ссылка на таблицуц
+    std::unique_ptr<Impl> impl_;
+    SheetInterface& sheet_;
 };

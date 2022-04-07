@@ -10,6 +10,7 @@
 
 using namespace std::literals;
 
+//------------------Sheet--------------------------
 
 void Sheet::SetCell(Position pos, std::string text)
 {
@@ -23,33 +24,33 @@ void Sheet::SetCell(Position pos, std::string text)
     if (existing_cell) // если она присутствоует в таблице
     {
         std::string old_text = existing_cell->GetText(); // записываем старое содержимое ячейки в переменную старый_текс
-        //InvalidateCellsByPos(pos);
-        //DeleteDependencedCell(pos);
+        InvalidateCellsByPos(pos);
+        DeleteDependencedCell(pos);
         dynamic_cast<Cell*>(existing_cell)->Set(std::move(text)); // записываем в ячейку новое содержимое
-        if (dynamic_cast<Cell*>(existing_cell)->CircularDependency(dynamic_cast<Cell*>(existing_cell), pos)) // если есть цикличиская зависимость 
+        if (dynamic_cast<Cell*>(existing_cell)->CyclicalDependence(dynamic_cast<Cell*>(existing_cell), pos)) // если есть цикличиская зависимость 
         {
             dynamic_cast<Cell*>(existing_cell)->Set(std::move(old_text)); // возвращаем старое содержимое обратно 
             throw CircularDependencyException("Circular Exception!"); // кидаем исключение
         }
 
-        /*for (const auto ref_pos : dynamic_cast<Cell*>(existing_cell)->GetReferencedCells())
+        for (const auto ref_pos : dynamic_cast<Cell*>(existing_cell)->GetReferencedCells())
         {
             AddDependencedCell(ref_pos, pos);
-        }*/
+        }
     }
     else // если ячейки нет
     {
         auto tmp_cell = std::make_unique<Cell>(*this); // зоздаем 
         tmp_cell.get()->Set(text);
-        if (tmp_cell.get()->CircularDependency(tmp_cell.get(), pos)) // проверяем на циклическую завистимость, если есть
+        if (tmp_cell.get()->CyclicalDependence(tmp_cell.get(), pos)) // проверяем на циклическую завистимость, если есть
         {
             throw CircularDependencyException("Circular Exception!"); // кидаем тров, завершаем метод
         }
 
-        /*for (const auto ref_pos : tmp_cell.get()->GetReferencedCells())
+        for (const auto ref_pos : tmp_cell.get()->GetReferencedCells())
         {
             AddDependencedCell(ref_pos, pos);
-        }*/
+        }
 
         sheet_[pos] = std::move(tmp_cell); // записвыдваем в таблицу
     }
@@ -146,6 +147,45 @@ void Sheet::PrintTexts(std::ostream& output) const
     }
 }
 
+void Sheet::InvalidateCellsByPos(const Position& pos)
+{
+    for (const auto cell_pos : GetDepCellByPos(pos))
+    {
+        auto cell = GetCell(cell_pos);
+        dynamic_cast<Cell*>(cell)->InvalidateCash();
+        InvalidateCellsByPos(cell_pos);
+    }
+}
+
+const std::set<Position> Sheet::GetDepCellByPos(const Position& pos)
+{
+    try
+    {
+        return sheet_dependenced_cells_.at(pos);
+    }
+    catch (...)
+    {
+        return {};
+    }
+}
+
+const std::map<Position, std::set<Position>> Sheet::GetSheetDepCells() const
+{
+    return sheet_dependenced_cells_;
+}
+
+void Sheet::AddDependencedCell(const Position& pos_key, const Position& pos_value)
+{
+    sheet_dependenced_cells_[pos_key].insert(pos_value);
+}
+
+void Sheet::DeleteDependencedCell(const Position& pos)
+{
+    sheet_dependenced_cells_.erase(pos);
+}
+
+//--------------------private-------------------------
+
 void Sheet::PositionCorrect(Position pos) const
 {
     if (!pos.IsValid())
@@ -153,6 +193,8 @@ void Sheet::PositionCorrect(Position pos) const
         throw InvalidPositionException("The position is incorrect");
     }
 }
+
+//--------------------functions---------------------------
 
 std::unique_ptr<SheetInterface> CreateSheet()
 {
