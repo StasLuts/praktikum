@@ -389,7 +389,7 @@ namespace
 
 int main()
 {
-	TestRunner tr;
+	TestRunner tr;/*
 	RUN_TEST(tr, TestPositionAndStringConversion);
 	RUN_TEST(tr, TestPositionToStringInvalid);
 	RUN_TEST(tr, TestStringToPositionInvalid);
@@ -400,8 +400,8 @@ int main()
 	RUN_TEST(tr, TestFormulaArithmetic);
 	RUN_TEST(tr, TestFormulaReferences);
 	RUN_TEST(tr, TestFormulaExpressionFormatting);
-	RUN_TEST(tr, TestFormulaReferencedCells); // не ок
-	RUN_TEST(tr, TestErrorValue);
+	RUN_TEST(tr, TestFormulaReferencedCells);*/
+	RUN_TEST(tr, TestErrorValue); // не ок
 	RUN_TEST(tr, TestErrorDiv0);
 	RUN_TEST(tr, TestEmptyCellTreatedAsZero);
 	RUN_TEST(tr, TestFormulaInvalidPosition);

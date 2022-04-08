@@ -40,16 +40,15 @@ namespace
     public:
         // Реализуйте следующие методы:
         explicit Formula(std::string expression)
-            : ast_(ParseFormulaAST(std::move(expression))), referenced_cells_(ast_.GetCells().begin(), ast_.GetCells().end()) {}
+            : ast_(ParseFormulaAST(std::move(expression))), referenced_cells_(ast_.GetCells().begin(), ast_.GetCells().end()){}
 
         Value Evaluate(const SheetInterface& sheet) const override // вычислить
         {
             try
             {
-                return ast_.Execute(
-                    [&sheet](const Position& pos)
+                return ast_.Execute([&sheet](const Position& pos)
                     {
-                        if (!sheet.GetCell(pos))
+                        if (sheet.GetCell(pos) == nullptr)
                         {
                             return 0.0;
                         }
@@ -63,7 +62,7 @@ namespace
                         {
                             try
                             {
-                                return std::stod(std::get<std::string>(val));
+                                return std::stod(std::move(std::get<std::string>(val)));
                             }
                             catch (...)
                             {
@@ -75,7 +74,9 @@ namespace
                             throw std::get<FormulaError>(val);
                         }
                         return 0.0;
-                    });  
+                        //return std::visit(CellValueGetter(), sheet.GetCell(pos) == nullptr ? 0.0 : sheet.GetCell(pos)->GetValue());
+                        //Почему-то тренажер не пропускал решение в эту одну строчку
+                    });
             }
             catch (FormulaError& fe)
             {
@@ -92,7 +93,13 @@ namespace
 
         std::vector<Position> GetReferencedCells() const override
         {
-            return referenced_cells_;
+            std::vector<Position> res;
+            std::set<Position> poses(referenced_cells_.begin(), referenced_cells_.end());
+            for (const auto& pos : poses)
+            {
+                res.push_back(pos);
+            }
+            return res;
         }
 
     private:
