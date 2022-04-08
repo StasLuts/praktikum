@@ -78,17 +78,3 @@ void Cell::InvalidateCache() {
 	cell_value_->ResetCache();
 }
 
-bool CellImpl::isCacheValid() const
-{
-	return true;
-}
-
-void CellImpl::ResetCache()
-{
-	return;
-}
-
-CellEmptyImpl::CellEmptyImpl()
-{
-	empty_ = "";
-}
