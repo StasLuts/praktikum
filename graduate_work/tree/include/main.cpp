@@ -402,7 +402,7 @@ int main()
 	RUN_TEST(tr, TestFormulaExpressionFormatting);
 	RUN_TEST(tr, TestFormulaReferencedCells);
 	RUN_TEST(tr, TestErrorValue); 
-	RUN_TEST(tr, TestErrorDiv0); // не ок
+	RUN_TEST(tr, TestErrorDiv0);
 	RUN_TEST(tr, TestEmptyCellTreatedAsZero);
 	RUN_TEST(tr, TestFormulaInvalidPosition);
 	RUN_TEST(tr, TestPrint);

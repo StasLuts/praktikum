@@ -16,8 +16,10 @@ enum ImplType
 	FORMULA
 };
 
-class Cell : public CellInterface {
+class Cell : public CellInterface
+{
 public:
+
 	using CellPtr = std::unique_ptr<Cell>;
 
 	Cell(SheetInterface& sheet, std::string text)
@@ -40,10 +42,7 @@ public:
 	bool hasCircularDependency(const Cell* main_cell, const Position& pos) const;
 	void InvalidateCache();
 
-	ImplType GetType() const
-	{
-		return cell_value_.get()->GetType();
-	}
+	ImplType GetType() const;
 
 private:
 
@@ -55,15 +54,8 @@ private:
 		virtual std::string ImplGetText() const = 0;
 		virtual std::vector<Position> GetReferencedCells() const = 0;
 		virtual ImplType GetType() const = 0;
-		virtual bool isCacheValid() const
-		{
-			return true;
-		}
-
-		virtual void ResetCache()
-		{
-			return;
-		}
+		virtual bool isCacheValid() const;
+		virtual void ResetCache();
 
 		virtual ~CellImpl() = default;
 
@@ -73,18 +65,9 @@ private:
 	{
 	public:
 
-		CellEmptyImpl()
-		{
-			empty_ = "";
-		}
-
-		CellInterface::Value ImplGetValue() const override {
-			return 0.0;
-		}
-
-		std::string ImplGetText() const override {
-			return empty_;
-		}
+		CellEmptyImpl();
+		CellInterface::Value ImplGetValue() const override;
+		std::string ImplGetText() const override;
 
 		std::vector<Position> GetReferencedCells() const override {
 			return {};
@@ -96,21 +79,27 @@ private:
 		}
 
 	private:
+
 		std::string empty_;
 	};
 
-	class CellTextImpl : public CellImpl {
+	class CellTextImpl : public CellImpl
+	{
 	public:
+
 		CellTextImpl(std::string& text)
 			:text_value_(std::move(text))
 		{
-			if (text_value_[0] == ESCAPE_SIGN) {
+			if (text_value_[0] == ESCAPE_SIGN)
+			{
 				has_apostroph_ = true;
 			}
 		}
 
-		CellInterface::Value ImplGetValue() const override {
-			if (has_apostroph_) {
+		CellInterface::Value ImplGetValue() const override
+		{
+			if (has_apostroph_)
+			{
 				std::string sub_str = text_value_;
 				sub_str.erase(0, 1);
 				return sub_str;
@@ -119,11 +108,13 @@ private:
 			return text_value_;
 		}
 
-		std::string ImplGetText() const override {
+		std::string ImplGetText() const override
+		{
 			return text_value_;
 		}
 
-		std::vector<Position> GetReferencedCells() const override {
+		std::vector<Position> GetReferencedCells() const override
+		{
 			return {};
 		}
 
@@ -133,24 +124,25 @@ private:
 		}
 
 	private:
+
 		std::string text_value_;
 		bool has_apostroph_ = false;
 	};
 
 
-	class CellFormulaImpl : public CellImpl {
+	class CellFormulaImpl : public CellImpl
+	{
 	public:
+
 		CellFormulaImpl(std::string& expr, SheetInterface& sheet)
 			:formula_(ParseFormula(expr)),
-			sheet_(sheet)
-		{
-		}
+			sheet_(sheet){}
 
 		CellInterface::Value ImplGetValue() const override
 		{
-			if (!cache_value_) {
-				//
-				for (const auto pos : formula_.get()->GetReferencedCells())
+			if (!cache_value_)
+			{
+				for (const auto& pos : formula_.get()->GetReferencedCells())
 				{
 					if (dynamic_cast<Cell*>(sheet_.GetCell(pos))->GetType() == ImplType::TEXT)
 					{
@@ -158,12 +150,11 @@ private:
 						return *cache_value_;
 					}
 				}
-				//
+				
 				const auto val = formula_->Evaluate(sheet_);
 
 				if (std::holds_alternative<double>(val))
 				{
-					//cache_value_ = std::get<double>(val);
 					double res = std::get<double>(val);
 					if (std::isinf(res))
 					{
@@ -174,30 +165,32 @@ private:
 						cache_value_ = res;
 					}
 				}
-				else if (std::holds_alternative<FormulaError>(val)) {
+				else if (std::holds_alternative<FormulaError>(val))
+				{
 					cache_value_ = std::get<FormulaError>(val);
 				}
-				//return 0.0;
-
-				//cache_value_ = std::visit(CellCacheValueGetter{}, formula_->Evaluate(sheet_));
 			}
 
 			return *cache_value_;
 		}
 
-		std::string ImplGetText() const override {
+		std::string ImplGetText() const override
+		{
 			return FORMULA_SIGN + formula_.get()->GetExpression();
 		}
 
-		std::vector<Position> GetReferencedCells() const override {
+		std::vector<Position> GetReferencedCells() const override
+		{
 			return formula_.get()->GetReferencedCells();
 		}
 
-		bool isCacheValid() const override {
+		bool isCacheValid() const override
+		{
 			return cache_value_.has_value();
 		}
 
-		void ResetCache() override {
+		void ResetCache() override
+		{
 			cache_value_.reset();
 		}
 
@@ -207,6 +200,7 @@ private:
 		}
 
 	private:
+
 		std::unique_ptr<FormulaInterface> formula_;
 		SheetInterface& sheet_;
 		mutable std::optional<CellInterface::Value> cache_value_;
