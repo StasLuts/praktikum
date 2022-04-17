@@ -7,7 +7,7 @@
 
 //----------------Cell-----------------
 
-Cell::Cell(SheetInterface& sheet, std::string text)
+Cell::Cell(SheetInterface& sheet, const std::string& text)
 	:sheet_(sheet)
 {
 	cell_value_ = std::make_unique<EmptyImpl>();

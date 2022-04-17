@@ -20,7 +20,7 @@ public:
 
 	using CellPtr = std::unique_ptr<Cell>;
 
-	Cell(SheetInterface& sheet, std::string text);
+	Cell(SheetInterface& sheet, const std::string& text);
 
 	~Cell();
 
