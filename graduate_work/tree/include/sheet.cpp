@@ -12,7 +12,7 @@ using namespace std::literals;
 
 //------------------Sheet--------------------------
 
-void Sheet::SetCell(Position pos, std::string text)
+void Sheet::SetCell(Position pos, const std::string& text)
 {
     PositionCorrect(pos);
     const auto existing_cell = GetCell(pos);
@@ -26,7 +26,7 @@ void Sheet::SetCell(Position pos, std::string text)
         std::string old_text = existing_cell->GetText();
         InvalidateCellsByPos(pos);
         DeleteDependencedCell(pos);
-        dynamic_cast<Cell*>(existing_cell)->Set(std::move(text));
+        dynamic_cast<Cell*>(existing_cell)->Set(text);
         if (dynamic_cast<Cell*>(existing_cell)->
             hasCircularDependency(dynamic_cast<Cell*>(existing_cell), pos)) 
         {
@@ -47,7 +47,7 @@ void Sheet::SetCell(Position pos, std::string text)
             throw CircularDependencyException("Circular Exception!");
         }
 
-        for (const auto ref_pos : tmp_cell.get()->GetReferencedCells())
+        for (const auto& ref_pos : tmp_cell.get()->GetReferencedCells())
         {
             AddDependencedCell(ref_pos, pos);
         }
@@ -152,7 +152,7 @@ void Sheet::PrintTexts(std::ostream& output) const
 
 void Sheet::InvalidateCellsByPos(const Position& pos)
 {
-    for (const auto cell_pos : GetDepCellByPos(pos))
+    for (const auto& cell_pos : GetDepCellByPos(pos))
     {
         auto cell = GetCell(cell_pos);
         dynamic_cast<Cell*>(cell)->InvalidateCache();

@@ -115,7 +115,7 @@ public:
 
     virtual ~SheetInterface() = default;
 
-    virtual void SetCell(Position pos, std::string text) = 0;
+    virtual void SetCell(Position pos, const std::string& text) = 0;
 
     virtual const CellInterface* GetCell(Position pos) const = 0;
     
