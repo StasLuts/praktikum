@@ -221,7 +221,6 @@ namespace ASTImpl
 
 			double Evaluate(const std::function<double(Position)>& cell_fun) const override
 			{
-				// Скопируйте ваше решение из предыдущих уроков.
 				switch (type_)
 				{
 				case UnaryPlus:
