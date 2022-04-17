@@ -1,1 +1,0 @@
-cmd='C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe;-DCMAKE_INSTALL_PREFIX=C:/Users/jonid/source/repos/StasLuts/praktikum/graduate_work/tree/include/out/build/x64-Debug/runtime/thirdparty/utfcpp/install;-DUTF8_TESTS=off;-DUTF8_SAMPLES=off;-GNinja;<SOURCE_DIR><SOURCE_SUBDIR>'
