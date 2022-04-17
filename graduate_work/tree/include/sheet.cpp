@@ -14,36 +14,37 @@ using namespace std::literals;
 
 void Sheet::SetCell(Position pos, std::string text)
 {
-    PositionCorrect(pos); // если позиция не корректна, кидает throw
-    const auto existing_cell = GetCell(pos); // пытаемся записать ячейку в переменную  сушестрвующая_ячейка
-    if (existing_cell && existing_cell->GetText() == text) // если она присутствоует в таблице и ее содержимое рвыно аргументу
+    PositionCorrect(pos);
+    const auto existing_cell = GetCell(pos);
+    if (existing_cell && existing_cell->GetText() == text)
     {
-        return; // завершаем работу метода
+        return;
     }
 
-    if (existing_cell) // если она присутствоует в таблице
+    if (existing_cell)
     {
-        std::string old_text = existing_cell->GetText(); // записываем старое содержимое ячейки в переменную старый_текс
+        std::string old_text = existing_cell->GetText();
         InvalidateCellsByPos(pos);
         DeleteDependencedCell(pos);
-        dynamic_cast<Cell*>(existing_cell)->Set(std::move(text)); // записываем в ячейку новое содержимое
-        if (dynamic_cast<Cell*>(existing_cell)->hasCircularDependency(dynamic_cast<Cell*>(existing_cell), pos)) // если есть цикличиская зависимость 
+        dynamic_cast<Cell*>(existing_cell)->Set(std::move(text));
+        if (dynamic_cast<Cell*>(existing_cell)->
+            hasCircularDependency(dynamic_cast<Cell*>(existing_cell), pos)) 
         {
-            dynamic_cast<Cell*>(existing_cell)->Set(std::move(old_text)); // возвращаем старое содержимое обратно 
-            throw CircularDependencyException("Circular Exception!"); // кидаем исключение
+            dynamic_cast<Cell*>(existing_cell)->Set(std::move(old_text));
+            throw CircularDependencyException("Circular Exception!");
         }
 
-        for (const auto ref_pos : dynamic_cast<Cell*>(existing_cell)->GetReferencedCells())
+        for (const auto& ref_pos : dynamic_cast<Cell*>(existing_cell)->GetReferencedCells())
         {
             AddDependencedCell(ref_pos, pos);
         }
     }
-    else // если ячейки нет
+    else 
     {
-        auto tmp_cell = std::make_unique<Cell>(*this, text); // зоздаем 
-        if (tmp_cell.get()->hasCircularDependency(tmp_cell.get(), pos)) // проверяем на циклическую завистимость, если есть
+        auto tmp_cell = std::make_unique<Cell>(*this, text); 
+        if (tmp_cell.get()->hasCircularDependency(tmp_cell.get(), pos))
         {
-            throw CircularDependencyException("Circular Exception!"); // кидаем тров, завершаем метод
+            throw CircularDependencyException("Circular Exception!");
         }
 
         for (const auto ref_pos : tmp_cell.get()->GetReferencedCells())
@@ -51,7 +52,7 @@ void Sheet::SetCell(Position pos, std::string text)
             AddDependencedCell(ref_pos, pos);
         }
 
-        sheet_[pos] = std::move(tmp_cell); // записвыдваем в таблицу
+        sheet_[pos] = std::move(tmp_cell);
     }
 }
 
@@ -63,11 +64,14 @@ const CellInterface* Sheet::GetCell(Position pos) const
 CellInterface* Sheet::GetCell(Position pos)
 {
     PositionCorrect(pos);
-    if (sheet_.find(pos) != sheet_.end())
+    try
     {
         return sheet_.at(pos).get();
     }
-    return nullptr;
+    catch (...)
+    {
+        return nullptr;
+    }
 }
 
 void Sheet::ClearCell(Position pos)

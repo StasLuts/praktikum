@@ -8,7 +8,6 @@
 #include <sstream>
 #include <iostream>
 
-
 using namespace std::literals;
 
 std::ostream& operator<<(std::ostream& output, FormulaError fe)
@@ -28,21 +27,15 @@ std::ostream& operator<<(std::ostream& output, FormulaError fe)
 
 namespace
 {
-    // Формула, позволяющая вычислять и обновлять арифметическое выражение.
-    // Поддерживаемые возможности:
-    // * Простые бинарные операции и числа, скобки: 1+2*3, 2.5*(2+3.5/7)
-    // * Значения ячеек в качестве переменных: A1+B2*C3
-    // Ячейки, указанные в формуле, могут быть как формулами, так и текстом. Если это
-    // текст, но он представляет число, тогда его нужно трактовать как число. Пустая
-    // ячейка или ячейка с пустым текстом трактуется как число ноль.
     class Formula : public FormulaInterface
     {
     public:
-        // Реализуйте следующие методы:
+        
         explicit Formula(std::string expression)
-            : ast_(ParseFormulaAST(std::move(expression))), referenced_cells_(ast_.GetCells().begin(), ast_.GetCells().end()){}
+            : ast_(ParseFormulaAST(std::move(expression))),
+            referenced_cells_(ast_.GetCells().begin(), ast_.GetCells().end()){}
 
-        Value Evaluate(const SheetInterface& sheet) const override // вычислить
+        Value Evaluate(const SheetInterface& sheet) const override
         {
             try
             {
@@ -74,8 +67,6 @@ namespace
                             throw std::get<FormulaError>(val);
                         }
                         return 0.0;
-                        //return std::visit(CellValueGetter(), sheet.GetCell(pos) == nullptr ? 0.0 : sheet.GetCell(pos)->GetValue());
-                        //Почему-то тренажер не пропускал решение в эту одну строчку
                     });
             }
             catch (FormulaError& fe)
